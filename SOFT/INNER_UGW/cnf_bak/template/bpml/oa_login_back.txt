@@ -1,0 +1,54 @@
+telnet 10.6.12.14 80
+Trying 10.6.12.14...
+Connected to 10.6.12.14.
+Escape character is '^]'.
+POST /services/passportservice.asmx HTTP/1.1
+Host: passport.oa.com
+Content-Type: text/xml; charset=utf-8
+Content-Length: 765
+SOAPAction: http://indigo.oa.com/services/DecryptTicket
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">  
+<soap:Body>    
+<DecryptTicket xmlns="http://indigo.oa.com/services/">      <encryptedTicket>68DDA6E7874D354CF336240849A40200394095BC7637C781DDDB8D69D92DD517B21C5CE063FF4B8C29816947B650D18AB78B1FEB7A9BCD992FB3529BDC119CC5A908EEA21279A200C065AF7544D254FB9450DE99CF118BF119AA523922369F88A72C5F488A7BCFC7FF7900564FC93EB33DC18A706D933A27C2C782316C807C8668C6A05A01AC5F13804F17A9826FCC80E7EA6BEA251F9C0F3BB1DD2E6A6925FF87069FA4F4515B85622D2F8FFC1C26FABD5085FC9D76B6AE337F9E4E84489012</encryptedTicket>    
+</DecryptTicket>  
+</soap:Body>
+</soap:Envelope>
+HTTP/1.1 200 OK
+Date: Fri, 31 Dec 2010 06:27:30 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 1.1.4322
+Cache-Control: private, max-age=0
+Content-Type: text/xml; charset=utf-8
+Content-Length: 769
+
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><DecryptTicketResponse xmlns="http://indigo.oa.com/services/"><DecryptTicketResult><Key>9N5iXd3t0q</Key><Expiration>2011-01-01T10:47:45.1148710+08:00</Expiration><IsPersistent>false</IsPersistent><IssueDate>2010-12-31T10:47:45.1148710+08:00</IssueDate><StaffId>3300</StaffId><LoginName>gaussgao</LoginName><ChineseName>高勇</ChineseName><DeptId>1299</DeptId><DeptName>QQ空间产品部</DeptName><Version>1</Version><Token>zUYfn+wqMenqZd8wETaOozWEPisrm0dsjs6Twv4xvlo=</Token></DecryptTicketResult></DecryptTicketResponse></soap:Body></soap:Envelope>Connection closed by foreign host.
+
+
+
+
+----
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<soap:Body>
+<DecryptTicketResponse xmlns="http://indigo.oa.com/services/">
+<DecryptTicketResult>
+	<Key>9N5iXd3t0q</Key>
+	<Expiration>2011-01-01T10:47:45.1148710+08:00</Expiration>
+	<IsPersistent>false</IsPersistent>
+	<IssueDate>2010-12-31T10:47:45.1148710+08:00</IssueDate>
+	<StaffId>3300</StaffId>
+	<LoginName>gaussgao</LoginName>
+	<ChineseName>高勇</ChineseName>
+	<DeptId>1299</DeptId>
+	<DeptName>QQ空间产品部</DeptName>
+	<Version>1</Version>
+	<Token>zUYfn+wqMenqZd8wETaOozWEPisrm0dsjs6Twv4xvlo=</Token>
+</DecryptTicketResult>
+</DecryptTicketResponse>
+</soap:Body>
+</soap:Envelope>
+Connection closed by foreign host.

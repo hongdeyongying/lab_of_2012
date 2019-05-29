@@ -1,0 +1,57 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: application/xml; charset=GB2312
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!-- 原样输出 -->
+<?xml version="1.0" encoding="gbk" ?>
+
+<root>
+<!-- 1.获取输入参数-->
+<my-soft::assign id="app_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_app_id),0)"  />
+<my-soft::assign id="scene_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_scene_id),0)" />
+<my-soft::assign id="content_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_content_id),0)" />
+
+<!-- 2.获取t_temp :  preview -->
+<my-soft::invoke type="httpcall" service="getapplyitem" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="temp_id"        type="var"      value="$temp_id" />
+</my-soft::invoke>
+<my-soft::assign id="temp_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="input" expr="String.XmlDecode(Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,input1,0),0)))" />
+
+<my-soft::switch expr="Math.EQU($input,NULL)">	
+<my-soft::case value="true">
+	<retcode> 1000001 </retcode>
+	<retmsg>查询数据库,获取输入脚本路径失败.</retmsg>
+</my-soft::case>
+<my-soft::default>																
+	<!-- 4.读取input文件内容，返回给前台 -->
+	<my-soft::assign id="res" expr="File.Read($input,input_content)" />
+	<my-soft::switch expr="Math.EQU($res,true)">	
+	<my-soft::case value="true">
+		<retcode> 0 </retcode>
+		<retmsg>success.</retmsg>
+		<input1>
+			<my-soft::echo type="expr" value="String.XmlEncode($input_content)" />
+		</input1>
+	</my-soft::case>
+	<my-soft::default>					
+		<retcode> 1000002 </retcode>
+		<retmsg>读取输入脚本路径指定的文件失败 <my-soft::echo type="var" value="$input" /> </retmsg>											
+		
+	</my-soft::default>
+	</my-soft::switch>
+	
+</my-soft::default>
+</my-soft::switch>
+</root>

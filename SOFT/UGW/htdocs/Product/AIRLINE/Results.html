@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>机票查询</title>
+	<!---->
+<script src="./javascript/CXML.js" language="javascript" type="text/javascript"></script> 
+
+</head>
+
+<body>
+<div id="header">
+	<!-- 待处理 
+	  <ul>
+		<li>tomyliu ,欢迎您！<a href="#">退出</a></li>
+		<li> <a href="myOrder.html">我的订单</a>（<a href="#">3</a>）</li>
+		<li><a href="myTask.html">我的任务</a>（<a href="#">12</a>）</li>
+		<li><a href="helper.html">常见问题？</a></li>
+	  </ul>
+	  -->
+</div>
+<div id="container950">
+<div id="info"></div>
+	<div id="easySearch">
+<form id="ImSearch" action="javascript::return false;">
+	<script language ="javascript" >
+	    function SetValue(frm,to)
+	    {
+	        document.getElementById(to).value = document.getElementById(frm).value ;
+	    }
+	</script>
+	<input type="text" name="bpml_file" id="to_1" style="width:500px;" value="F:\NEW_LIFE\SETUP\Cnf\AIRLINE\inqFlight_taobao.xml" />
+	<input class="file"  type="file"   id="frm_1" style="width:70px;"   onchange ="javasript:SetValue('frm_1','to_1');">		
+	<p>航程类型	<input type="text" name="voyage_type" value="单程" />	</p>
+	<p>出发城市	<input type="text" name="setoff_city" value="杭州" />	<input type="text" name="setoff_city_sname" value="HGH" />		
+	到达城市	<input type="text" name="arrive_city" value="北京" />	<input type="text" name="arrive_city_sname" value="BJ" /></p>	
+	<p>出发日期	<input type="text" name="setoff_date" value="2009-12-30" />	</p>	
+	<p>成人数	<input type="text" name="adult_number" value="1" />	
+	婴儿数	<input type="text" name="infant_number" value="0" />	
+	儿童数	<input type="text" name="children_number" value="0" />	</p>
+	<!--
+	出发时间	<input type="hidden" name="setoff_time" value="7:00" />		
+	<p>返回日期	<input type="hidden" name="back_date" value="2009-12-30" />	</p>	
+	<p>送票城市	<input type="hidden" name="consignee_city" value="杭州" />	</p>	
+	<p>舱位等级	<input type="hidden" name="berth" value="商务" />	</p>	
+	<p>经停	<input type="hidden" name="middle_city" value="" />	</p>
+	<p>乘客人数	<input type="hidden" name="passenger_number" value="1" />	</p>
+	-->
+	<p><input type="button" name="btn_search"  value="快捷搜索" /></p>
+	<p><input type="button" name="btn_search2"  value="异步快捷搜索" /></p>
+</form>
+	</div>
+  <!-- 待增加 
+	<div onclick="MM_showHideLayers('proSearch','','show')"  ><a href="#">高级搜索</a></div>
+	<div id="proSearch" >常用模板:
+	  <input type="text" name="常用模板" id="Common" />
+	  机票张数:
+	  <input type="text" name="机票张数" id="Amount" />
+	  </p>
+	  <p>成人:
+		<input type="text" name="成人" id="Adult" />
+		儿童:
+		<input type="text" name="儿童" id="child" />
+	  </p>
+	  <p>票面价格:
+		<input type="text" name="票面价格" id="price" />
+		至
+		<input type="text" name="至" id="price to" />
+		元</p>
+	  <p>返利:
+		<input type="text" name="返利" id="goods" />
+		机型:
+		<input type="text" name="机型" id="plane" />
+		舱位:
+		<input type="text" name="舱位" id="Seat" />
+		出票单位:
+		<input type="text" name="出票单位" id="company" />
+	  </p>
+	  <p>
+		<input type="submit" name="高级搜索" id="searchmore" value="高级搜索" />
+	  </p>
+	</div>
+	
+	-->
+<div >
+  <table id="Results" width="100%" border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <td><p>航空公司/航班号</p></td>
+      <td>机场</td>
+      <td>起降时间</td>
+      <td>机型</td>
+      <td>机建燃油</td>
+      <td>价格</td>
+      <td>舱位</td>
+      <td>渠道</td>
+      <td colspan="2">商户</td>
+      </tr>
+	  <!--
+    <tr>
+      <td>南航 / CA7573</td>
+      <td>宝安机场<br />
+        流亭机场</td>
+      <td>14:20<br />
+        17:15</td>
+      <td>737</td>
+      <td>50</td>
+      <td>1800</td>
+      <td>携程</td>
+      <td>700</td>
+      <td><a href="#">预订</a></td>
+      <td><a href="#">收藏</a></td>
+    </tr>-->
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<!-- content end -->
+</DIV>
+
+
+
+<div id="footer">©2009</div>
+<!---->
+<script src="./javascript/ViewFlight.js" language="javascript" type="text/javascript"></script>
+
+
+<textarea id="debuginfo" style="width:400px;"> </textarea>
+</body>
+</html>

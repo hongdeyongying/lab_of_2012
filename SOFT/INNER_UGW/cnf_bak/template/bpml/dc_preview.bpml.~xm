@@ -1,0 +1,56 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+<!-- 1.获取输入参数-->
+<my-soft::assign id="app_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_app_id),0)"  />
+<my-soft::assign id="scene_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_scene_id),0)" />
+<!--
+<my-soft::assign id="temp_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_temp_id),0)" />
+-->
+<my-soft::assign id="content_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_content_id),0)" />
+
+<!-- 2.获取t_content_log : content  -->
+<my-soft::invoke type="httpcall" service="getapplyitem" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="content_id"        type="var"      value="$content_id" />
+</my-soft::invoke>
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="content" expr="String.UrlEncode(String.XmlDecode(Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,content,0),0))))" />
+<my-soft::assign id="temp_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,temp_id,0),0))" />
+<!-- 调试信息 
+<my-soft::echo type="var" value="$content" /> -->
+
+<!-- 3.获取t_temp :  preview -->
+<my-soft::invoke type="httpcall" service="gettempitem" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="temp_id"        type="var"      value="$temp_id" />
+</my-soft::invoke>
+<my-soft::assign id="temp_response" expr="Html.Parse(2,$response)" />
+<!--<my-soft::assign id="preview" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0))" />-->
+<my-soft::assign id="preview" expr="String.XmlDecode(Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0)))" />
+
+<!-- 调试信息 
+<my-soft::echo type="var" value="$preview" /> -->
+
+<!-- 4.用preview 处理 content  并输出结果 -->
+<my-soft::switch expr="Math.Or(Math.EQU($content,NULL),Math.EQU($preview,NULL))">	
+<my-soft::case value="false">
+	<my-soft::invoke type="bpmlcall" service="gettempitem" filepath="$preview" retvar="response" >
+		<my-soft::parameter name="paras" 	type="var" 	value="$content"/>   
+	</my-soft::invoke>
+	
+	<my-soft::echo type="var" value="$response" /> 
+</my-soft::case>
+<my-soft::default>																
+	Content-Type: text/html; charset=GB2312	
+	<my-soft::echo type="var" value="%0d%0a" />
+	<my-soft::echo type="var" value="%0d%0a" />
+		模版或者输入内容无效!
+</my-soft::default>
+</my-soft::switch>

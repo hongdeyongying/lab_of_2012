@@ -1,0 +1,15 @@
+call xdb_project_task_form ：
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+	<my-soft::parameter name="method" 	type="var" 	value="xdb_project_task_form"/>   
+</my-soft::invoke>
+
+
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+<my-soft::assign id="retmsg" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retmsg,0),0))" />
+<my-soft::assign id="record_num" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,record_num,0),0))" />
+
+
+
+<my-soft::echo type="expr" value="String.Cat($retcode,%20,$retmsg,%0a%0d,$record_num)"  />
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<TITLE>财付通外围接口演示</TITLE>
+	<link href="../Css/frame_ style.css" rel="stylesheet" type="text/css" />
+	
+	
+	<script language="javascript">
+		var CftMchLib = new ActiveXObject("CFTMCHINTERFACE.CftMchLib");
+		
+		
+		function Btn_UrlEncode_Click()
+		{
+			CftMchLib.Clear();
+			var Slide390 = document.getElementById("frm_test");
+			
+			var md5_res, res ;
+			
+			Slide390.outDat.value = CftMchLib.UrlEncode(Slide390.inDat.value);		
+		}
+		function Btn_UrlDecode_Click()
+		{
+			CftMchLib.Clear();
+			var Slide390 = document.getElementById("frm_test");
+			
+			var md5_res, res ;
+			
+			Slide390.outDat.value = CftMchLib.UrlDecode(Slide390.inDat.value);		
+		}
+		function SwitchValue()
+		{
+			document.getElementById ("inDat").value  = document.getElementById ("outDat").value ;
+			document.getElementById ("outDat").value = "";
+		}
+	</script>
+	<style type= "text/css"  >
+		input{width:400px;}
+		input.chk{width:20px;}
+		input.btn{width:100px;}
+		input.file{width:40px;}
+		
+		textarea.multi{ height:100px;width:400px;}
+		
+	</style>
+    
+</head>
+
+<body bgcolor="#c0c0f0" >
+<ol ><h2>Md5</h2> <br>
+<form id="frm_test">
+	<table >
+		<tr>
+			<td><span > 输入 </span> </td>		
+			<td><textarea id="inDat" name="inDat"   class="multi" /> </textarea>  </td>
+		</tr>
+		<tr>
+			<td><span > 输出 </span> </td>		
+			<td><textarea id="outDat" name="outDat"   class="multi" /> </textarea>  </td>
+		</tr>
+		<tr>
+			<td><span > </span> </td>
+			<td>
+				<input class ="btn " type="button"  value="UrlEncode" onclick="javascript:Btn_UrlEncode_Click();" /> 
+				<input class ="btn " type="button"  value="UrlDecode" onclick="javascript:Btn_UrlDecode_Click();" /> 
+				<input class ="btn "  type="button"  value="输出置为输入" onclick="javascript:SwitchValue();" />
+			</td>
+		</tr>
+	</table>
+</form>	
+</body>
+</html>

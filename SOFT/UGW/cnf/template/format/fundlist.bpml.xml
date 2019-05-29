@@ -1,0 +1,155 @@
+<!--
+input ：
+	$_RAW_REQUEST_STRING 流水String，如下结构体：
+	typedef struct ST_HEAD{
+	  int iRetcode;
+	  int iRetNum;
+	  int iTotalNum;
+	//  int iSize;//此接口无结构体长度
+	}ST_HEAD;
+	typedef struct _UserFundWater {
+	char szTime[20+ 1];	// 流水产生的时间
+	char szUin[65 + 1];		// 查询方的UIN
+	char szTransactionId[32 + 1];	// 交易单的长度
+	int iCurType;		// 币种类型
+	int iFundDir;		// 资金流向, 1 - 入/ 2 - 出
+	int iSubject;			// 科目
+	int iBankType;		// 银行类型
+	int iAmount;			// 金额
+	int iBalance;		// 账户余额
+	int iActionType;		// 动作类型
+	char szOpposeUin[65 + 1];	// 对方uin(中介)
+	char szOpposeTrueName[64 + 1];	// 对方的真实名称
+	char szClientIp[15 + 1];
+	char szDesc[128 + 1];
+	char szOpposeUin2[65 + 1];	// 对方uin 
+	char szSite[64 + 1];    // 交易场 所
+	} UserFundWater;
+	
+output：&result=?&retmsg=?&........&
+-->
+
+<!-- 初始化变量 offset len  用以分析二进制字符串，offset 为偏移量，len为要读取字段的长度 -->
+<my-soft::assign id="offset" expr="0" /> 
+<my-soft::assign id="len" expr="0" />
+
+
+<!-- <my-soft::echo type="expr" value="String.CharToHex($_RAW_REQUEST_STRING)" />  -->
+<!-- 
+typedef struct ST_HEAD{
+  int iRetcode;
+  int iRetNum;
+  int iTotalNum;
+//  int iSize;//此接口无结构体长度
+}ST_HEAD;
+ -->
+<my-soft::assign id="retcode" expr="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />
+
+<my-soft::switch expr="$retcode">
+		<my-soft::case value="NULL">
+			&result=900099&retmsg=系统内部错误&
+		</my-soft::case>
+		<my-soft::case value="0">
+
+&result=<my-soft::echo type="var" value="$retcode" />&  <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" />
+
+
+<my-soft::assign id="retnum" expr="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />
+&retnum=<my-soft::echo type="var" value="$retnum" />&  <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" />
+
+
+<my-soft::assign id="totalnum" expr="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />
+&totalnum=<my-soft::echo type="var" value="$totalnum" />&  <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" />
+
+<!--
+typedef struct _UserFundWater {
+    char szTime[20+ 1];	// 流水产生的时间
+    char szUin[65 + 1];		// 查询方的UIN
+    char szTransactionId[32 + 1];	// 交易单的长度
+    int iCurType;		// 币种类型
+    int iFundDir;		// 资金流向, 1 - 入/ 2 - 出
+    int iSubject;			// 科目
+    int iBankType;		// 银行类型
+    int iAmount;			// 金额
+    int iBalance;		// 账户余额
+    int iActionType;		// 动作类型
+    char szOpposeUin[65 + 1];	// 对方uin(中介)
+    char szOpposeTrueName[64 + 1];	// 对方的真实名称
+    char szClientIp[15 + 1];
+    char szDesc[128 + 1];
+    char szOpposeUin2[65 + 1];	// 对方uin 
+    char szSite[64 + 1];    // 交易场 所
+} UserFundWater;
+00000000
+01000000
+A7000000
+323031302D30372D31362031353A31333A3331000036303533313139363600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031303030303030303030323031303037313630323938363834363331000000000001000000020000000D000000000000000B000000315C3E020F000000373435373232320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031302E362E33342E3339000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000373435373232320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000B3A7B9BACDF8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+00000000
+02000000
+A7000000
+323031302D30372D31362031353A31333A3331000036303533313139363600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031303030303030303030323031303037313630323938363834363331000000000001000000020000000D000000000000000B000000315C3E020F000000373435373232320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031302E362E33342E3339000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000373435373232320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000B3A7B9BACDF8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+323031302D30362D33302031303A35373A3038000036303533313139363600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031303030303030303030323031303036333030323938363834323036000000000001000000020000000D00000000000000090000003C5C3E020F000000373435373232320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000031302E362E33342E3635000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000373435373232320000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000B3A7B9BACDF8000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+-->
+<my-soft::assign id="cur_row" expr="0"  />
+<my-soft::for condition="Math.LT($cur_row,$retnum,0)" recycle="Math.Inc($cur_row,1,cur_row)" >
+<!--  char szTime[20+ 1];	// 流水产生的时间 -->
+	<my-soft::assign id="len" expr="21" />
+	&time=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,21)" /> 
+<!--  char szUin[65 + 1];	// 查询方的UIN --> 
+	<my-soft::assign id="len" expr="66" />
+	&uin=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />
+	& <my-soft::assign id="offset" expr="Math.Inc($offset,66)" /> 
+<!--  char szTransactionId[32 + 1] // 交易单的长度--> 
+	<my-soft::assign id="len" expr="33" />
+	&transaction_id=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,33)" /> 
+<!--  int iCurType;		// 币种类型--> 
+	<my-soft::assign id="len" expr="0" />&currency=<my-soft::echo type="expr" value="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />& <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" /> 
+<!--  int iFundDir;		// 资金流向, 1 - 入/ 2 - 出--> 
+	<my-soft::assign id="len" expr="0" />&directory=<my-soft::echo type="expr" value="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />& <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" /> 
+<!--   int iSubject;		// 科目--> 
+	<my-soft::assign id="len" expr="0" />&subject=<my-soft::echo type="expr" value="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />& <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" /> 
+<!--  int iBankType;	// 银行类型--> 
+	<my-soft::assign id="len" expr="0" />&banktype=<my-soft::echo type="expr" value="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />& <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" /> 
+<!--  int iAmount;		// 金额--> 
+	<my-soft::assign id="len" expr="0" />&amount=<my-soft::echo type="expr" value="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />& <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" /> 
+<!--  int iBalance;		// 账户余额--> 
+	<my-soft::assign id="len" expr="0" />&balance=<my-soft::echo type="expr" value="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />& <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" /> 
+<!--  int iActionType;	// 动作类型--> 
+	<my-soft::assign id="len" expr="0" />&actiontype=<my-soft::echo type="expr" value="String.ReadInt($_RAW_REQUEST_STRING,$offset,$len)" />& <my-soft::assign id="offset" expr="Math.Inc($offset,$len)" /> 
+<!--  char szOpposeUin[65 + 1];	// 对方uin(中介)--> 
+	<my-soft::assign id="len" expr="66" />
+	&oppose_uin=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,66)" /> 
+<!--  char szOpposeTrueName[64 + 1];	// 对方的真实名称 --> 
+	<my-soft::assign id="len" expr="65" />
+	&oppose_name=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,65)" /> 
+<!--  char szClientIp[15 + 1];--> 
+	<my-soft::assign id="len" expr="16" />
+	&client_ip=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,16)" /> 
+<!--  char szDesc[128 + 1];--> 
+	<my-soft::assign id="len" expr="129" />
+	&desc=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,129)" /> 
+<!--  char szOpposeUin2[65 + 1];	// 对方uin--> 
+	<my-soft::assign id="len" expr="66" />
+	&oppose_uin2=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,66)" /> 
+<!--  char szSite[64 + 1];    // 交易场 所--> 
+	<my-soft::assign id="len" expr="65" />
+	&site=<my-soft::echo type="expr" value="String.ReadCString($_RAW_REQUEST_STRING,$offset,$len)" />& 
+	<my-soft::assign id="offset" expr="Math.Inc($offset,65)" /> 
+
+<!-- align fill to 556-->
+	<my-soft::assign id="offset" expr="Math.Inc($offset,1)" /> 
+</my-soft::for>
+
+</my-soft::case>
+<my-soft::default>
+			&result=<my-soft::echo type="var" value="$retcode" />&
+		</my-soft::default>
+	</my-soft::switch>

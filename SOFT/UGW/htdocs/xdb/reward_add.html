@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>运动吧！</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+textarea{width:95%;height:110px;}
+input{width:95%;}
+table{width:100%;}
+tr{background-color:#f8f8f8;}
+</style>
+</head>
+<body>
+<div style="width:100%;text-align:left;"><a href="/cgi/ugw?tid=mybpml&method=reward_list">查看行动达人奖励项目列表</a></div>
+<form action = "/cgi/ugw" method="post">
+<input name="tid" type="hidden" value="mybpml" />
+<input id="inp_method" name="method" type="hidden" value="reward_add" />
+<input id="inp_rid" name="rid" type="hidden" value="0"/>
+<table >
+	<input id="inp_commit_id" name="cid" type="text" value=""disabled="disabled" />
+	<tr>
+		<td width=150px>奖项名称</td><td><input id="inp_name" name="name" type="text" value=""/></td></tr>
+	<tr><td>评定周期</td><td><input id="inp_period" name="period" type="text" value=""/ style="width:60%;">天</td></tr>
+	<tr><td>基本奖励</td><td><input id="inp_point" name="point" type="number" value="10" style="width:60%;"/>行动点</td></tr>
+	
+	<tr style="background-color:#ccc"><td colspan="2">基本获奖条件</td></tr>
+		<tr><td>最低任务完成率</td><td><input id="inp_tofp" name="tofp" type="number" value="100" style="width:60%;"/>%</td></tr>
+		<tr><td>最低任务完成量</td><td><input id="inp_task" name="task" type="number" value="0"/></td></tr>
+		<tr><td>最低计划任务量</td><td><input id="inp_plan" name="plan" type="number" value="0"/></td></tr>
+		<tr><td>最低达成日占比</td><td><input id="inp_rate" name="rate" type="number" value="100" style="width:60%;"/>%</td></tr>
+	
+	<tr style="background-color:#ccc"><td colspan="2">奖励翻倍系数</td></tr>
+		<tr><td>最佳行动达人</td><td><input id="inp_best_action" name="best_action" type="number" value="0"/></td></tr>
+		<tr><td>任务完成最多</td><td><input id="inp_best_task" name="best_task" type="number" value="0"/></td></tr>
+		<tr><td>最具挑战计划</td><td><input id="inp_best_plan" name="best_plan" type="number" value="0"/></td></tr>
+	
+	
+	<tr style="background-color:#ccc"><td colspan="2">奖励起止日期</td></tr>
+		<tr><td>开始时间</td><td><input id="inp_btime" name="btime" type="date" value="2017-5-24"/></td></tr>
+		<tr><td>结束时间</td><td><input id="inp_etime" name="etime" type="date" value="2018-5-24"/></td></tr>
+	
+	
+	
+	<tr style="background-color:#ccc"><td>奖项基本描述</td><td><textarea id="inp_desc" name="desc"  >填写对项目的简要介绍</textarea></td></tr>
+	
+	<tr><td></td><td><input type="submit" value="提交"/></td></tr>
+</table>
+
+</form>
+
+<div style="width:100%;text-align:right;"><a href="/cgi/ugw?tid=mybpml&method=reward_list">查看行动达人奖励项目列表</a></div>
+
+<script type="text/javascript" src="./Js/xdb_header.js" ></script> 
+<script type="text/javascript" src="./Js/jquery-1.9.1.js"> </script>
+
+<script type="text/javascript">	
+	
+	function LoadRewardInfo()
+	{
+		var rid = GetQueryString("rid");
+		if((rid == "")||(rid == "0")) return;
+		
+		$.ajax({
+			   url:"/cgi/ugw?tid=mysql&method=xdb_reward_info&rid="+rid,
+			   dataType:"xml",
+			   type: "GET",
+			   data:$("#frm_reg").serializeArray(),
+			   contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+			   success:function (xmlRes){
+				   if("1" == $("record_num",xmlRes).text() )
+				   {
+						$("#inp_method").attr("value","reward_modi");
+						
+						
+						
+						$("#inp_rid").attr("value",rid);
+						$("#inp_name").attr("value",$("f_reward_name",xmlRes).text());
+						$("#inp_point").attr("value",$("f_xdb_point",xmlRes).text());
+						$("#inp_period").attr("value",$("f_period_days",xmlRes).text());
+						
+						$("#inp_tofp").attr("value",$("f_tofp_rate_lowest",xmlRes).text());
+						$("#inp_task").attr("value",$("f_task_score_lowest",xmlRes).text());
+						$("#inp_plan").attr("value",$("f_plan_score_lowest",xmlRes).text());
+						$("#inp_rate").attr("value",$("f_complete_rate",xmlRes).text());
+						
+						
+						$("#inp_best_action").attr("value",$("f_best_action_times",xmlRes).text());
+						$("#inp_best_task").attr("value",$("f_best_task_times",xmlRes).text());
+						$("#inp_best_plan").attr("value",$("f_best_plan_times",xmlRes).text());
+						
+						
+						$("#inp_btime").val(($("f_begin_date",xmlRes).text()).substring(0,10));
+						$("#inp_etime").val($("f_end_date",xmlRes).text().substring(0,10));
+					
+						
+						
+						
+						
+						$("#inp_desc").val($("f_desc",xmlRes).text());
+						
+						
+						$("#inp_commit_id").val($("f_wanted_user_id",xmlRes).text());
+						
+					   	
+				   }
+			   }
+			});//*/
+	}
+	LoadRewardInfo();
+	
+</script>
+
+
+</body>
+</html>

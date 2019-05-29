@@ -1,0 +1,48 @@
+Content-Type: text/html; charset=utf-8
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>作业吧！</title>
+
+<style type="text/css">
+body {
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+</head>
+<body>
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="user_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_user_id),0)"  />
+<my-soft::assign id="openid" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_openid),0)"  />
+
+<!--
+<my-soft::assign id="btime" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_btime),0)"  />
+<my-soft::assign id="etime" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_etime),0)"  />
+<my-soft::assign id="hw_topic_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_hw_topic_id),0)"  />
+<my-soft::assign id="hw_detail_name" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_hw_detail_name),0)"  />
+<my-soft::assign id="hw_detail_content" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_hw_detail_content),0)"  />
+<my-soft::assign id="ref_time_spend" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_ref_time_spend),0)"  />
+<my-soft::assign id="ref_grade" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_ref_grade),0)"  />
+
+<my-soft::assign id="type" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_type),0)"  />
+-->
+
+
+   
+
+<my-soft::echo type="var" value="%0a%0d" />
+<my-soft::echo type="var" value="%0a%0d" />
+</body>
+</html>
+

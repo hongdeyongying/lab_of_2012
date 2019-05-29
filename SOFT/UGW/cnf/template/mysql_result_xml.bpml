@@ -1,0 +1,25 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: application/xml; charset=GB2312
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!-- 原样输出 -->
+<?xml version="1.0" encoding="gbk" ?>
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+<root>		
+	<!-- 条件分支语句 -->
+			<retcode>900099</retcode>
+			<retmsg>执行sql失败</retmsg>
+</root>	
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />

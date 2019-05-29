@@ -1,0 +1,34 @@
+
+
+<!-- 语言栏BEGIN -->
+<div id="langbar">	
+	<span id="date"><!--# echo var="date_local" default="no" --></span><span id="switch" onclick="javascript:disp_logo_switch();"> 隐藏LOGO条 </span> <span id="welcome"></span>
+<!--	<span  id="switch" title="开发中...."><a href="#" ><span id="switch_en">English</span></a> |  <a href="#" ><span id="switch_ch">中文</span></a>  </span> -->
+</div>
+
+
+<!-- 语言栏END -->
+
+<!--LOGO BEGIN-->
+<div id="logobar"><a href="index.html"><img src="Logo/lta_logo.gif" /></a> </div>
+
+<!--LOGO END-->
+
+<!--MENU BEGIN-->
+<div id="menubar">
+		<a href="./index.html"><div id="menu_1" class="menu">首页</div></a>
+		<a href="./profile.html"><div id="menu_2" class="menu">我的账户</div></a>
+		<a href="./client.html"><div id="menu_3" class="menu">客户管理</div></a>
+		<a href="./watch.html"><div id="menu_4" class="menu">监视大厅</div></a>
+		<a href="./rpt.html"><div id="menu_5" class="menu">统计报表</div></a>
+		<a href="./sug.html"><div id="menu_6" class="menu">需求建议</div></a>
+		<a href="./reg.html" ><div id="menu_login" class="menu">用户注册</div></a>
+</div>
+
+<!-- 动态MENU BEGIN -->
+<div id="menu_item" > </div>
+
+<!-- 动态MENU END-->
+
+
+<!--MEMU END-->

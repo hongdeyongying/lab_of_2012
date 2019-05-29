@@ -1,0 +1,101 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+http://passport.oa.com/modules/passport/signin.ashx?url=http://dc.qzone.com:8080/cgi-bin/MyAPP%3ftid%3dmybpml%26method%3ddecryptticket
+-->
+Content-Type: text/html; charset=GB2312
+
+<!-- 换行 
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />-->
+
+<!-- oa回调提供的参数			-->
+<my-soft::assign id="ticket" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_ticket),0)"  />
+<my-soft::assign id="sessionKey" expr="Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_sessionKey)"  />
+<my-soft::assign id="loginParam" expr="Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_loginParam)"  />
+<my-soft::assign id="length" expr="Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_length)"  />
+<my-soft::assign id="lengh" expr="Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_lengh)"  />
+
+<!-- 组合soap需要的参数-->
+<my-soft::invoke type="bpmlcall" service="gettempitem" filepath="../template/bpml/DecryptTicket_package.xml" retvar="soap_ticket" >
+	<my-soft::parameter name="encryptedTicket" 	type="var" 	value="$ticket"/>   
+</my-soft::invoke>
+
+<!-- <my-soft::echo type="var" value="$soap_ticket" />  -->
+
+<!-- 调用oa解密服务-->
+<my-soft::invoke type="httpcall" service="DecryptTicket" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="raw_data" 	type="var" 	value="$soap_ticket"/>   
+</my-soft::invoke>	
+<my-soft::assign id="gb2312_response" expr="String.ConvertCode(UTF%2D8,GBK,$response)" /> 
+
+<!--
+<my-soft::echo type="var" value="$_httpcall_reqbody" />
+<my-soft::echo type="var" value="$gb2312_response" /> 
+ --->
+<!--  获取其中的ChineseName LoginName  DeptName-->
+
+<my-soft::assign id="html_response" expr="Html.Parse(2,$gb2312_response)" />
+<!--<my-soft::assign id="preview" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0))" />-->
+<my-soft::assign id="LoginName" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($html_response,loginname,0),0)))" />
+<my-soft::assign id="ChineseName" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($html_response,chinesename,0),0)))" />
+<my-soft::assign id="DeptName" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($html_response,deptname,0),0)))" />
+<!--
+<my-soft::echo type="var" value="$LoginName" /> 
+<my-soft::echo type="var" value="$ChineseName" /> 
+<my-soft::echo type="var" value="$DeptName" /> 
+-->
+
+
+<my-soft::switch expr="Math.Or(Math.EQU($LoginName,NULL),Math.EQU($ChineseName,NULL),Math.EQU($DeptName,NULL))">	
+<my-soft::case value="false">
+	<!-- 写cookie，并跳转到首页-->
+	<!-- 获取用户权限-->	
+	<my-soft::invoke type="httpcall" service="getpopedom" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+		<my-soft::parameter name="rtxid" 	type="var" 	value="$LoginName"/>   
+	</my-soft::invoke>
+	<my-soft::assign id="popedom_response" expr="Html.Parse(2,$response)" />
+	<!--<my-soft::assign id="preview" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0))" />-->
+	<my-soft::assign id="popedom" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($popedom_response,right,0),0))" />
+	<my-soft::assign id="timestamp" expr="Date.GetUnixtime()" />
+	<my-soft::switch expr="Math.EQU($popedom,NULL))">	
+		<my-soft::case value="true">
+			<my-soft::assign id="popedom" expr="D" />
+		</my-soft::case>
+	</my-soft::switch>
+	<!-- 计算sign-->
+	<my-soft::invoke type="bpmlcall" service="gettempitem" filepath="../template/bpml/DecryptTicket_sign.xml" retvar="sign" >
+		<my-soft::parameter name="loginname" 	type="var" 	value="$LoginName"/>   
+		<my-soft::parameter name="chinesename" 	type="var" 	value="$ChineseName"/>   
+		<my-soft::parameter name="deptname" 	type="var" 	value="$DeptName"/>   
+		<my-soft::parameter name="popedom" 	type="var" 	value="$popedom"/>   
+		<my-soft::parameter name="timestamp" 	type="var" 	value="$timestamp"/>   
+	</my-soft::invoke>
+<!--<my-soft::echo type="var" value="$sign" /> -->
+	<!-- 写cookie -->
+	<my-soft::echo type="expr" value="String.Cat(%0d%0a,Set%2dCookie%3a%20,loginname,%3d,$LoginName,%3b,%0d%0a)" />
+	<my-soft::echo type="expr" value="String.Cat(Set%2dCookie%3a%20,chinesename,%3d,$ChineseName,%3b%20,%0d%0a)" />
+	<my-soft::echo type="expr" value="String.Cat(Set%2dCookie%3a%20,deptname,%3d,$DeptName,%3b%20,%0d%0a)" />
+	<my-soft::echo type="expr" value="String.Cat(Set%2dCookie%3a%20,popedom,%3d,$popedom,%3b%20,PATH%3d%2f%3b%20,%0d%0a)" />
+	<my-soft::echo type="expr" value="String.Cat(Set%2dCookie%3a%20,timestamp,%3d,$timestamp,%3b%20,%0d%0a)" />
+	<my-soft::echo type="expr" value="String.Cat(Set%2dCookie%3a%20,sign,%3d,$sign,%3b%20,%0d%0a%0d%0a)" />
+	<!-- 跳转到首页-->
+	<my-soft::echo type="var" value="%3c" />script<my-soft::echo type="var" value="%3e" />
+	top.location.href="/";
+	<my-soft::echo type="var" value="%3c%2f" />script<my-soft::echo type="var" value="%3e" />
+</my-soft::case>
+<my-soft::default>		
+	<!-- 提示登录失败，给出重试链接-->
+	<my-soft::echo type="var" value="%0d%0a" />
+	<my-soft::echo type="var" value="%0d%0a" />
+	
+	<my-soft::echo type="var" value="%3c" />script<my-soft::echo type="var" value="%3e" />
+	alert("使用本系统需要先从OA登录！");
+	top.location.href="http://passport.oa.com/modules/passport/signin.ashx?url=http://dc.qzone.com:8080/cgi-bin/MyAPP%3ftid%3dmybpml%26method%3ddecryptticket";
+	<my-soft::echo type="var" value="%3c%2f" />script<my-soft::echo type="var" value="%3e" />
+</my-soft::default>
+</my-soft::switch>
+

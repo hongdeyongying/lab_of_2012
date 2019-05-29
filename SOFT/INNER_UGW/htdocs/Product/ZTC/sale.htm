@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<TITLE>My-Soft,原创软件,量身定制,恰如您所需</TITLE>
+	<meta name="description" content="My-Soft为您制作恰如所需的软件，专注所以专业" />
+	<meta name="keywords" content="My-Soft,原创软件,定制软件,爬虫,邮件,进销存,防火墙,加解密,网络嗅探,技术资料,免费小工具,按揭计算,文本合并" />
+    <link href="../../Css/frame_style.css" rel="stylesheet" type="text/css" />
+	
+	<style  type="text/css" rel="stylesheet" >		
+		span.tips{color:#aaa;}
+		*.text{width:300px;}
+		
+		th{width:150px;}
+		td.input{width:320px;}
+		
+		tr.header
+		{
+			color:#f00;
+		}
+	</style>
+	
+	
+<script type="text/javascript"  language="javascript" src="./javascript/CXML.js" ></script>
+
+</head>
+
+<body bgcolor="#c0c0f0" >
+
+<!-- <fieldset ><legend>参数设置</legend> -->
+<h2>销售腾讯业务 </h2> <br>
+
+<form id="FRM_ZTC_SALE" onsubmit="javascript:return false;">
+
+<table id="browse"><!--
+<thead>
+	<tr>
+		<th>方式</th>
+		<th>内容</th>			
+	</tr>
+</thead>-->
+<tbody id="html">
+	
+	<tr><th>选择产品类型</th><td class="input"><SELECT class="text" tabIndex="1"  name="ServiceCode" size="6"> 
+			<OPTION value="QQACCT_SAVE" selected>Q币</OPTION> 
+			<OPTION value="-QQPOINT">Q点</OPTION>
+			<OPTION value="LTMCLUB">会员</OPTION>
+			<OPTION value="XXJZGW">黄钻</OPTION>
+			<OPTION value="XXQGAME">蓝钻</OPTION>
+			<OPTION value="XXQQF">红钻</OPTION>
+			<OPTION value="PETVIP">粉钻</OPTION>
+			<OPTION value="XXQQT">QQ堂紫钻</OPTION>
+			<OPTION value="XXZXYY">绿钻</OPTION>
+			<OPTION value="XXLOVE">交友</OPTION>
+			<OPTION value="QQR2BY">QQ音速</OPTION>
+			<OPTION value="DNFHZ">DNF黑钻</OPTION>
+			<OPTION value="QQFCZZ">QQ飞车紫钻</OPTION>
+			<OPTION value="QTD512M">512M网络硬盘</OPTION>
+			<OPTION value="-XXYXLB">QQ游戏欢乐大礼包</OPTION>
+			<OPTION value="QQKDC">QQ飞车点券</OPTION>
+			<OPTION value="-DNFDQ">DNF点券</OPTION>
+		</SELECT></td><td><span class="tips">*选择要销售的产品</span></td></tr>
+	
+	<tr><th>收货方QQ帐户</th><td><input class="text" name="QQuin" type="text" value="372132908" /></td><td><span  class="tips">*指定收货方QQ号码</span></td></tr>
+	<tr><th>充值数量 </th><td><input class="text" name="BuyCount" type="text" value="10" /> </td><td><span id="Tips_BuyCount"  class="tips">*Q币的数量</span></td></tr>
+	<tr><th>交易备注一 </th><td><input class="text" name="comm1" type="text" value="1" /> </td><td><span id="Tips_comm1"  class="tips">*</span></td></tr>
+	<tr><th>交易备注二 </th><td><input class="text" name="comm2" type="text" value="1" /> </td><td><span   class="tips">*</span></td></tr>
+	
+	<tr><th></th><td>
+		<input name="btn_event_sale" type="button" value="确认购买并发货" />
+	</td><td><span id="INF_RETMSG"></span></td></tr>	
+	
+
+</tbody>
+<!--
+<tfoot>
+	<tr><td colspan="5">最新修改时间：2008-12-11</td></tr>
+</tfoot>
+-->
+</table>
+</form>
+
+<hr />
+
+<table id="TBL_ZTC_SALE_RES" class="log">
+		<caption>销售日志表 <!--<input type="button" value="点此导出到Excel" onclick="javascript:ExportToExcel('ZTC_SALE_RES'); " /> 
+			<input type="button" value="点此将整个“销售日志表”导出到DB" onclick="javascript:ExportToDB('ZTC_SALE_RES');" style="width:300px;" />-->
+			</caption>
+		<tr class="header">
+			<td>时间</td><td>收货QQ号码</td><td>购买的业务</td><td>数量</td><td>区域</td><td>订单号</td><td>状态</td><td>信息</td><td>返回时间</td>
+		</tr>
+
+</table>
+
+
+<script src="javascript/ztc_sale.js" ></script>
+
+</BODY>
+</HTML>

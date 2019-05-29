@@ -1,0 +1,3 @@
+<my-soft::assign id="g_key" expr="gaussgao_dc.qzone.com_key"  />
+
+<my-soft::echo type="expr" value="Math.Md5(String.Cat($loginname,$chinesename,$deptname,$popedom,$timestamp,$g_key))"  />

@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<TITLE>路途安，您需要的车辆定位诊断系统</TITLE>
+	<meta name="description" content="路途安智能盾系统，因您而变" />
+	<meta name="keywords" content="路途安，智能盾，车载,定位,诊断,GPS,OBD,云诊断,云定位,云分析" />
+	
+	<link href="Css/frame.css?123" rel="stylesheet" type="text/css" />
+	<!-- link HREF="Css/tstyles.css" REL="stylesheet" TYPE="text/css" / -->
+	
+	<link rel="stylesheet" href="Css/jquery-ui.css" />
+	<script src="Js/jquery-1.9.1.js"></script>
+	<script src="Js/jquery-ui.js"></script>
+	<script src="Js/mapWrap.js"></script>
+	
+	<!-- <script type="text/javascript" src="http://api.map.baidu.com/library/MapWrapper/1.2/src/MapWrapper.min.js"></script>
+	--
+</head>
+
+
+<body>
+
+ <!--# include file="header.shtml" -->
+
+<!--内容BEGIN-->
+<div id="content" ><!-- 
+	<div id="dlg_device_watch_list" title="设备列表">
+		<table id="tbl_device_watch" border="1 0 0" > 
+			<tr class="header">
+				<th class="dimei">设备IMEI</th><th class="dplate">车牌</th><th class="dop">操作</th>
+			</tr>
+		</table>
+	</div> -->
+</div>
+<!--内容END-->
+<script>
+	$("#menu_4").css("color","red");
+	
+	var map ,mapGps;
+	
+	var drcds = {};
+	
+	function AddPoint(imei,longi,lati)
+	{
+		var pt = new BMap.Point(longi,lati);
+		
+		//alert(drcds[imei]["obj"]["fplate"]);
+		
+		
+		if( "mk" in drcds[imei])
+		{
+			//drcds[imei]["mk"].setPosition(pt);
+			
+			mapGps.setPosition(drcds[imei]["mk"],pt);
+			
+		    //alert(0);
+			//map.removeOverlay(drcds[imei]["mk"]);
+			
+			//drcds[imei]["mk"] = mk;
+		}
+		else
+		{
+			var mk = new BMap.Marker(pt);
+		
+		
+			mapGps.addOverlay(mk);
+			
+			
+			drcds[imei]["trace"] = 0;
+			drcds[imei]["mk"] = mk;
+			
+		
+		
+		
+		
+			mk.setTitle(imei);
+			
+			var label = new BMap.Label(drcds[imei]["obj"]["fplate"],{offset:new BMap.Size(20,-10)});
+			mk.setLabel(label);
+			
+			mk.addEventListener("click", function()
+			{  
+				if (drcds[this.getTitle()]["trace"]== 1)
+				{
+					
+					drcds[this.getTitle()]["trace"] = 0;
+					this.getLabel().setContent(drcds[this.getTitle()]["obj"]["fplate"] );
+				}
+				else
+				{
+					drcds[this.getTitle()]["trace"] = 1;
+					this.getLabel().setContent(drcds[this.getTitle()]["obj"]["fplate"] + "<->");
+				}
+			});  
+			
+		}
+		
+		
+		
+		if(1== drcds[imei]["trace"])
+		{
+			map.centerAndZoom(drcds[imei]["mk"].getPosition(),map.getZoom());
+		}
+		
+		//
+			
+		return;
+		
+		
+		
+	
+	}
+	
+	function DrawOnTime()
+	{
+		var imeis ="";
+		
+		for(imei in drcds)
+		{
+			imeis += "&imei="+imei;
+		}
+		
+		if(imeis == "") return;
+		
+		$.ajax({
+				   url:"/cgi/ugw",
+				   dataType:"xml",
+				   type: "POST",
+				   data:"tid=ldd&method=get"+imeis,
+				   success:function (xmlRes){
+				   		
+					   if("0" == $("retcode",xmlRes).text() ) 
+					   {
+					   	   
+						   
+					   	   $("record",xmlRes).each(function(index,rcd){
+								
+								
+							   if( $("isreg",$(rcd)).text() == "1")
+							   {
+								   var longi = parseFloat( $("longi",$(rcd)).text()) /1800000  ;
+								   
+								   var lati = parseFloat( $("lati",$(rcd)).text()) /1800000 ;
+								   
+								   var imei = $("imei",$(rcd)).text();
+									
+									//alert(longi + " " + lati);
+									
+								   AddPoint(imei,lati,longi);
+								   
+								   
+							    }
+							});
+					   }
+					   
+					    setTimeout(DrawOnTime,2000);
+				   }
+				   
+				  
+			});
+	}
+	
+	
+	function CachDrecords(xmlDlist)
+	{
+	
+			xmlDlist.each(function(index,ele){
+				
+				var drcd = {};			
+				
+				drcd["fimei"] = $(ele).find("fimei").text();
+				drcd["ftype"] = $(ele).find("ftype").text();
+				drcd["fct"] = $(ele).find("fct").text();
+				drcd["fmobile"] = $(ele).find("fmobile").text();
+				drcd["fplate"] = $(ele).find("fplate").text();
+				drcd["fdisplay_name"] = $(ele).find("fdisplay_name").text();
+				drcd["flmt"] = $(ele).find("flmt").text();
+				drcd["fdesc"] = $(ele).find("fdesc").text();
+				drcd["ficonid"] = $(ele).find("ficonid").text();
+				
+				drcds[drcd["fimei"]] = {};
+				drcds[drcd["fimei"]]["obj"] = drcd;
+ 			});
+			
+			setTimeout(DrawOnTime,2000);
+		}
+	
+	function GetDList()
+	{
+		$.ajax({
+			   url:"/cgi/ugw",
+			   dataType:"xml",
+			   type: "POST",
+			   data:"tid=mysql&method=dlist",
+			   success:function (xmlRes){
+				   if("0" == $("retcode",xmlRes).text() ) 
+				   {
+					   //遍历并最佳到表格中
+					   CachDrecords($("record",xmlRes));
+				   }
+				   else
+				   {
+					   //window.location.reload();
+				   }
+			   }
+		});
+	}	
+	
+		
+	function initialize() {	
+		map = new BMap.Map('content');
+		map.centerAndZoom("深圳");
+		
+		// nav
+		map.addControl(new BMap.NavigationControl());  
+		
+		map.addControl(new BMap.ScaleControl());  
+		map.addControl(new BMap.OverviewMapControl());  
+		map.addControl(new BMap.MapTypeControl());  
+		/*map.setCurrentCity("北京"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
+		
+		//*/
+		
+		
+		mapGps = new BMapLib.MapWrapper(map, BMapLib.COORD_TYPE_GPS);
+		
+		//setTimeout(DrawOnTime,2000);
+		
+		GetDList();
+	}
+	
+	function loadScript() {
+		var script = document.createElement("script");
+		script.src = "http://api.map.baidu.com/api?v=1.5&ak=842855b14ec90e16d9bd3dec896b39ff&callback=initialize";//此为v1.5版本的引用方式
+		// http://api.map.baidu.com/api?v=1.5&ak=您的密钥&callback=initialize"; //此为v1.4版本及以前版本的引用方式
+		document.body.appendChild(script);
+	}
+	
+	window.onload = loadScript;
+</script>
+ <!--# include file="footer.shtml" -->
+
+</body>
+</html>
+
+<!-- 基于窗口自动调整尺寸 -->
+<script src="Js/CAutoJustForm.js" language="javascript" type="text/javascript"></script>
+
+<script src="Js/ulogin.js" language="javascript" type="text/javascript"></script> 
+<script src="Js/device_type.js" language="javascript" type="text/javascript"></script> 
+<script>
+
+  
+</script>
+
+

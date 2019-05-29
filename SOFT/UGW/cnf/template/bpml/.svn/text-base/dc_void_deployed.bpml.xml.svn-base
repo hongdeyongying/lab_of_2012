@@ -1,0 +1,44 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->														
+Content-Type: text/html; charset=GB2312	
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::assign id="loginname" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_loginname),0)"  />
+<!-- 1.获取输入参数-->
+<my-soft::assign id="app_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_app_id),0)"  />
+<my-soft::assign id="scene_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_scene_id),0)" />
+<my-soft::assign id="content_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_content_id),0)" />
+
+<!-- 2.修改t_content_log:status = 0  -->
+
+<my-soft::invoke type="httpcall" service="voidcontent" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="content_id"        type="var"      value="$content_id" />
+</my-soft::invoke>
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="retcode1" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+
+<my-soft::invoke type="httpcall" service="voidcontentlog" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="content_id"        type="var"      value="$content_id" />
+	<my-soft::parameter name="modifier"        type="var"      value="$loginname" />
+</my-soft::invoke>
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+
+<!-- 3.输出结果 -->
+<my-soft::switch expr="Math.And(Math.EQU($retcode,0),Math.EQU($retcode1,0))">	
+<my-soft::case value="true">
+	撤回成功！
+</my-soft::case>
+<my-soft::default>		
+	撤回失败，请重试！
+</my-soft::default>
+</my-soft::switch>

@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<TITLE>路途安:我的账户</TITLE>
+	<meta name="description" content="路途安智能盾系统，因您而变" />
+	<meta name="keywords" content="路途安，智能盾，车载,定位,诊断,GPS,OBD,云诊断,云定位,云分析" />
+	
+	<link href="Css/frame.css" rel="stylesheet" type="text/css" />
+	<!-- link HREF="Css/tstyles.css" REL="stylesheet" TYPE="text/css" / -->
+	
+	<link rel="stylesheet" href="Css/jquery-ui.css" />
+	<script src="Js/jquery-1.9.1.js"></script>
+	<script src="Js/jquery-ui.js"></script>
+	
+</head>
+
+
+<body>
+
+ <!--# include file="header.shtml" -->
+
+<!--内容BEGIN-->
+<div id="content" >
+	<div id="dlg_umodi" title="基本信息" >
+			<form action="/cgi/ugw" method="post" id="frm_umodi" target="_self">
+			
+				<input type="hidden" name="tid" value="mysql" />	
+				<input type="hidden" name="method" value="umodi" />
+			<table>
+				<tr>
+					<td class="label">用户名</td>
+					<td class="value"><input name="email" type="text" class="text ui-widget-content ui-corner-all email " disabled="disabled"/> * 不能修改</td>
+				</tr>
+
+				
+				<tr>				
+					<td class="label">显示名</td>
+					<td class="value"><input name="display_name" type="text"  class="text ui-widget-content ui-corner-all display_name"/></td>
+				</tr>
+				
+				<tr>				
+					<td class="label">手机</td>
+					<td class="value"><input name="mobile" type="text" class="text ui-widget-content ui-corner-all mobile"/></td>
+				</tr>
+				
+				<tr>				
+					<td class="label">固定号码</td>
+					<td class="value"><input name="telecode" type="text"  class="text ui-widget-content ui-corner-all telecode"/></td>
+				</tr>
+				
+				
+				<tr>				
+					<td class="label">QQ</td>
+					<td class="value"><input name="qq" type="text"  class="text ui-widget-content ui-corner-all qq"/></td>
+				</tr>
+				
+				<tr>				
+					<td class="label">地址</td>
+					<td class="value"><textarea name="addr" type="text" class="text ui-widget-content ui-corner-all addr"></textarea></td>
+				</tr>
+				
+				
+				<tr>				
+					<td class="label">自我介绍</td>
+					<td class="value"><textarea name="desc" type="text" class="text ui-widget-content ui-corner-all intro"></textarea></td>
+				</tr>
+				
+				<tr>				
+					<td class="label">验证码</td>
+					<td class="value"><input name="vcd" type="text" class="text ui-widget-content ui-corner-all vcd"/><img src="/cgi/ugw?tid=vcdimg&rnd=1" onclick="javacript:changevcdimg(this);" title="点击更换"/></td>
+				</tr>
+				<tr><td></td><td colspan="1" class="validateTips" id="profile_alert"></td></tr>
+			</table>
+		</form>
+	</div>
+	
+	<script>
+		$("#menu_2").css("color","red");
+		function SubmitForm(frmtag,tipstag)   
+		{
+			//alert("1");
+			$.ajax({
+				   url:$(frmtag).attr("action"),
+				   dataType:"xml",
+				   type: $(frmtag).attr("method"),
+				   data:$(frmtag).serializeArray(),
+				   success:function (xmlRes){
+					   if("0" == $("retcode",xmlRes).text() ) 
+					   {
+						   $(tipstag).html("保存成功");
+					   }
+					   else
+					   {
+						   $(tipstag).html($("retmsg",xmlRes).text());
+					   }
+				   }
+			});
+		}
+		$( "#dlg_umodi" ).dialog({
+			dialogClass: "no-close",
+			autoOpen: true,
+			modal: false,
+			height: 500,
+			width: 800,
+			position:{
+				 my: "center top", at: "center top+10", of: "#content" 
+			},
+			buttons: {
+				"保存": function() {
+					var bValid = true;
+					bValid = CheckRegexByForm($( "#frm_umodi" ),$("#profile_alert"));
+					
+					if ( bValid ) {
+						SubmitForm("#frm_umodi","#profile_alert");
+					}
+				},
+			}
+		});
+		
+		function FillData(xmlUinfo)
+		{
+			 if(("0" == $("retcode",xmlUinfo).text() ) && ("" !=$("fid",xmlUinfo).text() ))
+		   {
+				var $inputs = $('#dlg_umodi :input,textarea');
+				$inputs.each(function() 
+				{
+					//alert(this.name);
+					var val1 = $("f"+this.name,xmlUinfo).text();
+					
+					if (val1 != "")
+						$(this).val(val1 );
+				});
+		   }
+		}
+		/*
+		$.ajax({
+		   url:"/cgi/ugw",
+		   dataType:"xml",
+		   type: "POST",
+		   data:"tid=mysql&method=udisp",
+		   success:function (xmlRes){
+			   if(("0" == $("retcode",xmlRes).text() ) && ("" !=$("fid",xmlRes).text() ))
+			   {
+				   	var $inputs = $('#dlg_umodi :input,textarea');
+					$inputs.each(function() 
+					{
+						alert(this.name);
+						
+						$(this).val($("f"+this.name,xmlRes).text() );
+					});
+			   }
+		   }
+	});
+	//*/
+		
+		
+	</script>
+
+</div>
+<!--内容END-->
+
+ <!--# include file="footer.shtml" -->
+
+</body>
+</html>
+
+<!-- 基于窗口自动调整尺寸 -->
+<script src="Js/CAutoJustForm.js" language="javascript" type="text/javascript"></script>
+<script src="Js/ulogin.js" language="javascript" type="text/javascript"></script> 
+<script>
+
+  
+</script>
+
+
+

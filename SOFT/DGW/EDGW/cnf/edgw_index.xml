@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<!-- 
+EDGW 的顶级配置文件，此文件必须存在，并相对MyCGI的路径是 ../cnf/edgw_index.xml
+
+途迹 油尺
+-->
+<includes>
+        <!-- <include namespace="" filepath="../cnf/format.conf.xml" type="service" desc="" />	-->		
+</includes>
+
+
+<services>
+	<service name="LISTENER" type="system" desc="指定监听者参数">
+		<variables>
+			<variable name="tcp" value="7788" desc="tcp监听端口"></variable>
+			<variable name="udp" value="7788" desc="udp监听端口"></variable>
+			<variable name="unixsock" value="../tmp/edgw.unixsock" desc="unixsock监听参数"></variable>
+			<variable name="pipe" value="../tmp/edgw.pipe" desc="pipe监听参数"></variable>
+		</variables>
+	</service>
+	<service name="WORKER" type="system" desc="指定工作者参数">
+		<variables>
+			<variable name="number" value="50" desc="工作者数目"></variable>
+			<variable name="path" value="../lib/worker.so" desc="工作者动态库路径"></variable>
+		</variables>
+	</service>
+	<service name="CONTROLER" type="system" desc="指定控制者参数">
+		<variables>
+			<variable name="interval" value="5" desc="检查时间间隔"></variable>
+			<variable name="log" value="../cnf/log.ini" desc="日志配置文件"></variable>
+		</variables>
+	</service>
+</services>

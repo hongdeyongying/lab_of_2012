@@ -1,0 +1,22 @@
+﻿
+Content-Type: text/html; charset=utf-8
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<html><body>
+
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="user_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_user_id),0)"  />
+<my-soft::assign id="openid" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_openid),0)"  />
+
+
+<my-soft::assign id="para_amount" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_amount),0)"  />
+
+您成功充值 <my-soft::echo type="var" value="$para_amount" /> 行动点！<br/>
+
+详细流水请<a target="_top" href="/xdb/reward.html">点此查看</a>
+
+</body></html>

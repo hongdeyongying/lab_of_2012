@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<TITLE>路途安:用户注册</TITLE>
+	<meta name="description" content="路途安智能盾系统，因您而变" />
+	<meta name="keywords" content="路途安，智能盾，车载,定位,诊断,GPS,OBD,云诊断,云定位,云分析" />
+	
+	<link href="Css/frame.css?123" rel="stylesheet" type="text/css" />
+	
+	<link href="Css/frame.css?123" rel="stylesheet" type="text/css" />
+	<!-- link HREF="Css/tstyles.css" REL="stylesheet" TYPE="text/css" / -->
+	
+	<link rel="stylesheet" href="Css/jquery-ui.css" type="text/css" />
+	
+	<script src="Js/jquery-1.9.1.js"> </script>
+	<script src="Js/jquery-ui.js"></script>
+
+	
+	
+	<link href="Css/reg.css?123" rel="stylesheet" type="text/css" />
+	
+	
+	
+</head>
+
+
+<body>
+<!--# include file="header.shtml" -->
+
+<!--CONTENT BEGIN-->
+<div id="content" >
+	<!-- REG BEGIN -->
+	<div id="tab_reg" >
+		<ul>
+			<li><a href="#tab_protocol"> 1.阅读《智能盾用户服务协议》 </a></li>
+			<li><a href="#tab_fill"> 2.确认接受《智能盾用户服务协议》，填写注册申请资料 </a></li>
+		</ul>
+		
+		<div id="tab_protocol">
+			<p>·路途安智能盾，是一款车辆定位诊断服务，为您更有效和更安全使用您的资产而服务。您可免费获得我们的服务。</p>
+			<hr/>
+			<p>您的权益</p>
+			<p> 1. 注册即可获得我们的免费服务，智能盾尽可能提供99%+的服务质量</p>
+			<p> 2. 获取车载定位和诊断行业咨询，智能盾将提供客观的分析和指引，便于您选择适合自己的产品</p>
+			<p> 3. 对服务的建议权，您的每一份建议都将被智能盾所重视</p>
+			<p> 4. 隐私权，您在智能盾留下的任何信息，都在中国法律的合法权益下收到保护，智能盾确保不向第三方偷了您的注册信息</p>
+			<hr/>
+			<p>您需要注意的地方</p>
+			<p> 1.请勿恶意使用和攻击智能盾系统</p>
+			<p> 2.请不要为攻击智能盾的第三方提供便利</p>
+			<p> 3.请主要保护好您的密码，这是您在智能盾的信息查阅凭证</p>
+			<hr/>
+			
+			智能盾保留对此协议的最终解释。使用本系统的用户视同接受上述条款。
+		</div>
+		
+		<div id="tab_fill">
+			<form action="/cgi/ugw" method="post" id="frm_reg" target="_self">
+				<input type="hidden" name="tid" value="mysql" />	
+				<input type="hidden" name="method" value="ureg" />
+			<table>
+				<tr>
+					<td class="label">用户名</td>
+					<td class="value"><input name="email" type="text" class="text ui-widget-content ui-corner-all email"/></td>
+					<td class="tips">* 您必须提供一个有效的EMAIL账户作为您的用户名</td>
+				</tr>
+				
+				<tr>				
+					<td class="label">显示名</td>
+					<td class="value"><input name="display_name" type="text"  class="text ui-widget-content ui-corner-all display_name"/></td>
+					<td class="tips">*登录系统后，我们将在右上角显示此字段</td>
+				</tr>
+				
+				<tr>				
+					<td class="label">手机</td>
+					<td class="value"><input name="mobile" type="text" class="text ui-widget-content ui-corner-all mobile"/></td>
+					<td class="tips">*重要，当您忘记密码后，可凭此找回</td>
+				</tr>
+				
+				<tr>				
+					<td class="label">固定号码</td>
+					<td class="value"><input name="telecode" type="text"  class="text ui-widget-content ui-corner-all telecode"/></td>
+					<td class="tips">*重要，当您忘记密码后，可凭此找回</td>
+				</tr>
+				
+				
+				<tr>				
+					<td class="label">QQ</td>
+					<td class="value"><input name="qq" type="text"  class="text ui-widget-content ui-corner-all qq"/></td>
+					<td class="tips">*重要，线上营销活动将使用此信息</td>
+				</tr>
+				
+				<tr>				
+					<td class="label">地址</td>
+					<td class="value"><textarea name="addr" type="text" class="text ui-widget-content ui-corner-all addr"></textarea></td>
+					<td class="tips">*线下营销轰动将使用此信息</td>
+				</tr>
+				
+				
+				<tr>				
+					<td class="label">自我介绍</td>
+					<td class="value"><textarea name="desc" type="text" class="text ui-widget-content ui-corner-all intro"></textarea></td>
+					<td class="tips">*告诉我们您关注哪些关键字</td>
+				</tr>
+				
+				<tr>				
+					<td class="label">密码</td>
+					<td class="value"><input name="pwd" id="pwd" type="password" class="text ui-widget-content ui-corner-all pwd"/></td>
+					<td class="tips">*重要，这是您在本系统的凭证</td>
+				</tr>
+				<tr>
+					<td class="label">密码确认</td>
+					<td class="value"><input name="repwd" ID="repwd" type="password" class="text ui-widget-content ui-corner-all pwd"/></td>
+					<td class="tips">*重要，必须与密码一致</td>
+				</tr>
+				<tr>				
+					<td class="label">验证码</td>
+					<td class="value"><input name="vcd" type="text" class="text ui-widget-content ui-corner-all vcd"/><img src="/cgi/ugw?tid=vcdimg&rnd=1" onclick="javacript:changevcdimg(this);" title="点击更换"/></td>
+					<td class="tips"> *</td>
+				</tr>
+				<tr>				
+					<td class="label"></td>
+					<td class="value"><input id="protocol" type="checkbox" "/>我同意并接受《智能盾用户服务协议》</td>
+					<td class="tips">*</td>
+				</tr>
+				
+				<tr><td></td><td colspan="2" class="validateTips" id="reg_alert"></td></tr>
+				<tr>
+					<td class="label"></td>
+					<td class="submit"><input type="submit" value="注册"/></td>
+					<td class="tips"></td>
+				</tr>
+			</table>
+			</form>
+		</div>				
+	</div>
+	
+	<script>
+	$("#menu_login").css("color","red");
+		function changevcdimg(obj)
+		{
+			obj.src = "/cgi/ugw?tid=vcdimg&rnd="+Math.random();
+		}
+		$( "#tab_reg" ).tabs();
+		
+		$("document").tooltip();
+		
+		$("#frm_reg").submit (function(){
+			
+			var bValid = true;
+			
+			//alert($("#protocol").is(":checked"));
+			if($("#protocol").is(":checked") != true )
+			{
+				$("#reg_alert").html("您必须同意和接受《智能盾用户服务协议》，才能完成注册");
+				return false;
+			}
+			
+			if( $("#pwd").val() != $("#repwd").val())
+			{
+				$("#reg_alert").html("密码：两次输入的密码必须一致");
+				return false;
+			}
+			
+			bValid = CheckRegexByForm($( "#frm_reg" ),$("#reg_alert"));
+			
+			if ( !bValid ) {
+				return false;
+			}
+			
+			
+			
+			//alert($("#protocol").val() + " : " + $("#protocol").attr("checked");
+		
+			$.ajax({
+			   url:$("#frm_reg").attr("action"),
+			   dataType:"xml",
+			   type: $("#frm_reg").attr("method"),
+			   data:$("#frm_reg").serializeArray(),
+			   contentType:"application/x-www-form-urlencoded; charset=GBK",
+			   success:function (xmlRes){
+				   if("0" == $("retcode",xmlRes).text() )
+				   {
+						$("#content").append("<div id=\"dlg_tips\" title=\"注册成功\"><p>您可使用新的账户登录系统</p></div>");
+
+						$( "#dlg_tips" ).dialog({
+							autoOpen: true,
+							height: 300,
+							width: 400,
+							modal: true,
+							buttons: {
+								"确认":function(){
+									$( this ).dialog( "close" );
+									g_CCookie.SetCookie("uid","");
+									location.href="./profile.html";
+									
+								}
+							}
+						});
+						
+					   	
+				   }
+				   else
+				   {
+					   $("#reg_alert").html(($("retmsg",xmlRes).text()));
+				   }
+			   }
+			});
+		
+		return false;
+		
+		
+		
+		}
+		);
+		
+		
+	</script>
+
+
+		
+	<!-- REG END -->
+
+</div>
+<!--Content END-->
+
+ <!--# include file="footer.shtml" -->
+
+</body>
+</html>
+
+<!-- 自动调整窗口大小-->
+<script src="Js/CAutoJustForm.js" language="javascript" type="text/javascript"></script>
+
+
+<script>
+  
+</script>

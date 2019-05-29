@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<!-- 
+MyCGI 的顶级配置文件，此文件必须存在，并相对MyCGI的路径是 ../conf/MyCGI.conf.index.xml
+-->
+
+<includes>
+
+        <include namespace="mybpml::" filepath="../conf/bpml/bpml_method.conf.xml" type="service" desc="bpml具体方法配置文件" />
+</includes>
+
+<services>		
+		
+<service name="mybpml" type="" desc="">
+	<variables>
+		<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">输出模版</variable>
+<!--
+    <variable name="_output_template_default" value="../template/mch_register_no_rx.shtml" desc="">失败所有的输出模版</variable>
+		<variable name="_output_template_0" value="../template/mch_register_ok_rx.shtml" desc="">返回值为0的输出模版</variable>
+-->														
+		<variable name="_request_verifier" value="null" desc="">请求验证算法 md5</variable>
+		<variable name="_request_verifier_key" value="md5" desc="">验证算法参数</variable>
+		<variable name="_request_integrality" value="loose" desc="">请求完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+		<variable name="_response_signer" value="loose" desc="">响应签名算法</variable>
+		<variable name="_response_signer_key" value="md5" desc="">签名算法参数</variable>
+		<variable name="_response_integrality" value="loose" desc="">响应完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable> 
+		<variable name="_singleton_flag" value="true" desc="">唯一示例</variable>
+	</variables>
+	<parameters> 	    
+		<parameter name="tid" 	request="M" 	response="O"	default="bpml" desc=""/>
+		<parameter name="method" 	request="M" 	response="O"	default="test" desc=""/> 
+						
+		<parameter name="retcode" 	request="B" 	response="M"	default="0" desc=""/>
+		<parameter name="retmsg" 	request="B" 	response="O"	default="" desc=""/> 
+	</parameters>
+</service>
+		
+
+</services>

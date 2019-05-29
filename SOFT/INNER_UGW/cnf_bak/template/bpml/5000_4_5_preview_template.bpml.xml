@@ -1,0 +1,75 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: text/html; charset=GB2312
+
+<!-- 换行 -->
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="paras" expr="String.UrlDecode($paras)" />
+
+<!-- 渲染并输出预览 -->			
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<title>个人中心feeds</title>
+<base href="http://ctc.qzs.qq.com/"></base>
+<link rel="stylesheet" rev="stylesheet" href="http://imgcache.qq.com/qzonestyle/qzone_client_v5/css/ifeeds_template.css" type="text/css" media="screen"/>
+<link rel="stylesheet" rev="stylesheet" href="http://imgcache.qq.com/qzonestyle/qzone_client_v5/css/151/color_out.css" type="text/css" media="screen"/>
+<link rel="stylesheet" rev="stylesheet" href="http://imgcache.qq.com/qzone_v5/app/app_icon.css" type="text/css" media="screen"/>
+
+<script src="http://ctc.qzs.qq.com/ac/qzone/qzfl/qzfl_2.0.9.2.js" charset="utf-8"></script>
+<!--[if IE 6]>
+<script type="text/javascript">
+ // <![CDATA[
+        try{
+	      document.execCommand("BackgroundImageCache", false, true);
+	    }
+	   catch(e){}
+// ]]>
+</script>
+<![endif]-->
+</head>
+<body class="ifeeds_body">
+<div class="ifeeds">
+	<div class="feeds_style_1">
+		<!--用户列表 开始
+        <div class="list bbor2">-->
+         <!--
+          <div class="info_user"><div class="info_user_head"><a href="#"><span class="skin_portrait_round"></span><img src="http://qlogo3.store.qq.com/qzone/20050606/20050606/100" alt="用户头像" /></a></div><div class="priviilege_info"><a href="#"><strong class="gb_lv_icon"><span class="lv7"><span class="gb_vip_none">lv7</span></span></strong></a></div></div>-->
+          <ol>
+			<!--单条feeds 开始-->
+            <li class="ifeeds_list bor3" onmouseover="this.className='ifeeds_list bor3 ifeeds_list_active'" onmouseout="this.className='ifeeds_list bor3'">
+				<div class="ifeeds_list_summary">
+					<div class="feeds_time c_tx3"><my-soft::echo type="var" value="$begin_time" /></div>
+					<div class="feeds_app_icon"><strong class="appicon_16_333"><span>礼物</span></strong></div>
+					<div class="ifeeds_list_item">
+					24小时热点
+					</div>
+				</div>
+				<div class="ifeeds_list_extend">
+<!--  输出 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="$paras" />	
+<my-soft::echo type="var" value="%0d%0a" />
+
+</div>
+				</div>
+            </li>
+			<!--单条feeds 结束-->
+          </ol>
+        </div>
+		<!--用户列表 结束-->
+	</div>
+<!--</div>-->
+</body>
+</html>

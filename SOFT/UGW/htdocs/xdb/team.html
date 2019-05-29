@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>运动吧！</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="./Css/styles.css?123"> 
+
+
+
+</head>
+<body>
+
+
+<nav id="menu" class="menu">
+  <a href="./index.html" target="_self">
+	<header class="menu-header">
+	  <span class="menu-header-title">行动吧</span>
+	</header>
+  </a>
+  <section class="menu-section">
+	<h3 class="menu-section-title">运动吧</h3>
+	<ul class="menu-section-list">
+	  <li><a href="./project.html" target="_self">项目</a></li>
+	  <li><a href="./team.html" target="_self">活动</a></li>
+	  <li><a href="./plan.html" target="_self">计划</a></li>
+	  <li><a href="./task.html" target="_self">执行</a></li>
+	  <li><a href="./review.html" target="_self">评价</a></li>
+	  <li><a href="./share.html" target="_self">分享</a></li>
+	</ul>
+  </section>
+</nav>
+<main id="main" class="panel">
+	<div class="header_bar">
+		<button class="btn-hamburger js-slideout-toggle" title=“导航栏开关”>
+		  <!--<span class="tooltip">点我</span>-->
+		</button>
+		<h1>欢迎来到行动吧</h1><span id="xdh">关注公众号"WhatIsTSP"，获得您的行动号。</span>
+		<hr />
+		
+		<p>
+			运动吧：流水不腐户枢不蠹 <br/>
+			<br/>
+			选择项目：良禽择木而栖<br/>
+			<br/>
+			参与活动：三人行必有我师<br/>
+			<br/>
+			制定计划：凡是预则立不预则废<br/>
+			<br/>
+			执行任务：千里之行始于足下<br/>
+			<br/>
+			评价监督：前事不忘后事之师<br/>
+			<br/>
+			积极分享：穷则独善其身达则兼济天下<br/>
+		</p>
+		
+		<p>		
+			<img src="./Img/index/qrcode_for_gzh.jpg" />
+		</p>
+		
+		<hr />
+		<p>			
+			关注公众号"WhatIsTSP"，获得您的行动号。行动派，就应该有自己的行动号！！
+		<p>
+</div>
+	
+</main>
+<script type="text/javascript" src="./Js/slideout.min.js"></script>
+<script type="text/javascript" src="./Js/CCookie.js" ></script> 
+<script type="text/javascript" src="./Js/xdb_header.js" ></script> 
+<script type="text/javascript" src="./Js/jquery-1.9.1.js"> </script>
+<script type="text/javascript">	
+	var slideout = new Slideout({
+		'panel': document.getElementById('main'),
+		'menu': document.getElementById('menu'),
+		'padding': 256,
+		'tolerance': 70
+	});
+	
+	document.querySelector('.js-slideout-toggle').addEventListener('click', function() {slideout.toggle();});
+	
+	checkLogin();
+	
+</script>
+</body>
+</html>

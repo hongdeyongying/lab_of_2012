@@ -1,0 +1,74 @@
+﻿
+html{margin :0px;width:100%;height:100%;
+	-webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */}
+body{margin :0px;padding:0px;width:100%;height:100%;}
+img{border:none;}
+a{text-decoration:none;}
+a.green{text-decoration:underline;color:#33FF00;cursor:pointer;}
+
+#langbar{background-image: url(../Img/frame/bgimg.jpg);background-repeat: repeat;background-position: 0px 0px;width:100%;overflow:hidden;height:30px;}
+	#switch,#switch:link {position:relative;float:right ;color:gray;} #switch_ch,#switch_en{color:gray; }
+	#date{position:relative;float:left;color:gray;}
+	#welcome{position:relative;float:right;color:gray;}
+	
+
+#logobar{background-image: url(../Img/frame/bgimg.jpg);background-repeat: repeat;background-position:0px -30px;width:100%;overflow:hidden;height:100px;}
+
+
+#menubar{background-image: url(../Img/frame/bgimg.jpg);background-repeat: repeat;background-position:0px -130px;width:100%;overflow:hidden;height:50px;}
+	.menu{	top:15px;text-align:center;	width:200px;height:30px;float:left;position:relative;color:white;/*	background:#33FF66;*/	font-size:22px;	}
+	.menu:hover{color:#00FF00;	cursor:pointer;	background-color:gray;	}
+	#menu_login{float:right;}
+
+#nav{overflow-x:hidden;position:relative;left:0px;top:0px;height: 400px;width: 201px;overflow-y: auto;background-color:#5b5c53;}
+
+#content{margin:0px;padding:0px;border:0px none red;background-color:#5b5c53;width:100%;position:relative;top:0px;height: 400px;float:left;overflow: auto;}
+
+#footbar{background-image: url(../Img/frame/bgimg.jpg);width:100%;background-repeat: repeat;background-position:0px -180px;width:100%;overflow:hidden;height:50px;}	
+	#foot_reg{position:relative;float:right;color:gray;top:10px;font:12px Tahoma; width:250px;text-align:right;}
+	
+	#foot_contactor{position:relative;float:left;color:gray;top:10px;font:12px Tahoma; width:600px;text-align:left;}
+
+.ui-menu { width: 200px;}	
+
+#menu_item{position:absolute;z-index:10000!important;height:0;}
+
+.menu_item{display:none;}
+
+/*dialog and table*/
+td.label{width:200px;}
+td.label_login{width:100px;}
+
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; color:red;font-size:9px; width:500px;overflow:hidden;}
+.validateTips_login { border: 1px solid transparent; padding: 0.3em; color:red;font-size:9px; width:200px;overflow:hidden;}
+.no-close .ui-dialog-titlebar-close {  display: none;}
+
+input.email{width:280px}
+input.vcd{width:180px}
+input.pwd{width:280px}
+input.display_name{width:280px}
+input.mobile{width:280px}
+input.telecode{width:280px}
+input.qq{width:280px}
+
+.addr{width:380px;height:20px;}
+.intro{width:380px;height:20px;}
+img.vcdimg{float:right;left:10px;}
+
+#tbl_device{
+padding:0px;float:center;clear:both;width:100%;}
+.dimei{width:120px;}
+.dtype{width:60px;}
+.dmobile{width:100px;}
+.ddate{width:100px;}
+.dplate{width:80px;}
+.dname{width:280px;}
+.dop{width:100px;}
+
+tr.header{background-color:#CCCCCC;color:black;}
+tr.content{font-size:9px;background-color:white;}
+tr.content_even{font-size:9px;background-color:#F0F0F0;}

@@ -1,0 +1,150 @@
+/*基本信息*/
+body {
+	font:12px Tahoma;margin:0px;
+	text-align:center;
+	background:#FFF;
+	MARGIN: 0px; BACKGROUND-COLOR: #eaeaea;
+	border:0px;
+}
+/*页面层容器*/
+div.Body{
+	position:relative;
+	border:1px  solid #ddd;	
+	width:930px;
+	Height:100%;
+}
+
+/*页面头部*/
+div.Header{
+	margin:0 auto;
+	height:45px;		
+	/*background:url(my-soft.gif) 0 30px no-repeat; 加入背景图片*/
+	margin:auto; /*层居中*/	
+	border-bottom:4px solid #ff0000; /*画一条浅灰色实线*/
+	clear:both /*清除浮动*/;
+	background-color:#666 ;	
+	vertical-align:bottom;
+}
+div.Logo
+{	
+	width:324px;	
+	float:left; /*浮动居左*/	
+	background-color: #000066 ;	
+	height:40px;
+	border:0px;
+	clear:both; /*清除浮动*/
+	overflow:hidden; /*超出宽度部分隐藏*/
+	
+	
+}
+div.Nav
+{
+	width:606px;
+	text-align:left;
+	float:right; /*浮动居右*/
+	clear:right; /*不允许右侧存在浮动*/
+	overflow:hidden;
+	background-color:#000066;
+	height:20px;
+	border-top:1px solid #999999; /*画一条浅灰色实线*/
+}
+div.Nav UL
+{
+	height:100%;
+	list-style:none;
+	margin:0px;
+	vertical-align:bottom;
+}
+div.Nav UL li
+{
+	height:100%;
+	float:left;
+	margin:  0 0px ;
+	text-align:center;
+
+}
+
+div.Nav UL li.NavSplit
+{
+	height:100%;
+	width:1px;
+	background-color:#999999;
+}
+div.Nav UL li.SeleBtn
+{	
+	height:100%;
+	width:100px;
+	/*background-image:url(../Image/button_01.gif);*/
+	background-color:#000066;
+	FONT-WEIGHT: bold; COLOR: #fff;
+	vertical-align:bottom;
+}
+div.Nav UL li.SeleBtnFocus
+{	
+	width:100px;
+	height:100%;
+	background-color: #FF0000;
+	FONT-WEIGHT: bold; COLOR: Black;
+	cursor:hand;
+}
+div.Nav UL li.Cur_SeleBtn
+{	
+	width:100px;
+	height:100%;
+	background-color: #fff;
+	FONT-WEIGHT: bold; COLOR: Black;
+	cursor:hand;
+}
+
+/*欢迎条*/
+div.Welcome{	
+	width:100%;
+	margin:0 auto;
+	height:20px;/**/
+	text-align:left ;
+	color:#ccc;
+	border-bottom:1px solid #666666; /*画一条浅灰色实线*/
+}
+
+/*页面主体*/
+div.Content {
+	margin:0px;
+	height:400px;
+	/*background-color:#444;*/
+	text-align:left;
+	width:100%;
+}
+		ul.Productor{
+				list-style:square;
+				margin-left:10px;
+				width:100%;
+							
+			}
+			ul.Productor li{
+				list-style:disc;
+				margin-left:10px;
+				width:100%;				
+			}
+/*页面底部*/
+div.Foot {
+	position:absolute;
+	z-index:3;
+	width:100%;
+	border-top:1px solid #999;
+	border-left:1px solid #666;
+	border-right:1px solid #666;
+	margin:0px;
+	height:40px;
+	/*background:#00FFFF;*/
+	bottom:0px;	
+	left:0px;
+	
+/*	background-image:url("../Image/tail_back.jpg");*/
+}
+div.#LOGO{
+	text-align:left;
+	color:#FFFFFF;
+}
+div.#LOGO h1,h3{
+	display:inline;
+};

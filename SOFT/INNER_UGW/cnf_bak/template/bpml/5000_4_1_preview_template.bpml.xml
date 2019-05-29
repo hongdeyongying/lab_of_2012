@@ -1,0 +1,64 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: text/html; charset=GB2312
+
+<!-- 换行 -->
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="paras" expr="String.UrlDecode($paras)" />
+
+<!-- 渲染并输出预览 -->			
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<my-soft::echo type="var" value="%0d%0a" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn" xmlns:qz="http://qzone.qq.com/">
+<my-soft::echo type="var" value="%0d%0a" />
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<meta http-equiv="Content-Language" content="zh-cn"/>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<!--<script type="text/javascript">
+document.domain="qq.com";var _s_=new Date();</script> -->
+<title>官方Feeds</title>
+<style type="text/css" id="mainStyle" media="screen">
+@import url(http://ctc.qzonestyle.gtimg.cn/qzonestyle/qzone_client_v5/css/index_frame_out.css);
+@import url(http://ctc.qzonestyle.gtimg.cn/qzonestyle/qzone_client_v5/css/ic_d_out.css);
+@import url(http://ctc.qzonestyle.gtimg.cn/qzonestyle/qzone_client_v5/css/16/index_style_out.css);
+@import url(http://ctc.qzonestyle.gtimg.cn/qzonestyle/qzone_client_v5/css/16/color_out.css);
+</style>
+<style type="text/css" id="dynamicStyle">
+body{overflow:hidden;}
+html{overflow:hidden;overflow-y:scroll;}
+.ownermode{display:;}
+.clientmode{display:none;}
+.editmode{display:none;}
+.customoff{display:;}
+.alphamode{display:none;}
+</style>
+<base href="http://ctc.qzs.qq.com/"></base>
+
+</head>
+
+<!--<script type="text/javascript" src="http://imgcache.qq.com//ac/qzone/qzfl/qzfl_2.0.8.0.js"></script>-->
+<my-soft::echo type="var" value="%0d%0a" />
+<body class="ifeeds_body">
+
+<div class="ifeeds" id="ifeedsContainer">
+<my-soft::echo type="var" value="%0d%0a" />
+
+
+<!--  输出 -->
+<my-soft::echo type="var" value="$paras" />	
+
+<my-soft::echo type="var" value="%0d%0a" />
+</div>
+</body>
+</html>

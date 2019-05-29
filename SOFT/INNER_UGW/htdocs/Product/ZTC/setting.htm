@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<TITLE>My-Soft,原创软件,量身定制,恰如您所需</TITLE>
+	<meta name="description" content="My-Soft为您制作恰如所需的软件，专注所以专业" />
+	<meta name="keywords" content="My-Soft,原创软件,定制软件,爬虫,邮件,进销存,防火墙,加解密,网络嗅探,技术资料,免费小工具,按揭计算,文本合并" />
+    <link href="../../Css/frame_style.css" rel="stylesheet" type="text/css" />
+	
+	<style  type="text/css" rel="stylesheet" >		
+		span.tips{color:#aaa;}
+		input.text{width:300px;}
+	</style>
+</head>
+
+<body bgcolor="#c0c0f0" >
+
+<!-- <fieldset ><legend>参数设置</legend> -->
+<h2>设置参数 </h2> <br>
+
+<form id="FRM_ZTC_SETTING" >
+<table id="browse"><!--
+<thead>
+	<tr>
+		<th>方式</th>
+		<th>内容</th>			
+	</tr>
+</thead>-->
+<tbody id="html">
+	<!--
+	<tr><th>销售日志文件</th><td><input class="text" name="datasrc" type="text" value="" /
+	<input class="text" name="datasrc" type="file" value="" />></td><td><span class="tips">*指定销售日志存放地点，有效的ADO数据源字符串</span></td></tr>
+	-->
+	<tr><th>直通车账户</th><td><input class="text" name="ztcUin" type="text" value="" disabled /> <td><span class="tips">*指定销售腾讯业务的直通车账户ID</span></tr>
+	<tr><th>通讯密钥</th><td><input class="text" name="Key" type="Password" value=""  /> <td><span class="tips">*直通车账户对应的通讯密钥</span></tr>
+	
+	<tr><th></th><td>
+		<input name="btn_event_save" type="button" value="保存设置" />
+		<input name="btn_event_read" type="button" value="取当前设置" />	
+	</td><td><span id="INF_RETMSG"></span></td></tr>	
+	
+
+</tbody>
+<!--
+<tfoot>
+	<tr><td colspan="5">最新修改时间：2008-12-11</td></tr>
+</tfoot>
+-->
+</table>
+</form>
+
+<script src="javascript/ztc_setting.js" ></script>
+
+</BODY>
+</HTML>

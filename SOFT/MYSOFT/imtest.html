@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible"/>
+<title>FastCGI echo</title>
+
+<script  language="javascript" type="text/javascript">
+
+	function ChangeAAA(str)
+	{ 
+		var divAAA = document.getElementById("aaa");
+		divAAA.value=str;
+		
+	};
+	function submitCallBack2(str)
+	{
+		var divBBB = document.getElementById("bbb");
+                divBBB.value=str;
+
+		var divCCC = document.getElementById("ccc");
+		divCCC.innerHTML +=(str);
+
+		eval(str);
+	}
+
+	function submitCallBack(str)
+	{
+		var divBBB = document.getElementById("bbb");
+                divBBB.value=str;
+
+		var divCCC = document.getElementById("ccc");
+
+	}
+
+		var xmlhttp1;
+
+	function getXMLHttpRequest()
+	{
+		
+		if(window.ActiveXObject)
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		else if(window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+
+		else
+		{
+			xmlhttp=new XMLHttpRequest();
+
+		}
+	}
+
+	function  getXMLHttpRequest2()   
+	{             
+		var xmlhttp;
+
+		try
+		{
+			xmlhttp=new XMLHttpRequest();              
+		
+		}  
+		catch (e)  
+		{  
+			alert("failed in create new XMLHttpRequest()");
+			  try  
+			  {  
+					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");  
+			  }  
+			  catch (e)  
+			  {  
+				alert("Microsoft.XMLHTTP");
+				try  
+				{  
+					xmlhttp=new ActiveXObjec("MSXML2.XMLHttp");  
+				}  
+				catch (e)  
+				{  
+					alert("Msxml2.XMLHTTP");
+						throw new Error('Unable to create XMLHttpRequest.')  
+				}  
+			   }  
+		}  
+		return xmlhttp;
+	}
+	
+</script> 
+</head>
+<body onload="javascript:ChangeAAA('0000000000');">
+<h1> async html document </h1>
+
+<input id="aaa" value="see here" /> 
+<br />
+
+<textarea id="bbb" value ="aabbaa" style="width:800;height:400;" >abba </textarea>
+
+
+
+<script  language="javascript" type="text/javascript">
+
+	isDone = false;
+
+	var len = 0;
+
+	function Handler()
+	{
+
+             if (xmlhttp1.readyState==4 && xmlhttp1.status==200 && isDone == false)
+             {
+                  submitCallBack(xmlhttp1.responseText);
+
+                  isDone = true;
+             }
+             else if(xmlhttp1.readyState == 3 )
+             {
+
+		try
+		{
+			var str = xmlhttp1.responseText;
+
+			var str1 = str.substring(len);
+
+			len = xmlhttp1.responseText.length;
+
+			//alert(len);
+
+			submitCallBack2(str1);
+                }
+		catch (e)
+		{
+			//alert(e.message);
+		}
+            }
+	}
+
+
+	xmlhttp1 = getXMLHttpRequest2(); 
+
+	try
+	{
+
+		xmlhttp1.onreadystatechange=Handler;
+
+
+		xmlhttp1.open("GET","http://www.my-soft.net.cn/testgpns?time"+Math.random(),true);
+
+		
+		//xmlhttp.Send("aa=-9&time="+Math.random());
+		xmlhttp1.send(null);
+ 
+	}
+	catch (e)
+	{
+		alert(e.message);
+	}
+
+
+	function Retry()
+	{
+		xmlhttp1 = getXMLHttpRequest2(); 
+
+		isDone = false;
+
+        	len = 0;
+
+		xmlhttp1.onreadystatechange=Handler;
+		xmlhttp1.open("GET","http://www.my-soft.net.cn/testgpns?time"+Math.random(),true);
+		xmlhttp1.send(null);
+
+	}
+
+</script>
+<input type="button" value="Retry" onclick="javascript:Retry();" />
+<div id="ccc"></div>
+
+
+</body>
+</html>
+

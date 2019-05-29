@@ -1,0 +1,56 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: text/html; charset=GB2312
+
+<!-- 换行 -->
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+<!-- 1.获取输入参数-->
+<my-soft::assign id="app_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_app_id),0)"  />
+<my-soft::assign id="scene_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_scene_id),0)" />
+<my-soft::assign id="temp_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_temp_id),0)" />
+<my-soft::assign id="i" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_i),0)" />
+
+
+<!-- 2.获取content  -->
+<my-soft::invoke type="httpcall" service="getdeployedlist_by_user" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="i"        type="var"      value="$i" />
+</my-soft::invoke>
+<my-soft::assign id="content_response" expr="Html.Parse(2,$response)" />
+
+<!--  循环遍历，并组装输出 -->
+<my-soft::assign id="output_res" expr="%0a%0d" />
+<my-soft::assign id="para_node" expr="Html.GetElementByTagName($content_response,content,0)" />
+<my-soft::assign id="para_num" expr="Html.Count($para_node)" />
+<my-soft::assign id="var1" expr="0" />
+<my-soft::for condition="Math.LT($var1,$para_num,0)" recycle="Math.Inc($var1,1,var1)" >
+	<my-soft::assign id="output_res" expr="String.Cat($output_res,String.XmlDecode(Html.GetInnerText(Html.GetResult($para_node,$var1))),%0a%0d)" />
+	<!-- <my-soft::echo type="expr" value="String.XmlDecode(Html.GetInnerText(Html.GetResult($para_node,$var1)))" />	 -->
+</my-soft::for>
+
+<!--  获取预览模板-->
+<my-soft::invoke type="httpcall" service="gettempitem" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="temp_id"        type="var"      value="$temp_id" />
+</my-soft::invoke>
+<my-soft::assign id="temp_response" expr="Html.Parse(2,$response)" />
+<!--<my-soft::assign id="preview" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0))" />-->
+<my-soft::assign id="preview" expr="String.XmlDecode(Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0)))" />
+
+
+<!-- 渲染并输出预览 -->			
+<my-soft::assign id="output_res" expr="String.UrlEncode($output_res)" />
+<my-soft::invoke type="bpmlcall" service="gettempitem" filepath="$preview" retvar="response" >
+	<my-soft::parameter name="paras" 	type="var" 	value="$output_res"/>   
+</my-soft::invoke>
+
+<my-soft::echo type="var" value="$response" /> 

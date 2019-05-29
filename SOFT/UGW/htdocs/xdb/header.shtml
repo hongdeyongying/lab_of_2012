@@ -1,0 +1,44 @@
+﻿<!-- 包含在<body>标签之后 -->
+
+<nav id="menu" class="menu">
+	<a href="./index.html" target="_self">
+		<header class="menu-header">
+			<span class="menu-header-title">行动吧</span>
+		</header>
+	</a>
+	<section class="menu-section">
+		<h2 class="menu-section-title">我的账户</h2>
+		<ul class="menu-section-list">
+			<li><a href="../php/jygt/example/jsapi_html.php" target="_self">充值</a></li>		
+		</ul>
+
+		<h2 class="menu-section-title">运动吧</h2>
+		<ul class="menu-section-list">
+			<li><a href="./project.html" target="_self">管理活力行动项目</a></li>
+			<!-- <li><a href="./team.html" target="_self">活动</a></li> -->
+			<li><a href="./plan.html" target="_self">制定活力行动计划</a></li>
+			<li><a href="./grade.html" target="_self">记录活力行动成绩</a></li>
+			<li><a href="./review.html" target="_self">查看活力行动报告</a></li>
+			<li><a href="./rank.html" target="_self">了解行动达人排名</a></li>
+			<li><a href="./reward.html" target="_self">获取行动达人奖励</a></li>
+		</ul>
+
+		<h2 class="menu-section-title">作业吧</h2>
+		<ul class="menu-section-list">
+			<li><a href="./hw_deploy.html" target="_self">管理详细作业任务</a></li>
+			<li><a href="./hw_time.html" target="_self">登记作业完成时间</a></li>
+			<li><a href="./hw_grade.html" target="_self">作业完成质量评价</a></li>
+		</ul>
+	</section>
+</nav>
+<!--
+		<a href="http://www.wucar.com.cn/php/jygt/index.php" > PAY </a>			
+-->
+<main id="main" class="panel">
+	<div class="header_bar">
+		<button class="btn-hamburger js-slideout-toggle" title=“导航栏开关”></button>
+		
+		<h1>欢迎来到行动吧</h1><span id="xdh">关注公众号"WhatIsTSP"，获得您的行动号。 </span>
+		<hr />
+		
+		

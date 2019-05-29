@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<!-- 
+spmanager 对外的一些方法和变量 ，供mysql服务使用
+-->
+<services>	
+		<service name="getpopedom" type="mysql" desc="获取用户权限">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_user where rtxid=%22$rtxid$%22;" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="rtxid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="ulist_list" type="mysql" desc="查询文件指定的用户列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_ulistfile order by g_id,g_name , create_time DESC;" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="status" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="ulist_void" type="mysql" desc="撤销文件指定的用户列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_ulistfile set status=3 where file_id=$file_id$" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="file_id" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="ulist_list_by_status" type="mysql" desc="按照状态查询文件指定的用户列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_ulistfile where status=$status$ order by g_id,g_name,create_time DESC;" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="status" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="ulist_create" type="mysql" desc="创建一个文件指定的用户列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_ulistfile (file_name,url,path,g_name,status,create_time,modi_time,creater) values(%22$file_name$%22,%22$url$%22,%22$path$%22,%22$g_name$%22,$status$,now(),now(),%22$creater$%22)" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="file_name" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="url" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="path" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="status" 	request="O" 	response="O"	default="0" desc=""/>   
+				<parameter name="g_name" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="creater" 	request="O" 	response="O"	default="none" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="commit_content" type="mysql" desc="发布content">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+										
+			<variable name="sql" value="replace t_content (app_id,scene_id,content_id,content,filter,begin_time,end_time,status,mode) values($app_id$,$scene_id$,%22$content_id$%22,%22$content$%22,%22$filter$%22,%22$begin_time$%22,%22$end_time$%22,$status$,$mode$)" desc=""></variable>
+
+		</variables>
+
+		<parameters> 	    				
+			<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>  
+			<parameter name="content" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="filter" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="mode" 	request="O" 	response="O"	default="0" desc=""/>   
+			<parameter name="status" 	request="O" 	response="O"	default="0" desc=""/>   
+			<parameter name="begin_time" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="end_time" 	request="M" 	response="O"	default="" desc=""/>  
+		</parameters>
+		</service>
+		<service name="wrtcontentlog" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_content_log (app_id,scene_id,temp_id,content_name,content,filter,begin_time,end_time,status,mode,creater,modi_time) values($app_id$,$scene_id$,$temp_id$,%22$content_name$%22,%22$content$%22,%22$filter$%22,%22$begin_time$%22,%22$end_time$%22,$status$,$mode$,%22$creater$%22,now())" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="temp_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="content" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="filter" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="mode" 	request="O" 	response="O"	default="0" desc=""/>   
+				<parameter name="status" 	request="O" 	response="O"	default="0" desc=""/>   
+				<parameter name="begin_time" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="end_time" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="creater" 	request="M" 	response="O"	default="" desc=""/>  
+			</parameters>
+		</service>
+		<service name="uptcontentlog" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_content_log set content_name=%22$content_name$%22,content=%22$content$%22,filter=%22$filter$%22,begin_time=%22$begin_time$%22,end_time=%22$end_time$%22,status=$status$,mode=$mode$ ,modifier=%22$modifier$%22 where app_id = $app_id$ and scene_id= $scene_id$ and content_id=$content_id$ " desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="content_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="temp_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="content" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="filter" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="mode" 	request="O" 	response="O"	default="0" desc=""/>   
+				<parameter name="status" 	request="O" 	response="O"	default="0" desc=""/>   
+				<parameter name="begin_time" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="end_time" 	request="M" 	response="O"	default="" desc=""/>   
+			</parameters>
+		</service>
+
+		<service name="complete_contentlog" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_content_log set status=5,modifier=%22$modifier$%22  where app_id = $app_id$ and scene_id= $scene_id$ and content_id=$content_id$" desc="" />
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="content_id" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="modifier" 	request="M" 	response="O"	default="" desc=""/>  
+			</parameters>
+		</service>
+		
+		<service name="void_contentlog" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_content_log set status=0,modifier=%22$modifier$%22  where app_id = $app_id$ and scene_id= $scene_id$ and content_id=$content_id$" desc="" />
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="content_id" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="modifier" 	request="M" 	response="O"	default="" desc=""/>  
+			</parameters>
+		</service>
+		
+		<service name="apply_contentlog" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_content_log set status=1 ,modifier=%22$modifier$%22  where app_id = $app_id$ and scene_id= $scene_id$ and content_id=$content_id$" desc="" />
+			
+			</variables>
+			
+			<parameters> 	    				 
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="content_id" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="modifier" 	request="M" 	response="O"	default="" desc=""/>  
+			</parameters>
+		</service>
+		<service name="delete_contentlog" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="delete from t_content_log where app_id = $app_id$ and scene_id= $scene_id$ and content_id=$content_id$" desc="" />
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="content_id" 	request="M" 	response="O"	default="" desc=""/>  
+			</parameters>
+		</service>
+		<service name="commit_contentlog" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_content_log set status=2,modifier=%22$modifier$%22  where app_id = $app_id$ and scene_id= $scene_id$ and content_id=$content_id$" desc="" />
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="content" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="modifier" 	request="M" 	response="O"	default="" desc=""/>  
+			</parameters>
+		</service>
+
+		<service name="getapp" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select app_id,name as caption,remark from db_content.t_app" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+			
+			</parameters>
+		</service>		
+		<service name="getscene" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select scene_id,name as caption,remark from db_content.t_scene where app_id = $app_id$" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+			</parameters>
+		</service>
+		<service name="gettemp" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select temp_id,name as caption,input,output,preview from db_content.t_temp where app_id = $app_id$ and scene_id= $scene_id$ " desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+			</parameters>
+		</service>
+		<service name="gettempitem" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select temp_id,name as caption,input as input1,output,preview from db_content.t_temp where app_id = $app_id$ and scene_id= $scene_id$ and temp_id=$temp_id$ " desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>     
+				<parameter name="temp_id" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+		</service>
+		
+		<service name="getapplyitem" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select app_id,scene_id, content,filter,begin_time,end_time,mode,temp_id,content_id,content_name from db_content.t_content_log where app_id = $app_id$ and scene_id= $scene_id$ and content_id=$content_id$" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="content_id" 	request="M" 	response="O"	default="" desc=""/>   
+			</parameters>
+		</service>
+		<service name="getapplylist_wait" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select app_id,scene_id, content,filter,begin_time,end_time,mode,temp_id,content_id,content_name ,creater,modifier from db_content.t_content_log where app_id = $app_id$ and scene_id= $scene_id$ and status = $status$ and begin_time >= now() order by begin_time DESC limit 0,50 " desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="status" 	request="O" 	response="O"	default="1" desc=""/>   
+			</parameters>
+		</service>
+		<service name="getapplylist_expire" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select app_id,scene_id, content,filter,begin_time,end_time,mode,temp_id,content_id,content_name ,creater,modifier from db_content.t_content_log where app_id = $app_id$ and scene_id= $scene_id$ and status = $status$ and end_time <now() order by begin_time DESC limit 0,50 " desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="status" 	request="O" 	response="O"	default="1" desc=""/>   
+			</parameters>
+		</service>
+		<service name="getapplylist" type="mysql" desc="">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_content,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select app_id,scene_id, content,filter,begin_time,end_time,mode,temp_id,content_id,content_name ,creater,modifier from db_content.t_content_log where app_id = $app_id$ and scene_id= $scene_id$ and status = $status$ order by begin_time DESC limit 0,50 " desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="app_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="scene_id" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="status" 	request="O" 	response="O"	default="1" desc=""/>   
+			</parameters>
+		</service>
+		
+	</services>

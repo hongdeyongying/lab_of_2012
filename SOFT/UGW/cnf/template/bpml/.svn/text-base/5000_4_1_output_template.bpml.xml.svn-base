@@ -1,0 +1,133 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="paras" expr="String.UrlDecode($paras)" />
+<!-- 解析参数，取其中的值-->	
+<!-- <paras>
+ <para> <name> picsrc</name> <value> http://dc.qzone.com:8080/Upload/AD41D8CD98F00B204E9800998ECF8427E_258268.jpg</value> </para> 
+ <para> <name> picurl</name> <value> 比如：http://www.qq.com/</value> </para> 
+ 
+ <para> <name> title1</name> <value> </value> </para>
+ <para> <name> url1</name> <value> 比如：http://www.qq.com/</value> </para>
+
+ <para> <name> category2</name> <value> 比如: 影视</value> </para>
+ <para> <name> title2</name> <value> </value> </para> 
+ <para> <name> url2</name> <value> 比如：http://www.qq.com/</value> </para> <para>
+ 
+ < name> category3</name> <value> 比如: 影视</value> </para>
+ <para> <name> title3</name> <value> </value> </para>
+ <para> <name> url3</name> <value> 比如：http://www.qq.com/</value> </para> 
+ 
+ <para> <name> category4</name> <value> 比如: 影视</value> </para> <para>
+ <name> title4</name> <value> </value> </para>
+ <para> <name> url4</name> <value> 比如：http://www.qq.com/</value> </para> 
+ </paras> -->
+<my-soft::assign id="paras_html" expr="Html.Parse(2,$paras)" />
+<my-soft::assign id="para_node" expr="Html.GetElementByTagName($paras_html,para,0)" />
+<my-soft::assign id="para_num" expr="Html.Count($para_node)" />
+<my-soft::assign id="var1" expr="0" />
+<my-soft::for condition="Math.LT($var1,$para_num,0)" recycle="Math.Inc($var1,1,var1)" >
+
+	<my-soft::assign id="para_node_item" expr="Html.GetResult($para_node,$var1)" />
+	
+	<my-soft::assign id="para_name" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($para_node_item,name,0),0))" />
+	<my-soft::assign id="para_value" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($para_node_item,value,0),0))" />
+	
+	<my-soft::assign id="$para_name" expr="$para_value" />	
+	
+</my-soft::for>
+
+<my-soft::echo type="expr" value="String.Cat(%3cmytitle%20value%3d%22,$container_title,%22%20%2f%3e)" />
+
+<!-- 渲染并输出最后结果 -->		
+<div class="feeds_tp_3">
+	<div class="img_txt_tp bg3" style="padding:8px;">
+		<div class="img_ex bor3">
+			<!-- 图片 -->
+			<my-soft::echo type="expr" value="String.Cat(%3ca%20href%3d%22,$picurl,%22)" />
+				target="_blank" onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/pic');"	
+			<my-soft::echo type="expr" value="%3e" />
+			<my-soft::echo type="expr" value="String.Cat(%3cimg%20src%3d%22,$picsrc,%22%20)" />
+				style="width:100px;height:100px;" alt="图片" 
+			<my-soft::echo type="expr" value="%2f%3e%3c%2fa%3e" />
+		</div>		
+		<div class="txt_ex">
+			<h6>
+				<!--<a href=" -->
+				<my-soft::echo type="var" value="%3c" />a href="
+				<!-- 头条:url -->
+				<my-soft::echo type="var" value="$url1" />
+				" target="_blank" onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/title');" class="c_tx"
+				<my-soft::echo type="var" value="%3e" />
+				
+				<my-soft::echo type="var" value="$title1" />
+				
+				<my-soft::echo type="var" value="%3c%2fa%3e" />
+			</h6>
+			<ul>
+				<li><strong class="feeds_txt_sort bor2"><!-- 话题一 -->
+				<!-- 分类url -->
+				<my-soft::echo type="expr" value="String.Cat(%3ca%20href%3d%22,$url2,%22)" />
+				 target="_blank" onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/category1');" class="c_tx"
+				<my-soft::echo type="expr" value="%3e" />
+				<!-- 分类-->
+				<my-soft::echo type="var" value="$category2" />
+				</a></strong>
+				<!-- 分类明细URL-->
+				<my-soft::echo type="expr" value="String.Cat(%3ca%20href%3d%22,$url2,%22)" />
+				target="_blank"  onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/title1');" class="txt_ex_list c_tx"
+				<my-soft::echo type="expr" value="%3e" />
+				<!-- 分类明细-->
+				<my-soft::echo type="expr" value="$title2" />
+				</a>
+				</li>
+				
+				<li><strong class="feeds_txt_sort bor2"><!-- 话题二 -->
+				<!-- 分类url -->
+				<my-soft::echo type="expr" value="String.Cat(%3ca%20href%3d%22,$url3,%22)" />
+				target="_blank"  onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/category2');" class="c_tx"
+				<my-soft::echo type="expr" value="%3e" />
+				<!--  分类-->
+				<my-soft::echo type="var" value="$category3" />
+				</a></strong>
+				<!-- 分类明细URL-->				
+				<my-soft::echo type="expr" value="String.Cat(%3ca%20href%3d%22,$url3,%22)" />
+				target="_blank"  onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/title2');" class="txt_ex_list c_tx"
+				<my-soft::echo type="expr" value="%3e" />
+				<!-- 分类明细-->
+				<my-soft::echo type="var" value="$title3" />
+				</a>
+				</li>
+				
+				<li><strong class="feeds_txt_sort bor2"><!-- 话题三 -->
+				<!-- 分类url -->
+				<my-soft::echo type="expr" value="String.Cat(%3ca%20href%3d%22,$url4,%22)" />
+				target="_blank"  onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/category3');" class="c_tx"
+				<my-soft::echo type="expr" value="%3e" />
+				<!--  分类-->
+				<my-soft::echo type="var" value="$category4" />
+				</a></strong>
+				<!-- 分类明细URL-->				
+				<my-soft::echo type="expr" value="String.Cat(%3ca%20href%3d%22,$url4,%22)" />
+				target="_blank"  onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/title3');" class="txt_ex_list c_tx"
+				<my-soft::echo type="expr" value="%3e" />
+				<!-- 分类明细-->
+				<my-soft::echo type="var" value="$title4" />
+				</a>
+				</li>
+			</ul>
+		</div>
+		<div class="c_tx3" style="float:left;clear:both;margin-top:6px;">有<strong>__qz_dev_seeing_count__</strong>个好友喜欢
+		</div>
+	</div>
+	<div class="feeds_tp_operate">
+		<a class="c_tx" href="http://rc.qzone.qq.com/myhome/share/#action=recs&amp;from=feed" 
+			target="_blank" onclick="g_Parent.TCISD.pv('hotfeeds.qzone.qq.com','/share');">更多热门分享</a>
+	</div>
+</div>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+
+<!--
+元素：同组织内的不同业务的要素都是有限的，可共用的，应集中并规范起来
+	名字：全局唯一的标识
+	格式：基本的格式要求，长度与类型那个。需通过正则表达式予以描述
+	说明：详细的说明，使其含义清晰无歧义
+	检查方式：默认是正则表达式匹配，可自定义检查规则
+	转换方式：默认不转换，可定义转换规则
+-->
+<root>
+	<elements>
+		<element name="_field_name" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="_record_num" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="retmsg" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		
+		
+		<element name="app_id" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="scene_id" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="temp_id" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="content_id" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="status" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="mode" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="filter" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="begin_time" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="end_time" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		<element name="ptm" format="[a-zA-Z0-9.]+" checker="null" translator="null" desc="">5-10位数字</element>
+		
+		
+		<element name="tid" format="[a-zA-Z0-9.]+" checker="regex:single" translator="null" desc="">5-10位数字</element>
+		
+		<element name="QQ" format="[1-9][0-9]{4,161}" checker="regex:single" translator="base:single:urlencode" desc="QQ 的格式是5-10位数字">5-10位数字</element>
+		<element name="tid" format="[a-zA-Z0-9.]+" checker="regex:single" translator="null" desc="">5-10位数字</element>
+		<element name="retcode" format="[0-9]{1,8}" checker="regex:single" translator="null" desc="">1-8位数字</element>
+		<element name="sign" format="[0-9A-Fa-f]{32}" checker="regex:single" translator="null" desc="">1-8位数字</element>
+		<element name="aa" format="[0-9a-z]+" checker="regex:single" translator="null" desc="">1-8位数字</element>
+		
+		<element name="field" format="[a-zA-z_][_a-zA-Z0-9]{0,56}" checker="regex:single" translator="null" desc="字段名">数据库字段名</element>
+		<element name="table" format="[a-zA-z_][_a-zA-Z0-9]{0,56}" checker="regex:single" translator="null" desc="表名">数据库表名</element>
+		
+		<element name="connect" format="(or)|(and)" checker="regex:single" translator="null" desc="链接符号">链接符号</element>
+		
+		<element name="offset" format="[0-9]{0,10}" checker="regex:single" translator="null" desc="偏移量">偏移量</element>
+		<element name="limit" format="[1-9][0-9]{0,9}" checker="regex:single" translator="null" desc="限量">限量</element>
+		
+		<element name="method" format="[a-z][a-z0-9_.]*" checker="regex:single" translator="null" desc="方法名为字母打头的字符和数字字符串"></element>
+		
+		
+		<element name="version" format="[0-9]{1,4}" checker="regex:single" translator="null" desc=""></element>
+		<element name="cmdno" format="[0-9]{1,4}" checker="regex:single" translator="null" desc=""></element>
+		<element name="encode_type" format="[0-9]{1,2}" checker="regex:single" translator="null" desc=""></element>
+		<element name="chnid" format="[a-zA-Z_@.0-9]{1,65}" checker="regex:single" translator="null" desc=""></element>
+		<element name="seller" format="[a-zA-Z_@.0-9]{1,65}" checker="regex:single" translator="null" desc=""></element>
+<!--		<element name="mch_name" format="([\x01-\x7f])*([\x81-\xfe][\x40-\xfe])*" checker="regex:single" translator="null" desc="mch_name应该是中文"></element>
+-->
+<!--
+		version	是	整数	[1,4]	版本号，取值如下：
+1：先前版本。
+2：本次更新的版本。
+
+对于旧版本，不此字段，对于新版本，此字段必填。
+cmdno	是	整数	[1,4]	任务代码，取定值：12
+encode_type	是	整数	[1,2]	1：GB2312编码，默认为GB2312编码。
+2：UTF-8编码。
+chnid	是	字符串	[1,65]	平台提供者的财付通账号,与seller一致
+seller	是	字符串	[1,65]	收款方财付通账号，与chnid一致
+mch_name	是	字符串	[1,32]	商品名称，不能包含<>’”%特殊字符
+mch_price	是	整数	[1,10]	商品总价，单位为分。
+transport_desc	是	字符串	[32]	物流公司或物流方式说明
+transport_fee	是	整数	[1,10]	需买方另支付的物流费用。如已包含在商品价格中，请填写0。如果不填，默认为0。单位为分
+mch_desc	是	字符串	[1,64]	交易说明，不能包含<>’”%特殊字符
+need_buyerinfo	是	整数	[0,1]	是否需要在财付通填定物流信息，1：需要，2：不需要。
+mch_type	是	整数	[1,1]	交易类型：1、实物交易，2、虚拟交易。
+mch_vno	是	整数	[12]	商家的定单号
+mch_returl	是	字符串	[1,255]	回调通知URL,如果cmdno为12且此字段填写有效回调链接,财付通将把交易相关信息通知给此URL 
+show_url	是	字符串	[1,255]	支付后的商户支付结果展示页面。
+attach	是	字符串	[1,200]	该参数财付通不做处理。回调时原样返回。为商户可能的个性化应用预留。
+sign	是	字符串	[32,32]	Md5签名信息，签名方法如下：
+1、	对所有请求字段，其值为空的不加入MD5验证
+2、	对所有请求字段，按字段名的ASCII顺序进行连接，连接方式同URL参数连接方式。
+3、	key=总是附加在签名串的最后，不参与ASCII排序。
+4、	MD5的结果转化为大写。
+
+	-->
+	
+<!-- for 商户注册 -->
+        <element name="sp_domain" format="^(http[s]{0,1}:\/\/)(([0-9a-zA-Z_\-]{1,61}\.){1,}[a-zA-Z]{2,6})((:[0-9]{1,4}){0,1})([\/]{0,1})$" checker="regex:single" translator="null" desc="网站地址以http(s)打头"></element>
+        <element name="sp_name" format=".{1,50}" checker="regex:single" translator="null" desc="商户名称不能超过50字符"></element>   
+        <element name="sp_address" format="[^0-9]{1,30}" checker="regex:single" translator="null" desc="商户地址不能超过30字符,非数字"></element>
+        <element name="sp_postalcode" format="^\d{6}$" checker="regex:single" translator="null" desc="邮编只能6位数字"></element>
+				<element name="sp_contact" format="[^0-9]{1,20}" checker="regex:single" translator="null" desc="联系人不能超过20字符,非数字"></element>  
+        <element name="sp_tel" format=".{1,19}" checker="regex:single" translator="null" desc="电话号码输入错误"></element>
+        <element name="sp_mobile" format="^\d{11}$|^$" checker="regex:single" translator="null" desc="手机只能11位数字"></element>
+        <element name="sp_qqid" format="(\d{5,15}$)|^$" checker="regex:single" translator="null" desc="qq输入非法"></element>
+        <element name="sp_email" format="^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-z]{2,3}$" checker="regex:single" translator="null" desc="email输入格式:test@qq.com"></element>
+        <element name="sp_tradetype" format="^\d{1,3}$" checker="regex:single" translator="null" desc="所属行业非法"></element>
+        <element name="verifycode" format="\w{4,4}" checker="regex:single" translator="null" desc="验证码数只能字字符"></element>
+        <element name="reg_id" format="^\d{1,6}$" checker="regex:single" translator="null" desc="reg_id只能1-5位数字"></element>
+        <element name="reg_key" format="^\d{1,6}$" checker="regex:single" translator="null" desc="reg_key只能1-5位数字"></element>
+
+
+
+<!-- 银行结算信息 for onestop_ename -->
+   <element name="sp_type" format="^\d{1,6}$" checker="regex:single" translator="null" desc="商户类型只能1-5位数字"></element>
+   <element name="sp_id_card" format="^([0-9A-Z*]{5,18})$" checker="regex:single" translator="null" desc="身份证号只能5-18位数字"></element>
+  <element name="sp_bank_acct_no" format="^[0-9A-Z*]{10,24}$" checker="regex:single" translator="null" desc="银行账号只能10-24位数字字母"></element>
+  <element name="sp_bank_acct_name" format="[^0-9]+" checker="regex:single" translator="null" desc="户名只能非数字"></element>
+  <element name="sp_bank_code" format=".{1,50}" checker="regex:single" translator="null" desc="开户银行输入非法"></element>
+  <element name="sp_bank_loc_province" format=".{1,50}" checker="regex:single" translator="null" desc="开户地输入非法"></element>
+  <element name="sp_bank_loc_city" format=".{1,50}" checker="regex:single" translator="null" desc="开户地输入非法"></element>
+  <element name="sp_bank_name" format="^([\x81-\xfe][\x40-\xfe]){1,20}$" checker="regex:single" translator="null" desc="开户支行只能[1-20]中文"></element>
+
+
+
+<!-- 域名检查 -->
+   <element name="e_signid" format="^([0-9a-zA-Z]{18,61})$|^$" checker="regex:single" translator="null" desc="e_signid输入非法"></element>
+   <element name="e_domain" format=".{1,40}" checker="regex:single" translator="null" desc="domain输入非法[1-40字符]"></element>
+
+
+
+<!-- directapi 			
+			attach
+			bargainor_id
+			input_charset
+			privilege_name
+			service_name
+			service_version			
+			sign
+			sign_type
+			signer
+
+			
+			-->
+			
+   <element name="attach" format="^([0-9a-zA-Z_]{0,64})$|^$" checker="regex:single" translator="null" desc="input error"></element>
+   <element name="bargainor_id" format="^\d{10}$" checker="regex:single" translator="null" desc="input error"></element>
+   <element name="input_charset" format="^([0-9a-zA-Z_]{2,6})$" checker="regex:single" translator="null" desc="input error"></element>
+   <element name="privilege_name" format="^([0-9a-zA-Z_]{2,20})$" checker="regex:single" translator="null" desc="input error"></element>
+   <element name="service_name" format="^([0-9a-zA-Z_]{2,20})$" checker="regex:single" translator="null" desc="input error"></element>
+   <element name="service_version" format="^([0-9a-zA-Z_.]{2,20})$" checker="regex:single" translator="null" desc="input error"></element>
+   <element name="sign_type" format="^([0-9a-zA-Z_.-]{2,20})$" checker="regex:single" translator="null" desc="input error"></element>
+	 <element name="signer" format="^\d{10}$" checker="regex:single" translator="null" desc="input error"></element>
+	
+	</elements>	
+</root>

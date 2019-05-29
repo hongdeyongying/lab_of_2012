@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hello, World</title>
+<style type="text/css">
+html{height:100%}
+body{height:100%;margin:0px;padding:0px}
+#container{height:100%}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=842855b14ec90e16d9bd3dec896b39ff"></script>/
+
+</head>
+ 
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+var map = new BMap.Map("container");          // ������ͼʵ��
+var point = new BMap.Point(113.9195014,22.5296822);  // ����������  116.404, 39.915
+map.centerAndZoom(point, 15);                 // ��ʼ����ͼ���������ĵ�����͵�ͼ����
+
+// nav
+  map.addControl(new BMap.NavigationControl());
+map.addControl(new BMap.ScaleControl());  
+map.addControl(new BMap.OverviewMapControl());  
+map.addControl(new BMap.MapTypeControl());  
+//map.setCurrentCity("深圳"); // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
+//信息窗口
+	
+	var opts = {  
+	width: 250,     // 信息窗口宽度  
+	height: 100,     // 信息窗口高度  
+	title: "Hello"  // 信息窗口标题 
+	}  
+	var infoWindow = new BMap.InfoWindow("World", opts);  // 创建信息窗口对象  
+	//map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口  
+
+
+
+
+function AddPoint(map,longi,lati)
+{
+	var pt = new BMap.Point(longi,lati);
+	var mk = new BMap.Marker(pt);
+	
+	
+	
+	map.addOverlay(mk);
+	
+	mk.setTitle("123456 : ddd");
+	
+	var label = new BMap.Label("我是文字标注哦",{offset:new BMap.Size(20,-10)});
+	mk.setLabel(label);
+	
+	mk.addEventListener("click", function()
+	{  
+		alert("您点击了标注");  
+		alert(this.getTitle());
+		map.removeOverlay(this);
+	});  
+
+}
+	// 标注
+AddPoint(map,114.083989,22.537275);
+AddPoint(map,113.9195014,22.529682);
+
+	// 画线
+	function DrawLine(map,x1,y1,x2,y2)
+	{
+		var polyline = new BMap.Polyline([  
+		   new BMap.Point(x1,y1), 
+		   new BMap.Point(x2,y2)  
+		 ],  
+		 {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}  
+		);  
+		map.addOverlay(polyline);  
+		
+		
+		polyline.addEventListener("click", function(e)
+		{  
+			alert("您点击了线段");  
+					//map.removeOverlay(this);
+					var opts = {  
+			width: 250,     // 信息窗口宽度  
+			height: 100,     // 信息窗口高度  
+			title: "Hello"  // 信息窗口标题 
+			}  
+			var infoWindow = new BMap.InfoWindow("<table border=1><tr><td>a</td><td>b</td></tr><tr><td>a</td><td>b</td></tr><tr><td>a</td><td>b</td></tr></table>", opts);  // 创建信息窗口对象 
+			map.openInfoWindow(infoWindow,e.point);
+		});  
+	}
+	
+	DrawLine(map,114.083989,22.537275,113.9195014,22.529682);
+
+
+
+</script>
+</body>
+
+
+
+</html>

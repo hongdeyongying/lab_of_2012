@@ -1,0 +1,24 @@
+/*
+html{height:100%}
+body{height:100%};
+*/
+legend{font: bold 15pt 宋体;color:#000066;}
+p{font: normal 10pt 宋体;color:#000066;}
+
+.pimg{/*1 text-align:center;*/
+      /*2*/float:left;padding:10px;
+	  /*3 float:right;padding:10px;*/}
+#browse{
+		width:100%;
+		margin:0px;auto;
+		border-collapse:collapse;
+		/*border-collapse:separate;		*/
+		font-family:Arial, Helvetica, sans-serif;
+		text-align:center;
+		}
+#browse th, td{border:1px solid #aaa;text-align:left;font: normal 10pt 宋体;color:#000066;font-weight:bold;}
+#browse thead th{border-bottom:2px solid #3d580b;background-color:#a0a0ee;color:#fff;padding:2px 0px;}
+/*#browse th{background-color:#a0a0ff;}*/
+#browse th.title{/*background-color:#a0a0ee;text-align:center;color:#fff;*/}
+#browse tfoot td{border-width:0px;text-align:right;font: normal 10pt 宋体;color:#777;}
+#browse caption{font-weight:bold;padding:6px 0px;font: normal 10pt 宋体;color:#000066;}

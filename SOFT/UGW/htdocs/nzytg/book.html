@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>南漳樱桃谷在线预订</title>
+<style type="text/css">
+<!--
+.STYLE12 {font-size: xx-large}
+-->
+</style>
+</head>
+
+<body>
+<script>
+function showSuccess()
+{
+	if((frmBook.name.value != "")&&(frmBook.phone.value != "")&&(frmBook.time.value != ""))
+		alert("预约成功.\r\n 欢迎 "+frmBook.name.value+" 光临南漳樱桃谷!\r\n ‘"+frmBook.type.value +"’，期待您的光临！");
+}
+</script>
+<form id="frmBook" name="frmBook">
+<table width="600" border="0" align="center">
+<tr><td colspan="2"></td></tr>
+  <tr>
+    <td  nowrap="nowrap"><span class="STYLE12">&nbsp;游玩项目</span></td>
+    <td  align="left">
+        <select name="type" class="STYLE12">
+			<option>观光旅游</option>
+          <option>蔬果采摘</option>
+          <option>野味美食</option>
+          <option>乡村民宿</option>
+        </select>
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="STYLE12">&nbsp;姓名</span></td>
+    <td><span class="STYLE12">
+      <input name="name" class="STYLE12"/>
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="STYLE12">&nbsp;电话</span></td>
+    <td><span class="STYLE12">
+      <input name="phone" class="STYLE12"/>
+    </span></td>
+  </tr>
+  <tr>
+    <td   nowrap="nowrap"><span class="STYLE12">&nbsp;预计达到时间</span></td>
+    <td><span class="STYLE12">
+      <input name="time" class="STYLE12"/>
+    </span></td>
+  </tr> <tr>
+    <td><span class="STYLE12"></span></td>
+    <td><span class="STYLE12">
+      <input type="button" class="STYLE12" onclick="showSuccess()" value="预约"/>
+    </span></td>
+  </tr>
+</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+
+<table  border="1">
+		<tr>
+			<td width="200px">容器标题</td>
+			<td>
+			<label>标题:</label> <input type="text" id="title1" name="container_title" class="input_para" maxlength="17"  value="最给力新闻排行榜" />
+			</td>
+		</tr>
+		<tr >
+			<td width="200px">新闻1</td>
+			<td>
+			<label>标题:</label> <input type="text" id="title2" name="title1" class="input_para" maxlength="19" value="标题1" /><br />
+			<label>链接:</label> <input type="text" id="url2" name="url1" value="http://www.qq.com/t1" class="input_para" />
+			</td>
+		</tr>
+		<tr  >
+			<td width="200px">新闻2</td>
+			<td>
+			<label>标题:</label> <input type="text" id="title3" name="title2" class="input_para" maxlength="19"  value="标题2" /><br />
+			<label>链接:</label> <input type="text" id="url3" name="url2" value="http://www.qq.com/t2" class="input_para" />
+			</td>
+		</tr>
+		<tr  >
+			<td width="200px">新闻3</td>
+			<td>
+			<label>标题:</label> <input type="text" id="title4" name="title3" class="input_para" maxlength="19"   value="标题3" /><br />
+			<label>链接:</label> <input type="text" id="url4" name="url3" value="http://www.qq.com/t3" class="input_para" />
+			</td>
+		</tr>
+		<tr  >
+			<td width="200px">新闻4</td>
+			<td>
+			<label>标题:</label> <input type="text" id="title4" name="title4" class="input_para" maxlength="19"   value="标题4" /><br />
+			<label>链接:</label> <input type="text" id="url4" name="url4" value="http://www.qq.com/t3" class="input_para" />
+			</td>
+		</tr>
+		<tr  >
+			<td width="200px">新闻5</td>
+			<td>
+			<label>标题:</label> <input type="text" id="title4" name="title5" class="input_para" maxlength="19"   value="标题5" /><br />
+			<label>链接:</label> <input type="text" id="url4" name="url5" value="http://www.qq.com/t3" class="input_para" />
+			</td>
+		</tr>
+</table>	
+
+
+

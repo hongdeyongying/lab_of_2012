@@ -1,0 +1,17 @@
+
+<script src="../Js/jquery-1.9.1.js"> </script>
+	<script src="../Js/jquery-ui.js"> </script>
+	
+<div class="trigger">Trigger</div>
+<div class="result"></div>
+<div class="log"></div>
+<script>
+$( document ).ajaxSend(function() {
+  $( ".log" ).text( "Triggered ajaxSend handler." );
+});
+
+$( ".trigger" ).click(function() {
+  $( ".result" ).load( "./baidu/index.html" );
+});
+
+</script>

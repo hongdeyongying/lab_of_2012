@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<!--
+业务：任何组织的业务也是有限的，同样需要集中与规范
+	名字：全局唯一的标志
+	变量：统一用名值对来表示，仅供业务使用
+		名字：业务内局部唯一的标志
+		值：字符串表示的值
+		说明：对变量的说明，需要清楚无歧义
+	参数：参数必须在要素中定义，对业务而言，需要指定输入输出的存在性
+		名字：要素中的一个
+		输入的存在性：必填M、可选O、必空N
+		输出的存在性：必填M、可选O、必空N
+		说明：确认要素在业务中的用法
+		默认值：为空时的值定义
+	说明：详细的说明，使含义清晰无歧义
+
+
+-->
+<root>
+	<services>		
+		<service name="vcdimg" type="" desc="">
+			<variables>
+				<!-- record_html.bpml
+				mysql_result_xml.bpml
+				 -->
+				<variable name="_output_template_default" value="../cnf/template/mysql_result_xml_suc.bpml" desc="">失败所有的输出模版</variable>
+				<variable name="_output_template_0" value="../cnf/template/imgvcd_xml.bpml" desc="">返回值为0的输出模版</variable>
+				<variable name="_request_verifier" value="null" desc="">请求验证算法 md5</variable>
+				<variable name="_request_verifier_key" value="md5" desc="">验证算法参数</variable>
+				<variable name="_request_integrality" value="loose" desc="">请求完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_response_signer" value="loose" desc="">响应签名算法</variable>
+				<variable name="_response_signer_key" value="md5" desc="">签名算法参数</variable>
+				<variable name="_response_integrality" value="loose" desc="">响应完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_singleton_flag" value="true" desc="">唯一示例</variable>
+				
+			</variables>
+			<parameters> 	    
+				<parameter name="tid" 	request="M" 	response="O"	default="vcdimg" desc=""/>
+				<parameter name="method" 	request="O" 	response="O"	default="user" desc=""/> 
+				<parameter name="rnd" 	request="O" 	response="O"	default="123" desc=""/> 
+								
+				<parameter name="retcode" 	request="0" 	response="M"	default="" desc=""/>
+				<parameter name="retmsg" 	request="0" 	response="M"	default="" desc=""/> 
+			</parameters>
+		</service>
+		
+		<service name="ldd" type="" desc="">
+			<variables>
+				<!-- record_html.bpml
+				mysql_result_xml.bpml
+				 -->
+				<variable name="_output_template_default" value="../cnf/template/mysql_result_xml_suc.bpml" desc="">失败所有的输出模版</variable>
+				<variable name="_output_template_0" value="../cnf/template/record_xml.bpml" desc="">返回值为0的输出模版</variable>
+				<variable name="_request_verifier" value="null" desc="">请求验证算法 md5</variable>
+				<variable name="_request_verifier_key" value="md5" desc="">验证算法参数</variable>
+				<variable name="_request_integrality" value="loose" desc="">请求完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_response_signer" value="loose" desc="">响应签名算法</variable>
+				<variable name="_response_signer_key" value="md5" desc="">签名算法参数</variable>
+				<variable name="_response_integrality" value="loose" desc="">响应完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_singleton_flag" value="true" desc="">唯一示例</variable>
+				<variable name="_domain" value="www.wucar.com" desc="涉及到cookie操作的时候，使用此参数"></variable>
+				
+			</variables>
+			<parameters> 	    
+				<parameter name="tid" 	request="M" 	response="O"	default="mysql" desc=""/>
+				<parameter name="method" 	request="M" 	response="O"	default="" desc=""/> 
+								
+				<parameter name="retcode" 	request="0" 	response="M"	default="" desc=""/>
+				<parameter name="retmsg" 	request="0" 	response="M"	default="" desc=""/> 
+			</parameters>
+		</service>
+		
+		
+		<service name="test" type="" desc="">
+			<variables>
+				<variable name="_output_template_default" value="../cnf/template/CStringVectorMap_html.bpml" desc="">输出模版</variable>
+				<variable name="_request_verifier" value="null" desc="">请求验证算法 md5</variable>
+				<variable name="_request_verifier_key" value="md5" desc="">验证算法参数</variable>
+				<variable name="_request_integrality" value="strict" desc="">请求完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_response_signer" value="strict" desc="">响应签名算法</variable>
+				<variable name="_response_signer_key" value="md5" desc="">签名算法参数</variable>
+				<variable name="_response_integrality" value="loose" desc="">响应完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="port" value="3306" desc="">port</variable>
+				<variable name="timeout" value="5" desc="">timeout</variable>
+				<variable name="dbname" value="db_system" desc="">database name</variable>
+				<variable name="user" value="root" desc="">user name</variable>
+				<variable name="passwd" value="root1234" desc="">user passwd</variable>
+				<variable name="language" value="latin1" desc="">language</variable>
+			</variables>
+			<parameters> 	    
+				<parameter name="QQ" 	request="M" 	response="O"	default="aaa" desc="必须填写"/>   
+				<parameter name="QQ1" 	request="M" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="aa" 	request="O" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="tid" 	request="M" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="sign" 	request="O" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="retcode" 	request="B" 	response="M"	default="aaa" desc=""/> 
+				<parameter name="retmsg" 	request="B" 	response="M"	default="aaa" desc=""/> 
+			</parameters>
+		</service>
+		<service name="nph-test" type="" desc="">
+			<variables>
+				<variable name="_output_template" value="../cnf/template/nph-test.bpml" desc="">输出模版</variable>
+				<variable name="_request_verifier" value="null" desc="">请求验证算法</variable>
+				<variable name="_request_verifier_key" value="md5" desc="">请求验证算法</variable>
+				<variable name="_response_signer" value="md5" desc="">响应签名算法</variable>
+				<variable name="_response_signer_key" value="md5" desc="">签名算法参数</variable>
+				
+				<variable name="port" value="3306" desc="">port</variable>
+				<variable name="timeout" value="5" desc="">timeout</variable>
+				<variable name="dbname" value="db_system" desc="">database name</variable>
+				<variable name="user" value="root" desc="">user name</variable>
+				<variable name="passwd" value="root1234" desc="">user passwd</variable>
+				<variable name="language" value="latin1" desc="">language</variable>
+			</variables>
+			<parameters> 	    
+				<parameter name="QQ" 	request="M" 	response="O"	default="aaa" desc="必须填写"/>   
+				<parameter name="QQ1" 	request="M" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="aa" 	request="O" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="tid" 	request="M" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="sign" 	request="O" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="retcode" 	request="B" 	response="M"	default="aaa" desc=""/> 
+				<parameter name="retmsg" 	request="B" 	response="M"	default="aaa" desc=""/> 
+			</parameters>
+		</service>
+		
+	</services>
+</root>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<root>
+	<services>
+		<service name="_log4cpp_config" type="log" desc="log4cpp的配置项">
+			<variables>
+				<variable name="property_config_path" value="../cnf/log.ini" desc=""></variable>
+			<variables>
+		</service>
+		<service name="_fastcgi_config" type="fastcgi" desc="fastcgi的配置项">
+			<variables>
+				<variable name="max_times" value="5000" desc="fastcgi最大执行次数"></variable>
+				<variable name="reload_config" value="false" desc="每次请求重载配置文件"></variable>
+			<variables>
+		</service>	
+		<service name="_element_config" type="element" desc="elemen的配置项">
+			<variables>
+				<variable name="io_list" value="loose" desc="strict :所有输入输出参数必须都在element 配置文件中给出  loose 未给出则不校验格式 "></variable>
+			<variables>
+		</service>	
+		<service name="_error_config" type="error" desc="error handler的配置项">
+			<variables>
+				<variable name="error_template_path" value="../cnf/template/error_xml.bpml.xml" desc="错误模版"></variable>
+			<variables>
+		</service>
+		
+		<service name="_convert_config" type="convert" desc="convert的配置项">
+			<variables>
+				<variable name="null" value="singleton" desc="null convertor的实例有且只有一个"></variable>
+				<variable name="base" value="singleton" desc="base convertor的实例有且只有一个"></variable>
+			<variables>
+		</service>
+		<service name="_check_config" type="check" desc="check的配置项">
+			<variables>
+				<variable name="null" value="singleton" desc="null checker的实例有且只有一个"></variable>
+				<variable name="regex" value="singleton" desc="regex checker的实例有且只有一个"></variable>
+			<variables>
+		</service>
+		<service name="_signature_config" type="signature" desc="check的配置项">
+			<variables>
+				<variable name="null" value="singleton" desc="null signature的实例有且只有一个"></variable>
+				<variable name="md5" value="singleton" desc="md5 signature的实例有且只有一个"></variable>
+				<variable name="rsa" value="singleton" desc="rsa signature的实例有且只有一个"></variable>
+			<variables>
+		</service>
+		
+	</services>
+</root>

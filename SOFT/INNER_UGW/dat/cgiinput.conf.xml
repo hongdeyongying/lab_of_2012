@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+
+<!--
+业务：任何组织的业务也是有限的，同样需要集中与规范
+	名字：全局唯一的标志
+	变量：统一用名值对来表示，仅供业务使用
+		名字：业务内局部唯一的标志
+		值：字符串表示的值
+		说明：对变量的说明，需要清楚无歧义
+	参数：参数必须在要素中定义，对业务而言，需要指定输入输出的存在性
+		名字：要素中的一个
+		输入的存在性：必填M、可选O、必空N
+		输出的存在性：必填M、可选O、必空N
+		说明：确认要素在业务中的用法
+		默认值：为空时的值定义
+	说明：详细的说明，使含义清晰无歧义
+
+
+-->
+<root>
+	<services>
+		<service name="mysql_test" type="HTTP_POST_MULTIPART" desc="">
+			<variables>
+				<variable name="HTTP_COOKIE" value="a=111; c=d; " desc="">ip address</variable>
+				
+			</variables>
+			<parameters> 	    
+				<parameter name="tid" 	request="M" 	response="M"	default="mysql" desc="text"/>   
+				<parameter name="method" 	request="M" 	response="M"	default="test" desc="text"/> 
+				<parameter name="file" 	request="M" 	response="M"	default="1.txt" desc="file"/> 
+				<parameter name="uid" 	request="M" 	response="M"	default="1" desc="text"/> 
+			</parameters>
+		</service>
+		<service name="bpml_test" type="HTTP_POST" desc="">
+			<variables>
+				<variable name="HTTP_COOKIE" value="a=111; c=d; " desc="">ip address</variable>
+			</variables>
+			<parameters> 	     	    
+				<parameter name="tid" 	request="M" 	response="M"	default="mybpml" desc="text"/>   
+				<parameter name="method" 	request="M" 	response="M"	default="test" desc="text"/> 
+				<parameter name="test" 	request="M" 	response="M"	default="3306" desc="text"/> 
+			</parameters>
+		</service>
+		<service name="default" type="HTTP_GET" desc="">
+			<variables>
+				<variable name="HTTP_COOKIE" value="a=111; c=d; " desc="">ip address</variable>
+			</variables>
+			<parameters> 	    
+				<parameter name="test" 	request="M" 	response="M"	default="3306" desc="text"/> 				
+			</parameters>
+		</service>
+	</services>
+</root>

@@ -1,0 +1,79 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: text/html; charset=GB2312
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+<html>	
+	<head>
+	<title>aaaaa 输出示例 </title>
+	<style type="text/css" >
+	
+	</style>
+	</head>
+	<body>
+	<table class="demo" border="1">
+	<tr><td>名</td><td>值</td></tr>
+	<!-- 条件分支语句 -->
+	<my-soft::switch expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)">
+		<my-soft::case value="NULL">
+		<tr>
+			<td>900099</td>
+			<td>系统内部错误</td>
+		</tr>
+		</my-soft::case>
+		<my-soft::case value="0">
+			<!-- 赋值语句 -->
+			<my-soft::assign id="Map.Size" expr="Map.Size($_RAW_REQUEST_STRING_VECTOR_MAP)" />
+			<my-soft::assign id="var" expr="0"  />
+			
+			<tr><td>Map.Size</td>
+			<td>
+				<!-- 显示语句-->
+				<my-soft::echo type="expr" value="$Map.Size" /> 
+			</td>
+			</tr>
+			<!-- 循环语句 -->
+			<my-soft::for condition="Math.LT($var,$Map.Size,0)" recycle="Math.Inc($var,1,var)" >
+			
+				<my-soft::assign id="map_at_var" expr="Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,value)" />
+				
+				<my-soft::assign id="var1" expr="0"  />
+				<my-soft::assign id="vector_size" expr="Vector.Size($map_at_var)" />
+				<tr><td>vector_size of
+				<my-soft::echo type="expr" value="Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name)" />
+				</td>
+				<td>
+					<my-soft::echo type="expr" value="$vector_size" /> 
+				</td>
+				</tr>
+					<!-- 逐行显示数组的值 -->
+					<my-soft::for condition="Math.LT($var1,$vector_size,0)" recycle="Math.Inc($var1,1,var1)" >
+					<tr><td>
+						<my-soft::echo type="expr" value="$var1" />
+						</td><td>
+						<my-soft::echo type="expr" value="String.XmlEncode(Vector.At($map_at_var,$var1))" />
+						</td></tr>
+					</my-soft::for>
+				</my-soft::for>
+		</my-soft::case>
+		<my-soft::defauMath.LT>
+		<tr>
+			<td><my-soft::echo type="expr" value="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)" /></td>
+			<td>系统内部错误</td>
+		</tr>
+		</my-soft::defauMath.LT>
+	</my-soft::switch>
+	</body>
+</html>	
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />

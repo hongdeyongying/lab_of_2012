@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="gb2312"?>
+
+<services>	
+	<service id="xdb_reg" name="创建一个用户" desc="创建一个用户">
+    <porttype name="HTTP" version="1.1" method="GET" host="127.0.0.1" port="80" url="/cgi/ugw" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="www.wucar.com.cn" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="xdb_reg"/>	
+				
+        <parameter name="name"        type="inp"      value="" />
+        <parameter name="openid"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  
+	<service id="xdb_modi_nick" name="创建一个用户" desc="创建一个用户">
+    <porttype name="HTTP" version="1.1" method="GET" host="127.0.0.1" port="80" url="/cgi/ugw" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="www.wucar.com.cn" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="xdb_modi_nick"/>	
+				
+        <parameter name="name"        type="inp"      value="" />
+        <parameter name="openid"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+    <service id="xdb_uinfo" name="创建一个用户" desc="创建一个用户">
+    <porttype name="HTTP" version="1.1" method="GET" host="127.0.0.1" port="80" url="/cgi/ugw" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="www.wucar.com.cn" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="xdb_uinfo"/>	
+				
+        <parameter name="openid"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+
+  <service id="commit_ttc_content" name="通过TTC提交新的内容" desc="以避免直接访问数据库形成脏数据">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebTTC" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="dcttc"/>
+        <parameter name="method"        type="fix"      value="commit_ttc_content"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />
+        <parameter name="filter"        type="inp"      value="" />
+        <parameter name="begin_time"        type="inp"      value="" />
+		<parameter name="end_time"        type="inp"      value="" />
+
+		<parameter name="mode"        type="inp"      value="" />
+		<parameter name="status"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="commit_content" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="commit_content"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />
+        <parameter name="filter"        type="inp"      value="" />
+        <parameter name="begin_time"        type="inp"      value="" />
+		<parameter name="end_time"        type="inp"      value="" />
+
+		<parameter name="mode"        type="inp"      value="" />
+		<parameter name="status"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+
+  <service id="completecontentlog" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="complete_contentlog"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />        
+        <parameter name="modifier"        type="inp"      value="" />      
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="voidcontentlog" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="void_contentlog"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />        
+        <parameter name="modifier"        type="inp"      value="" />      
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="delete_contentlog" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="delete_contentlog"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />        
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="apply_contentlog" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="apply_contentlog"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />        
+        <parameter name="modifier"        type="inp"      value="" />      
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="voidcontent" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebTTC" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="dcttc"/>
+        <parameter name="method"        type="fix"      value="deletedeployeditem"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />        
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="commitcontentlog" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="commit_contentlog"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />        
+        <parameter name="modifier"        type="inp"      value="" />        
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="wrtcontentlog" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="wrtcontentlog"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content"        type="inp"      value="" />
+        <parameter name="temp_id"        type="inp"      value="" />
+        <parameter name="content_name"        type="inp"      value="" />
+        <parameter name="filter"        type="inp"      value="" />
+        <parameter name="begin_time"        type="inp"      value="" />
+		<parameter name="end_time"        type="inp"      value="" />
+
+		<parameter name="mode"        type="inp"      value="" />
+		<parameter name="status"        type="inp"      value="" />
+        <parameter name="creater"        type="inp"      value="gauss"/>
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+  <service id="uptcontentlog" name="商户md5签名" desc="商户md5签名">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="uptcontentlog"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />
+        <parameter name="content"        type="inp"      value="" />
+        <parameter name="temp_id"        type="inp"      value="" />
+        <parameter name="content_name"        type="inp"      value="" />
+        <parameter name="filter"        type="inp"      value="" />
+        <parameter name="begin_time"        type="inp"      value="" />
+		<parameter name="end_time"        type="inp"      value="" />
+
+		<parameter name="mode"        type="inp"      value="" />
+		<parameter name="status"        type="inp"      value="" />
+		<parameter name="modifier"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+
+  <service id="getapplyitem" name="获取一条content-log信息" desc="">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="getapplyitem"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="content_id"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>
+
+  <service id="gettempitem" name="获取一条Temp信息" desc="">
+    <porttype name="HTTP" version="1.1" method="POST" host="172.16.56.27" port="8080" url="/cgi-bin/MyWebSQL" >
+        <protocol ssl="none">
+                none  普通TCP/IP协议
+                serv    客户端单向验证服务端身份，服务端不验证客户
+                clnt    服务端单项验证客户端端身份,客户端不验证服务
+                none    客户端与服务端双向验证
+        </protocol>
+        <certs>
+                <cert name="private" path="/data/smedev/SOFT/my_ca/apache/client/client.pem" passwd="clientkey"/>
+                <cert name="trust" path="/data/smedev/SOFT/my_ca/apache/trust/rootcert.pem" />        </certs>
+    </porttype>
+    <headers>
+      <header name="Accept"           type="fix"        value="image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-silverlight, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, */*" />
+      <header name="Accept-Language"    type="fix"      value="zh-cn" />
+      <header name="UA-CPU"                                     type="fix"      value="x86" />
+      <header name="Content-Type"               type="fix"      value="application/x-www-form-urlencoded" />
+      <header name="Accept-Encoding"    type="fix"      value="gzip, deflate" />
+      <header name="User-Agent"                         type="fix"      value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; QQDownload 1.7; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)" />
+      <header name="Connection"                         type="fix"      value="Close" />
+      <header name="Host"                                               type="fix"      value="dc.qzone.com" />
+      <header name="Cache-Control"              type="fix"      value="no-cache" />
+
+    </headers>
+
+    <parameters>
+        <parameter name="tid"   type="fix"      value="mysql"/>
+        <parameter name="method"        type="fix"      value="gettempitem"/>
+		
+        <parameter name="app_id"        type="inp"      value="" />
+        <parameter name="scene_id"        type="inp"      value="" />
+        <parameter name="temp_id"        type="inp"      value="" />
+
+    </parameters>
+
+    <response>
+
+    </response>
+  </service>  
+  
+</services>
+

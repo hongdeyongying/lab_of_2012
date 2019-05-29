@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="chrome=IE8" />
+    <meta name="renderer" content="webkit"/>
+	<head>
+		<style>var{font-style:normal;}</style>
+		<script>
+			var _CONFIG_ = parent._CONFIG_;
+			var lg = parent.lg;
+			var mds = parent.mds;
+			var lang = parent.lang;
+			(function(){
+				var urlMapper = {
+						'cn':{'BAIDU':'http://api.map.baidu.com/api?v=1.5&services=false&ak=BCa2d508d2c567acd009eb09765f5797','GOOGLE':'http://ditu.google.cn/maps/api/js?sensor=false&language=cn&libraries=drawing,geometry','QQ':'http://map.qq.com/api/js?v=2.exp&key=G6BBZ-2CQ3S-NX4O5-6SOR4-E7VMZ-2CFE7&libraries=drawing,geometry'},
+						'en':{'GOOGLE':'http://maps.googleapis.com/maps/api/js?sensor=false&language=en&libraries=drawing,geometry','OSM':'http://open.mapquestapi.com/sdk/js/v7.1.0/mqa.toolkit.js?key=Fmjtd%7Cluur2g68ll%2Cb5%3Do5-9a8ggu'}
+				};
+				var mapType = parent.mapType;
+				if(parent.GFRAME && parent.GFRAME.currentMap)
+					mapType = parent.GFRAME.currentMap;
+				document.write('<link rel="stylesheet" type="text/css" href="' + _CONFIG_.STATIC_SITE + 'user/css/userframe-c.css?v=' + _CONFIG_.CONFIG_VERSION +
+						'" /><link rel="stylesheet" type="text/css" href="' + _CONFIG_.STATIC_SITE + 'user/css/monitor.css?v='+ _CONFIG_.CONFIG_VERSION +
+						'" /><script src="' + urlMapper[lang][mapType] + '"><' +
+						'/script><script src="' + _CONFIG_.STATIC_SITE + 'js/underscore.js?v='+ _CONFIG_.CONFIG_VERSION +'"><'+
+						'/script><script src="' + _CONFIG_.STATIC_SITE + 'user/js/core-c.js?v='+ _CONFIG_.CONFIG_VERSION +'"><'+
+						'/script><script src="' + _CONFIG_.STATIC_SITE + 'js/jquery-1.3.2.min.js?v='+ _CONFIG_.CONFIG_VERSION +'"><'+
+						'/script><script src="' + _CONFIG_.STATIC_SITE + 'My97DatePicker/WdatePicker.js"><'+
+						'/script>');
+			})();
+		</script>
+	</head>
+	<body id="monitor_map">
+		<div class="map-titlebar" id="overUserInfoCanvas">
+			<!-- 地址信息 -->
+			<div id="overUserAddress" style="float:left;overflow:hidden;"></div>
+			<!-- tools -->
+			<div style="float:right;">
+				<a href="javascript:GFRAME.mapAutoCenterZoom();"><var key="topView"></var></a>&nbsp;
+				<label class="map-operation" >
+					<input type="checkbox" id="set_full_screen" /> <var key="fullScreen"></var>
+				</label>
+				<label class="map-operation" for="showProductName">
+					<input type="checkbox" id="showProductName" checked="checked" /> 
+					<var key="shown"></var>
+				</label>
+		    </div>
+			<!-- 地图切换 -->
+		    <div id="cat_list" class="cat_list_type" style="width:98px;height: 18px;border: #A6A6A6 1px solid;z-index: 100;float:right;"></div>
+		</div>
+		<script>
+			if('cn'== _CONFIG_.CONFIG_LANG){
+				document.write('<div id="timerCt" class="timer">&nbsp;&nbsp;<span id="refTimer"> </span>&nbsp;秒后刷新&nbsp;&nbsp;</div>');
+			}else{
+				document.write('<div id="timerCt" class="timer">&nbsp;&nbsp;Refresh After <span id="refTimer"> </span>&nbsp;Seconds&nbsp;&nbsp;</div>');
+			}
+		</script>
+		<div id="mapcanvas"></div>
+		<div id="hoverTips" style="display:none;z-index:100" class="hover_tips">
+			<span class="hover_tips_ztb"></span>
+			<div id="hoverTipContent" class="hover_tips_cont"></div>
+		</div>
+		<!--marker的更多功能菜单-->
+		<span id="menu_more" onMouseOver="clearInterval(_s);" onMouseOut="hidemore('menu_more',300)"></span>
+		<div id="tip" style="position:absolute;background:#FBFFD7;z-index:10;border:solid 1px #999999;padding:3px;display:none;font-weight:bold;"></div>
+		<script>
+			(function(){
+				var i18nNode = document.getElementsByTagName('var'),len = i18nNode.length;
+				for(var i =0;i<len;i++){
+					i18nNode[i].innerHTML = parent.lg.server[i18nNode[i].getAttribute('key')] || '';
+				}
+				var safeLoadCoreScript = function(){
+					if(typeof _ != 'undefined'){
+						var wrapperAPI = typeof MQA != 'undefined'?'js/popupmarker-osm.js?v=':'js/goome.maps.js?v=';
+						_.ajax.getScript(_CONFIG_.STATIC_SITE + wrapperAPI + _CONFIG_.CONFIG_VERSION,function(){
+							_.ajax.getScript(_CONFIG_.STATIC_SITE + 'user/js/map.js?v=' + _CONFIG_.CONFIG_VERSION);
+						});
+					}else{
+						setTimeout(safeLoadCoreScript,30);
+					}
+				};
+				safeLoadCoreScript();
+			})();
+		</script>
+	</body>
+</html>

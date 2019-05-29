@@ -1,0 +1,155 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: text/html; charset=GB2312
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+
+<my-soft::assign id="loginname" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_loginname),0)"  />
+<!--  处理输入参数，并组合存放到content变量中：需要主要文件的存放方式
+<my-soft::assign id="g_upload_file_base_url" expr="String.Cat(http%3a%2f%2fdc%2eqzone%2ecom%3a8080,%2FUpload%2F)"  />-->	
+<my-soft::assign id="g_upload_file_base_url" expr="String.Cat(http%3a%2f%2fqzonestyle%2egtimg%2ecn,%2Fqzone%2Fapp%2Fqzshare%2Fimgrec%2F)"  />
+	<!-- 1  初始化content变量-->	
+	<my-soft::assign id="content" expr="String.Cat(%3c,paras,%3e%0a%0d)" />
+	<!--2. 准备遍历mapstringvector 赋值语句 -->
+	<my-soft::assign id="map_size" expr="Map.Size($_RAW_REQUEST_STRING_VECTOR_MAP)" />
+	<my-soft::assign id="var" expr="0"  />	
+	<!-- 3.依次取map元素 -->
+	<my-soft::for condition="Math.LT($var,$map_size,0)" recycle="Math.Inc($var,1,var)" >	
+		<my-soft::assign id="map_at_var" expr="Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,value)" />		
+		<my-soft::assign id="var1" expr="0"  />
+		<my-soft::assign id="vector_size" expr="Vector.Size($map_at_var)" />		
+		<!-- 逐行显示数组的值 -->
+		<my-soft::assign id="node_name" expr="Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name)" />
+		<my-soft::switch expr="String.Has($node_name,para_,1)">
+		<my-soft::case value="true">
+			<!-- 看看是否是一个文件节点：如果有的话文件节点的名称为这个 -->
+			<my-soft::assign id="node_file_name" expr="String.Cat(fdata_,String.SubStr($node_name,5))" />
+			
+			<my-soft::assign id="content" expr="String.Cat($content,%3c,para,%3e)" />
+			<my-soft::for condition="Math.LT($var1,$vector_size,0)" recycle="Math.Inc($var1,1,var1)" >				
+				<my-soft::assign id="nn" expr="String.Cat(%3cname%3e,String.SubStr(Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name),5),%3c%2fname%3e)" />
+				
+				<my-soft::assign id="node_file_value" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,$node_file_name),$var1)" />
+		
+				<my-soft::switch expr="Math.EQU($node_file_value,NULL)">
+					<my-soft::case value="true">
+						<my-soft::assign id="vv" expr="String.Cat(%3cvalue%3e,String.XmlEncode(Vector.At($map_at_var,$var1)),%3c%2fvalue%3e)" />
+					</my-soft::case>
+					<my-soft::default>
+						<my-soft::assign id="tmpfilename" expr="File.GenCachName(A,Vector.At($map_at_var,$var1),%2ejpg,43200)" />
+						<my-soft::assign id="tmpfilepath" expr="String.Cat(%2e%2e%2fhtdocs%2fUpload%2f,$tmpfilename)" />
+						<my-soft::assign id="res" expr="File.Store($tmpfilepath,$node_file_value)" />
+						<my-soft::assign id="tmpfileurl" expr="String.Cat($g_upload_file_base_url,$tmpfilename)"  />
+						<my-soft::assign id="vv" expr="String.Cat(%3cvalue%3e,String.XmlEncode($tmpfileurl),%3c%2fvalue%3e)" />
+					</my-soft::default>
+				</my-soft::switch>		
+
+				<my-soft::assign id="content" expr="String.Cat($content,$nn,$vv)" />
+			</my-soft::for>
+			<my-soft::assign id="content" expr="String.Cat($content,%3c%2f,para,%3e)" />
+		</my-soft::case>
+		</my-soft::switch>		
+		<!--<my-soft::echo type="expr" value="String.Cat(%3c%2f,Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name),s%3e)" />-->
+	</my-soft::for>
+	<my-soft::assign id="content" expr="String.Cat($content,%0a%0d%3c%2f,paras,%3e%0a%0d)" />
+
+
+<!-- 公用的参数-->			
+<my-soft::assign id="app_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_app_id),0)"  />
+<my-soft::assign id="scene_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_scene_id),0)"  />
+<my-soft::assign id="content_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_content_id),0)"  />
+<my-soft::assign id="temp_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_temp_id),0)"  />
+<my-soft::assign id="content_name" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_content_name),0)"  />
+<my-soft::assign id="mode" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_mode),0)"  />
+<my-soft::assign id="begin_time" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_begin_time),0)"  />
+<my-soft::assign id="end_time" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_end_time),0)"  />
+	<!-- 组合过滤条件 -->
+	<my-soft::assign id="filter" expr=""  />
+	<my-soft::assign id="comb_method" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_comb_method),0)"  />
+	<my-soft::switch expr="$comb_method">
+		<my-soft::case value="all">
+			<my-soft::assign id="filter" expr="true"  />
+		</my-soft::case>
+		<my-soft::default>			
+			<my-soft::assign id="filter" expr="String.Cat($comb_method,%28)"  />
+			<!-- 取条件个数 -->
+				<my-soft::assign id="vector_size" expr="Vector.Size(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_identify_name))" />
+				<my-soft::assign id="var1" expr="0"  />
+				<my-soft::for condition="Math.LT($var1,$vector_size,0)" recycle="Math.Inc($var1,1,var1)" >					
+<my-soft::echo type="var" value="$var1" />
+					<my-soft::assign id="identify_name" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_identify_name),$var1)"  />
+					<my-soft::assign id="identify_comp" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_identify_comp),$var1)"  />
+					<my-soft::assign id="identify_value" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_identify_value),$var1)"  />
+					
+					<my-soft::assign id="expr_tmp" expr="String.Cat($identify_comp,%28%24,$identify_name,%2c,String.UrlEncode2($identify_value),%29)"  />
+				
+					<my-soft::switch expr="Math.EQU($var1,0)">
+						<my-soft::case value="false">
+							<my-soft::assign id="filter" expr="String.Cat($filter,%2c)"  />
+						</my-soft::case>
+					</my-soft::switch>
+			<my-soft::echo type="var" value="$var1" />
+					<my-soft::assign id="filter" expr="String.Cat($filter,$expr_tmp)"  />
+				</my-soft::for>
+			<my-soft::assign id="filter" expr="String.Cat($filter,%29)"  />
+		</my-soft::default>
+	</my-soft::switch>
+		
+<!--  <my-soft::echo type="var" value="$filter" />  -->
+<!--  写数据库 -->		
+
+<my-soft::switch expr="Math.EQU($content_id,NULL)">	
+<my-soft::case value="true">	
+	<my-soft::invoke type="httpcall" service="wrtcontentlog" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+		<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+		<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+		<my-soft::parameter name="content"        type="var"      value="$content" />
+	    <my-soft::parameter name="temp_id"        type="var"      value="$temp_id" />
+		<my-soft::parameter name="content_name"        type="var"      value="$content_name" />
+		<my-soft::parameter name="filter"        type="var"      value="$filter" />
+		<my-soft::parameter name="begin_time"        type="var"      value="$begin_time" />
+		<my-soft::parameter name="end_time"        type="var"      value="$end_time" />
+		<my-soft::parameter name="mode"        type="var"      value="$mode" />
+		<my-soft::parameter name="status"        type="var"      value="0" />
+		<my-soft::parameter name="creater"        type="var"      value="$loginname" />
+	</my-soft::invoke>
+</my-soft::case>
+<my-soft::default>																
+	<my-soft::invoke type="httpcall" service="uptcontentlog" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+		<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+		<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+		<my-soft::parameter name="content"        type="var"      value="$content" />
+		<my-soft::parameter name="content_id"        type="var"      value="$content_id" />
+	    <my-soft::parameter name="temp_id"        type="var"      value="$temp_id" />
+		<my-soft::parameter name="content_name"        type="var"      value="$content_name" />
+		<my-soft::parameter name="filter"        type="var"      value="$filter" />
+		<my-soft::parameter name="begin_time"        type="var"      value="$begin_time" />
+		<my-soft::parameter name="end_time"        type="var"      value="$end_time" />
+		<my-soft::parameter name="mode"        type="var"      value="$mode" />
+		<my-soft::parameter name="status"        type="var"      value="0" />
+		<my-soft::parameter name="modifier"        type="var"      value="$loginname" />
+	</my-soft::invoke>
+</my-soft::default>
+
+</my-soft::switch>
+
+<my-soft::assign id="html_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($html_response,retcode,0),0))" />
+
+<my-soft::switch expr="Math.EQU($retcode,0)">	
+<my-soft::case value="true">
+	保存草稿成功！
+</my-soft::case>
+<my-soft::default>																
+	保存草稿失败,请重试！
+</my-soft::default>
+
+</my-soft::switch>

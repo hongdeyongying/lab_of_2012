@@ -1,0 +1,16 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Set-Cookie: vcdid=<my-soft::echo type="expr" value=="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,vcdmd5),0)" />; PATH=/; DOMAIN=wucar.com.cn;
+<my-soft::echo type="var" value="%0d%0a" />
+Content-Type: image/gif
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<my-soft::echo type="expr" value=="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,vcdimg),0)" />

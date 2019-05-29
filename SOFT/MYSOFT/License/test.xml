@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312" standalone="yes" ?>
+<My-Soft domin="www.my-soft.net.cn">
+    <soft id="StockChecker" method="local" sign="837a0b315c6df32732f0376464ce1d0ec5b000c09b8c3e39661420fc9e9df4457589ecfd514a50b124620a80af07883f012044b3793aa7022d10c0ec91db1a5a62e0ff47692f8901f929b0734c267ea1f29c25a08475cb074ea368fb9041ed632af13637f8212e25ce93d2bee2f1381f9ea6961b36474fc070fab9d2617d8910">
+        <exp begin="1247905251l" end="1249114851l" />
+        <nids>
+            <nid name="net" value="" />
+            <nid name="storage" value="" />
+        </nids>
+        <vars>
+            <var name="Company" value="原创软件" />
+            <var name="User" value="开发者" />
+        </vars>
+    </soft>
+</My-Soft>

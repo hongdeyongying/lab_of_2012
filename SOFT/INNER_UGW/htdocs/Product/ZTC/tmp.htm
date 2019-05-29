@@ -1,0 +1,368 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Developer Studio">
+<META HTTP-EQUIV="Content-Type" content="text/html; charset=gb_2312-80">
+<TITLE>Document Title</TITLE>
+<style  type="text/css" >
+	label{width:200px;}
+	select{width:200px;}
+	input{width:200px;left:0px;}
+	#RT_Store{width:15px;}
+	.header{background:#eee}
+	span.tips{color:red;}
+</style>
+<script type="text/javascript"  language="javascript" src="./javascript/CXML.js" ></script>
+<script type="text/javascript"  language="javascript">
+
+	var CftMchLib= new ActiveXObject("CFTMCHINTERFACE.CftMchLib");
+	var ZTCLib= new ActiveXObject("CFTMCHINTERFACE.ZTCSale");
+	//var ValidLib= new ActiveXObject("CLIENTLICENSE.Validate");
+	
+	//alert(ValidLib.IsValid("MS_WS"));
+	//alert(ValidLib.GetVar("ztcUin"));
+	//alert(ValidLib.GetVar("Company1"));
+	//(ValidLib.SetVar("Company","gaus2s"));
+	//(ValidLib.SetVar("Company1","gauss1455999"));
+	//(ValidLib.SetVar("Company2","gauss12333"));
+	
+	ZTCLib.Init("605311966","1f32ecfe1");
+	
+	function GetClientTime()
+	{
+		var now= new Date();
+		var year=now.getYear();
+		var month=now.getMonth()+1;
+		var day=now.getDate();
+		var hour=now.getHours();
+		var minute=now.getMinutes();
+		var second=now.getSeconds();
+		return GetClientTime = (year+"-"+month+"-"+day+" "+hour+":"+":"+minute+":"+second);
+
+	}
+	function RtInsertToDB(dt,au,p,c,cm1,cm2,bn,st,msg,dt1)
+	{		
+		var frm = document.getElementById("DATASRC");
+		
+		if (frm.RT_Store.checked == true)
+		{
+
+			var retcd = ZTCLib.OpenLog(frm.DB_Connection.value);
+				
+			retcd = ZTCLib.AddLog(dt,au,p,c,cm1,cm2,bn,st,msg,dt1);
+			
+			if(retcd != 0) alert("保存操作记录失败!");
+			retcd = ZTCLib.CloseLog();
+		}
+	}
+	function ExportToDB(table_id)
+	{
+		var frm = document.getElementById("DATASRC");
+		
+		var iSuccCount = 0,iFailCount = 0;
+		var retcd = ZTCLib.OpenLog(frm.DB_Connection.value);
+		//alert("打开数据源 : " +retcd);
+		
+		//ZTCLib.AddLog("2006-10-10 10:00:00","1111","1","1","1","1","1","1","1");
+		
+		var table = document.getElementById(table_id);//指定要写入的数据源的id
+		var hang = table.rows.length;//取数据源行数
+		var lie = table.rows(0).cells.length;//取数据源列数
+
+		// Add table headers going cell by cell.
+		for (i=1;i<hang;i++)
+		{
+			//在Excel中写行
+			/*
+			AddLog(BSTR datatime, BSTR accUin, BSTR product, BSTR count, BSTR comm1, 
+							  BSTR comm2, BSTR billno, BSTR status, BSTR msg,LONG * retcd)
+			*/
+			retcd = ZTCLib.AddLog(table.rows(i).cells(0).innerText,
+				table.rows(i).cells(1).innerText,
+				table.rows(i).cells(2).innerText,
+				table.rows(i).cells(3).innerText,
+				table.rows(i).cells(4).innerText,
+				"1",
+				table.rows(i).cells(5).innerText,
+				table.rows(i).cells(6).innerText,
+				table.rows(i).cells(7).innerText,
+				table.rows(i).cells(8).innerText);
+			//alert("插入数据 : "+retcd);
+			if(retcd != 0)
+			{				
+				CftMchLib.ShowMsg("导入到DB","\r\n返回值【"+retcd+"】\r\n"+ZTCLib.GetLastError());
+				break;
+			}
+			else
+			{
+				iSuccCount++;
+			}
+				
+		}
+		
+		
+		retcd = ZTCLib.CloseLog();
+		//alert("关闭数据源 : "+retcd);
+		
+		window.alert("成功导入数据行数为："+iSuccCount);
+	}
+	function ExportToExcel(table_id)
+	{
+		var oXL = new ActiveXObject("Excel.Application"); //创建应该对象
+		var oWB = oXL.Workbooks.Add();//新建一个Excel工作簿
+		var oSheet = oWB.ActiveSheet;//指定要写入内容的工作表为活动工作表
+		var table = document.getElementById(table_id);//指定要写入的数据源的id
+		var hang = table.rows.length;//取数据源行数
+		var lie = table.rows(0).cells.length;//取数据源列数
+
+		// Add table headers going cell by cell.
+		for (i=0;i<hang;i++)
+		{
+			//在Excel中写行
+			for (j=0;j<lie;j++)
+			{
+				//在Excel中写列
+				//定义格式
+				oSheet.Cells(i+1,j+1).NumberFormatLocal = "@";//将单元格的格式定义为文本
+				//oSheet.Cells(i+1,j+1).Font.Bold = true;//加粗
+				oSheet.Cells(i+1,j+1).Font.Size = 10;//字体大小
+				oSheet.Cells(i+1,j+1).value = table.rows(i).cells(j).innerText;//向单元格写入值
+			}
+		}
+		oXL.Visible = true;
+		oXL.UserControl = true;
+		oXL=null
+	}
+
+	function ZTC_Call()
+	{
+		var datetime;
+		{
+			var now= new Date();
+			var year=now.getYear();
+			var month=now.getMonth()+1;
+			var day=now.getDate();
+			var hour=now.getHours();
+			var minute=now.getMinutes();
+			var second=now.getSeconds();
+			datetime = (year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second);
+		}
+
+		
+		var sts,msg ,sno ;		
+
+		var frm = document.getElementById("ZTC_SALE"); 
+
+		ZTCLib.Clear();		
+		frm.submit_button.disabled  = true;
+		
+		//必填项
+		ZTCLib.SetPara("ServiceCode",frm.ServiceCode.value);
+		ZTCLib.SetPara("QQuin",frm.QQuin.value);
+		ZTCLib.SetPara("BuyCount",frm.BuyCount.value);
+		ZTCLib.SetPara("comm1",frm.comm1.value);
+		ZTCLib.SetPara("comm2",frm.comm2.value);	
+	
+		//var url= ZTCLib.GetUrl();
+		//alert(url);
+		var retcd= ZTCLib.SendAndRecv();	
+		
+		//CftMchLib.ShowMsg("直通车购买","\r\n返回值【"+retcd+"】\r\n"+url);
+		
+		if(retcd == 0)	
+		{
+			//CftMchLib.ShowMsg("直通车购买",ZTCLib.GetResult());
+			var xml =new CXml(ZTCLib.GetResult());
+
+			 sts = ( xml.GetValue("status"));
+			 msg = ( xml.GetValue("msg"));
+			 sno = ( xml.GetValue("serialno"));	 
+			 
+		}
+		else
+		{
+			sts = "1";
+			msg = "通讯异常";
+			sno = "";	 
+		}
+		var datetime1;
+		{
+			var now= new Date();
+			var year=now.getYear();
+			var month=now.getMonth()+1;
+			var day=now.getDate();
+			var hour=now.getHours();
+			var minute=now.getMinutes();
+			var second=now.getSeconds();
+			datetime1 = (year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second);
+		}
+		
+		RtInsertToDB(datetime,frm.QQuin.value,frm.ServiceCode.value,frm.BuyCount.value,
+			frm.comm1.value,frm.comm1.value,sno,sts,msg,datetime1);
+		
+		//alert("111");
+		var tbody = document.getElementById("ZTC_SALE_RES");//oList.appendChild(oNewNode);
+		//alert("222");
+		var objTempRow = tbody.rows[0];        //取得模板行
+		//alert("333");
+		//var objNewRow = tbody.insertRow( tbody.rows.length );
+		var objNewRow = tbody.insertRow( 1 );
+		objNewRow.id = tbody.rows.length-1; 
+
+		//alert("111");
+		for ( var i=0 ; i<objTempRow.cells.length ; i++ ) 
+  	{ 
+      var objNewCell = objNewRow.insertCell( i ); 
+  	switch(i+1)
+  	{
+  		case 1:
+      {
+      	objNewCell.innerHTML = datetime;//GetClientTime();
+      	break;
+      }
+      case 2:
+      {
+      	objNewCell.innerHTML = frm.QQuin.value;
+      	break;
+      }
+      case 3:
+      {
+      	objNewCell.innerHTML = frm.ServiceCode.value;
+      	break;
+      }
+      case 4:
+      {
+      	objNewCell.innerHTML = frm.BuyCount.value;
+      	break;
+      }
+      case 5:
+      {
+      	objNewCell.innerHTML = frm.comm1.value;
+      	break;
+      }
+      case 6:
+      {
+      	objNewCell.innerHTML = sno;
+      	break;
+      }
+      case 7:
+      {
+      	objNewCell.innerHTML = sts.toString();
+      	break;
+      }
+      case 8:
+      {
+      	objNewCell.innerHTML = msg;
+      	break;
+      }
+      case 9:
+      {
+      	objNewCell.innerHTML = datetime1;
+      	break;
+      }
+    }
+  }
+		frm.submit_button.disabled  = false;
+
+		return false;
+	}
+
+	function onSelectServiceCode()
+	{
+		var frm = document.getElementById("ZTC_SALE"); 
+
+		var tips_buycount = document.getElementById("Tips_BuyCount"); 
+		
+		var tips_comm1 = document.getElementById("Tips_comm1"); 
+
+		tips_buycount.innerText ="";
+		tips_comm1.innerText ="";
+
+		switch(frm.ServiceCode.value)
+		{
+		case "QQACCT_SAVE" : //则BuyCount表示个数，取值范围[1, 1000]
+			tips_buycount.innerText = "* Q币的个数，取值范围[1,1000]" ;
+			break;
+		case "-QQPOINT":
+			tips_buycount.innerText = "* Q点的个数，必须是10的整数倍，取值范围是[10, 10000]" ;
+			break;
+		case "LTMCLUB":
+		case "XXJZGW":
+		case "XXQGAME":
+		case "XXQQF":
+		case "PETVIP":
+		case "XXQQT":
+		case "XXZXYY":
+		case "XXLOVE":
+		case "QQR2BY":
+		case "DNFHZ":
+		case "QQFCZZ":
+		case "QTD512M":
+		case "-XXYXLB":
+			tips_buycount.innerText = "* 表示月数，取值范围[1, 24]" ;
+			break;
+		case "QQKDC":
+			tips_buycount.innerText = "* 表示点数，必须是100的整数倍，取值范围是[100, 100000]" ;
+			tips_comm1.innerText = "* 玩家建立角色的大区，目前1为电信区，2为网通区，3为电信二区" ;
+			break;
+		case "-DNFDQ":
+			tips_buycount.innerText = "* 表示点数，必须是100的整数倍，取值范围是[100, 100000]" ;
+			break;
+			
+		}
+	}
+</script>
+</HEAD>
+<BODY>
+<form id="DATASRC"  onsubmit="javascript:return false;">
+	<label>数据存放点 ： </label> <input name="DB_Connection" type="text" style="width:400px;" value="DSN=gy_test;UID=gaoy;PWD=1234;" /> <br />
+	<label>是否实时存入： </label> <input name="RT_Store" type="checkbox" style="width:15px;"  /> <br />
+</form>
+<form id="ZTC_SALE" onsubmit="javascript:return false;">
+	<label> 选择产品类型 ： </label><br />
+	<label> </label><SELECT tabIndex="1" onchange="onSelectServiceCode()" name="ServiceCode" size="6"> 
+			<OPTION value="QQACCT_SAVE" selected>Q币</OPTION> 
+			<OPTION value="-QQPOINT">Q点</OPTION>
+			<OPTION value="LTMCLUB">会员</OPTION>
+			<OPTION value="XXJZGW">黄钻</OPTION>
+			<OPTION value="XXQGAME">蓝钻</OPTION>
+			<OPTION value="XXQQF">红钻</OPTION>
+			<OPTION value="PETVIP">粉钻</OPTION>
+			<OPTION value="XXQQT">QQ堂紫钻</OPTION>
+			<OPTION value="XXZXYY">绿钻</OPTION>
+			<OPTION value="XXLOVE">交友</OPTION>
+			<OPTION value="QQR2BY">QQ音速</OPTION>
+			<OPTION value="DNFHZ">DNF黑钻</OPTION>
+			<OPTION value="QQFCZZ">QQ飞车紫钻</OPTION>
+			<OPTION value="QTD512M">512M网络硬盘</OPTION>
+			<OPTION value="-XXYXLB">QQ游戏欢乐大礼包</OPTION>
+			<OPTION value="QQKDC">QQ飞车点券</OPTION>
+			<OPTION value="-DNFDQ">DNF点券</OPTION>
+		</SELECT> <br />
+
+	<label> 收货方QQ帐户 ： </label> <input name="QQuin" type="text" value="372132908" /> <br />
+	<label> 充值数量 ： </label> <input name="BuyCount" type="text" value="10" /><span id="Tips_BuyCount" class="Tips">* Q币的个数，取值范围[1,1000] </span> <br />
+	<label> 交易备注一 ： </label> <input name="comm1" type="text" value="1" /><span id="Tips_comm1"  class="Tips"></span> <br />
+	<label> 交易备注二 ： </label> <input name="comm2" type="text" value="1" /> <br />
+
+	<label>  </label> <input name="submit_button" type="button" value="提交"  onclick="javascript:ZTC_Call();" /> <br />
+</form>
+
+<hr />
+
+<table border="1" id="ZTC_SALE_RES">
+		<caption>销售日志表 <!--<input type="button" value="点此导出到Excel" onclick="javascript:ExportToExcel('ZTC_SALE_RES'); " /> -->
+			<input type="button" value="点此将整个“销售日志表”导出到DB" onclick="javascript:ExportToDB('ZTC_SALE_RES');" style="width:300px;" />
+			</caption>
+		<tr class="header">
+			<td>时间</td><td>收货QQ号码</td><td>购买的业务</td><td>数量</td><td>区域</td><td>订单号</td><td>状态</td><td>信息</td><td>返回时间</td>
+		</tr>
+
+</table>
+
+<br />
+
+
+<script src="javascript/ztc.js" ></script>
+
+</BODY>
+</HTML>

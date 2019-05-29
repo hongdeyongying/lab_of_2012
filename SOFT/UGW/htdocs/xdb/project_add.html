@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>运动吧！</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+textarea{width:95%;height:110px;}
+input{width:95%;}
+table{width:100%;}
+tr{background-color:#f8f8f8;}
+</style>
+</head>
+<body>
+<form action = "/cgi/ugw" method="post">
+<input name="tid" type="hidden" value="mybpml" />
+<input id="inp_method" name="method" type="hidden" value="project_add" />
+<input id="inp_pid" name="pid" type="hidden" value="0"/>
+<table >
+	<input id="inp_commit_id" name="cid" type="text" value=""disabled="disabled" />
+	<tr style="background-color:#f8f8f8>"><td width=100px>项目名称</td><td><input id="inp_name" name="name" type="text" value=""/></td></tr>
+	<tr><td>成绩单位</td><td><input id="inp_unit" name="unit" type="text" value=""/></td></tr>
+	<tr><td>最高成绩</td><td><input id="inp_highest_score" name="highest_score" type="number" value="500"/></td></tr>
+	<tr style="background-color:#f8f8f8>"><td>项目介绍</td><td><textarea id="inp_desc" name="desc"  >填写对项目的简要介绍</textarea></td></tr>
+	<tr><td>图文URL</td><td><textarea  id="inp_url" name="url"  >详细的URL,确保可访问</textarea></td></tr>
+	<tr style="background-color:#f8f8f8>"><td>视频URL</td><td><textarea id="inp_vurl" name="vurl"  >详细的URL,确保可访问</textarea></td></tr>
+	<tr><td></td><td><input type="submit" value="提交"/></td></tr>
+</table>
+
+</form>
+
+<script type="text/javascript" src="./Js/xdb_header.js" ></script> 
+<script type="text/javascript" src="./Js/jquery-1.9.1.js"> </script>
+
+<script type="text/javascript">	
+	
+	function LoadProjectInfo()
+	{
+		var pid = GetQueryString("pid");
+		if((pid == "")||(pid == "0")) return;
+		
+		$.ajax({
+			   url:"/cgi/ugw?tid=mysql&method=xdb_project_info&pid="+pid,
+			   dataType:"xml",
+			   type: "GET",
+			   data:$("#frm_reg").serializeArray(),
+			   contentType:"application/x-www-form-urlencoded; charset=UTF-8",
+			   success:function (xmlRes){
+				   if("1" == $("record_num",xmlRes).text() )
+				   {
+						$("#inp_method").attr("value","project_modi");
+						$("#inp_pid").attr("value",pid);
+						$("#inp_name").attr("value",$("f_project_name",xmlRes).text());
+						$("#inp_unit").attr("value",$("f_project_grade_unit",xmlRes).text());
+						$("#inp_desc").val($("f_project_bi",xmlRes).text());
+						$("#inp_url").val($("f_project_des_url",xmlRes).text());
+						$("#inp_vurl").val($("f_project_vedio_url",xmlRes).text());
+						$("#inp_commit_id").val($("f_project_commit_id",xmlRes).text());
+						$("#inp_highest_score").val($("f_project_highest_score",xmlRes).text());
+					   	
+				   }
+			   }
+			});//*/
+	}
+	
+	LoadProjectInfo();
+	
+</script>
+
+
+</body>
+</html>

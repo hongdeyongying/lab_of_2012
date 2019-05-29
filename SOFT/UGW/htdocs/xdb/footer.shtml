@@ -1,0 +1,27 @@
+<!-- 包含在</body>标签之前 -->
+		
+		<hr />
+		<p>			
+		关注公众号"WhatIsTSP"，获得您的行动号。行动派，就应该有自己的行动号！！
+		<p>
+	</div>	
+</main>
+
+<script type="text/javascript" src="./Js/slideout.min.js"></script>
+<script type="text/javascript" src="./Js/CCookie.js" ></script> 
+<script type="text/javascript" src="./Js/xdb_header.js" ></script> 
+<script type="text/javascript" src="./Js/jquery-1.9.1.js"> </script>
+<script type="text/javascript">	
+	var slideout = new Slideout({
+		'panel': document.getElementById('main'),
+		'menu': document.getElementById('menu'),
+		'padding': 256,
+		'tolerance': 70
+	});
+	
+	document.querySelector('.js-slideout-toggle').addEventListener('click', function() {slideout.toggle();});
+	
+	checkLogin();
+	
+</script>
+

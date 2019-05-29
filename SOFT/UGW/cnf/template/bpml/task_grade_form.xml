@@ -1,0 +1,203 @@
+Content-Type: text/html; charset=utf-8
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>运动吧！</title>
+
+<style type="text/css">
+body {
+  width: 100%;
+  height: 100%;
+}
+table{width:95%;align:center;}
+input{width:95%;height:30px;align:center;}
+
+</style>
+</head>
+<body>
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="user_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_user_id),0)"  />
+<my-soft::assign id="openid" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_openid),0)"  />
+
+
+
+
+<!-- 获取用户的计划信息 -->
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="../cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+	<my-soft::parameter name="method" 	type="var" 	value="xdb_task_grade_today"/>   
+	<my-soft::parameter name="user_id" 	type="var" 	value="$user_id"/>   
+	<my-soft::parameter name="openid" 	type="var" 	value="$openid"/> 
+</my-soft::invoke>
+
+<!-- *****DEBUG**** <my-soft::echo type="var" value="$response" />  -->
+
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+<my-soft::assign id="retmsg" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retmsg,0),0))" />
+<my-soft::assign id="record_num" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,record_num,0),0))" />
+
+<my-soft::switch expr="Math.EQU($retcode,0)">
+	<my-soft::case value="true">		
+		<my-soft::assign id="record_node" expr="Html.GetElementByTagName($item_response,record,0)" />
+				<!--<my-soft::assign id="record_num" expr="Html.Count($record_node)" />-->
+		
+		 <my-soft::switch expr="Math.EQU($record_num,0)">
+			<my-soft::case value="false">
+			
+				<form action="/cgi/ugw" method="post" id="frm_grade_fill" target="_self">
+		
+					<input type="hidden" name="tid" value="mybpml" />
+					<input type="hidden" name="method" value="task_grade_record" />
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="record_datetime" value="<my-soft::echo type="expr" value="Date.GetDatetime(yyyy%2dmm%2ddd%20hh%3amm%3ass)"/>" />
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="id" value="<my-soft::echo type="var" value="$user_id"/>" />
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="vc" value="<my-soft::echo type="var" value="$openid"/>" />
+					
+					<table  border="0px" width="100%" align="left"style="text-align:left">
+						<thead >
+							<tr  style="background-color:#c8c8c8;">
+								<td colspan="2">项目</td>
+								<td colspan="2">计划完成</td>
+								<td >已完成</td>
+								<td >本次完成</td>
+							</tr><my-soft::echo type="var" value="%0d%0a" />
+						</thead>
+						<tbody>
+				
+				<my-soft::assign id="var1" expr="0" />
+				<my-soft::assign id="var2" expr="1" />
+				
+		
+				<my-soft::for condition="Math.LT($var1,$record_num,0)" recycle="Math.Inc($var1,2,var1)" >
+				
+				
+				<my-soft::assign id="var2" expr="Math.Inc($var1,1)" />
+				
+				
+				<my-soft::echo type="var" value="%0d%0a" />
+			
+
+<my-soft::assign id="record_node_item" expr="Html.GetResult($record_node,$var1)" />
+
+<my-soft::assign id="f_project_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_id,0),0))" />
+<!--
+<my-soft::assign id="f_name_of_input" expr="String.Cat(%22,grade_of_,$f_project_id,%22)" />-->
+
+<my-soft::assign id="f_project_name" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_name,0),0))" />
+<my-soft::assign id="f_project_grade_unit" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_grade_unit,0),0))" />
+<my-soft::assign id="f_grade_score" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_grade_score,0),0))" />
+<my-soft::assign id="f_score" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_score,0),0))" />
+
+<my-soft::assign id="f_score" expr="String.ToInt($f_score)"/>
+<my-soft::assign id="f_grade_score" expr="String.ToInt($f_grade_score)"/>
+
+<my-soft::switch expr="Math.EQU($f_score,NULL)">
+<my-soft::case value="true">
+	<my-soft::assign id="f_score" expr="0" />
+</my-soft::case>
+</my-soft::switch>
+				
+	<!--			<my-soft::echo type="expr" value="Math.LT($f_score,$f_grade_score,0)" />-->
+<my-soft::switch expr="Math.LT($f_score,$f_grade_score,0)">
+	<my-soft::case value="true">
+		<my-soft::echo type="var" value="%3c"/>tr style="color:red;">
+	</my-soft::case>
+	<my-soft::default>
+		<my-soft::echo type="var" value="%3c"/>tr style="color:green;">
+</my-soft::default>
+</my-soft::switch>
+				
+					<td><my-soft::echo type="var" value="$f_project_id" />
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="pid" value="<my-soft::echo type="var" value="$f_project_id" />" /></td><td ><my-soft::echo type="var" value="$f_project_name" /></td>
+					<td><my-soft::echo type="var" value="$f_grade_score" /></td><td><my-soft::echo type="var" value="$f_project_grade_unit" /></td>
+					<td><my-soft::echo type="var" value="$f_score" /></td>
+					<td>
+					<input name="gv" type="number" name="points" min="-500" max="500" value="0"/>
+					</td>					
+				</tr><my-soft::echo type="var" value="%0d%0a" />
+				
+				
+				<my-soft::switch expr="Math.LT(String.ToInt($var2),$record_num,0)">
+				<my-soft::case value="true">
+<my-soft::assign id="record_node_item" expr="Html.GetResult($record_node,$var2)" />
+
+<my-soft::assign id="f_project_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_id,0),0))" />
+<!--
+<my-soft::assign id="f_name_of_input" expr="String.Cat(%22,grade_of_,$f_project_id,%22)" />-->
+
+<my-soft::assign id="f_project_name" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_name,0),0))" />
+<my-soft::assign id="f_project_grade_unit" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_grade_unit,0),0))" />
+<my-soft::assign id="f_grade_score" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_grade_score,0),0))" />
+<my-soft::assign id="f_score" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_score,0),0))" />
+
+<my-soft::assign id="f_score" expr="String.ToInt($f_score)"/>
+<my-soft::assign id="f_grade_score" expr="String.ToInt($f_grade_score)"/>
+
+<my-soft::switch expr="Math.EQU($f_score,NULL)">
+<my-soft::case value="true">
+	<my-soft::assign id="f_score" expr="0" />
+</my-soft::case>
+</my-soft::switch>
+				
+	<!--			<my-soft::echo type="expr" value="Math.LT($f_score,$f_grade_score,0)" />-->
+<my-soft::switch expr="Math.LT($f_score,$f_grade_score,0)">
+	<my-soft::case value="true">
+		<my-soft::echo type="var" value="%3c"/>tr style="background-color:#f8f8f8;color:red;">
+	</my-soft::case>
+	<my-soft::default>
+		<my-soft::echo type="var" value="%3c"/>tr style="background-color:#f8f8f8;color:green;">
+</my-soft::default>
+</my-soft::switch>
+				
+					<td><my-soft::echo type="var" value="$f_project_id" />
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="pid" value="<my-soft::echo type="var" value="$f_project_id" />" /></td><td ><my-soft::echo type="var" value="$f_project_name" /></td>
+					<td><my-soft::echo type="var" value="$f_grade_score" /></td><td><my-soft::echo type="var" value="$f_project_grade_unit" /></td>
+					<td><my-soft::echo type="var" value="$f_score" /></td>
+					<td>
+					<input name="gv" value="0" type="number" name="points" min="-500" max="500"/>
+					</td>						
+				</tr><my-soft::echo type="var" value="%0d%0a" />
+				</my-soft::case>
+				</my-soft::switch>
+				
+				
+				
+				</my-soft::for>
+				
+						</tbody>
+						<tfoot>
+							<tr>
+								
+								<td colspan="6"><input type="submit" value="提交成绩"  style="width:100%;"/></td>
+							</tr>
+						</tfoot>
+					</table>
+				</form>
+			</my-soft::case>
+			<my-soft::default>
+				您还没有制定任何计划。
+			</my-soft::default>
+		</my-soft::switch>
+	
+		
+	</my-soft::case>
+	<my-soft::default>
+		<my-soft::echo type="var" value="$retcode" /> 查询您的计划时出错. <my-soft::echo type="var" value="$retmsg" />
+	</my-soft::default>
+</my-soft::switch>
+				
+   
+
+<my-soft::echo type="var" value="%0a%0d" />
+<my-soft::echo type="var" value="%0a%0d" />
+</body>
+</html>
+

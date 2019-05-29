@@ -1,0 +1,91 @@
+Content-Type: application/xml; charset=GB2312
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!-- 原样输出 -->
+<?xml version="1.0" encoding="gbk" ?>
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!-- 1.获取输入参数-->
+<my-soft::assign id="vcd" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_vcd),0)"  />
+<my-soft::assign id="vcdid" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_vcdid),0)" />
+
+<my-soft::assign id="passwd" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_passwd),0)"  />
+<my-soft::assign id="repasswd" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_repasswd),0)"  />
+
+<!-- 2.检查验证码是否正确 -->
+<my-soft::switch expr="Math.EQU(VcdImg.Check($vcd,$vcdid),NULL)">	
+	<my-soft::case value="false">
+		<!-- 2.1 检查两次密码是否一致 -->
+		<my-soft::switch expr="Math.EQU($passwd,$repasswd)">
+			<my-soft::case value="true">
+				<!-- 2.2 写入database -->
+				
+			</my-soft::case>			
+			<my-soft::default>																
+				<root><retcode>-2</retcode><retmsg>两次输入的密码不一致</retmsg></root>
+			</my-soft::default>
+	</my-soft::case>
+	<my-soft::default>																
+		<root><retcode>-1</retcode><retmsg>请输入正确的验证码</retmsg></root>
+	</my-soft::default>
+</my-soft::switch>
+<!--
+<my-soft::assign id="temp_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_temp_id),0)" />
+-->
+<my-soft::assign id="content_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_content_id),0)" />
+
+<!-- 2.获取t_content_log : content  -->
+<my-soft::invoke type="httpcall" service="getapplyitem" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="content_id"        type="var"      value="$content_id" />
+</my-soft::invoke>
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="content" expr="String.UrlEncode(String.XmlDecode(Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,content,0),0))))" />
+<my-soft::assign id="temp_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,temp_id,0),0))" />
+<!-- 调试信息 
+<my-soft::echo type="var" value="$content" /> -->
+
+<!-- 3.获取t_temp :  preview -->
+<my-soft::invoke type="httpcall" service="gettempitem" filepath="../template/bpml/httpcall/dc.qzone.com.xml" retvar="response" >
+	<my-soft::parameter name="app_id" 	type="var" 	value="$app_id"/>   
+	<my-soft::parameter name="scene_id" 	type="var" 	value="$scene_id"/>    
+	<my-soft::parameter name="temp_id"        type="var"      value="$temp_id" />
+</my-soft::invoke>
+<my-soft::assign id="temp_response" expr="Html.Parse(2,$response)" />
+<!--<my-soft::assign id="preview" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0))" />-->
+<my-soft::assign id="output" expr="String.XmlDecode(Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,output,0),0)))" />
+<my-soft::assign id="preview" expr="String.XmlDecode(Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($temp_response,preview,0),0)))" />
+
+<!-- 调试信息 
+<my-soft::echo type="var" value="$preview" /> -->
+
+<!-- 4.用preview 处理 content  并输出结果 -->
+<my-soft::switch expr="Math.Or(Math.EQU($content,NULL),Math.EQU($preview,NULL))">	
+<my-soft::case value="false">
+	<my-soft::invoke type="bpmlcall" service="gettempitem" filepath="$output" retvar="output_res" >
+		<my-soft::parameter name="paras" 	type="var" 	value="$content"/>   
+	</my-soft::invoke>
+	<!--<my-soft::echo type="expr" value="String.Cat(%0a%0d,$output,%0a%0d,%0a%0d,%0a%0d)" /> 
+	<my-soft::echo type="expr" value="String.Cat(%0a%0d,$output_res,%0a%0d,%0a%0d,%0a%0d)" /> 
+	<my-soft::echo type="expr" value="String.Cat(%0a%0d,$preview,%0a%0d,%0a%0d,%0a%0d)" /> 
+	-->
+	<my-soft::assign id="output_res" expr="String.UrlEncode($output_res)" />
+	<my-soft::invoke type="bpmlcall" service="gettempitem" filepath="$preview" retvar="response" >
+		<my-soft::parameter name="paras" 	type="var" 	value="$output_res"/>   
+	</my-soft::invoke>
+	
+	<my-soft::echo type="var" value="$response" /> 
+</my-soft::case>
+<my-soft::default>																
+	Content-Type: text/html; charset=GB2312	
+	<my-soft::echo type="var" value="%0d%0a" />
+	<my-soft::echo type="var" value="%0d%0a" />
+		模版或者输入内容无效!
+</my-soft::default>
+</my-soft::switch>

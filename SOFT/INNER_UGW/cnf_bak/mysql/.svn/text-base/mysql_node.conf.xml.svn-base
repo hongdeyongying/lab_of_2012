@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<!-- 
+spmanager 对外的一些方法和变量 ，供mysql服务使用
+-->
+<services>		
+		<service name="db_content" type="mysql_node" desc="">
+			<variables>				
+				<variable name="database" value="db_content" desc="">database name</variable>
+				<variable name="host" value="172.27.0.232" desc="">port</variable>
+				<variable name="port" value="3306" desc="">port</variable>
+				<variable name="user" value="qzone" desc="">user name</variable>
+				<variable name="passwd" value="qzone_user" desc="">user passwd</variable>
+				<variable name="timeout" value="5" desc="">connect timeout s</variable>
+				<variable name="language" value="latin1" desc="">language</variable>	
+				<variable name="idle_timeout" value="60" desc="">idle retry time s</variable>					
+			</variables>
+		</service>
+		<service name="node_1" type="mysql_node" desc="">
+			<variables>				
+				<variable name="database" value="spmanager" desc="">database name</variable>
+				<variable name="host" value="172.25.38.65" desc="">port</variable>
+				<variable name="port" value="3306" desc="">port</variable>
+				<variable name="user" value="root" desc="">user name</variable>
+				<variable name="passwd" value="root1234" desc="">user passwd</variable>
+				<variable name="timeout" value="5" desc="">connect timeout s</variable>
+				<variable name="language" value="latin1" desc="">language</variable>	
+				<variable name="idle_timeout" value="60" desc="">idle retry time s</variable>					
+			</variables>
+		</service>	
+		<service name="node_2" type="mysql" desc="">
+			<variables>				
+				<variable name="database" value="spmanager" desc="">database name</variable>
+				<variable name="host" value="172.25.38.65" desc="">port</variable>
+				<variable name="port" value="3306" desc="">port</variable>
+				<variable name="user" value="root" desc="">user name</variable>
+				<variable name="passwd" value="root1234" desc="">user passwd</variable>
+				<variable name="timeout" value="5" desc="">timeout</variable>
+				<variable name="language" value="latin1" desc="">language</variable>
+				<variable name="idle_timeout" value="60" desc="">idle retry time s</variable>	
+			</variables>
+		</service>
+	</services>

@@ -1,0 +1,254 @@
+Content-Type: text/html; charset=utf-8
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>作业吧！</title>
+
+<style type="text/css">
+body {
+  width: 100%;
+  height: 100%;
+}
+table{width:95%;align:center;}
+input{width:100%;lign:center;height:30px;}
+select{width:100%;align:center;height:30px;}
+
+</style>
+</head>
+<body>
+<div style="width:100%;text-align:left;"><a target="_self" href="/cgi/ugw?tid=mybpml&method=hw_manage_form">查看作业列表</a></div>
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="user_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_user_id),0)"  />
+<my-soft::assign id="openid" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_openid),0)"  />
+
+<my-soft::assign id="suid" expr="String.Cat(%2c,$user_id,%2c)"  />
+
+
+<!-- 获取用户的计划信息 -->
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="../cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+	<my-soft::parameter name="method" 	type="var" 	value="zyb_hw_topic_list"/> <!-- 
+	<my-soft::parameter name="user_id" 	type="var" 	value="$user_id"/>   
+	<my-soft::parameter name="openid" 	type="var" 	value="$openid"/> -->
+</my-soft::invoke>
+
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+<my-soft::assign id="retmsg" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retmsg,0),0))" />
+<my-soft::assign id="record_num" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,record_num,0),0))" />
+
+
+
+<my-soft::switch expr="Math.EQU($retcode,0)">
+	<my-soft::case value="true">		
+		<my-soft::assign id="record_node" expr="Html.GetElementByTagName($item_response,record,0)" />
+				<!--<my-soft::assign id="record_num" expr="Html.Count($record_node)" />-->
+		
+		 <my-soft::switch expr="Math.EQU($record_num,0)">
+			<my-soft::case value="false">
+			
+				
+<my-soft::assign id="var1" expr="0" />
+<my-soft::assign id="topic_number" expr="0" />
+<my-soft::assign id="topic_selct_string" expr="%3cselect%20name%3d%22hw_topic_id%22%20size%3d%221%22%3e%0a%0d" />
+						
+<my-soft::for condition="Math.LT($var1,$record_num,0)" recycle="Math.Inc($var1,1,var1)" >
+
+
+				
+<my-soft::assign id="record_node_item" expr="Html.GetResult($record_node,$var1)" />
+
+<my-soft::assign id="f_task_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_task_id,0),0))" />
+<my-soft::assign id="f_task_name" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_task_name,0),0))" />
+<my-soft::assign id="f_crt_time" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_crt_time,0),0))" />
+<my-soft::assign id="f_mod_time" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_mod_time,0),0))" />
+<my-soft::assign id="f_sponsor_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_sponsor_id,0),0))" />
+
+<my-soft::switch expr="String.Find($f_sponsor_id,$suid)">
+	<my-soft::case value="NULL">
+	
+	</my-soft::case>
+	<my-soft::default>
+		
+		<my-soft::assign id="topic_number" expr="Math.Inc($topic_number,1)" />
+	
+		
+		<my-soft::assign id="topic_selct_string" expr="String.Cat($topic_selct_string,%0a%0d%3coption%20value%3d%22,$f_task_id,%22%3e,$f_task_name,%3c%2foption%3e)" />
+		
+	</my-soft::default>
+</my-soft::switch>
+
+
+</my-soft::for>
+<my-soft::assign id="topic_selct_string" expr="String.Cat($topic_selct_string,%0a%0d%3cselect%3e%0a%0d)" />
+
+<my-soft::switch expr="Math.GT($topic_number,0,0)">
+	<my-soft::case value="true">
+		<form action="/cgi/ugw" method="post" id="frm_hw_deploy_fill" name="frm_hw_deploy_fill" target="_self" onsubmit="return FrmSubmit();">
+		
+					<input type="hidden" name="tid" value="mybpml" />
+					<input type="hidden" name="method" value="hw_deploy_record" />
+					
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="id" value="<my-soft::echo type="var" value="$user_id"/>" />
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="vc" value="<my-soft::echo type="var" value="$openid"/>" />
+					
+					<table  border="0px" style="text-align:left">
+						<thead >
+							<tr  style="background-color:#c8c8c8;">
+								<td width="150px">元素名</td>
+								<td >内容</td>
+							</tr><my-soft::echo type="var" value="%0d%0a" />
+						</thead>
+						<tbody>
+						
+						
+		<tr style="background-color:#eee"><td>科目</td> <td>	<my-soft::echo type="var" value="$topic_selct_string"/>	</td> </tr>	
+		<tr><td>类目</td> <td>	<input type="text" name="hw_detail_name" value="知识能力训练" />	</td> </tr>	
+		<tr style="background-color:#eee"><td>详细</td> <td>	<input type="text" name="hw_detail_content" value="第18页" />	</td> </tr>	
+		<tr><td>参考耗时(分钟)</td> <td>	<input type="number" name="ref_time_spend" value="15" />	</td> </tr>	
+		<tr style="background-color:#eee"><td>参考成绩</td> <td>	<input type="number" name="ref_grade" value="80" />	</td> </tr>	
+		<tr><td>类型</td> <td><select id="id_type" name="type" size="1" onchange="javascript:ChangeTimeDesc(this.id);">
+									<option value="0"> 一次性作业 </option>
+									<option value="1"> 每日循环作业 </option>
+									<option value="7"> 每周循环作业 </option>
+									<option value="31"> 每月循环作业 </option>
+								</select>	</td> </tr>	
+								
+		<tr style="background-color:#eee"><td>时间点</td> <td id="id_time_desc">立即生效：<br/><input type="date" name="hw_td_0" value="" />	</td> </tr>
+
+		<tr id="id_btime" style="display:none;"><td>开始日期</td> <td id="id_time_desc">	<input type="date" name="btime" value="" />	</td> </tr>
+		<tr id="id_etime"style="background-color:#eee;display:none;"><td>结束日期</td> <td id="id_time_desc">	<input type="date" name="etime" value="" />	</td> </tr>		
+						
+						</tbody>
+						<tfoot>
+							<tr>
+							
+								
+								<td colspan="3">
+									
+									<input type="submit" value="发布作业"  style="width:100%;height:30px;" />
+								
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+				</form>
+	</my-soft::case>
+	<my-soft::default>
+				没有您可以布置家庭作业的科目。
+	</my-soft::default>
+</my-soft::switch>
+				
+				
+			</my-soft::case>
+			<my-soft::default>
+				没有可以布置家庭作业的科目。
+			</my-soft::default>
+		</my-soft::switch>
+	
+		
+	</my-soft::case>
+	<my-soft::default>
+		<my-soft::echo type="var" value="$retcode" /> 查询您可布置的作业科目时出错，请重试. <my-soft::echo type="var" value="$retmsg" />
+	</my-soft::default>
+</my-soft::switch>
+				
+   
+
+<my-soft::echo type="var" value="%0a%0d" />
+<my-soft::echo type="var" value="%0a%0d" />
+<my-soft::echo type="var" value="%3c" />script>
+function FrmSubmit()
+{
+	
+	switch(frm_hw_deploy_fill.type.value)
+	{
+	case "0":{if(frm_hw_deploy_fill.hw_td_0.value=="") {alert("请选择作业日期");return false;}break;}
+	case "1":{if((frm_hw_deploy_fill.btime.value=="")||(frm_hw_deploy_fill.etime.value=="")||(frm_hw_deploy_fill.etime.value <my-soft::echo type="var" value="%3c" /> frm_hw_deploy_fill.btime.value)) {alert("请选择开始结束日期");return false;}}
+	case "7":{if((frm_hw_deploy_fill.btime.value=="")||(frm_hw_deploy_fill.etime.value=="")||(frm_hw_deploy_fill.etime.value <my-soft::echo type="var" value="%3c" /> frm_hw_deploy_fill.btime.value)) {alert("请选择开始结束日期");return false;}
+	if(frm_hw_deploy_fill.hw_td_7.value=="") {alert("请选择时间点");return false;}}
+	case "31":{if((frm_hw_deploy_fill.btime.value=="")||(frm_hw_deploy_fill.etime.value=="")||(frm_hw_deploy_fill.etime.value <my-soft::echo type="var" value="%3c" /> frm_hw_deploy_fill.btime.value)) {alert("请选择开始结束日期");return false;}
+	if(frm_hw_deploy_fill.hw_td_31.value=="") {alert("请选择时间点");return false;}}
+	}
+	
+	return ture;
+}
+
+function ChangeTimeDesc(sid)
+{
+	var val = document.getElementById(sid).value;
+	
+	var obj = document.getElementById("id_time_desc");
+	
+	var objetime = document.getElementById("id_etime");
+	var objbtime = document.getElementById("id_btime");
+	
+	
+	var s0 = "立即生效：<br/><my-soft::echo type="var" value="%3c" />input type=\"date\" name=\"hw_td_0\"  />";
+	var s1 = "次日生效：<br/>";
+	var s7 = "次日生效：<br/><my-soft::echo type="var" value="%3c" />select name=\"hw_td_7\" multiple=\"multiple\" size=\"3\">"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"2\">周一<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"3\">周二<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"4\">周三<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"5\">周四<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"6\">周五<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"7\">周六<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"1\">周日<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />/select>";
+	var s31 = "次日生效：<br/><my-soft::echo type="var" value="%3c" />select name=\"hw_td_31\" multiple=\"multiple\" size=\"3\">"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"1\">1<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"2\">2<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"3\">3<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"4\">4<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"5\">5<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"6\">6<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"7\">7<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"8\">8<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"9\">9<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"10\">10<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"11\">11<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"12\">12<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"13\">13<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"14\">14<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"15\">15<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"16\">16<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"17\">17<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"18\">18<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"19\">19<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"20\">20<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"21\">21<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"22\">22<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"23\">23<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"24\">24<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"25\">25<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"26\">26<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"27\">27<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"28\">28<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"29\">29<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"30\">30<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />option value=\"31\">31<my-soft::echo type="var" value="%3c" />/option>"+
+			"<my-soft::echo type="var" value="%3c" />/select>";
+	
+	
+	
+	switch(val)
+	{
+	case "0":{obj.innerHTML = s0 ;objbtime.style.display="none";objetime.style.display="none";break;}
+	case "1":{obj.innerHTML = s1 ;objbtime.style.display="";objetime.style.display="";break;}
+	case "7":{obj.innerHTML = s7 ;objbtime.style.display="";objetime.style.display="";break;}
+	case "31":{obj.innerHTML = s31 ;objbtime.style.display="";objetime.style.display="";break;}
+	
+	}
+}
+<my-soft::echo type="var" value="%3c" />/script>
+</body>
+</html>
+

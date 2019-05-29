@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<TITLE>财付通外围接口演示</TITLE>
+	<link href="../Css/frame_ style.css" rel="stylesheet" type="text/css" />
+	
+	
+	<script language="javascript">
+		var CftMchLib = new ActiveXObject("CFTMCHINTERFACE.CftMchLib");
+		
+		
+		function Btn_RsaPublicEncode_Click()
+		{
+			CftMchLib.Clear();
+			var Slide397 = document.getElementById("frm_test");
+			
+			
+			var res ;
+			
+			res = CftMchLib.PublicEncode(Slide397.cftPublicPath.value, Slide397.inDat.value);
+			
+			Slide397.outDat.value = res ;  
+					
+		}
+		function Btn_RsaPrivateDecode_Click()
+		{
+			CftMchLib.Clear();
+			var Slide397 = document.getElementById("frm_test");
+			
+			var res ;
+			
+			res = CftMchLib.PrivateDecode(Slide397.cftPrivPath.value, Slide397.cftPrivatePasswd.value, Slide397.inDat.value);
+			
+			Slide397.outDat.value = res ;  	
+		}
+		function Btn_RsaPrivateEncode_Click()
+		{
+			CftMchLib.Clear();
+			var Slide397 = document.getElementById("frm_test");
+			
+			var res ;
+			
+			res = CftMchLib.PrivateEncode(Slide397.cftPrivPath.value, Slide397.cftPrivatePasswd.value, Slide397.inDat.value);
+			
+			Slide397.outDat.value = res ;  			
+		}
+		function Btn_RsaPublicDecode_Click()
+		{
+			CftMchLib.Clear();
+			var Slide397 = document.getElementById("frm_test");
+			
+			var res ;
+			
+			res = CftMchLib.PublicDecode(Slide397.cftPublicPath.value, Slide397.inDat.value);
+			
+			Slide397.outDat.value = res ;  		
+		}
+		function SwitchValue()
+		{
+			document.getElementById ("inDat").value  = document.getElementById ("outDat").value ;
+			document.getElementById ("outDat").value = "";
+		}
+	</script>
+	<style type= "text/css"  >
+		input{width:400px;}
+		input.chk{width:20px;}
+		input.btn{width:100px;}
+		input.file{width:73px;}
+		
+		textarea.multi{ height:100px;width:400px;}
+		
+	</style>
+    
+</head>
+
+<body bgcolor="#c0c0f0" >
+<ol ><h2>Md5</h2> <br>
+<form id="frm_test">
+	<table>
+		<tr>
+			<td width="200px"><span > 私钥路径 </span> </td>
+			<script language ="javascript" >
+			    function SetValue(frm,to)
+			    {
+			        document.getElementById(to).value = document.getElementById(frm).value ;
+			    }
+			</script>
+			<td><input name="cftPrivPath" value="F:\DirectPay\RUN\372132908\private.key" id="to_1"/>  <input class="file"  type="file"   id="frm_1"   onchange ="javasript:SetValue('frm_1','to_1');">    </td>
+		</tr>
+		<tr>
+			<td><span > 私钥密码 </span> </td>
+			<td><input name="cftPrivatePasswd" value="" /> </td>
+		</tr>
+		<tr>
+			<td><span > 公钥路径 </span> </td>
+			<td><input name="cftPublicPath" value="F:\DirectPay\RUN\372132908\public.key" id="to_2"  /> <input class="file"  type="file"   id="frm_2"   onchange ="javasript:SetValue('frm_2','to_2');"> </td>
+		</tr>
+	</table>
+	<table >
+		<tr>
+			<td width="200px"><span > 输入 </span> </td>		
+			<td><textarea id="inDat" name="inDat"   class="multi" /> </textarea>  </td>
+		</tr>
+		<tr>
+			<td><span > 输出 </span> </td>		
+			<td><textarea id="outDat" name="outDat"   class="multi" /> </textarea>  </td>
+		</tr>
+		<tr>
+			<td><span > </span> </td>
+			<td>
+				<input class ="btn " type="button"  value="公钥加密" onclick="javascript:Btn_RsaPublicEncode_Click();" /> 
+				<input class ="btn " type="button"  value="私钥解密" onclick="javascript:Btn_RsaPrivateDecode_Click();" /> 
+				<input class ="btn " type="button"  value="私钥加密" onclick="javascript:Btn_RsaPrivateEncode_Click();" /> 
+				<input class ="btn " type="button"  value="公钥解密" onclick="javascript:Btn_RsaPublicDecode_Click();" /> 
+				<input class ="btn "  type="button"  value="输出置为输入" onclick="javascript:SwitchValue();" />
+			</td>
+		</tr>
+	</table>
+</form>	
+</body>
+</html>

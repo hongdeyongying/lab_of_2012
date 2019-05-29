@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<!-- 
+MyCGI 的顶级配置文件，此文件必须存在，并相对MyCGI的路径是 ../conf/MyCGI.conf.index.xml
+-->
+
+<includes>
+
+        <include namespace="mysql::" filepath="../cnf/mysql/mysql_method.conf.xml" type="service" desc="mysql具体方法配置文件" />
+		<include namespace="mysql::" filepath="../cnf/mysql/mysql_node.conf.xml" type="service" desc="mysql节点配置文件" />		
+</includes>
+
+<services>		
+		<service name="mysql" type="" desc="">
+			<variables>
+				<!-- record_html.bpml
+				mysql_result_xml.bpml
+				 -->
+				<variable name="_output_template_default" value="../cnf/template/mysql_result_xml_suc.bpml" desc="">失败所有的输出模版</variable>
+				<variable name="_output_template_0" value="../cnf/template/record_xml.bpml" desc="">返回值为0的输出模版</variable>
+				<variable name="_request_verifier" value="null" desc="">请求验证算法 md5</variable>
+				<variable name="_request_verifier_key" value="md5" desc="">验证算法参数</variable>
+				<variable name="_request_integrality" value="loose" desc="">请求完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_response_signer" value="loose" desc="">响应签名算法</variable>
+				<variable name="_response_signer_key" value="md5" desc="">签名算法参数</variable>
+				<variable name="_response_integrality" value="loose" desc="">响应完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_singleton_flag" value="true" desc="">唯一示例</variable>
+				<variable name="_domain" value="www.wucar.com.cn" desc="涉及到cookie操作的时候，使用此参数"></variable>
+				
+			</variables>
+			<parameters> 	    
+				<parameter name="tid" 	request="M" 	response="O"	default="mysql" desc=""/>
+				<parameter name="method" 	request="M" 	response="O"	default="" desc=""/> 
+								
+				<parameter name="retcode" 	request="0" 	response="M"	default="" desc=""/>
+				<parameter name="retmsg" 	request="0" 	response="M"	default="" desc=""/> 
+			</parameters>
+		</service>
+	</services>

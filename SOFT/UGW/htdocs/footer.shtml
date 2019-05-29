@@ -1,0 +1,60 @@
+<!--页脚BEGIN-->
+<div id="footbar">
+<span id="foot_contactor">联系人 ：睿翼           电话： 18926589051  <br/> Email ： admin@wucar.com.cn  Q群 ： 633755767（万物移动互联应用）QQ : 372132908</span>
+<span id="foot_reg"><a target="_blank" href="http://www.miitbeian.gov.cn" >粤ICP备08019531号-2</a><br /> 睿翼版权所有&copy;2013-2017</span>
+</div>
+<!--页脚END-->
+
+
+<!-- 公共文件BEGIN -->
+
+<script src="Js/CCookie.js" language="javascript" type="text/javascript"></script> 
+<script src="Js/menu.js" language="javascript" type="text/javascript"></script>
+<script src="Js/element.js" language="javascript" type="text/javascript"></script> 
+<!-- 公共文件END -->
+
+<script >
+	function disp_logo()
+	{
+		///*
+		var objS = document.getElementById("switch");
+		var objL = document.getElementById("logobar");
+		
+		//alert(g_CCookie.GetCookie("logo"));
+		
+		if("0" == g_CCookie.GetCookie("logo")) 
+		{
+			$("#logobar").css("display",  "none");
+			$("#switch").text("显示LOGO条");
+		}
+		else
+		{			
+			$("#logobar").css("display",  "");
+			$("#switch").text("隐藏LOGO条");
+		}
+		
+		
+		//*/
+	}
+	function disp_logo_switch()
+	{		
+		if("0" == g_CCookie.GetCookie("logo")) 
+		{
+			g_CCookie.SetCookie("logo","1");
+		}
+		else
+		{
+			g_CCookie.SetCookie("logo","0");
+		}
+		
+		disp_logo();
+		CAutoJustForm();
+		//*/
+	}
+	
+	disp_logo();
+</script> 
+
+
+<!-- 基于窗口自动调整尺寸 -->
+<script src="Js/CAutoJustForm.js" language="javascript" type="text/javascript"></script>

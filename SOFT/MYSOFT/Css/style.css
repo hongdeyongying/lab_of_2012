@@ -1,0 +1,12 @@
+html{width:100%;height:100%;}
+body{margin:0px;width:100%;height:100%;}
+img{border:none;}
+#logo{background-image: url(../Logo/Logo_bgcolor.jpg);background-repeat: repeat;background-position: top;width:100%;overflow:hidden;height:90px;}
+#foot{position:relative;font:12px Tahoma;color:#FFF;background-image: url(../Logo/Foot_bgcolor.jpg);z-index:3;bottom:0px;right:0px;width:100%;text-align:right;}	
+#nav{overflow-x:hidden;
+position:relative;height: 400px;width: 201px;overflow-y: auto;background-color:#c0c0f0;}
+
+#content{margin:0px;padding:0px;border:0px none red;}
+
+iframe{margin:0px;padding:0px;border:0px none red;width:400px;;position: absolute;left:202px;top:90px;height: 400px;}
+

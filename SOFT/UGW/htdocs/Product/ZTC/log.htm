@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<TITLE>My-Soft,原创软件,量身定制,恰如您所需</TITLE>
+	<meta name="description" content="My-Soft为您制作恰如所需的软件，专注所以专业" />
+	<meta name="keywords" content="My-Soft,原创软件,定制软件,爬虫,邮件,进销存,防火墙,加解密,网络嗅探,技术资料,免费小工具,按揭计算,文本合并" />
+    <link href="../../Css/frame_style.css" rel="stylesheet" type="text/css" />
+	
+	<style  type="text/css" rel="stylesheet" >		
+		span.tips{color:#aaa;}
+		*.text{width:300px;}
+		
+		th{width:150px;}
+		td.input{width:320px;}
+		
+		tr.header
+		{
+			color:#f00;
+		}
+	</style>
+	
+	
+<script type="text/javascript"  language="javascript" src="./javascript/CXML.js" ></script>
+
+</head>
+
+<body bgcolor="#c0c0f0" >
+<!-- <fieldset ><legend>参数设置</legend> -->
+<h2>查看销售日志 </h2> <br>
+
+<table border="1" id="TBL_ZTC_SALE_LOG">
+		<caption>销售日志表 <!--<input type="button" value="点此导出到Excel" onclick="javascript:ExportToExcel('ZTC_SALE_RES'); " />
+			<input type="button" value="点此将整个“销售日志表”导出到DB" onclick="javascript:ExportToDB('ZTC_SALE_RES');" style="width:300px;" /> --><form id="FRM_ZTC_LOG" onsubmit="javascript:return false;">
+	<!--<input name="btn_event_salelog" type="button" value="打开Access数据库查看" />-->
+	<input name="btn_event_deleteall" type="button" value="清空日志" />
+</form><!--      -->
+			</caption>
+		<tr class="header">
+			<td>序号</td><td>时间</td><td>收货QQ号码</td><td>购买的业务</td><td>数量</td><td>区域</td><td>备注</td><td>订单号</td><td>状态</td><td>信息</td><td>返回时间</td>
+		</tr>
+
+</table>
+
+<br />
+
+<span id="INF_RETMSG"></span>
+
+
+
+<script src="javascript/ztc_log.js" ></script>
+</BODY>
+</HTML>

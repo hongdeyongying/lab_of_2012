@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<TITLE>财付通外围接口演示</TITLE>
+	<link href="../Css/frame_ style.css" rel="stylesheet" type="text/css" />
+	
+	
+	<script language="javascript">
+		var CftMchLib = new ActiveXObject("CFTMCHINTERFACE.CftMchLib");
+				
+		function GetINquireUrl()
+		{
+			var Slide390 = document.getElementById("frm_test");
+			CftMchLib.Init(Slide390.SpId.value,Slide390.SpKey.value,Slide390.SpId.value,"0",Slide390.privCertPath.value,Slide390.rootCertPath.value,Slide390.privCertPwd.value);
+			
+			
+			CftMchLib.Clear();
+			CftMchLib.FunctionName = "InquireTid";
+			/*可自动补充字段
+			CftMchLib.SetPara("cmdno","96");
+			CftMchLib.SetPara("date","20090729");
+			CftMchLib.SetPara("bargainor_id","1900000107");
+			CftMchLib.SetPara("version","4");
+			*/
+			
+			//必填项			
+			CftMchLib.SetPara("transaction_id",Slide390.transaction_id.value);
+			CftMchLib.SetPara("sp_billno",Slide390.sp_billno.value);	
+			CftMchLib.SetPara("return_url","http://www.my-soft.net.cn/Pay/pay_notify_handler_4.php");
+			
+			
+			var retcd= CftMchLib.SendAndRecv();	
+			
+			
+			
+			if(retcd == 0)
+			{
+				Slide390.URL_1.value = CftMchLib.GetResult();
+			}
+			else
+			{
+				CftMchLib.ShowMsg("订单查询：返回值【"+retcd+"】",CftMchLib.GetLastError() + "\r\n\r\n" + CftMchLib.GetResult() );
+			}
+			
+		
+		
+		}
+	</script>
+	
+	<style type= "text/css"  >
+		input{width:400px;}
+		input.chk{width:20px;}
+		input.btn{width:100px;}
+		input.file{width:40px;}
+		
+		textarea.multi{ height:100px;width:400px;}
+		
+	</style>
+    
+</head>
+
+<body bgcolor="#c0c0f0" >
+<ol ><h2>财付通订单查询接口</h2> <br>
+<form id="frm_test">
+<table id="B2cPayRequest">
+	<tr>
+	<script >
+		function FillSpid()
+		{
+			var Slide390 = document.getElementById("frm_test");
+			if( Slide390.ComboBox1.value == "107" )
+			{
+				Slide390.SpId.value = "1900000107";
+				Slide390.SpKey.value = "82d2f8b9fd7695aec51415ab2900a755";
+			}
+			if( Slide390.ComboBox1.value == "666" )
+			{
+				Slide390.SpId.value = "1900000666";
+				Slide390.SpKey.value = "19a1cae5dfd0d2296b0fd80ab65b975d";
+			}
+			if( Slide390.ComboBox1.value == "501" )
+			{
+				Slide390.SpId.value = "2000000501";
+				Slide390.SpKey.value = "123456";
+			}			
+			if( Slide390.ComboBox1.value == "101" )
+			{
+				Slide390.SpId.value = "1202952101";
+				Slide390.SpKey.value = "8fef4ff29cab34775c2c4c62374b5297";
+			}
+			
+			if( Slide390.ComboBox1.value == "000" )
+			{
+				Slide390.SpId.value = "2000000000";
+				Slide390.SpKey.value = "abc12345";
+				Slide390.AgentId.value = "2000000501";
+				Slide390.AgentKey.value = "123456";
+			}
+		}
+	</script>
+	<td width="200px"><span > 辅助填写商户号 000 107 501  </span> </td>
+	<td><input name="ComboBox1" value="000" onchange= "javascript:FillSpid();"/> </td>
+</tr>
+<tr>
+	<td width="200px"><span > 交易单号 </span> </td>
+	<td><input name="transaction_id" value="1900000107200911160000110653" /> </td>
+</tr>
+<tr>
+	<td><span > 商户订单号 </span> </td>
+	<td><input name="sp_billno" value="Test1900000107200911160000110653" /> </td>
+</tr>
+<tr>
+	<td><span > 商户名称 </span> </td>
+	<td><input name="SpName" value="Test" /> </td>
+</tr>
+<tr>
+	<td><span > 商户号 </span> </td>
+	<td><input name="SpId" value="2000000000" /> </td>
+</tr>
+<tr>
+	<td><span > 商户通讯密钥 </span> </td>
+	<td><input name="SpKey" value="abc12345" /> </td>
+</tr>
+<tr>
+	<td><span > 证书路径 </span> </td>
+	<script language ="javascript" >
+	    function SetValue(frm,to)
+	    {
+	        document.getElementById(to).value = document.getElementById(frm).value ;
+	    }
+	</script>
+	<td><input id="privCertPath" name="privCertPath" value="" id="to_1"/>  <input class="file"  type="file"   id="frm_1"   onchange ="javasript:SetValue('frm_1','privCertPath');">    </td>
+</tr>
+<tr>
+	<td><span > 证书密钥 </span> </td>
+	<td><input name="privCertPwd" value="123456" /> </td>
+</tr>
+<tr>
+	<td><span > 根证书路径 </span> </td>
+	<td><input id="rootCertPath" name="rootCertPath" value="" id="to_1"/>  <input class="file"  type="file"   id="frm_2"   onchange ="javasript:SetValue('frm_2','rootCertPath');">    </td>
+</tr>
+<tr>
+	<td width="200px"><span > host检查 </span> </td>
+	<td><input name="hostCheck" value="1" /> </td>
+</tr>
+<tr>
+	<td><span >  </span> </td>
+	<script>
+		function ChangeUrl()
+		{
+			document.getElementById ("jump_url").href  = document.getElementById("URL_1").value ;
+		}
+	</script>
+	<td><textarea id="URL_1"  name="URL_1" value="" class="multi" onchange="javascript:ChangeUrl();"></textarea > </td>
+</tr>
+<tr>
+	<td><span >  </span> </td>
+	<td>
+		<input class ="btn " name="GenUrl2" type="button"  value="后台调用" onclick="javascript:GetINquireUrl();" /> 
+
+	</td>
+</tr>
+</table>
+</form>	
+</body>
+</html>

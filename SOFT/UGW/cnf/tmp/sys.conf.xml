@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+
+<!--
+通用系统参数
+名字：唯一标识此参数
+类型：用来描述的是哪一类资源：如数据库、应用服务、日志等
+描述：说明
+相应变量
+名字：系统唯一的标志
+值：字符串表示的值
+说明：对变量的说明，需要清楚无歧义
+
+数据库参数：基于通用系统参数，要求相应变量中必须提供
+地址：如127.0.0.1
+端口：如3060
+超时时间：秒，如5
+数据库名：db_asdf
+用户名：dbadmin
+口令：dbpasswd
+语言：如utf-8
+
+TCP/UDP应用服务参数：基于通用系统参数，要求相应变量中必须提供
+地址：如127.0.0.1
+端口：如8080
+超时时间：秒，如5
+
+日志配置文件路径：基于通用系统参数，要求相应变量中必须提供
+路径:如/home/zhangsan/logs/log4cpp.properties
+
+-->
+<root>
+	<system name="db" type="database" desc="mysql database service parameters" >
+		 <variable name="ip" value="172.25.38.10" desc="">ip address</variable>
+		 <variable name="port" value="3306" desc="">port</variable>
+		 <variable name="timeout" value="5" desc="">timeout</variable>
+		 <variable name="dbname" value="db_system" desc="">database name</variable>
+		 <variable name="user" value="root" desc="">user name</variable>
+		 <variable name="passwd" value="root1234" desc="">user passwd</variable>
+		 <variable name="language" value="latin1" desc="">language</variable>
+	</system>
+
+	<system name="relaysvr" type="tcp_app_svr" desc="relaysvr parameters" >
+		 <variable name="ip" value="172.25.38.10" desc="">ip address</variable>
+		 <variable name="port" value="3306" desc="">port</variable>
+		 <variable name="timeout" value="5" desc="">timeout</variable>
+	</system>
+	
+	
+	<system name="log" type="log" desc="log4cpp parameters" >
+		 <variable name="path" value="/usr/local/log4cpp.properties" desc="">log configure path</variable>
+	</system>
+
+</root>

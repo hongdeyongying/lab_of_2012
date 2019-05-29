@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<TITLE>财付通外围接口演示</TITLE>
+	<link href="../Css/frame_ style.css" rel="stylesheet" type="text/css" />
+	
+	<script language="javascript" src="../../Js/CXml.js"></script>
+	
+	<script language="javascript">
+		var CftMchLib = new ActiveXObject("CFTMCHINTERFACE.CftMchLib");
+		
+		var req_tid;
+		
+		function Btn_Md5_Click()
+		{
+			CftMchLib.Clear();
+			var Slide390 = document.getElementById("frm_test");
+			
+			var md5_res, res ;
+			
+			md5_res = CftMchLib.md5(Slide390.desc.value);
+			
+			CftMchLib.ShowMsg ("Md5计算", Slide390.desc.value +"\r\n" + md5_res);			
+		}
+		/*取当前时间*/
+        function GetCurrentTime()
+        {
+	        var now= new Date();
+	        var year=now.getYear();
+	        var month=now.getMonth()+1;
+	        var day=now.getDate();
+	        var hour=now.getHours();
+	        var minute=now.getMinutes();
+	        var second=now.getSeconds();
+        	
+	        //var result = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+	        var result = year+month+day+"0000"+hour+minute+second;
+	        
+	        var arr = new Array( );
+	        if(year <1000)  { arr.push("0");}
+	        if(year <100)  { arr.push("0");}
+	        if(year <10)  { arr.push("0");}
+	        arr.push (year );
+	        if(month <10)  { arr.push("0");}
+	        arr.push (month );
+	        if(day <10)  { arr.push("0");}
+	        arr.push (day );
+	        if(hour <10)  { arr.push("0");}
+	        arr.push (hour );
+	        if(minute <10)  { arr.push("0");}
+	        arr.push (minute );
+	        if(second <10)  { arr.push("0");}
+	        arr.push (second );
+	        
+	        arr.push("0000");
+	        
+	        result = arr.join("");
+	        
+	                	
+	        return result;
+
+        }
+	       
+        function GetCurrentDate()
+        {
+	        var now= new Date();
+	        var year=now.getYear();
+	        var month=now.getMonth()+1;
+	        var day=now.getDate();
+	        var hour=now.getHours();
+	        var minute=now.getMinutes();
+	        var second=now.getSeconds();
+        	
+	        //var result = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+	        var result = year + month+day;
+	        
+	        var arr = new Array( );
+	        
+	        if(year <1000)  { arr.push("0");}
+	        if(year <100)  { arr.push("0");}
+	        if(year <10)  { arr.push("0");}
+	        arr.push (year );
+	        if(month <10)  { arr.push("0");}
+	        arr.push (month );
+	        if(day <10)  { arr.push("0");}
+	        arr.push (day );
+	        
+	        
+            result = arr.join("");
+	        
+	        return result;
+
+        }
+		
+	function Btn_GenUrl2_Click()
+        {    
+            var URL ;
+            
+            var Slide390 = document.getElementById("frm_test");
+            
+            URL = Slide390.URL_1.value;
+            req_tid = Slide390.tid.value;
+            
+            var payer, amount, key, private_path, passwd, public_path ;
+            
+            payer = Slide390.cftUin.value;
+            key = Slide390.cftKey.value;
+            amount = Slide390.amount.value;
+            private_path = Slide390.cftPrivPath.value;
+            passwd = Slide390.cftPrivatePasswd.value;
+            
+            
+            //填写付款接口参数
+            var Encode_URL ;    
+            
+            //Encode_URL = CftMchLib.UrlEncode(URL);
+            Encode_URL = URL;
+            
+        
+            CftMchLib.Init2 (payer, key, private_path, passwd);
+            
+            CftMchLib.Clear();
+                
+            CftMchLib.SetPara ("payer", payer);
+            CftMchLib.SetPara ("amount", amount);
+            CftMchLib.SetPara ("transaction_id", req_tid);
+            CftMchLib.SetPara ("transaction_req", Encode_URL);
+            
+            
+
+            if(Slide390.chkAgent.checked )
+            {
+                CftMchLib.SetPara ("agent", Slide390.agent.value);
+                CftMchLib.SetPara ("commit_by", Slide390.flag.value);
+            }
+            
+            URL = CftMchLib.GetUrl();
+            
+            Slide390.URL_2.value = URL;
+            
+            document.getElementById ("jump_url2").href = URL;
+            
+            var SignCnt ;
+            
+            SignCnt = CftMchLib.GetSignContent();
+           
+            if(Slide390.ShowUrl.checked )
+            {
+                CftMchLib.ShowMsg ("付款接口", URL);
+                CftMchLib.ShowMsg ("签名字段", SignCnt);
+            }
+            
+            
+            
+            
+        }
+		function Btn_Call_Click()
+        {    
+            var URL ;
+            
+            var Slide390 = document.getElementById("frm_test");
+            
+            URL = Slide390.URL_1.value;
+            req_tid = Slide390.tid.value;
+            
+            var payer, amount, key, private_path, passwd, public_path ;
+            
+            payer = Slide390.cftUin.value;
+            key = Slide390.cftKey.value;
+            amount = Slide390.amount.value;
+            private_path = Slide390.cftPrivPath.value;
+            passwd = Slide390.cftPrivatePasswd.value;
+            
+            
+            //填写付款接口参数
+            var Encode_URL ;    
+            
+            //Encode_URL = CftMchLib.UrlEncode(URL);
+            Encode_URL = URL;
+            
+        
+            CftMchLib.Init2 (payer, key, private_path, passwd);
+            
+            CftMchLib.Clear();
+            
+            
+            CftMchLib.SetPara ("payer", payer);
+            CftMchLib.SetPara ("amount", amount);
+            CftMchLib.SetPara ("transaction_id", req_tid);
+            CftMchLib.SetPara ("transaction_req", Encode_URL);
+            
+            
+
+            if(Slide390.chkAgent.checked )
+            {
+                CftMchLib.SetPara ("agent", Slide390.agent.value);
+                CftMchLib.SetPara ("commit_by", Slide390.flag.value);
+            }
+            
+            URL = CftMchLib.GetUrl();
+            
+            Slide390.URL_2.value = URL;
+            
+            document.getElementById ("jump_url2").href = URL;
+            
+            var SignCnt ;
+            
+            SignCnt = CftMchLib.GetSignContent();
+           
+            if(Slide390.ShowUrl.checked )
+            {
+                CftMchLib.ShowMsg ("付款接口", URL);
+                CftMchLib.ShowMsg ("签名字段", SignCnt);
+            }
+            
+            
+            var retcd ;
+        
+            retcd = CftMchLib.SendAndRecv();
+            
+            CftMchLib.ShowMsg ("付款接口", "返回值【" + retcd + "】" + "【" + CftMchLib.GetLastError() + "】" + "\r\n\r\n" + CftMchLib.GetResult());
+       
+            Slide390.Ret_Xml.value = CftMchLib.GetResult();
+        }
+        function CheckResult(str_xml)
+        {
+        	
+            var Slide390 = document.getElementById("frm_test");
+            //alert(str_xml);
+            var xml =new CXml(Slide390.Ret_Xml.value);
+
+      	    alert( xml.GetValue("sign"));	
+            
+            
+            CftMchLib.Init3 ( Slide390.cftUin.value, Slide390.cftKey.value, Slide390.cftPublicPath.value);
+            
+            CftMchLib.Clear();
+                
+            CftMchLib.SetPara ("payer", xml.GetValue("payer"));
+            CftMchLib.SetPara ("amount", xml.GetValue("amount"));
+            CftMchLib.SetPara ("transaction_id", xml.GetValue("transaction_id"));
+            CftMchLib.SetPara ("transaction_res", xml.GetValue("transaction_res"));
+            
+            CftMchLib.SetPara ("retcode", xml.GetValue("retcode"));
+            CftMchLib.SetPara ("retmsg", xml.GetValue("retmsg"));
+            
+
+                      
+            URL = CftMchLib.GetUrl();
+            
+            CftMchLib.ShowMsg("服务端返回的URl应该如下",URL);
+             
+             
+            //if(Slide390.ShowUrl.checked )
+            {
+            	var SignCnt ;
+            	SignCnt = CftMchLib.GetSignContent();
+            	SignCnt =SignCnt + "\r\n\r\n服务返回：" + xml.GetValue("sign");
+            
+            	
+               // CftMchLib.ShowMsg ("付款接口返回验证", URL);
+                CftMchLib.ShowMsg ("签名字段", SignCnt);
+            }
+            
+            
+        }
+	</script>
+	
+	<style type= "text/css"  >
+		input{width:400px;}
+		input.chk{width:20px;}
+		input.btn{width:100px;}
+		input.file{width:40px;}
+		
+		textarea.multi{ height:100px;width:400px;}
+		
+	</style>
+    
+</head>
+
+<body bgcolor="#c0c0f0" >
+<ol ><h2>财付通付款接口</h2> <br>
+<form id="frm_test">
+<table id="B2cPayRequest">
+
+<tr>
+	<td width="200px"><span > 金额 </span> </td>
+	<td><input name="amount" value="1" /> </td>
+</tr>
+<tr>
+	<td><span > 订单号 </span> </td>
+	<td><input name="tid" value="" /> </td>
+</tr>
+<tr>
+	<td><span > B2C支付请求URL </span> </td>
+	<td><textarea  name="URL_1" value="" class="multi" /></textarea > </td>
+</tr>
+
+</table>
+<table id="PayInst">
+<tr>
+	<td width="200px"><span > 付款方 </span> </td>
+	<td><input name="cftUin" value="7457222" /> </td>
+</tr>
+<tr>
+	<td><span > 代理人 </span> </td>
+	<td><input name="agent" value="372132908" /> </td>
+</tr>
+<tr>
+	<td><span > 发起方标志 </span> </td>
+	<td><input name="flag" value="1" /> </td>
+</tr>
+<tr>
+	<td><span > 是否有代理人信息 </span> </td>
+	<td><input name="chkAgent" type="checkbox" class="chk"  /> </td>
+</tr>
+<tr>
+	<td><span > 显示调试信息 </span> </td>
+	<td><input name="ShowUrl" type="checkbox" class="chk"  /> </td>
+</tr>
+<tr>
+	<td><span > 发起方通讯密钥 </span> </td>
+	<td><input name="cftKey" value="1234567890ABCDEF" /> </td>
+</tr>
+<tr>
+	<td><span > 私钥路径 </span> </td>
+	<script language ="javascript" >
+	    function SetValue(frm,to)
+	    {
+	        document.getElementById(to).value = document.getElementById(frm).value ;
+	    }
+	</script>
+	<td><input name="cftPrivPath" value="F:\DirectPay\RUN\372132908\private.key" id="to_1"/>  <input class="file"  type="file"   id="frm_1"   onchange ="javasript:SetValue('frm_1','to_1');">    </td>
+</tr>
+<tr>
+	<td><span > 私钥密码 </span> </td>
+	<td><input name="cftPrivatePasswd" value="" /> </td>
+</tr>
+<tr>
+	<td><span > 公钥路径 </span> </td>
+	<td><input name="cftPublicPath" value="F:\DirectPay\RUN\372132908\public.key" id="to_2"  /> <input class="file"  type="file"   id="frm_2"   onchange ="javasript:SetValue('frm_2','to_2');"> </td>
+</tr>
+<tr>
+	<td><span >付款请求URL  </span> </td>
+	<script>
+		function ChangeUrl(idd)
+		{
+			document.getElementById ("jump_url2").href  = document.getElementById (idd).value ;
+		}
+	</script>
+	<td><textarea id="URL_2" name="URL_2" value="" class="multi" onchange="javascript:ChangeUrl('URL_2')" /></textarea > </td>
+</tr>
+<tr>
+	<td><span >待验证的返回  </span> </td>
+	<td><textarea name="Ret_Xml" value="" class="multi" /></textarea > </td>
+</tr>
+<tr>
+	<td><span >   </span> </td>
+	<td><input class ="btn " name="GenUrl2" type="button"  value="生成URL" onclick="javascript:Btn_GenUrl2_Click();" /> 
+	<input class ="btn " name="Call" type="button"  value="调用此服务" onclick="javascript:Btn_Call_Click();" /> 
+	     <a id="jump_url2" target="_blank"  href="" >跳转到此URL</a>
+	<input class ="btn " name="Call" type="button"  value="检查返回" onclick="javascript:CheckResult('a');" /> 
+	</td>
+</tr>
+</table>
+</form>	
+</body>
+</html>

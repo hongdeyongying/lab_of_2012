@@ -1,0 +1,73 @@
+
+<table  border="1">
+		<tr>
+<script type="text/javascript"  defer="true">
+	function Show()
+	{
+		try
+		{
+			var appsel = document.getElementById("picmode");
+			var appid = appsel.options(appsel.selectedIndex).value;
+			var picsrc = document.getElementById("picsrc");
+			
+			var sl = "<label>上传:</label> <input type=\"file\" name=\"picsrc\" class=\"input_para\" />";
+			var sn = "<label>网址:</label> <input type=\"text\" name=\"picsrc\" class=\"input_para\" />"
+			if(appid == 2)
+			{
+				picsrc.innerHTML = sn;
+			}
+			else
+			{
+				picsrc.innerHTML = sl;
+			}
+		
+		}catch(exp){alert(exp.descript);};
+	}
+</script>
+			<td width="200px">图片
+			<select onchange="javascript:Show()" id="picmode" >
+				<option value="2" >网络图片</option>
+				<option value="1" >本地图片</option>
+			</select>
+			</td>
+			<td>
+			<span id="picsrc" ><label>网址:</label> <input type="text" name="picsrc" class="input_para" /></span>
+			<br />
+			<label>链接:</label> <input type="text" id="picurl" name="picurl" value="http://www.qq.com/pic" class="input_para" />
+			</td>
+		</tr>
+		<tr>
+			<td width="200px">头条</td>
+			<td>
+			<label>标题:</label> <input type="text" id="title1" name="title1" class="input_para" maxlength="27"  value="头条" /><br />
+			<label>链接:</label> <input type="text" id="url1" name="url1" value="http://www.qq.com/header" class="input_para" />
+			</td>
+		</tr>
+		<tr >
+			<td width="200px">话题1</td>
+			<td>
+			<p><label>分类:</label> <input type="text" id="category2" name="category2" value="分类1" class="input_para"/><br />
+			<label>标题:</label> <input type="text" id="title2" name="title2" class="input_para" maxlength="29" value="标题1" /><br />
+			<label>链接:</label> <input type="text" id="url2" name="url2" value="http://www.qq.com/t1" class="input_para" />
+			</td>
+		</tr>
+		<tr  >
+			<td width="200px">话题2</td>
+			<td>
+			<label>分类:</label> <input type="text" id="category3" name="category3" value="分类2" class="input_para"/><br />
+			<label>标题:</label> <input type="text" id="title3" name="title3" class="input_para" maxlength="29"  value="标题2" /><br />
+			<label>链接:</label> <input type="text" id="url3" name="url3" value="http://www.qq.com/t2" class="input_para" />
+			</td>
+		</tr>
+		<tr  >
+			<td width="200px">话题3</td>
+			<td>
+			<label>分类:</label> <input type="text" id="category4" name="category4" value="分类3" class="input_para"/><br />
+			<label>标题:</label> <input type="text" id="title4" name="title4" class="input_para" maxlength="29"   value="标题3" /><br />
+			<label>链接:</label> <input type="text" id="url4" name="url4" value="http://www.qq.com/t3" class="input_para" />
+			</td>
+		</tr>
+</table>	
+
+
+

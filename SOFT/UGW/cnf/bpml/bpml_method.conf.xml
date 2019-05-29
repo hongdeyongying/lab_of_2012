@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+bpml 对外的一些方法和变量 ，供bpml服务使用
+
+流程：BPML对输入参数进行打包，按照先后顺序分别对env，cookie，input，file_data，parameter的顺序加入CStringVectorMap中，然后调用脚本$script，将获得的输出存放到result中
+
+同时根据脚本执行情况设置retcode与retmsg
+-->
+<services>		
+	<service name="alipay_pay_notify" type="bpml" desc="异步通知">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/alipay_pay_notify.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			<parameter name="timestamp" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="nonce" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="signature" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="echostr" 	request="M" 	response="O"	default="" desc=""/> 
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+		</parameters>
+	</service>		
+	<service name="charge_result" type="bpml" desc="页面提醒">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/xdb_charge_result.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			<parameter name="timestamp" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="nonce" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="signature" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="echostr" 	request="M" 	response="O"	default="" desc=""/> 
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+		</parameters>
+	</service>		
+	<service name="xdb_user_manage_androidapp" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/xdb_user_manage_androidapp.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			<parameter name="timestamp" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="nonce" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="signature" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="echostr" 	request="M" 	response="O"	default="" desc=""/> 
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+		</parameters>
+	</service>	
+	<service name="weixin_in_msg" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/weixin_tocken.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			<parameter name="timestamp" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="nonce" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="signature" 	request="M" 	response="O"	default="" desc=""/> 
+			<parameter name="echostr" 	request="M" 	response="O"	default="" desc=""/> 
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+		</parameters>
+	</service>
+	<service name="task_grade_form" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/task_grade_form.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="M" 	response="O"	default="" desc=""/> 
+		</parameters>
+	</service>
+	
+	<service name="task_grade_record" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/task_grade_record.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="M" 	response="O"	default="" desc=""/>  
+			
+			<parameter name="pid" 	request="M" 	response="O"	default="" desc=""/>  
+			<parameter name="gv" 	request="M" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="task_grade_today" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/task_grade_today.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="M" 	response="O"	default="" desc=""/>  
+			
+			<parameter name="pid" 	request="M" 	response="O"	default="" desc=""/>  
+			<parameter name="gv" 	request="M" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="task_grade_someday" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/task_grade_someday.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="M" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="M" 	response="O"	default="" desc=""/>  
+			
+			<parameter name="pid" 	request="M" 	response="O"	default="" desc=""/>  
+			<parameter name="gv" 	request="M" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	<service name="project_list" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/project_list.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	<service name="project_add" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/project_add.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="project_modi" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/project_modi.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="project_task_form" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/project_task_form.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	<service name="project_task_record" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/project_task_record.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+			
+			<parameter name="pid" 	request="M" 	response="O"	default="" desc=""/>  
+			<parameter name="tv" 	request="M" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	<service name="task_grade_someday_other" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/task_grade_someday_other.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="task_grade_today_other" type="bpml" desc="用户注册">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/task_grade_today_other.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="rank_list" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/rank_list.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="reward_detail" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/reward_detail.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	<service name="reward_list" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/reward_list.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	<service name="reward_add" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/reward_add.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="reward_modi" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/reward_modi.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	
+	<service name="hw_grade_form" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_grade_form.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="hw_grade_record" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_grade_record.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+
+	<service name="hw_time_form" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_time_form.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="hw_time_record" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_time_record.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+
+	<service name="hw_deploy_form" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_deploy_form.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="hw_deploy_record" type="bpml" desc="行动达人排名">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_deploy_record.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	
+	
+	<service name="hw_manage_form" type="bpml" desc="作业管理表单">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_manage_form.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="hw_detail_del" type="bpml" desc="作业管理表单">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_detail_del.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+	<service name="hw_recycle_del" type="bpml" desc="作业管理表单">
+		<variables>								
+			<!-- hash_method: node_prefix,hash_method_para-->
+			<variable name="script" value="../cnf/template/bpml/hw_recycle_del.xml" desc="BPML脚本路径"></variable>
+			<variable name="_output_template_0" value="../template/bpml/bpml_output.bpml.xml" desc="">本cgi输出模版</variable>
+			<variable name="prefix_cookie" value="cookie_" desc="cookie的头"></variable>				
+			<variable name="prefix_env" value="env_" desc="env的头"></variable>				
+			<variable name="prefix_file_data" value="fdata_" desc="file_dat的头"></variable>	
+			<variable name="prefix_parameter" value="para_" desc="输入参数的头"></variable>
+		
+		</variables>
+		
+		<parameters> 	    		
+			
+			
+			<!-- 如果请求中不存在，则增加此部分的值 --><!-- -->
+			<parameter name="id" 	request="O" 	response="O"	default="" desc=""/>   
+			<parameter name="vc" 	request="O" 	response="O"	default="" desc=""/>  
+		</parameters>
+	</service>
+       
+</services>

@@ -1,0 +1,79 @@
+<!--
+// *************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// *************************************************
+-->
+Content-Type: text/html; charset=GB2312
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+<html>	
+	<head>
+	<title>CStringVectorMap 输出示例 </title>
+	<style type="text/css" >
+	
+	</style>
+	</head>
+	<body>
+	<table class="demo" border="1">
+	<tr><td>名</td><td>值</td></tr>
+	<!-- 条件分支语句 -->
+	<my-soft::switch expr="vector_at(map_nv($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)">
+		<my-soft::case value="NULL">
+		<tr>
+			<td>900099</td>
+			<td>系统内部错误</td>
+		</tr>
+		</my-soft::case>
+		<my-soft::case value="0">
+			<!-- 赋值语句 -->
+			<my-soft::assign id="map_size" expr="map_size($_RAW_REQUEST_STRING_VECTOR_MAP)" />
+			<my-soft::assign id="var" expr="0"  />
+			
+			<tr><td>map_size</td>
+			<td>
+				<!-- 显示语句-->
+				<my-soft::echo type="expr" value="$map_size" /> 
+			</td>
+			</tr>
+			<!-- 循环语句 -->
+			<my-soft::for condition="lt($var,$map_size,0)" recycle="inc($var,1,var)" >
+			
+				<my-soft::assign id="map_at_var" expr="map_at($_RAW_REQUEST_STRING_VECTOR_MAP,$var,value)" />
+				
+				<my-soft::assign id="var1" expr="0"  />
+				<my-soft::assign id="vector_size" expr="vector_size($map_at_var)" />
+				<tr><td>vector_size of
+				<my-soft::echo type="expr" value="map_at($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name)" />
+				</td>
+				<td>
+					<my-soft::echo type="expr" value="$vector_size" /> 
+				</td>
+				</tr>
+					<!-- 逐行显示数组的值 -->
+					<my-soft::for condition="lt($var1,$vector_size,0)" recycle="inc($var1,1,var1)" >
+					<tr><td>
+						<my-soft::echo type="expr" value="$var1" />
+						</td><td>
+						<my-soft::echo type="expr" value="xmlEncode(vector_at($map_at_var,$var1))" />
+						</td></tr>
+					</my-soft::for>
+				</my-soft::for>
+		</my-soft::case>
+		<my-soft::default>
+		<tr>
+			<td><my-soft::echo type="expr" value="vector_at(map_nv($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)" /></td>
+			<td>系统内部错误</td>
+		</tr>
+		</my-soft::default>
+	</my-soft::switch>
+	</body>
+</html>	
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />

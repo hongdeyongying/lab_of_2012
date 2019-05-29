@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+spmanager 对外的一些方法和变量 ，供mysql服务使用
+-->
+<services>	
+	<service name="xdb_reg" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_user (f_user_name,f_crt_time,f_mod_time,f_login_time,f_user_weixin_openid) values(%22$name$%22,now(),now(),now(),%22$openid$%22) " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	<service name="xdb_uinfo" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select f_user_id,f_user_name from t_user where f_user_weixin_openid=%22$openid$%22 " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	<service name="xdb_modi_nick" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_user set f_user_name=%22$name$%22 where f_user_weixin_openid=%22$openid$%22 " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	<service name="ureg" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_user (femail,fmobile,fdisplay_name,fim,faddr,fpwd,fdesc,ftelecode,fct) values(%22$email$%22,%22$mobile$%22,%22$display_name$%22,%22$qq$%22,%22$addr$%22,%22$pwd$%22,%22$desc$%22,%22$telecode$%22,now()) " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="email" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	
+	
+		<service name="ulog" type="mysql" desc="用户登录 ">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select fid,femail,fdisplay_name,fmobile,ftelecode,fim as fqq,faddr,fdesc  from t_user where femail=%22$email$%22 and fpwd=%22$pwd$%22;" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+				
+				<variable name="login_gen" value="true" desc="成功后生成token"></variable>
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="email" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="pwd" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="udisp" type="mysql" desc="查询登录用户的基本资料">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select fid,femail,fdisplay_name,fmobile,ftelecode,fim as fqq,faddr,fdesc from t_user where fid=$uid$;" desc=""></variable>
+				
+				<variable name="login_check" value="true" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="umodi" type="mysql" desc="修改用户的基本资料">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_user set fdisplay_name=%22$display_name$%22 ,fmobile=%22$mobile$%22,fim=%22$qq$%22,faddr=%22$addr$%22,fdesc=%22$desc$%22,ftelecode=%22$telecode$%22 where fid=$uid$" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="umodi_pwd" type="mysql" desc="修改用户的密码">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_user set fpwd=%22$npwd$%22 where fid=$uid$ and fpwd=%22$pwd$%22" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="dreg" type="mysql" desc="添加新设备">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_device (fimei,fmobile,ftype,fowner,fplate,fdisplay_name,ficonid,fdesc,fct) values(%22$imei$%22,%22$mobile$%22,%22$type$%22,$uid$,%22$plate$%22,%22$display_name$%22,$iconid$,%22$desc$%22,now())" desc=""></variable>
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="dmodi" type="mysql" desc="修改设备信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_device set fimei = %22$imei$%22,fmobile = %22$mobile$%22,ftype = %22$type$%22,fplate = %22$plate$%22,fdisplay_name=%22$display_name$%22,ficonid = $iconid$,fdesc=%22$desc$%22 where fowner=$uid$ and fimei=%22$imei$%22" desc=""></variable>
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		
+		<service name="dlist" type="mysql" desc="查看客户的设备列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select fimei,fmobile,ftype,fowner,fplate,fdisplay_name,ficonid,fdesc,date_format(fct,%22%Y-%m-%d%22) as fct from t_device where fowner=$uid$" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="" desc=""/>    
+			</parameters>
+		</service>	
+		
+		
+		<service name="ddel" type="mysql" desc="删除客户的设备">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="delete from t_device where fowner=$uid$ and fimei=%22$imei$%22" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="imei" 	request="M" 	response="O"	default="" desc=""/>    
+			</parameters>
+		</service>	
+		
+	</services>

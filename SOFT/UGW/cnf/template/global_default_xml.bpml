@@ -1,0 +1,63 @@
+<!--
+// ***************************************************************
+// 创建日期： 2010-5-14                      
+// 作    者：高勇 (gaussgao@tencent.com)
+// 主要功能： 输出CStringVectorMap,作为一个示例给出MyBPML的用法。  
+// ***************************************************************
+-->
+Content-Type: application/xml; charset=GB2312
+
+<!-- 换行 -->
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!-- 原样输出 -->
+<?xml version="1.0" encoding="gbk" ?>
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+<root>		
+	<!-- 条件分支语句 -->
+	<my-soft::switch expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)">
+		<my-soft::case value="NULL">
+			<retcode>900099</retcode>
+			<retmsg>系统内部错误</retmsg>
+		</my-soft::case>
+		<my-soft::case value="0">
+			<!-- 赋值语句 -->
+			<my-soft::assign id="map_size" expr="Map.Size($_RAW_REQUEST_STRING_VECTOR_MAP)" />
+			<my-soft::assign id="var" expr="0"  />
+						
+			<!-- 循环语句 -->
+			<my-soft::for condition="Math.LT($var,$map_size,0)" recycle="Math.Inc($var,1,var)" >
+			
+				<my-soft::assign id="map_at_var" expr="Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,value)" />
+				
+				<my-soft::assign id="var1" expr="0"  />
+				<my-soft::assign id="vector_size" expr="Vector.Size($map_at_var)" />
+				
+				<my-soft::echo type="expr" value="String.Cat(%3c,Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name),s%3e)" />
+				<!--
+				<vector_size>
+					<my-soft::echo type="expr" value="$vector_size" /> 
+				</vector_size>-->
+					<!-- 逐行显示数组的值 -->
+					<my-soft::for condition="Math.LT($var1,$vector_size,0)" recycle="Math.Inc($var1,1,var1)" >
+						<my-soft::echo type="expr" value="String.Cat(%3c,Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name),%3e)" />
+						
+						<my-soft::echo type="expr" value="String.XmlEncode(Vector.At($map_at_var,$var1))" />
+						
+						<my-soft::echo type="expr" value="String.Cat(%3c%2f,Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name),%3e)" />
+					</my-soft::for>
+				
+				<my-soft::echo type="expr" value="String.Cat(%3c%2f,Map.At($_RAW_REQUEST_STRING_VECTOR_MAP,$var,name),s%3e)" />
+			</my-soft::for>
+		</my-soft::case>
+		<my-soft::default>
+			<retcode><my-soft::echo type="expr" value="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)" /></retcode>
+			<retmsg><my-soft::echo type="expr" value="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,retmsg),0)" /></retmsg>
+		</my-soft::default>
+	</my-soft::switch>
+</root>	
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
