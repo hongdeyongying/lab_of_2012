@@ -1,0 +1,82 @@
+#tree -L 1    
+.
+├── admin
+├── apache-log4cxx-0.10.0
+├── apr-1.3.3
+├── apr-util-1.3.4
+├── boost -> boost_1_33_1
+├── boost_1_33_1
+├── cgicc -> cgicc-3.2.10/
+├── cgicc-3.2.10
+├── DGW
+├── fcgi -> fcgi-2.4.1-SNAP-0311112127/
+├── fcgi-2.4.1-SNAP-0311112127
+├── gd -> libgd-2.1.0/
+├── ice-3.7.0
+├── ice-packaging-3.7.0
+├── INNER_UGW
+├── libgd-2.1.0
+├── log4cxx -> apache-log4cxx-0.10.0/
+├── lost+found
+├── MYSOFT
+├── mysql -> mysql-5.5.29/
+├── mysql++ -> mysql++-3.2.0/
+├── mysql++-3.2.0
+├── mysql-5.5.29
+├── openssl -> openssl-1.0.1e/
+├── openssl-1.0.1e
+├── UGW
+├── vargrind
+├── wordpress
+└── zlib
+
+29 directories, 0 files
+
+tree admin/
+admin/
+├── cgi_restart.sh
+├── cgi_start.sh
+├── cgi_stop.sh
+├── edgw_restart.sh
+├── edgw_start.sh
+├── edgw_stop.sh
+├── gt02_restart.sh
+├── keep_alive.sh
+├── reg.sh
+├── sim.sh
+├── task.sh
+├── ugw_restart.sh
+├── ugw_start_boot.sh
+├── ugw_start.sh
+├── ugw_stop.sh
+└── wucar_restart.sh
+
+0 directories, 16 files
+
+
+tree DGW
+DGW
+└── EDGW
+    ├── bin
+    │   ├── 123456789012345.txt
+    │   ├── 1.log
+    │   ├── device_gt02
+    │   ├── edgw
+    │   ├── gt02.sh
+    │   ├── ldd_admin
+    │   └── pdd_admin
+    ├── cnf
+    │   ├── edgw_index.xml
+    │   └── log.ini
+    ├── dat
+    ├── lib
+    ├── log
+    └── tmp
+        ├── LDD_GT02_10000_92_.spm
+        ├── nginx.lock
+        ├── nginx.pid
+        ├── PDD_GT02_180822_10000_794930_.spm
+        └── PDD_GT02_181112_10000_794930_.spm
+
+7 directories, 14 files
+
