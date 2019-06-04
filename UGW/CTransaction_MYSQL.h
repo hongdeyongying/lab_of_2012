@@ -11,7 +11,7 @@
 
 #include "CTransaction.h"
 
-#include <mysql++.h>
+#include <mysql++/mysql++.h>
 
 #include "CConfigEntry.h"
 

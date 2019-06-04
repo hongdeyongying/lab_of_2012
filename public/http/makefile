@@ -3,7 +3,7 @@ BUILD=libhttp.a
 
 OBJS = $(patsubst %.cpp, .obj/%.o, $(wildcard *.cpp))
 
-CPPFLAGS+=-D_FILE_OFFSET_BITS=64 -D_LARGE_FILE -I../utility/  -I../html/ -I$(SOFT)/openssl/include/
+CPPFLAGS+=-D_FILE_OFFSET_BITS=64 -D_LARGE_FILE -I../utility/  -I../html/ 
 
 all:$(BUILD)
 

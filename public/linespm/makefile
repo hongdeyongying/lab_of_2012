@@ -5,9 +5,9 @@ OBJS = $(patsubst %.cpp, .obj/%.o, $(wildcard *.cpp))
 CPPFLAGS+=-D_FILE_OFFSET_BITS=64 -D_LARGE_FILE -O3
 
 
-LIBPATH=-L../  -L../utility/  -L../../SOFT/openssl/lib/
+LIBPATH=-L../  -L../utility/  
 
-INCPATH=-I../ -I../utility/  -I../../../SOFT/openssl/include/
+INCPATH=-I../ -I../utility/  
 
 LIBS=-lutility
 

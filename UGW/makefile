@@ -60,6 +60,7 @@ OBJS = \
 	
 CPPFLAGS+=-ggdb \
 	-D_FILE_OFFSET_BITS=64 -D_LARGE_FILE \
+	-I/usr/include/mysql/ \
 	-I../public/utility/ \
 	-I../public/html/ \
 	-I../public/LPDD/ \
@@ -68,15 +69,7 @@ CPPFLAGS+=-ggdb \
 	-I../public/fileconfig/ \
 	-I../public/logapi/ \
 	-I../public/linespm/ \
-	-I$(SOFT)/fcgi/include/ \
-	-I$(SOFT)/log4cxx/include/ \
-	-I$(SOFT)/openssl/include/ \
-	-I$(SOFT)/boost/include/ \
-	-I$(SOFT)/apr-1.3.3/include/apr-1\
 	-I$(SOFT)/cgicc/include/ \
-	-I$(SOFT)/mysql++/include/mysql++/  \
-	-I$(SOFT)/mysql/include/  \
-	-I$(SOFT)/gd/include/  \
 	
 LDFLAGS+=\
 	-L../public/linespm/ -llinespm \
@@ -87,15 +80,16 @@ LDFLAGS+=\
 	-L../public/http/ -lhttp\
 	-L../public/utility/  -lutility \
 	-L../public/logapi/ -llogapi \
-	-L$(SOFT)/openssl/lib -lcrypto \
+	-lcrypto \
 	-L$(SOFT)/cgicc/lib/  -lcgicc\
-	-L$(SOFT)/fcgi/lib/  -lfcgi -lfcgi++ \
-	-L$(SOFT)/log4cxx/lib -llog4cxx  \
-	-L$(SOFT)/fcgi/lib -lfcgi  \
-	-L$(SOFT)/openssl/lib -lssl -lcrypto \
-	-L$(SOFT)/boost/lib -lboost_regex \
-	-L$(SOFT)/mysql++/lib -lmysqlpp \
-	-L$(SOFT)/gd/lib -lgd \
+	-lfcgi++ \
+	-llog4cxx  \
+	-lfcgi  \
+	-lssl -lcrypto \
+	-lboost_regex \
+	-lmysqlpp \
+	-lgd \
+	-lapr-1 \
 	-lrt -lz -lpthread \
 	
 

@@ -36,7 +36,10 @@ typedef long LONG;
 #ifdef _WIN32
 #include <process.h>
 #else
+#ifndef __USE_GNU
+#define __USE_GNU
 extern char ** environ;
+#endif
 #endif
 
 

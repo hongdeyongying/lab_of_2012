@@ -260,9 +260,8 @@ public:
 
 	}
 
-	CGt02Time()
+	CGt02Time():CTime()
 	{
-		CTime::CTime();
 	}
 	
 	~CGt02Time()

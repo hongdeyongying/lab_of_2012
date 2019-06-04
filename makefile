@@ -1,3 +1,6 @@
+
+export SOFT=$(HOME)/workspace/SOFT/
+
 all:
 	make -C public
 	make -C TEST
