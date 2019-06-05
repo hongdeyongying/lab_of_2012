@@ -1,82 +1,48 @@
-#tree -L 1    
-.
-├── admin
-├── apache-log4cxx-0.10.0
-├── apr-1.3.3
-├── apr-util-1.3.4
-├── boost -> boost_1_33_1
-├── boost_1_33_1
-├── cgicc -> cgicc-3.2.10/
-├── cgicc-3.2.10
-├── DGW
-├── fcgi -> fcgi-2.4.1-SNAP-0311112127/
-├── fcgi-2.4.1-SNAP-0311112127
-├── gd -> libgd-2.1.0/
-├── ice-3.7.0
-├── ice-packaging-3.7.0
-├── INNER_UGW
-├── libgd-2.1.0
-├── log4cxx -> apache-log4cxx-0.10.0/
-├── lost+found
-├── MYSOFT
-├── mysql -> mysql-5.5.29/
-├── mysql++ -> mysql++-3.2.0/
-├── mysql++-3.2.0
-├── mysql-5.5.29
-├── openssl -> openssl-1.0.1e/
-├── openssl-1.0.1e
-├── UGW
-├── vargrind
-├── wordpress
-└── zlib
+查看操作系统版本
+lsb_release -a 
 
-29 directories, 0 files
+aliyun的ecs，增加数据盘后，将磁盘挂载到系统
+mkdir /mnt/dat/
+mount /dev/xvdb /mnt/dat/
 
-tree admin/
-admin/
-├── cgi_restart.sh
-├── cgi_start.sh
-├── cgi_stop.sh
-├── edgw_restart.sh
-├── edgw_start.sh
-├── edgw_stop.sh
-├── gt02_restart.sh
-├── keep_alive.sh
-├── reg.sh
-├── sim.sh
-├── task.sh
-├── ugw_restart.sh
-├── ugw_start_boot.sh
-├── ugw_start.sh
-├── ugw_stop.sh
-└── wucar_restart.sh
+设置为开机自动挂载
+vi /etc/fstab
+增加如下行
+/dev/xvdb	/mnt/dat/	ext3	dos 	0	0
 
-0 directories, 16 files
+yum install git
 
+yum install gcc-c++
 
-tree DGW
-DGW
-└── EDGW
-    ├── bin
-    │   ├── 123456789012345.txt
-    │   ├── 1.log
-    │   ├── device_gt02
-    │   ├── edgw
-    │   ├── gt02.sh
-    │   ├── ldd_admin
-    │   └── pdd_admin
-    ├── cnf
-    │   ├── edgw_index.xml
-    │   └── log.ini
-    ├── dat
-    ├── lib
-    ├── log
-    └── tmp
-        ├── LDD_GT02_10000_92_.spm
-        ├── nginx.lock
-        ├── nginx.pid
-        ├── PDD_GT02_180822_10000_794930_.spm
-        └── PDD_GT02_181112_10000_794930_.spm
+yum install openssl openssl-devel 
 
-7 directories, 14 files
+CentOS下安装man手册
+yum install -y man man-pages
+
+安装图片验证码的支持库
+yum install gd gd-devel
+
+安装正则表达式的支持库
+yum install boost boost-devel
+
+ yum install log4cxx-devel log4cxx
+ 
+ yum install fcgi fcgi-devel
+ 
+ yum install apr apr-devel
+ 
+ yum install mysql++-devel mysql++
+ 
+ 安装cgicc的支持
+  wget http://ftp.gnu.org/gnu/cgicc/cgicc-3.2.10.tar.gz
+  
+  tar zxvf cgicc-3.2.10.tar.gz
+  cd cgicc-3.2.10
+  ./configure --prefix=$HOME/workspace/SOFT/cgicc-3.2.10
+  make;make install
+  
+  
+  ln -s  /home/release/workspace/SETUP/lab_of_2012/SOFT/CGICC/build/ ./SOFT/cgicc 
+
+yum install docker
 
