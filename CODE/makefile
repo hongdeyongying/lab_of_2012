@@ -1,6 +1,7 @@
 
 # edit for the suitable path to the dependent thirdpacke directory
-export SOFT=$(HOME)/workspace/SETUP/lab_of_2012/thirdpackage/
+export THIRD_PACKAGE=$(HOME)/workspace/SETUP/lab_of_2012/thirdpackage/
+
 
 all:
 	make -C public

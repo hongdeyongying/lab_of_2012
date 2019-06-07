@@ -21,7 +21,7 @@ LDFLAGS+=\
         -llog4cxx  \
         -lssl -lcrypto \
         -lboost_regex \
-        -L$(SOFT)/cgicc/lib/  -lcgicc\
+        -L$(THIRD_PACKAGE)/cgicc/lib/  -lcgicc\
         -lfcgi -lfcgi++ \
         -lmysqlpp \
 	-lapr-1 \

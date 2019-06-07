@@ -12,7 +12,7 @@ CPPFLAGS+=-ggdb \
 	-D_FILE_OFFSET_BITS=64 -D_LARGE_FILE \
 	-I../../public/utility/ \
 	-I../../public/html/ \
-	-I$(SOFT)/openssl/include/ \
+	-I$(THIRD_PACKAGE)/openssl/include/ \
 	-I../../public/linespm/
 
 LDFLAGS+=\

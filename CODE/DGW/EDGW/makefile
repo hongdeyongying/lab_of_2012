@@ -12,9 +12,9 @@ OBJS_PDD_ADMIN = .obj/pdd_admin.o .obj/CPDDGt02.o .obj/gvar_edgw.o
 
 CPPFLAGS+=-ggdb \
 	-D_FILE_OFFSET_BITS=64 -D_LARGE_FILE \
-	-I$(SOFT)/log4cxx/include/ \
-	-I$(SOFT)/openssl/include/ \
-	-I$(SOFT)/SOFT/apr-1.3.3/include/apr-1/ \
+	-I$(THIRD_PACKAGE)/log4cxx/include/ \
+	-I$(THIRD_PACKAGE)/openssl/include/ \
+	-I$(THIRD_PACKAGE)/THIRD_PACKAGE/apr-1.3.3/include/apr-1/ \
 	-I../../public/utility/ \
 	-I../../public/html/ \
 	-I../../public/fileconfig/ \
@@ -27,8 +27,8 @@ LDFLAGS+=\
 	-L../../public/html/ -lhtml \
 	-L../../public/utility/  -lutility \
 	-L../../public/logapi/ -llogapi \
-	-L$(SOFT)/log4cxx/lib -llog4cxx \
-	-L$(SOFT)/openssl/lib -lssl \
+	-L$(THIRD_PACKAGE)/log4cxx/lib -llog4cxx \
+	-L$(THIRD_PACKAGE)/openssl/lib -lssl \
 	-lpthread -lrt -llog4cxx
 	
 

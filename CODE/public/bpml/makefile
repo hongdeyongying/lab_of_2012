@@ -2,7 +2,6 @@ EXES = $(patsubst %_exe.cpp, %_exe, $(wildcard *_exe.cpp))
 
 BUILD=libbpml.a $(EXES)
 
-SOFT=$(HOME)/workspace/SOFT
 
 OBJS = $(patsubst %.cpp, .obj/%.o, $(wildcard *.cpp))
 

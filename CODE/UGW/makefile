@@ -69,7 +69,7 @@ CPPFLAGS+=-ggdb \
 	-I../public/fileconfig/ \
 	-I../public/logapi/ \
 	-I../public/linespm/ \
-	-I$(SOFT)/cgicc/include/ \
+	-I$(THIRD_PACKAGE)/cgicc/include/ \
 	
 LDFLAGS+=\
 	-L../public/linespm/ -llinespm \
@@ -81,7 +81,7 @@ LDFLAGS+=\
 	-L../public/utility/  -lutility \
 	-L../public/logapi/ -llogapi \
 	-lcrypto \
-	-L$(SOFT)/cgicc/lib/  -lcgicc\
+	-L$(THIRD_PACKAGE)/cgicc/lib/  -lcgicc\
 	-lfcgi++ \
 	-llog4cxx  \
 	-lfcgi  \
