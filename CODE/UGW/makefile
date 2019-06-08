@@ -1,4 +1,4 @@
-BUILD=ugw testFactory
+BUILD=ugw testFactory  testFactorySimpl
 
 OBJS_TRANSACTION=\
 	.obj/CTransaction_MYBPML.o \
@@ -10,53 +10,61 @@ OBJS_TRANSACTION=\
 OBJS_TEST = \
 	.obj/testFactory.o \
 	\
+	.obj/CChecker.o \
+	.obj/CCheckerFactory.o \
+	.obj/CChecker_Regx.o \
+	\
+	.obj/CConvertor.o \
+	.obj/CConvertorFactory.o \
+	.obj/CConvertor_Base.o \
+	\
+	.obj/CTransaction.o \
+	.obj/CTransactionFactory.o \
+	\
 	.obj/CTransaction_MYBPML.o \
 	.obj/CTransaction_TEST.o \
+
+
+OBJS_TESTSIMPL = \
+	.obj/testFactorySimpl.o \
 	\
-	.obj/CChecker_Regx.o \
-	.obj/CCheckerFactory.o \
-	.obj/CChecker.o \
-	\
-	.obj/CConvertor_Base.o \
-	.obj/CConvertorFactory.o \
 	.obj/CConvertor.o \
-	\
-	.obj/CTransactionFactory.o \
-	.obj/CTransaction.o \
+	.obj/CConvertorFactory.o \
+	.obj/CConvertor_Base.o \
 
 OBJS = \
-	.obj/md5_xor_D99_T99_CDatabaseHash.o \
-	.obj/xiaoqiang_md5_xor_D99_T99_CDatabaseHash.o \
-	.obj/CDatabaseHashFactory.o \
-	.obj/CDatabaseHash.o \
-	\
 	.obj/CCGIEntry.o \
 	.obj/CCommonCgiIO.o \
 	.obj/CCgiIO.o \
 	.obj/CDebugCgiIO.o \
 	.obj/CFastCgiIO.o \
 	\
-	.obj/CChecker_Regx.o \
-	.obj/CCheckerFactory.o \
 	.obj/CChecker.o \
+	.obj/CCheckerFactory.o \
+	.obj/CChecker_Regx.o \
 	\
-	.obj/CConvertor_Base.o \
-	.obj/CConvertorFactory.o \
 	.obj/CConvertor.o \
+	.obj/CConvertorFactory.o \
+	.obj/CConvertor_Base.o \
 	\
-	.obj/CTransactionFactory.o \
 	.obj/CTransaction.o \
+	.obj/CTransactionFactory.o \
 	\
+	.obj/CDigitalSignature.o \
+	.obj/CDigitalSignatureFactory.o \
 	.obj/CMd5CDigitalSignature.o \
 	.obj/CRsaCDigitalSignature.o \
-	.obj/CDigitalSignatureFactory.o \
-	.obj/CDigitalSignature.o \
 	.obj/mysoft_cgi.o \
 	\
-	.obj/wheel_CLoadBalanceNodeHash.o\
 	.obj/CLoadBalanceNodeHashFactory.o \
 	.obj/CLoadBalanceNodeHash.o \
+	.obj/wheel_CLoadBalanceNodeHash.o\
 	\
+	.obj/CDatabaseHash.o \
+	.obj/CDatabaseHashFactory.o \
+	.obj/md5_xor_D99_T99_CDatabaseHash.o \
+	.obj/xiaoqiang_md5_xor_D99_T99_CDatabaseHash.o \
+
 	
 CPPFLAGS+=-ggdb \
 	-D_FILE_OFFSET_BITS=64 -D_LARGE_FILE \
@@ -99,10 +107,12 @@ all:$(BUILD)
 	mkdir -p .obj
 	g++ $(CPPFLAGS) -c  -o $@ $<
 
-ugw:$(OBJS_TRANSACTION) $(OBJS)	
+ugw:$(OBJS) $(OBJS_TRANSACTION)
 	g++ -o $@ $? $(LDFLAGS)
 	
 testFactory:$(OBJS_TEST)
+	g++ -o $@ $? $(LDFLAGS) $(CPPFLAGS) 
+testFactorySimpl:$(OBJS_TESTSIMPL)
 	g++ -o $@ $? $(LDFLAGS) $(CPPFLAGS) 
 	
 clean:

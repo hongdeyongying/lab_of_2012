@@ -1,0 +1,3 @@
+ERROR 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:113 Start_Common67806780 [1] Err in MyConfig::CConfigEntry::GetService mysql::test   
+ERROR 2019-06-09 07:32:38,350 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614816148 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614816148 [20000002]    
+ERROR 2019-06-09 07:32:42,058 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614116141 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614116141 [20000002]    

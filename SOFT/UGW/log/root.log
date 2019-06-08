@@ -1,0 +1,1321 @@
+DEBUG 2019-06-08 21:06:04,126 CGI * CCGIEntry.cpp:241 Start_Debug66306630 	Start_Debug
+INFO  2019-06-08 21:06:04,126 CGI * CCGIEntry.cpp:243 Start_Debug66306630 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:06:04,126 CGI * CCGIEntry.cpp:244 Start_Debug66306630 args.request=
+INFO  2019-06-08 21:06:04,126 CGI * CCGIEntry.cpp:245 Start_Debug66306630 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:06:04,126 CGI * CCGIEntry.cpp:247 Start_Debug66306630 args.debug=on
+DEBUG 2019-06-08 21:06:04,126 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO66306630 ../dat/cgiinput.conf.xml,)
+DEBUG 2019-06-08 21:08:12,010 CGI * CCGIEntry.cpp:241 Start_Debug67356735 	Start_Debug
+INFO  2019-06-08 21:08:12,010 CGI * CCGIEntry.cpp:243 Start_Debug67356735 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:08:12,010 CGI * CCGIEntry.cpp:244 Start_Debug67356735 args.request=bpml_test
+INFO  2019-06-08 21:08:12,011 CGI * CCGIEntry.cpp:245 Start_Debug67356735 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:08:12,011 CGI * CCGIEntry.cpp:247 Start_Debug67356735 args.debug=on
+DEBUG 2019-06-08 21:08:12,011 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO67356735 ../dat/cgiinput.conf.xml,bpml_test)
+INFO  2019-06-08 21:08:12,011 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO67356735 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:08:12,011 CGI * CDebugCgiIO.cpp:114 CDebugCgiIO67356735 POST : 
+method=test&test=3306&tid=mybpml&
+DEBUG 2019-06-08 21:08:12,011 CGI * CCGIEntry.cpp:69 Start_Common67356735 Start_Common 
+DEBUG 2019-06-08 21:08:12,011 CGI * CCGIEntry.cpp:262 GetInput67356735 	GetInput
+INFO  2019-06-08 21:08:12,011 CGI * CCGIEntry.cpp:272 GetInput67356735 method : test
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:272 GetInput67356735 test : 3306
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:272 GetInput67356735 tid : mybpml
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.AUTH_TYPE : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.CONTENT_LENGTH : 33
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.CONTENT_TYPE : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.HTTPS : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.HTTP_REFERER : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.PATH_INFO : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.QUERY_STRING : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REDIRECT_URL : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REMOTE_HOST : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REMOTE_USER : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.REQUEST_METHOD : post
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.SERVER_NAME : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.SERVER_PORT : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:08:12,012 CGI * CCGIEntry.cpp:300 GetInput67356735 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:309 GetInput67356735 _RAW_POST_DATA : method=test&test=3306&tid=mybpml&
+INFO  2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:320 GetInput67356735 cookie :a = 111
+INFO  2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:320 GetInput67356735 cookie :c = d
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:376 CheckFormat67356735 
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:388 CheckFormat67356735 method : 1 test
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:417 CheckFormat67356735 regex single
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:433 CheckFormat67356735 regex single
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:451 CheckFormat67356735 regex single
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:457 CheckFormat67356735 regex single [a-z][a-z0-9_.]* test
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:388 CheckFormat67356735 test : 1 3306
+INFO  2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:407 CheckFormat67356735 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:388 CheckFormat67356735 tid : 1 mybpml
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:417 CheckFormat67356735 regex single
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:433 CheckFormat67356735 regex single
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:451 CheckFormat67356735 regex single
+DEBUG 2019-06-08 21:08:12,013 CGI * CCGIEntry.cpp:457 CheckFormat67356735 regex single [a-zA-Z0-9.]+ mybpml
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:645 DoTranslate67356735 	DoTranslate
+INFO  2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:672 DoTranslate67356735 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:500 CheckIntegrality67356735 	CheckIntegrality : 1
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:552 CheckIntegrality67356735 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:746 CheckPopedom67356735 	CheckPopedom
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:756 CheckFrequence67356735 	CheckFrequence
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:764 CommitTrans67356735 	CommitTrans
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:791 CommitTrans67356735 Exec transaction : mybpml
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:807 ValidOutput67356735 	ValidOutput
+INFO  2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:816 ValidOutput67356735 retcode : 1
+INFO  2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:816 ValidOutput67356735 retmsg : 1
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:922 TranslateOutput67356735 	TranslateOutput
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:500 CheckIntegrality67356735 	CheckIntegrality : 0
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:574 CheckIntegrality67356735 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:1019 SignOutput67356735 	SignOutput
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:1079 SetOupt67356735 	SetOupt
+DEBUG 2019-06-08 21:08:12,014 CGI * CCGIEntry.cpp:1123 SetOupt67356735 Exist Service Configure mybpml
+DEBUG 2019-06-08 21:08:12,015 CGI * CCGIEntry.cpp:1127 SetOupt67356735 Static Specific Output template	:_output_template_10001001 = 
+DEBUG 2019-06-08 21:08:12,015 CGI * CCGIEntry.cpp:1129 SetOupt67356735 Static Default  Output template	_output_template_default = 
+DEBUG 2019-06-08 21:08:12,015 CGI * CCGIEntry.cpp:1168 SetOupt67356735 Exist Service Configure _error_config
+DEBUG 2019-06-08 21:08:12,015 CGI * CCGIEntry.cpp:1172 SetOupt67356735 Global Specific Output template  10001001 = 
+DEBUG 2019-06-08 21:08:12,015 CGI * CCGIEntry.cpp:1173 SetOupt67356735 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:12,015 CGI * CCGIEntry.cpp:1194 SetOupt67356735 Output Template :  GD../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:20,716 CGI * CCGIEntry.cpp:241 Start_Debug67446744 	Start_Debug
+INFO  2019-06-08 21:08:20,716 CGI * CCGIEntry.cpp:243 Start_Debug67446744 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:08:20,717 CGI * CCGIEntry.cpp:244 Start_Debug67446744 args.request=bpml_test
+INFO  2019-06-08 21:08:20,717 CGI * CCGIEntry.cpp:245 Start_Debug67446744 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:08:20,717 CGI * CCGIEntry.cpp:247 Start_Debug67446744 args.debug=on
+DEBUG 2019-06-08 21:08:20,717 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO67446744 ../dat/cgiinput.conf.xml,bpml_test)
+INFO  2019-06-08 21:08:20,717 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO67446744 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:08:20,717 CGI * CDebugCgiIO.cpp:114 CDebugCgiIO67446744 POST : 
+method=test&test=3306&tid=mybpml&
+DEBUG 2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:69 Start_Common67446744 Start_Common 
+DEBUG 2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:262 GetInput67446744 	GetInput
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:272 GetInput67446744 method : test
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:272 GetInput67446744 test : 3306
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:272 GetInput67446744 tid : mybpml
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.AUTH_TYPE : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.CONTENT_LENGTH : 33
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.CONTENT_TYPE : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.HTTPS : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.HTTP_REFERER : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.PATH_INFO : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.QUERY_STRING : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REDIRECT_URL : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REMOTE_HOST : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REMOTE_USER : 
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.REQUEST_METHOD : post
+INFO  2019-06-08 21:08:20,718 CGI * CCGIEntry.cpp:300 GetInput67446744 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:300 GetInput67446744 env.SERVER_NAME : 
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:300 GetInput67446744 env.SERVER_PORT : 
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:300 GetInput67446744 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:300 GetInput67446744 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:309 GetInput67446744 _RAW_POST_DATA : method=test&test=3306&tid=mybpml&
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:320 GetInput67446744 cookie :a = 111
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:320 GetInput67446744 cookie :c = d
+DEBUG 2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:376 CheckFormat67446744 
+DEBUG 2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:388 CheckFormat67446744 method : 1 test
+DEBUG 2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:417 CheckFormat67446744 regex single
+DEBUG 2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:433 CheckFormat67446744 regex single
+DEBUG 2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:451 CheckFormat67446744 regex single
+DEBUG 2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:457 CheckFormat67446744 regex single [a-z][a-z0-9_.]* test
+DEBUG 2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:388 CheckFormat67446744 test : 1 3306
+INFO  2019-06-08 21:08:20,719 CGI * CCGIEntry.cpp:407 CheckFormat67446744 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:388 CheckFormat67446744 tid : 1 mybpml
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:417 CheckFormat67446744 regex single
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:433 CheckFormat67446744 regex single
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:451 CheckFormat67446744 regex single
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:457 CheckFormat67446744 regex single [a-zA-Z0-9.]+ mybpml
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:645 DoTranslate67446744 	DoTranslate
+INFO  2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:672 DoTranslate67446744 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:500 CheckIntegrality67446744 	CheckIntegrality : 1
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:552 CheckIntegrality67446744 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:746 CheckPopedom67446744 	CheckPopedom
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:756 CheckFrequence67446744 	CheckFrequence
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:764 CommitTrans67446744 	CommitTrans
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:791 CommitTrans67446744 Exec transaction : mybpml
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:807 ValidOutput67446744 	ValidOutput
+INFO  2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:816 ValidOutput67446744 retcode : 1
+INFO  2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:816 ValidOutput67446744 retmsg : 1
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:922 TranslateOutput67446744 	TranslateOutput
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:500 CheckIntegrality67446744 	CheckIntegrality : 0
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:574 CheckIntegrality67446744 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:1019 SignOutput67446744 	SignOutput
+DEBUG 2019-06-08 21:08:20,720 CGI * CCGIEntry.cpp:1079 SetOupt67446744 	SetOupt
+DEBUG 2019-06-08 21:08:20,721 CGI * CCGIEntry.cpp:1123 SetOupt67446744 Exist Service Configure mybpml
+DEBUG 2019-06-08 21:08:20,721 CGI * CCGIEntry.cpp:1127 SetOupt67446744 Static Specific Output template	:_output_template_10001001 = 
+DEBUG 2019-06-08 21:08:20,721 CGI * CCGIEntry.cpp:1129 SetOupt67446744 Static Default  Output template	_output_template_default = 
+DEBUG 2019-06-08 21:08:20,721 CGI * CCGIEntry.cpp:1168 SetOupt67446744 Exist Service Configure _error_config
+DEBUG 2019-06-08 21:08:20,721 CGI * CCGIEntry.cpp:1172 SetOupt67446744 Global Specific Output template  10001001 = 
+DEBUG 2019-06-08 21:08:20,721 CGI * CCGIEntry.cpp:1173 SetOupt67446744 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:20,721 CGI * CCGIEntry.cpp:1194 SetOupt67446744 Output Template :  GD../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:22,291 CGI * CCGIEntry.cpp:241 Start_Debug67476747 	Start_Debug
+INFO  2019-06-08 21:08:22,291 CGI * CCGIEntry.cpp:243 Start_Debug67476747 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:08:22,291 CGI * CCGIEntry.cpp:244 Start_Debug67476747 args.request=bpml_test
+INFO  2019-06-08 21:08:22,291 CGI * CCGIEntry.cpp:245 Start_Debug67476747 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:08:22,292 CGI * CCGIEntry.cpp:247 Start_Debug67476747 args.debug=on
+DEBUG 2019-06-08 21:08:22,292 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO67476747 ../dat/cgiinput.conf.xml,bpml_test)
+INFO  2019-06-08 21:08:22,292 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO67476747 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:08:22,292 CGI * CDebugCgiIO.cpp:114 CDebugCgiIO67476747 POST : 
+method=test&test=3306&tid=mybpml&
+DEBUG 2019-06-08 21:08:22,292 CGI * CCGIEntry.cpp:69 Start_Common67476747 Start_Common 
+DEBUG 2019-06-08 21:08:22,292 CGI * CCGIEntry.cpp:262 GetInput67476747 	GetInput
+INFO  2019-06-08 21:08:22,292 CGI * CCGIEntry.cpp:272 GetInput67476747 method : test
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:272 GetInput67476747 test : 3306
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:272 GetInput67476747 tid : mybpml
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.AUTH_TYPE : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.CONTENT_LENGTH : 33
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.CONTENT_TYPE : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.HTTPS : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.HTTP_REFERER : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.PATH_INFO : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.QUERY_STRING : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REDIRECT_URL : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REMOTE_HOST : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REMOTE_USER : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.REQUEST_METHOD : post
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.SERVER_NAME : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.SERVER_PORT : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:08:22,293 CGI * CCGIEntry.cpp:300 GetInput67476747 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:309 GetInput67476747 _RAW_POST_DATA : method=test&test=3306&tid=mybpml&
+INFO  2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:320 GetInput67476747 cookie :a = 111
+INFO  2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:320 GetInput67476747 cookie :c = d
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:376 CheckFormat67476747 
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:388 CheckFormat67476747 method : 1 test
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:417 CheckFormat67476747 regex single
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:433 CheckFormat67476747 regex single
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:451 CheckFormat67476747 regex single
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:457 CheckFormat67476747 regex single [a-z][a-z0-9_.]* test
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:388 CheckFormat67476747 test : 1 3306
+INFO  2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:407 CheckFormat67476747 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:388 CheckFormat67476747 tid : 1 mybpml
+DEBUG 2019-06-08 21:08:22,294 CGI * CCGIEntry.cpp:417 CheckFormat67476747 regex single
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:433 CheckFormat67476747 regex single
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:451 CheckFormat67476747 regex single
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:457 CheckFormat67476747 regex single [a-zA-Z0-9.]+ mybpml
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:645 DoTranslate67476747 	DoTranslate
+INFO  2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:672 DoTranslate67476747 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:500 CheckIntegrality67476747 	CheckIntegrality : 1
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:552 CheckIntegrality67476747 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:746 CheckPopedom67476747 	CheckPopedom
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:756 CheckFrequence67476747 	CheckFrequence
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:764 CommitTrans67476747 	CommitTrans
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:791 CommitTrans67476747 Exec transaction : mybpml
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:807 ValidOutput67476747 	ValidOutput
+INFO  2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:816 ValidOutput67476747 retcode : 1
+INFO  2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:816 ValidOutput67476747 retmsg : 1
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:922 TranslateOutput67476747 	TranslateOutput
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:500 CheckIntegrality67476747 	CheckIntegrality : 0
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:574 CheckIntegrality67476747 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:1019 SignOutput67476747 	SignOutput
+DEBUG 2019-06-08 21:08:22,295 CGI * CCGIEntry.cpp:1079 SetOupt67476747 	SetOupt
+DEBUG 2019-06-08 21:08:22,296 CGI * CCGIEntry.cpp:1123 SetOupt67476747 Exist Service Configure mybpml
+DEBUG 2019-06-08 21:08:22,296 CGI * CCGIEntry.cpp:1127 SetOupt67476747 Static Specific Output template	:_output_template_10001001 = 
+DEBUG 2019-06-08 21:08:22,296 CGI * CCGIEntry.cpp:1129 SetOupt67476747 Static Default  Output template	_output_template_default = 
+DEBUG 2019-06-08 21:08:22,296 CGI * CCGIEntry.cpp:1168 SetOupt67476747 Exist Service Configure _error_config
+DEBUG 2019-06-08 21:08:22,296 CGI * CCGIEntry.cpp:1172 SetOupt67476747 Global Specific Output template  10001001 = 
+DEBUG 2019-06-08 21:08:22,296 CGI * CCGIEntry.cpp:1173 SetOupt67476747 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:22,296 CGI * CCGIEntry.cpp:1194 SetOupt67476747 Output Template :  GD../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:25,193 CGI * CCGIEntry.cpp:241 Start_Debug67516751 	Start_Debug
+INFO  2019-06-08 21:08:25,193 CGI * CCGIEntry.cpp:243 Start_Debug67516751 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:08:25,193 CGI * CCGIEntry.cpp:244 Start_Debug67516751 args.request=bpml_test
+INFO  2019-06-08 21:08:25,193 CGI * CCGIEntry.cpp:245 Start_Debug67516751 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:08:25,193 CGI * CCGIEntry.cpp:247 Start_Debug67516751 args.debug=on
+DEBUG 2019-06-08 21:08:25,193 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO67516751 ../dat/cgiinput.conf.xml,bpml_test)
+INFO  2019-06-08 21:08:25,194 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO67516751 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:08:25,194 CGI * CDebugCgiIO.cpp:114 CDebugCgiIO67516751 POST : 
+method=test&test=3306&tid=mybpml&
+DEBUG 2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:69 Start_Common67516751 Start_Common 
+DEBUG 2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:262 GetInput67516751 	GetInput
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:272 GetInput67516751 method : test
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:272 GetInput67516751 test : 3306
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:272 GetInput67516751 tid : mybpml
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.AUTH_TYPE : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.CONTENT_LENGTH : 33
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.CONTENT_TYPE : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.HTTPS : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.HTTP_REFERER : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.PATH_INFO : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.QUERY_STRING : 
+INFO  2019-06-08 21:08:25,194 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REDIRECT_URL : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REMOTE_HOST : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REMOTE_USER : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.REQUEST_METHOD : post
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.SERVER_NAME : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.SERVER_PORT : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:300 GetInput67516751 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:309 GetInput67516751 _RAW_POST_DATA : method=test&test=3306&tid=mybpml&
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:320 GetInput67516751 cookie :a = 111
+INFO  2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:320 GetInput67516751 cookie :c = d
+DEBUG 2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:376 CheckFormat67516751 
+DEBUG 2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:388 CheckFormat67516751 method : 1 test
+DEBUG 2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:417 CheckFormat67516751 regex single
+DEBUG 2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:433 CheckFormat67516751 regex single
+DEBUG 2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:451 CheckFormat67516751 regex single
+DEBUG 2019-06-08 21:08:25,195 CGI * CCGIEntry.cpp:457 CheckFormat67516751 regex single [a-z][a-z0-9_.]* test
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:388 CheckFormat67516751 test : 1 3306
+INFO  2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:407 CheckFormat67516751 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:388 CheckFormat67516751 tid : 1 mybpml
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:417 CheckFormat67516751 regex single
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:433 CheckFormat67516751 regex single
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:451 CheckFormat67516751 regex single
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:457 CheckFormat67516751 regex single [a-zA-Z0-9.]+ mybpml
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:645 DoTranslate67516751 	DoTranslate
+INFO  2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:672 DoTranslate67516751 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:500 CheckIntegrality67516751 	CheckIntegrality : 1
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:552 CheckIntegrality67516751 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:746 CheckPopedom67516751 	CheckPopedom
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:756 CheckFrequence67516751 	CheckFrequence
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:764 CommitTrans67516751 	CommitTrans
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:791 CommitTrans67516751 Exec transaction : mybpml
+DEBUG 2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:807 ValidOutput67516751 	ValidOutput
+INFO  2019-06-08 21:08:25,196 CGI * CCGIEntry.cpp:816 ValidOutput67516751 retcode : 1
+INFO  2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:816 ValidOutput67516751 retmsg : 1
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:922 TranslateOutput67516751 	TranslateOutput
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:500 CheckIntegrality67516751 	CheckIntegrality : 0
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:574 CheckIntegrality67516751 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1019 SignOutput67516751 	SignOutput
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1079 SetOupt67516751 	SetOupt
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1123 SetOupt67516751 Exist Service Configure mybpml
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1127 SetOupt67516751 Static Specific Output template	:_output_template_10001001 = 
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1129 SetOupt67516751 Static Default  Output template	_output_template_default = 
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1168 SetOupt67516751 Exist Service Configure _error_config
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1172 SetOupt67516751 Global Specific Output template  10001001 = 
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1173 SetOupt67516751 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:25,197 CGI * CCGIEntry.cpp:1194 SetOupt67516751 Output Template :  GD../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:47,876 CGI * CCGIEntry.cpp:241 Start_Debug67726772 	Start_Debug
+INFO  2019-06-08 21:08:47,876 CGI * CCGIEntry.cpp:243 Start_Debug67726772 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:08:47,876 CGI * CCGIEntry.cpp:244 Start_Debug67726772 args.request=login
+INFO  2019-06-08 21:08:47,876 CGI * CCGIEntry.cpp:245 Start_Debug67726772 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:08:47,876 CGI * CCGIEntry.cpp:247 Start_Debug67726772 args.debug=on
+DEBUG 2019-06-08 21:08:47,876 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO67726772 ../dat/cgiinput.conf.xml,login)
+DEBUG 2019-06-08 21:08:55,166 CGI * CCGIEntry.cpp:241 Start_Debug67806780 	Start_Debug
+INFO  2019-06-08 21:08:55,166 CGI * CCGIEntry.cpp:243 Start_Debug67806780 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:08:55,166 CGI * CCGIEntry.cpp:244 Start_Debug67806780 args.request=mysql_test
+INFO  2019-06-08 21:08:55,166 CGI * CCGIEntry.cpp:245 Start_Debug67806780 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:08:55,166 CGI * CCGIEntry.cpp:247 Start_Debug67806780 args.debug=on
+DEBUG 2019-06-08 21:08:55,166 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO67806780 ../dat/cgiinput.conf.xml,mysql_test)
+INFO  2019-06-08 21:08:55,167 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO67806780 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:08:55,167 CGI * CDebugCgiIO.cpp:166 CDebugCgiIO67806780 POST_MULTIPART : 
+-------------------------------AB-263780496CD
+Content-Disposition: form-data; name="file"; filename="1.txt"
+Content-Type: application/octet-stream 
+
+
+-------------------------------AB-263780496CD
+Content-Disposition: form-data; name="method"
+
+test
+-------------------------------AB-263780496CD
+Content-Disposition: form-data; name="tid"
+
+mysql
+-------------------------------AB-263780496CD
+Content-Disposition: form-data; name="uid"
+
+1
+-------------------------------AB-263780496CD--
+
+DEBUG 2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:69 Start_Common67806780 Start_Common 
+DEBUG 2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:262 GetInput67806780 	GetInput
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:272 GetInput67806780 method : test
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:272 GetInput67806780 tid : mysql
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:272 GetInput67806780 uid : 1
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:283 GetInput67806780 id:file file:1.txt type:application/octet-stream  length:0
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.AUTH_TYPE : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.CONTENT_LENGTH : 502
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.CONTENT_TYPE : multipart/form-data; boundary=-----------------------------AB-263780496CD
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.HTTPS : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.HTTP_REFERER : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.PATH_INFO : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.QUERY_STRING : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REDIRECT_URL : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REMOTE_HOST : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REMOTE_USER : 
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.REQUEST_METHOD : post
+INFO  2019-06-08 21:08:55,168 CGI * CCGIEntry.cpp:300 GetInput67806780 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:300 GetInput67806780 env.SERVER_NAME : 
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:300 GetInput67806780 env.SERVER_PORT : 
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:300 GetInput67806780 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:300 GetInput67806780 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:309 GetInput67806780 _RAW_POST_DATA : -------------------------------AB-263780496CD
+Content-Disposition: form-data; name="file"; filename="1.txt"
+Content-Type: application/octet-stream 
+
+
+-------------------------------AB-263780496CD
+Content-Disposition: form-data; name="method"
+
+test
+-------------------------------AB-263780496CD
+Content-Disposition: form-data; name="tid"
+
+mysql
+-------------------------------AB-263780496CD
+Content-Disposition: form-data; name="uid"
+
+1
+-------------------------------AB-263780496CD--
+
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:320 GetInput67806780 cookie :a = 111
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:320 GetInput67806780 cookie :c = d
+DEBUG 2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:376 CheckFormat67806780 
+DEBUG 2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:388 CheckFormat67806780 file : 1 1.txt
+INFO  2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:407 CheckFormat67806780 Notice : [1] Err in MyConfig::CConfigEntry::GetElement file   
+DEBUG 2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:388 CheckFormat67806780 method : 1 test
+DEBUG 2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:417 CheckFormat67806780 regex single
+DEBUG 2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:433 CheckFormat67806780 regex single
+DEBUG 2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:451 CheckFormat67806780 regex single
+DEBUG 2019-06-08 21:08:55,169 CGI * CCGIEntry.cpp:457 CheckFormat67806780 regex single [a-z][a-z0-9_.]* test
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:388 CheckFormat67806780 tid : 1 mysql
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:417 CheckFormat67806780 regex single
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:433 CheckFormat67806780 regex single
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:451 CheckFormat67806780 regex single
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:457 CheckFormat67806780 regex single [a-zA-Z0-9.]+ mysql
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:388 CheckFormat67806780 uid : 1 1
+INFO  2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:407 CheckFormat67806780 Notice : [1] Err in MyConfig::CConfigEntry::GetElement uid   
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:645 DoTranslate67806780 	DoTranslate
+INFO  2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:672 DoTranslate67806780 Notice : [1] Err in MyConfig::CConfigEntry::GetElement file   
+INFO  2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:672 DoTranslate67806780 Notice : [1] Err in MyConfig::CConfigEntry::GetElement uid   
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:500 CheckIntegrality67806780 	CheckIntegrality : 1
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:552 CheckIntegrality67806780 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:746 CheckPopedom67806780 	CheckPopedom
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:756 CheckFrequence67806780 	CheckFrequence
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:764 CommitTrans67806780 	CommitTrans
+DEBUG 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:791 CommitTrans67806780 Exec transaction : mysql
+DEBUG 2019-06-08 21:08:55,170 CGI * CTransaction_MYSQL.cpp:269 Do67806780 MyAPP::CTransaction_MYSQL::Do
+DEBUG 2019-06-08 21:08:55,170 CGI * CTransaction_MYSQL.cpp:282 Do67806780 MyAPP::CTransaction_MYSQL::Do  method = mysql::test
+ERROR 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:113 Start_Common67806780 [1] Err in MyConfig::CConfigEntry::GetService mysql::test   
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1079 SetOupt67806780 	SetOupt
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1123 SetOupt67806780 Exist Service Configure mysql
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1127 SetOupt67806780 Static Specific Output template	:_output_template_1 = 
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1129 SetOupt67806780 Static Default  Output template	_output_template_default = ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1168 SetOupt67806780 Exist Service Configure _error_config
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1172 SetOupt67806780 Global Specific Output template  1 = 
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1173 SetOupt67806780 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:08:55,171 CGI * CCGIEntry.cpp:1189 SetOupt67806780 Output Template SD:  ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-08 21:09:17,780 CGI * CCGIEntry.cpp:241 Start_Debug68006800 	Start_Debug
+INFO  2019-06-08 21:09:17,781 CGI * CCGIEntry.cpp:243 Start_Debug68006800 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:09:17,781 CGI * CCGIEntry.cpp:244 Start_Debug68006800 args.request=bpml_test
+INFO  2019-06-08 21:09:17,781 CGI * CCGIEntry.cpp:245 Start_Debug68006800 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:09:17,781 CGI * CCGIEntry.cpp:247 Start_Debug68006800 args.debug=on
+DEBUG 2019-06-08 21:09:17,781 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO68006800 ../dat/cgiinput.conf.xml,bpml_test)
+INFO  2019-06-08 21:09:17,781 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO68006800 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:09:17,782 CGI * CDebugCgiIO.cpp:114 CDebugCgiIO68006800 POST : 
+method=test&test=3306&tid=mybpml&
+DEBUG 2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:69 Start_Common68006800 Start_Common 
+DEBUG 2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:262 GetInput68006800 	GetInput
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:272 GetInput68006800 method : test
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:272 GetInput68006800 test : 3306
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:272 GetInput68006800 tid : mybpml
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.AUTH_TYPE : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.CONTENT_LENGTH : 33
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.CONTENT_TYPE : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.HTTPS : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.HTTP_REFERER : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.PATH_INFO : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.QUERY_STRING : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REDIRECT_URL : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REMOTE_HOST : 
+INFO  2019-06-08 21:09:17,782 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REMOTE_USER : 
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:300 GetInput68006800 env.REQUEST_METHOD : post
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:300 GetInput68006800 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:300 GetInput68006800 env.SERVER_NAME : 
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:300 GetInput68006800 env.SERVER_PORT : 
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:300 GetInput68006800 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:300 GetInput68006800 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:309 GetInput68006800 _RAW_POST_DATA : method=test&test=3306&tid=mybpml&
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:320 GetInput68006800 cookie :a = 111
+INFO  2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:320 GetInput68006800 cookie :c = d
+DEBUG 2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:376 CheckFormat68006800 
+DEBUG 2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:388 CheckFormat68006800 method : 1 test
+DEBUG 2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:417 CheckFormat68006800 regex single
+DEBUG 2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:433 CheckFormat68006800 regex single
+DEBUG 2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:451 CheckFormat68006800 regex single
+DEBUG 2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:457 CheckFormat68006800 regex single [a-z][a-z0-9_.]* test
+DEBUG 2019-06-08 21:09:17,783 CGI * CCGIEntry.cpp:388 CheckFormat68006800 test : 1 3306
+INFO  2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:407 CheckFormat68006800 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:388 CheckFormat68006800 tid : 1 mybpml
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:417 CheckFormat68006800 regex single
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:433 CheckFormat68006800 regex single
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:451 CheckFormat68006800 regex single
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:457 CheckFormat68006800 regex single [a-zA-Z0-9.]+ mybpml
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:645 DoTranslate68006800 	DoTranslate
+INFO  2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:672 DoTranslate68006800 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:500 CheckIntegrality68006800 	CheckIntegrality : 1
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:552 CheckIntegrality68006800 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:746 CheckPopedom68006800 	CheckPopedom
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:756 CheckFrequence68006800 	CheckFrequence
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:764 CommitTrans68006800 	CommitTrans
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:791 CommitTrans68006800 Exec transaction : mybpml
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:807 ValidOutput68006800 	ValidOutput
+INFO  2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:816 ValidOutput68006800 retcode : 1
+INFO  2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:816 ValidOutput68006800 retmsg : 1
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:922 TranslateOutput68006800 	TranslateOutput
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:500 CheckIntegrality68006800 	CheckIntegrality : 0
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:574 CheckIntegrality68006800 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-08 21:09:17,784 CGI * CCGIEntry.cpp:1019 SignOutput68006800 	SignOutput
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1079 SetOupt68006800 	SetOupt
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1123 SetOupt68006800 Exist Service Configure mybpml
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1127 SetOupt68006800 Static Specific Output template	:_output_template_10001001 = 
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1129 SetOupt68006800 Static Default  Output template	_output_template_default = 
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1168 SetOupt68006800 Exist Service Configure _error_config
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1172 SetOupt68006800 Global Specific Output template  10001001 = 
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1173 SetOupt68006800 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:09:17,785 CGI * CCGIEntry.cpp:1194 SetOupt68006800 Output Template :  GD../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:09:37,730 CGI * CCGIEntry.cpp:241 Start_Debug68196819 	Start_Debug
+INFO  2019-06-08 21:09:37,731 CGI * CCGIEntry.cpp:243 Start_Debug68196819 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:09:37,731 CGI * CCGIEntry.cpp:244 Start_Debug68196819 args.request=
+INFO  2019-06-08 21:09:37,731 CGI * CCGIEntry.cpp:245 Start_Debug68196819 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:09:37,731 CGI * CCGIEntry.cpp:247 Start_Debug68196819 args.debug=on
+DEBUG 2019-06-08 21:09:37,731 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO68196819 ../dat/cgiinput.conf.xml,)
+DEBUG 2019-06-08 21:09:48,560 CGI * CCGIEntry.cpp:241 Start_Debug68306830 	Start_Debug
+INFO  2019-06-08 21:09:48,560 CGI * CCGIEntry.cpp:243 Start_Debug68306830 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:09:48,560 CGI * CCGIEntry.cpp:244 Start_Debug68306830 args.request=defalt
+INFO  2019-06-08 21:09:48,560 CGI * CCGIEntry.cpp:245 Start_Debug68306830 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:09:48,560 CGI * CCGIEntry.cpp:247 Start_Debug68306830 args.debug=on
+DEBUG 2019-06-08 21:09:48,560 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO68306830 ../dat/cgiinput.conf.xml,defalt)
+DEBUG 2019-06-08 21:09:51,847 CGI * CCGIEntry.cpp:241 Start_Debug68356835 	Start_Debug
+INFO  2019-06-08 21:09:51,847 CGI * CCGIEntry.cpp:243 Start_Debug68356835 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:09:51,847 CGI * CCGIEntry.cpp:244 Start_Debug68356835 args.request=default
+INFO  2019-06-08 21:09:51,847 CGI * CCGIEntry.cpp:245 Start_Debug68356835 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:09:51,847 CGI * CCGIEntry.cpp:247 Start_Debug68356835 args.debug=on
+DEBUG 2019-06-08 21:09:51,847 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO68356835 ../dat/cgiinput.conf.xml,default)
+INFO  2019-06-08 21:09:51,848 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO68356835 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:09:51,848 CGI * CDebugCgiIO.cpp:90 CDebugCgiIO68356835 QUERY_STRING : test=3306&
+DEBUG 2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:69 Start_Common68356835 Start_Common 
+DEBUG 2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:262 GetInput68356835 	GetInput
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:272 GetInput68356835 test : 3306
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.AUTH_TYPE : 
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.CONTENT_LENGTH : 0
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.CONTENT_TYPE : 
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.HTTPS : 
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:09:51,848 CGI * CCGIEntry.cpp:300 GetInput68356835 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.HTTP_REFERER : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.PATH_INFO : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.QUERY_STRING : test=3306&
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REDIRECT_URL : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REMOTE_HOST : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REMOTE_USER : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.REQUEST_METHOD : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.SERVER_NAME : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.SERVER_PORT : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:300 GetInput68356835 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:320 GetInput68356835 cookie :a = 111
+INFO  2019-06-08 21:09:51,849 CGI * CCGIEntry.cpp:320 GetInput68356835 cookie :c = d
+DEBUG 2019-06-08 21:10:10,686 CGI * CCGIEntry.cpp:241 Start_Debug68586858 	Start_Debug
+INFO  2019-06-08 21:10:10,687 CGI * CCGIEntry.cpp:243 Start_Debug68586858 args.file=../dat/cgiinput.conf.xml
+INFO  2019-06-08 21:10:10,687 CGI * CCGIEntry.cpp:244 Start_Debug68586858 args.request=bpml_test
+INFO  2019-06-08 21:10:10,687 CGI * CCGIEntry.cpp:245 Start_Debug68586858 args.service=../cnf/MyCGI.conf.index.xml
+INFO  2019-06-08 21:10:10,687 CGI * CCGIEntry.cpp:247 Start_Debug68586858 args.debug=on
+DEBUG 2019-06-08 21:10:10,687 CGI * CDebugCgiIO.cpp:40 CDebugCgiIO68586858 ../dat/cgiinput.conf.xml,bpml_test)
+INFO  2019-06-08 21:10:10,687 CGI * CDebugCgiIO.cpp:58 CDebugCgiIO68586858 m_mEnv.HTTP_COOKIE  = a=111; c=d; 
+INFO  2019-06-08 21:10:10,688 CGI * CDebugCgiIO.cpp:114 CDebugCgiIO68586858 POST : 
+method=test&test=3306&tid=mybpml&
+DEBUG 2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:69 Start_Common68586858 Start_Common 
+DEBUG 2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:262 GetInput68586858 	GetInput
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:272 GetInput68586858 method : test
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:272 GetInput68586858 test : 3306
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:272 GetInput68586858 tid : mybpml
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.AUTH_TYPE : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.CONTENT_LENGTH : 33
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.CONTENT_TYPE : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.GATEWAY_INTERFACE : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.HTTPS : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.HTTP_ACCEPT : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.HTTP_ACCEPT_LANGUAGE : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.HTTP_COOKIE : a=111; c=d; 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.HTTP_REFERER : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.HTTP_USER_AGENT : 
+INFO  2019-06-08 21:10:10,688 CGI * CCGIEntry.cpp:300 GetInput68586858 env.PATH_INFO : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.PATH_TRANSLATED : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.QUERY_STRING : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REDIRECT_REQUEST : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REDIRECT_STATUS : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REDIRECT_URL : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REMOTE_ADDR : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REMOTE_HOST : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REMOTE_IDENT : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REMOTE_USER : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.REQUEST_METHOD : post
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.SCRIPT_NAME : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.SERVER_NAME : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.SERVER_PORT : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.SERVER_PROTOCOL : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:300 GetInput68586858 env.SERVER_SOFTWARE : 
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:309 GetInput68586858 _RAW_POST_DATA : method=test&test=3306&tid=mybpml&
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:320 GetInput68586858 cookie :a = 111
+INFO  2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:320 GetInput68586858 cookie :c = d
+DEBUG 2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:376 CheckFormat68586858 
+DEBUG 2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:388 CheckFormat68586858 method : 1 test
+DEBUG 2019-06-08 21:10:10,689 CGI * CCGIEntry.cpp:417 CheckFormat68586858 regex single
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:433 CheckFormat68586858 regex single
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:451 CheckFormat68586858 regex single
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:457 CheckFormat68586858 regex single [a-z][a-z0-9_.]* test
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:388 CheckFormat68586858 test : 1 3306
+INFO  2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:407 CheckFormat68586858 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:388 CheckFormat68586858 tid : 1 mybpml
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:417 CheckFormat68586858 regex single
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:433 CheckFormat68586858 regex single
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:451 CheckFormat68586858 regex single
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:457 CheckFormat68586858 regex single [a-zA-Z0-9.]+ mybpml
+DEBUG 2019-06-08 21:10:10,690 CGI * CCGIEntry.cpp:645 DoTranslate68586858 	DoTranslate
+INFO  2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:672 DoTranslate68586858 Notice : [1] Err in MyConfig::CConfigEntry::GetElement test   
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:500 CheckIntegrality68586858 	CheckIntegrality : 1
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:552 CheckIntegrality68586858 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:746 CheckPopedom68586858 	CheckPopedom
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:756 CheckFrequence68586858 	CheckFrequence
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:764 CommitTrans68586858 	CommitTrans
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:791 CommitTrans68586858 Exec transaction : mybpml
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:807 ValidOutput68586858 	ValidOutput
+INFO  2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:816 ValidOutput68586858 retcode : 1
+INFO  2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:816 ValidOutput68586858 retmsg : 1
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:922 TranslateOutput68586858 	TranslateOutput
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:500 CheckIntegrality68586858 	CheckIntegrality : 0
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:574 CheckIntegrality68586858 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:1019 SignOutput68586858 	SignOutput
+DEBUG 2019-06-08 21:10:10,691 CGI * CCGIEntry.cpp:1079 SetOupt68586858 	SetOupt
+DEBUG 2019-06-08 21:10:10,692 CGI * CCGIEntry.cpp:1123 SetOupt68586858 Exist Service Configure mybpml
+DEBUG 2019-06-08 21:10:10,692 CGI * CCGIEntry.cpp:1127 SetOupt68586858 Static Specific Output template	:_output_template_10001001 = 
+DEBUG 2019-06-08 21:10:10,692 CGI * CCGIEntry.cpp:1129 SetOupt68586858 Static Default  Output template	_output_template_default = 
+DEBUG 2019-06-08 21:10:10,692 CGI * CCGIEntry.cpp:1168 SetOupt68586858 Exist Service Configure _error_config
+DEBUG 2019-06-08 21:10:10,692 CGI * CCGIEntry.cpp:1172 SetOupt68586858 Global Specific Output template  10001001 = 
+DEBUG 2019-06-08 21:10:10,692 CGI * CCGIEntry.cpp:1173 SetOupt68586858 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:10:10,692 CGI * CCGIEntry.cpp:1194 SetOupt68586858 Output Template :  GD../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-08 21:13:45,827 CGI * CCGIEntry.cpp:167 Start_Fast70787078 Start_Fast
+DEBUG 2019-06-08 21:13:45,828 CGI * CCGIEntry.cpp:177 Start_Fast70787078 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,832 CGI * CCGIEntry.cpp:167 Start_Fast70757075 Start_Fast
+DEBUG 2019-06-08 21:13:45,832 CGI * CCGIEntry.cpp:177 Start_Fast70757075 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,835 CGI * CCGIEntry.cpp:167 Start_Fast70777077 Start_Fast
+DEBUG 2019-06-08 21:13:45,835 CGI * CCGIEntry.cpp:177 Start_Fast70777077 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,839 CGI * CCGIEntry.cpp:167 Start_Fast70727072 Start_Fast
+DEBUG 2019-06-08 21:13:45,839 CGI * CCGIEntry.cpp:177 Start_Fast70727072 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,843 CGI * CCGIEntry.cpp:167 Start_Fast70707070 Start_Fast
+DEBUG 2019-06-08 21:13:45,843 CGI * CCGIEntry.cpp:177 Start_Fast70707070 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,846 CGI * CCGIEntry.cpp:167 Start_Fast70737073 Start_Fast
+DEBUG 2019-06-08 21:13:45,846 CGI * CCGIEntry.cpp:177 Start_Fast70737073 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,848 CGI * CCGIEntry.cpp:167 Start_Fast70767076 Start_Fast
+DEBUG 2019-06-08 21:13:45,848 CGI * CCGIEntry.cpp:177 Start_Fast70767076 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,850 CGI * CCGIEntry.cpp:167 Start_Fast70747074 Start_Fast
+DEBUG 2019-06-08 21:13:45,850 CGI * CCGIEntry.cpp:177 Start_Fast70747074 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,853 CGI * CCGIEntry.cpp:167 Start_Fast70717071 Start_Fast
+DEBUG 2019-06-08 21:13:45,853 CGI * CCGIEntry.cpp:177 Start_Fast70717071 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:45,859 CGI * CCGIEntry.cpp:167 Start_Fast70697069 Start_Fast
+DEBUG 2019-06-08 21:13:45,859 CGI * CCGIEntry.cpp:177 Start_Fast70697069 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,801 CGI * CCGIEntry.cpp:167 Start_Fast70957095 Start_Fast
+DEBUG 2019-06-08 21:13:47,801 CGI * CCGIEntry.cpp:177 Start_Fast70957095 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,806 CGI * CCGIEntry.cpp:167 Start_Fast70987098 Start_Fast
+DEBUG 2019-06-08 21:13:47,806 CGI * CCGIEntry.cpp:177 Start_Fast70987098 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,811 CGI * CCGIEntry.cpp:167 Start_Fast71017101 Start_Fast
+DEBUG 2019-06-08 21:13:47,811 CGI * CCGIEntry.cpp:177 Start_Fast71017101 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,818 CGI * CCGIEntry.cpp:167 Start_Fast70967096 Start_Fast
+DEBUG 2019-06-08 21:13:47,818 CGI * CCGIEntry.cpp:177 Start_Fast70967096 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,821 CGI * CCGIEntry.cpp:167 Start_Fast70937093 Start_Fast
+DEBUG 2019-06-08 21:13:47,821 CGI * CCGIEntry.cpp:177 Start_Fast70937093 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,824 CGI * CCGIEntry.cpp:167 Start_Fast70947094 Start_Fast
+DEBUG 2019-06-08 21:13:47,824 CGI * CCGIEntry.cpp:177 Start_Fast70947094 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,827 CGI * CCGIEntry.cpp:167 Start_Fast70997099 Start_Fast
+DEBUG 2019-06-08 21:13:47,827 CGI * CCGIEntry.cpp:177 Start_Fast70997099 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,828 CGI * CCGIEntry.cpp:167 Start_Fast70977097 Start_Fast
+DEBUG 2019-06-08 21:13:47,828 CGI * CCGIEntry.cpp:177 Start_Fast70977097 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,829 CGI * CCGIEntry.cpp:167 Start_Fast70927092 Start_Fast
+DEBUG 2019-06-08 21:13:47,830 CGI * CCGIEntry.cpp:177 Start_Fast70927092 max limit for fastcgi 5000
+DEBUG 2019-06-08 21:13:47,831 CGI * CCGIEntry.cpp:167 Start_Fast71007100 Start_Fast
+DEBUG 2019-06-08 21:13:47,831 CGI * CCGIEntry.cpp:177 Start_Fast71007100 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,303 CGI * CCGIEntry.cpp:167 Start_Fast40914091 Start_Fast
+DEBUG 2019-06-09 07:07:07,304 CGI * CCGIEntry.cpp:177 Start_Fast40914091 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,316 CGI * CCGIEntry.cpp:167 Start_Fast40894089 Start_Fast
+DEBUG 2019-06-09 07:07:07,316 CGI * CCGIEntry.cpp:177 Start_Fast40894089 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,322 CGI * CCGIEntry.cpp:167 Start_Fast40874087 Start_Fast
+DEBUG 2019-06-09 07:07:07,322 CGI * CCGIEntry.cpp:177 Start_Fast40874087 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,323 CGI * CCGIEntry.cpp:167 Start_Fast40924092 Start_Fast
+DEBUG 2019-06-09 07:07:07,323 CGI * CCGIEntry.cpp:177 Start_Fast40924092 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,324 CGI * CCGIEntry.cpp:167 Start_Fast40884088 Start_Fast
+DEBUG 2019-06-09 07:07:07,324 CGI * CCGIEntry.cpp:177 Start_Fast40884088 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,326 CGI * CCGIEntry.cpp:167 Start_Fast40864086 Start_Fast
+DEBUG 2019-06-09 07:07:07,326 CGI * CCGIEntry.cpp:177 Start_Fast40864086 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,326 CGI * CCGIEntry.cpp:167 Start_Fast40834083 Start_Fast
+DEBUG 2019-06-09 07:07:07,326 CGI * CCGIEntry.cpp:177 Start_Fast40834083 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,327 CGI * CCGIEntry.cpp:167 Start_Fast40904090 Start_Fast
+DEBUG 2019-06-09 07:07:07,327 CGI * CCGIEntry.cpp:177 Start_Fast40904090 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,328 CGI * CCGIEntry.cpp:167 Start_Fast40854085 Start_Fast
+DEBUG 2019-06-09 07:07:07,328 CGI * CCGIEntry.cpp:177 Start_Fast40854085 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:07,309 CGI * CCGIEntry.cpp:167 Start_Fast40844084 Start_Fast
+DEBUG 2019-06-09 07:07:07,328 CGI * CCGIEntry.cpp:177 Start_Fast40844084 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,287 CGI * CCGIEntry.cpp:167 Start_Fast41164116 Start_Fast
+DEBUG 2019-06-09 07:07:09,287 CGI * CCGIEntry.cpp:177 Start_Fast41164116 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,291 CGI * CCGIEntry.cpp:167 Start_Fast41124112 Start_Fast
+DEBUG 2019-06-09 07:07:09,291 CGI * CCGIEntry.cpp:177 Start_Fast41124112 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,299 CGI * CCGIEntry.cpp:167 Start_Fast41144114 Start_Fast
+DEBUG 2019-06-09 07:07:09,299 CGI * CCGIEntry.cpp:177 Start_Fast41144114 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,302 CGI * CCGIEntry.cpp:167 Start_Fast41114111 Start_Fast
+DEBUG 2019-06-09 07:07:09,302 CGI * CCGIEntry.cpp:177 Start_Fast41114111 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,307 CGI * CCGIEntry.cpp:167 Start_Fast41094109 Start_Fast
+DEBUG 2019-06-09 07:07:09,307 CGI * CCGIEntry.cpp:177 Start_Fast41094109 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,309 CGI * CCGIEntry.cpp:167 Start_Fast41104110 Start_Fast
+DEBUG 2019-06-09 07:07:09,309 CGI * CCGIEntry.cpp:177 Start_Fast41104110 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,311 CGI * CCGIEntry.cpp:167 Start_Fast41074107 Start_Fast
+DEBUG 2019-06-09 07:07:09,311 CGI * CCGIEntry.cpp:177 Start_Fast41074107 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,314 CGI * CCGIEntry.cpp:167 Start_Fast41084108 Start_Fast
+DEBUG 2019-06-09 07:07:09,314 CGI * CCGIEntry.cpp:177 Start_Fast41084108 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,320 CGI * CCGIEntry.cpp:167 Start_Fast41154115 Start_Fast
+DEBUG 2019-06-09 07:07:09,320 CGI * CCGIEntry.cpp:177 Start_Fast41154115 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:07:09,320 CGI * CCGIEntry.cpp:167 Start_Fast41174117 Start_Fast
+DEBUG 2019-06-09 07:07:09,320 CGI * CCGIEntry.cpp:177 Start_Fast41174117 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,271 CGI * CCGIEntry.cpp:167 Start_Fast42144214 Start_Fast
+DEBUG 2019-06-09 07:08:13,272 CGI * CCGIEntry.cpp:177 Start_Fast42144214 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,280 CGI * CCGIEntry.cpp:167 Start_Fast42154215 Start_Fast
+DEBUG 2019-06-09 07:08:13,281 CGI * CCGIEntry.cpp:177 Start_Fast42154215 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,284 CGI * CCGIEntry.cpp:167 Start_Fast42124212 Start_Fast
+DEBUG 2019-06-09 07:08:13,284 CGI * CCGIEntry.cpp:177 Start_Fast42124212 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,286 CGI * CCGIEntry.cpp:167 Start_Fast42094209 Start_Fast
+DEBUG 2019-06-09 07:08:13,287 CGI * CCGIEntry.cpp:177 Start_Fast42094209 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,290 CGI * CCGIEntry.cpp:167 Start_Fast42134213 Start_Fast
+DEBUG 2019-06-09 07:08:13,290 CGI * CCGIEntry.cpp:177 Start_Fast42134213 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,293 CGI * CCGIEntry.cpp:167 Start_Fast42174217 Start_Fast
+DEBUG 2019-06-09 07:08:13,293 CGI * CCGIEntry.cpp:177 Start_Fast42174217 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,294 CGI * CCGIEntry.cpp:167 Start_Fast42104210 Start_Fast
+DEBUG 2019-06-09 07:08:13,295 CGI * CCGIEntry.cpp:177 Start_Fast42104210 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,296 CGI * CCGIEntry.cpp:167 Start_Fast42184218 Start_Fast
+DEBUG 2019-06-09 07:08:13,296 CGI * CCGIEntry.cpp:177 Start_Fast42184218 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,297 CGI * CCGIEntry.cpp:167 Start_Fast42114211 Start_Fast
+DEBUG 2019-06-09 07:08:13,297 CGI * CCGIEntry.cpp:177 Start_Fast42114211 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:13,298 CGI * CCGIEntry.cpp:167 Start_Fast42164216 Start_Fast
+DEBUG 2019-06-09 07:08:13,298 CGI * CCGIEntry.cpp:177 Start_Fast42164216 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,275 CGI * CCGIEntry.cpp:167 Start_Fast42334233 Start_Fast
+DEBUG 2019-06-09 07:08:15,275 CGI * CCGIEntry.cpp:177 Start_Fast42334233 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,280 CGI * CCGIEntry.cpp:167 Start_Fast42364236 Start_Fast
+DEBUG 2019-06-09 07:08:15,280 CGI * CCGIEntry.cpp:177 Start_Fast42364236 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,288 CGI * CCGIEntry.cpp:167 Start_Fast42344234 Start_Fast
+DEBUG 2019-06-09 07:08:15,288 CGI * CCGIEntry.cpp:177 Start_Fast42344234 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,295 CGI * CCGIEntry.cpp:167 Start_Fast42324232 Start_Fast
+DEBUG 2019-06-09 07:08:15,296 CGI * CCGIEntry.cpp:177 Start_Fast42324232 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,298 CGI * CCGIEntry.cpp:167 Start_Fast42374237 Start_Fast
+DEBUG 2019-06-09 07:08:15,298 CGI * CCGIEntry.cpp:177 Start_Fast42374237 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,301 CGI * CCGIEntry.cpp:167 Start_Fast42394239 Start_Fast
+DEBUG 2019-06-09 07:08:15,301 CGI * CCGIEntry.cpp:177 Start_Fast42394239 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,304 CGI * CCGIEntry.cpp:167 Start_Fast42384238 Start_Fast
+DEBUG 2019-06-09 07:08:15,304 CGI * CCGIEntry.cpp:177 Start_Fast42384238 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,306 CGI * CCGIEntry.cpp:167 Start_Fast42354235 Start_Fast
+DEBUG 2019-06-09 07:08:15,306 CGI * CCGIEntry.cpp:177 Start_Fast42354235 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,307 CGI * CCGIEntry.cpp:167 Start_Fast42414241 Start_Fast
+DEBUG 2019-06-09 07:08:15,307 CGI * CCGIEntry.cpp:177 Start_Fast42414241 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:15,308 CGI * CCGIEntry.cpp:167 Start_Fast42404240 Start_Fast
+DEBUG 2019-06-09 07:08:15,308 CGI * CCGIEntry.cpp:177 Start_Fast42404240 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,880 CGI * CCGIEntry.cpp:167 Start_Fast42904290 Start_Fast
+DEBUG 2019-06-09 07:08:41,880 CGI * CCGIEntry.cpp:177 Start_Fast42904290 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,889 CGI * CCGIEntry.cpp:167 Start_Fast42874287 Start_Fast
+DEBUG 2019-06-09 07:08:41,889 CGI * CCGIEntry.cpp:177 Start_Fast42874287 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,895 CGI * CCGIEntry.cpp:167 Start_Fast42894289 Start_Fast
+DEBUG 2019-06-09 07:08:41,895 CGI * CCGIEntry.cpp:177 Start_Fast42894289 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,897 CGI * CCGIEntry.cpp:167 Start_Fast42914291 Start_Fast
+DEBUG 2019-06-09 07:08:41,897 CGI * CCGIEntry.cpp:177 Start_Fast42914291 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,898 CGI * CCGIEntry.cpp:167 Start_Fast42924292 Start_Fast
+DEBUG 2019-06-09 07:08:41,899 CGI * CCGIEntry.cpp:177 Start_Fast42924292 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,900 CGI * CCGIEntry.cpp:167 Start_Fast42844284 Start_Fast
+DEBUG 2019-06-09 07:08:41,900 CGI * CCGIEntry.cpp:177 Start_Fast42844284 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,901 CGI * CCGIEntry.cpp:167 Start_Fast42864286 Start_Fast
+DEBUG 2019-06-09 07:08:41,901 CGI * CCGIEntry.cpp:177 Start_Fast42864286 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,903 CGI * CCGIEntry.cpp:167 Start_Fast42884288 Start_Fast
+DEBUG 2019-06-09 07:08:41,903 CGI * CCGIEntry.cpp:177 Start_Fast42884288 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,904 CGI * CCGIEntry.cpp:167 Start_Fast42834283 Start_Fast
+DEBUG 2019-06-09 07:08:41,904 CGI * CCGIEntry.cpp:177 Start_Fast42834283 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:41,904 CGI * CCGIEntry.cpp:167 Start_Fast42854285 Start_Fast
+DEBUG 2019-06-09 07:08:41,904 CGI * CCGIEntry.cpp:177 Start_Fast42854285 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,860 CGI * CCGIEntry.cpp:167 Start_Fast43124312 Start_Fast
+DEBUG 2019-06-09 07:08:43,860 CGI * CCGIEntry.cpp:177 Start_Fast43124312 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,875 CGI * CCGIEntry.cpp:167 Start_Fast43084308 Start_Fast
+DEBUG 2019-06-09 07:08:43,875 CGI * CCGIEntry.cpp:177 Start_Fast43084308 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,882 CGI * CCGIEntry.cpp:167 Start_Fast43104310 Start_Fast
+DEBUG 2019-06-09 07:08:43,882 CGI * CCGIEntry.cpp:177 Start_Fast43104310 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,884 CGI * CCGIEntry.cpp:167 Start_Fast43114311 Start_Fast
+DEBUG 2019-06-09 07:08:43,884 CGI * CCGIEntry.cpp:177 Start_Fast43114311 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,886 CGI * CCGIEntry.cpp:167 Start_Fast43064306 Start_Fast
+DEBUG 2019-06-09 07:08:43,886 CGI * CCGIEntry.cpp:177 Start_Fast43064306 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,888 CGI * CCGIEntry.cpp:167 Start_Fast43134313 Start_Fast
+DEBUG 2019-06-09 07:08:43,888 CGI * CCGIEntry.cpp:177 Start_Fast43134313 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,890 CGI * CCGIEntry.cpp:167 Start_Fast43094309 Start_Fast
+DEBUG 2019-06-09 07:08:43,890 CGI * CCGIEntry.cpp:177 Start_Fast43094309 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,891 CGI * CCGIEntry.cpp:167 Start_Fast43074307 Start_Fast
+DEBUG 2019-06-09 07:08:43,891 CGI * CCGIEntry.cpp:177 Start_Fast43074307 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,892 CGI * CCGIEntry.cpp:167 Start_Fast43144314 Start_Fast
+DEBUG 2019-06-09 07:08:43,892 CGI * CCGIEntry.cpp:177 Start_Fast43144314 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:08:43,894 CGI * CCGIEntry.cpp:167 Start_Fast43054305 Start_Fast
+DEBUG 2019-06-09 07:08:43,894 CGI * CCGIEntry.cpp:177 Start_Fast43054305 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,308 CGI * CCGIEntry.cpp:167 Start_Fast1614516145 Start_Fast
+DEBUG 2019-06-09 07:30:09,308 CGI * CCGIEntry.cpp:177 Start_Fast1614516145 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,314 CGI * CCGIEntry.cpp:167 Start_Fast1614416144 Start_Fast
+DEBUG 2019-06-09 07:30:09,328 CGI * CCGIEntry.cpp:177 Start_Fast1614416144 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,329 CGI * CCGIEntry.cpp:167 Start_Fast1614016140 Start_Fast
+DEBUG 2019-06-09 07:30:09,329 CGI * CCGIEntry.cpp:177 Start_Fast1614016140 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,330 CGI * CCGIEntry.cpp:167 Start_Fast1614816148 Start_Fast
+DEBUG 2019-06-09 07:30:09,330 CGI * CCGIEntry.cpp:177 Start_Fast1614816148 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,331 CGI * CCGIEntry.cpp:167 Start_Fast1614116141 Start_Fast
+DEBUG 2019-06-09 07:30:09,331 CGI * CCGIEntry.cpp:177 Start_Fast1614116141 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,332 CGI * CCGIEntry.cpp:167 Start_Fast1614316143 Start_Fast
+DEBUG 2019-06-09 07:30:09,332 CGI * CCGIEntry.cpp:177 Start_Fast1614316143 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,333 CGI * CCGIEntry.cpp:167 Start_Fast1614616146 Start_Fast
+DEBUG 2019-06-09 07:30:09,333 CGI * CCGIEntry.cpp:177 Start_Fast1614616146 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,334 CGI * CCGIEntry.cpp:167 Start_Fast1614216142 Start_Fast
+DEBUG 2019-06-09 07:30:09,334 CGI * CCGIEntry.cpp:177 Start_Fast1614216142 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,335 CGI * CCGIEntry.cpp:167 Start_Fast1614716147 Start_Fast
+DEBUG 2019-06-09 07:30:09,335 CGI * CCGIEntry.cpp:177 Start_Fast1614716147 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:09,335 CGI * CCGIEntry.cpp:167 Start_Fast1614916149 Start_Fast
+DEBUG 2019-06-09 07:30:09,336 CGI * CCGIEntry.cpp:177 Start_Fast1614916149 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,297 CGI * CCGIEntry.cpp:167 Start_Fast1616616166 Start_Fast
+DEBUG 2019-06-09 07:30:11,297 CGI * CCGIEntry.cpp:177 Start_Fast1616616166 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,301 CGI * CCGIEntry.cpp:167 Start_Fast1617016170 Start_Fast
+DEBUG 2019-06-09 07:30:11,301 CGI * CCGIEntry.cpp:177 Start_Fast1617016170 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,305 CGI * CCGIEntry.cpp:167 Start_Fast1616316163 Start_Fast
+DEBUG 2019-06-09 07:30:11,305 CGI * CCGIEntry.cpp:177 Start_Fast1616316163 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,307 CGI * CCGIEntry.cpp:167 Start_Fast1616416164 Start_Fast
+DEBUG 2019-06-09 07:30:11,307 CGI * CCGIEntry.cpp:177 Start_Fast1616416164 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,309 CGI * CCGIEntry.cpp:167 Start_Fast1616216162 Start_Fast
+DEBUG 2019-06-09 07:30:11,309 CGI * CCGIEntry.cpp:177 Start_Fast1616216162 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,311 CGI * CCGIEntry.cpp:167 Start_Fast1616816168 Start_Fast
+DEBUG 2019-06-09 07:30:11,311 CGI * CCGIEntry.cpp:177 Start_Fast1616816168 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,312 CGI * CCGIEntry.cpp:167 Start_Fast1617116171 Start_Fast
+DEBUG 2019-06-09 07:30:11,313 CGI * CCGIEntry.cpp:177 Start_Fast1617116171 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,314 CGI * CCGIEntry.cpp:167 Start_Fast1616516165 Start_Fast
+DEBUG 2019-06-09 07:30:11,314 CGI * CCGIEntry.cpp:177 Start_Fast1616516165 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,315 CGI * CCGIEntry.cpp:167 Start_Fast1616716167 Start_Fast
+DEBUG 2019-06-09 07:30:11,315 CGI * CCGIEntry.cpp:177 Start_Fast1616716167 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:30:11,318 CGI * CCGIEntry.cpp:167 Start_Fast1616916169 Start_Fast
+DEBUG 2019-06-09 07:30:11,318 CGI * CCGIEntry.cpp:177 Start_Fast1616916169 max limit for fastcgi 5000
+DEBUG 2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:193 Start_Fast1614516145 times = 1/5000
+DEBUG 2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:69 Start_Common1614516145 Start_Common 
+DEBUG 2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:262 GetInput1614516145 	GetInput
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:272 GetInput1614516145 tid : vcdimg
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:272 GetInput1614516145 rnd : 1
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.AUTH_TYPE : 
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.CONTENT_LENGTH : 
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.CONTENT_TYPE : 
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.DOCUMENT_ROOT : /etc/nginx/html
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.DOCUMENT_URI : /cgi/ugw
+INFO  2019-06-09 07:32:08,987 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.FCGI_ROLE : RESPONDER
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.GATEWAY_INTERFACE : CGI/1.1
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTPS : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_ACCEPT : image/webp,image/apng,image/*,*/*;q=0.8
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_ACCEPT_ENCODING : gzip, deflate
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_ACCEPT_LANGUAGE : zh-CN,zh;q=0.9
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_CONNECTION : keep-alive
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_COOKIE : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_HOST : www.wucar.com.cn
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_REFERER : http://www.wucar.com.cn/profile.html
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.HTTP_USER_AGENT : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.PATH_INFO : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.PATH_TRANSLATED : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.QUERY_STRING : tid=vcdimg&rnd=1
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REDIRECT_REQUEST : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REDIRECT_STATUS : 200
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REDIRECT_URL : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REMOTE_ADDR : 223.74.148.240
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REMOTE_HOST : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REMOTE_IDENT : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REMOTE_PORT : 41926
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REMOTE_USER : 
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REQUEST_METHOD : GET
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REQUEST_SCHEME : http
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.REQUEST_URI : /cgi/ugw?tid=vcdimg&rnd=1
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.SCRIPT_FILENAME : /etc/nginx/html/cgi/ugw
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.SCRIPT_NAME : /cgi/ugw
+INFO  2019-06-09 07:32:08,988 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.SERVER_ADDR : 192.168.32.2
+INFO  2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.SERVER_NAME : www.wucar.com.cn
+INFO  2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.SERVER_PORT : 80
+INFO  2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.SERVER_PROTOCOL : HTTP/1.1
+INFO  2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:300 GetInput1614516145 env.SERVER_SOFTWARE : nginx/1.17.0
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:359 GetInput1614516145 conf para   :method = weixin_in_msg
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:376 CheckFormat1614516145 
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:388 CheckFormat1614516145 method : 1 weixin_in_msg
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:417 CheckFormat1614516145 regex single
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:433 CheckFormat1614516145 regex single
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:451 CheckFormat1614516145 regex single
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:457 CheckFormat1614516145 regex single [a-z][a-z0-9_.]* weixin_in_msg
+DEBUG 2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:388 CheckFormat1614516145 rnd : 1 1
+INFO  2019-06-09 07:32:08,989 CGI * CCGIEntry.cpp:407 CheckFormat1614516145 Notice : [1] Err in MyConfig::CConfigEntry::GetElement rnd   
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:388 CheckFormat1614516145 tid : 1 vcdimg
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:417 CheckFormat1614516145 regex single
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:433 CheckFormat1614516145 regex single
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:451 CheckFormat1614516145 regex single
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:457 CheckFormat1614516145 regex single [a-zA-Z0-9.]+ vcdimg
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:645 DoTranslate1614516145 	DoTranslate
+INFO  2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:672 DoTranslate1614516145 Notice : [1] Err in MyConfig::CConfigEntry::GetElement rnd   
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:500 CheckIntegrality1614516145 	CheckIntegrality : 1
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:552 CheckIntegrality1614516145 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:746 CheckPopedom1614516145 	CheckPopedom
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:756 CheckFrequence1614516145 	CheckFrequence
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:764 CommitTrans1614516145 	CommitTrans
+DEBUG 2019-06-09 07:32:08,990 CGI * CCGIEntry.cpp:791 CommitTrans1614516145 Exec transaction : vcdimg
+DEBUG 2019-06-09 07:32:08,990 CGI * CTransaction_VCDIMG.cpp:29 Do1614516145 
+DEBUG 2019-06-09 07:32:08,991 CGI * CTransaction_VCDIMG.cpp:39 Do1614516145 0
+DEBUG 2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:807 ValidOutput1614516145 	ValidOutput
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:816 ValidOutput1614516145 retcode : 1
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:816 ValidOutput1614516145 retmsg : 1
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:816 ValidOutput1614516145 vcdimg : 1
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:835 ValidOutput1614516145 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdimg   
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:816 ValidOutput1614516145 vcdmd5 : 1
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:835 ValidOutput1614516145 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdmd5   
+DEBUG 2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:922 TranslateOutput1614516145 	TranslateOutput
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:948 TranslateOutput1614516145 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdimg   
+INFO  2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:948 TranslateOutput1614516145 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdmd5   
+DEBUG 2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:500 CheckIntegrality1614516145 	CheckIntegrality : 0
+DEBUG 2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:574 CheckIntegrality1614516145 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:1019 SignOutput1614516145 	SignOutput
+DEBUG 2019-06-09 07:32:08,991 CGI * CCGIEntry.cpp:1079 SetOupt1614516145 	SetOupt
+DEBUG 2019-06-09 07:32:08,992 CGI * CCGIEntry.cpp:1123 SetOupt1614516145 Exist Service Configure vcdimg
+DEBUG 2019-06-09 07:32:08,992 CGI * CCGIEntry.cpp:1127 SetOupt1614516145 Static Specific Output template	:_output_template_0 = ../cnf/template/imgvcd_xml.bpml
+DEBUG 2019-06-09 07:32:08,992 CGI * CCGIEntry.cpp:1129 SetOupt1614516145 Static Default  Output template	_output_template_default = ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-09 07:32:08,992 CGI * CCGIEntry.cpp:1168 SetOupt1614516145 Exist Service Configure _error_config
+DEBUG 2019-06-09 07:32:08,992 CGI * CCGIEntry.cpp:1172 SetOupt1614516145 Global Specific Output template  0 = 
+DEBUG 2019-06-09 07:32:08,992 CGI * CCGIEntry.cpp:1173 SetOupt1614516145 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-09 07:32:08,992 CGI * CCGIEntry.cpp:1179 SetOupt1614516145 Output Template SS:  ../cnf/template/imgvcd_xml.bpml
+DEBUG 2019-06-09 07:32:09,198 CGI * CCGIEntry.cpp:193 Start_Fast1614416144 times = 1/5000
+DEBUG 2019-06-09 07:32:09,198 CGI * CCGIEntry.cpp:69 Start_Common1614416144 Start_Common 
+DEBUG 2019-06-09 07:32:09,198 CGI * CCGIEntry.cpp:262 GetInput1614416144 	GetInput
+INFO  2019-06-09 07:32:09,198 CGI * CCGIEntry.cpp:272 GetInput1614416144 tid : mysql
+INFO  2019-06-09 07:32:09,198 CGI * CCGIEntry.cpp:272 GetInput1614416144 method : udisp
+INFO  2019-06-09 07:32:09,198 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.AUTH_TYPE : 
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.CONTENT_LENGTH : 22
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.CONTENT_TYPE : application/x-www-form-urlencoded; charset=UTF-8
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.DOCUMENT_ROOT : /etc/nginx/html
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.DOCUMENT_URI : /cgi/ugw
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.FCGI_ROLE : RESPONDER
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.GATEWAY_INTERFACE : CGI/1.1
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTPS : 
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_ACCEPT : application/xml, text/xml, */*; q=0.01
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_ACCEPT_ENCODING : gzip, deflate
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_ACCEPT_LANGUAGE : zh-CN,zh;q=0.9
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_CONNECTION : keep-alive
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_CONTENT_LENGTH : 22
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_CONTENT_TYPE : application/x-www-form-urlencoded; charset=UTF-8
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_COOKIE : vcdid=15600367284350BA5C32BAE4F41BAA352604DD9455
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_HOST : www.wucar.com.cn
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_ORIGIN : http://www.wucar.com.cn
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_REFERER : http://www.wucar.com.cn/profile.html
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_USER_AGENT : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.HTTP_X_REQUESTED_WITH : XMLHttpRequest
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.PATH_INFO : 
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.PATH_TRANSLATED : 
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.QUERY_STRING : 
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REDIRECT_REQUEST : 
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REDIRECT_STATUS : 200
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REDIRECT_URL : 
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REMOTE_ADDR : 223.74.148.240
+INFO  2019-06-09 07:32:09,199 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REMOTE_HOST : 
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REMOTE_IDENT : 
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REMOTE_PORT : 41926
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REMOTE_USER : 
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REQUEST_METHOD : POST
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REQUEST_SCHEME : http
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.REQUEST_URI : /cgi/ugw
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.SCRIPT_FILENAME : /etc/nginx/html/cgi/ugw
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.SCRIPT_NAME : /cgi/ugw
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.SERVER_ADDR : 192.168.32.2
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.SERVER_NAME : www.wucar.com.cn
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.SERVER_PORT : 80
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.SERVER_PROTOCOL : HTTP/1.1
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:300 GetInput1614416144 env.SERVER_SOFTWARE : nginx/1.17.0
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:309 GetInput1614416144 _RAW_POST_DATA : tid=mysql&method=udisp
+INFO  2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:320 GetInput1614416144 cookie :vcdid = 15600367284350BA5C32BAE4F41BAA352604DD9455
+DEBUG 2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:376 CheckFormat1614416144 
+DEBUG 2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:388 CheckFormat1614416144 method : 1 udisp
+DEBUG 2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:417 CheckFormat1614416144 regex single
+DEBUG 2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:433 CheckFormat1614416144 regex single
+DEBUG 2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:451 CheckFormat1614416144 regex single
+DEBUG 2019-06-09 07:32:09,200 CGI * CCGIEntry.cpp:457 CheckFormat1614416144 regex single [a-z][a-z0-9_.]* udisp
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:388 CheckFormat1614416144 tid : 1 mysql
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:417 CheckFormat1614416144 regex single
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:433 CheckFormat1614416144 regex single
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:451 CheckFormat1614416144 regex single
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:457 CheckFormat1614416144 regex single [a-zA-Z0-9.]+ mysql
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:645 DoTranslate1614416144 	DoTranslate
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:500 CheckIntegrality1614416144 	CheckIntegrality : 1
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:552 CheckIntegrality1614416144 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:746 CheckPopedom1614416144 	CheckPopedom
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:756 CheckFrequence1614416144 	CheckFrequence
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:764 CommitTrans1614416144 	CommitTrans
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:791 CommitTrans1614416144 Exec transaction : mysql
+DEBUG 2019-06-09 07:32:09,201 CGI * CTransaction_MYSQL.cpp:269 Do1614416144 MyAPP::CTransaction_MYSQL::Do
+DEBUG 2019-06-09 07:32:09,201 CGI * CTransaction_MYSQL.cpp:282 Do1614416144 MyAPP::CTransaction_MYSQL::Do  method = mysql::udisp
+INFO  2019-06-09 07:32:09,201 CGI * CTransaction_MYSQL.cpp:295 Do1614416144 cookie  sid uid  0
+DEBUG 2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:807 ValidOutput1614416144 	ValidOutput
+INFO  2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:816 ValidOutput1614416144 retcode : 1
+INFO  2019-06-09 07:32:09,201 CGI * CCGIEntry.cpp:816 ValidOutput1614416144 retmsg : 1
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:922 TranslateOutput1614416144 	TranslateOutput
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:500 CheckIntegrality1614416144 	CheckIntegrality : 0
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:574 CheckIntegrality1614416144 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1019 SignOutput1614416144 	SignOutput
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1079 SetOupt1614416144 	SetOupt
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1123 SetOupt1614416144 Exist Service Configure mysql
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1127 SetOupt1614416144 Static Specific Output template	:_output_template_10002013 = 
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1129 SetOupt1614416144 Static Default  Output template	_output_template_default = ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1168 SetOupt1614416144 Exist Service Configure _error_config
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1172 SetOupt1614416144 Global Specific Output template  10002013 = 
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1173 SetOupt1614416144 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-09 07:32:09,202 CGI * CCGIEntry.cpp:1189 SetOupt1614416144 Output Template SD:  ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:193 Start_Fast1614016140 times = 1/5000
+DEBUG 2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:69 Start_Common1614016140 Start_Common 
+DEBUG 2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:262 GetInput1614016140 	GetInput
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:272 GetInput1614016140 tid : vcdimg
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:272 GetInput1614016140 rnd : 0
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.AUTH_TYPE : 
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.CONTENT_LENGTH : 
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.CONTENT_TYPE : 
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.DOCUMENT_ROOT : /etc/nginx/html
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.DOCUMENT_URI : /cgi/ugw
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.FCGI_ROLE : RESPONDER
+INFO  2019-06-09 07:32:09,245 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.GATEWAY_INTERFACE : CGI/1.1
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTPS : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_ACCEPT : image/webp,image/apng,image/*,*/*;q=0.8
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_ACCEPT_ENCODING : gzip, deflate
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_ACCEPT_LANGUAGE : zh-CN,zh;q=0.9
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_CONNECTION : keep-alive
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_COOKIE : vcdid=15600367284350BA5C32BAE4F41BAA352604DD9455
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_HOST : www.wucar.com.cn
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_REFERER : http://www.wucar.com.cn/profile.html
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.HTTP_USER_AGENT : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.PATH_INFO : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.PATH_TRANSLATED : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.QUERY_STRING : tid=vcdimg&rnd=0
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REDIRECT_REQUEST : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REDIRECT_STATUS : 200
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REDIRECT_URL : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REMOTE_ADDR : 223.74.148.240
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REMOTE_HOST : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REMOTE_IDENT : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REMOTE_PORT : 41928
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REMOTE_USER : 
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REQUEST_METHOD : GET
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REQUEST_SCHEME : http
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.REQUEST_URI : /cgi/ugw?tid=vcdimg&rnd=0
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.SCRIPT_FILENAME : /etc/nginx/html/cgi/ugw
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.SCRIPT_NAME : /cgi/ugw
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.SERVER_ADDR : 192.168.32.2
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.SERVER_NAME : www.wucar.com.cn
+INFO  2019-06-09 07:32:09,246 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.SERVER_PORT : 80
+INFO  2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.SERVER_PROTOCOL : HTTP/1.1
+INFO  2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:300 GetInput1614016140 env.SERVER_SOFTWARE : nginx/1.17.0
+INFO  2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:320 GetInput1614016140 cookie :vcdid = 15600367284350BA5C32BAE4F41BAA352604DD9455
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:359 GetInput1614016140 conf para   :method = weixin_in_msg
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:376 CheckFormat1614016140 
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:388 CheckFormat1614016140 method : 1 weixin_in_msg
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:417 CheckFormat1614016140 regex single
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:433 CheckFormat1614016140 regex single
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:451 CheckFormat1614016140 regex single
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:457 CheckFormat1614016140 regex single [a-z][a-z0-9_.]* weixin_in_msg
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:388 CheckFormat1614016140 rnd : 1 0
+INFO  2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:407 CheckFormat1614016140 Notice : [1] Err in MyConfig::CConfigEntry::GetElement rnd   
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:388 CheckFormat1614016140 tid : 1 vcdimg
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:417 CheckFormat1614016140 regex single
+DEBUG 2019-06-09 07:32:09,247 CGI * CCGIEntry.cpp:433 CheckFormat1614016140 regex single
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:451 CheckFormat1614016140 regex single
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:457 CheckFormat1614016140 regex single [a-zA-Z0-9.]+ vcdimg
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:645 DoTranslate1614016140 	DoTranslate
+INFO  2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:672 DoTranslate1614016140 Notice : [1] Err in MyConfig::CConfigEntry::GetElement rnd   
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:500 CheckIntegrality1614016140 	CheckIntegrality : 1
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:552 CheckIntegrality1614016140 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:746 CheckPopedom1614016140 	CheckPopedom
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:756 CheckFrequence1614016140 	CheckFrequence
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:764 CommitTrans1614016140 	CommitTrans
+DEBUG 2019-06-09 07:32:09,248 CGI * CCGIEntry.cpp:791 CommitTrans1614016140 Exec transaction : vcdimg
+DEBUG 2019-06-09 07:32:09,248 CGI * CTransaction_VCDIMG.cpp:29 Do1614016140 
+DEBUG 2019-06-09 07:32:09,248 CGI * CTransaction_VCDIMG.cpp:39 Do1614016140 0
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:807 ValidOutput1614016140 	ValidOutput
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:816 ValidOutput1614016140 retcode : 1
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:816 ValidOutput1614016140 retmsg : 1
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:816 ValidOutput1614016140 vcdimg : 1
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:835 ValidOutput1614016140 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdimg   
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:816 ValidOutput1614016140 vcdmd5 : 1
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:835 ValidOutput1614016140 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdmd5   
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:922 TranslateOutput1614016140 	TranslateOutput
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:948 TranslateOutput1614016140 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdimg   
+INFO  2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:948 TranslateOutput1614016140 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcdmd5   
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:500 CheckIntegrality1614016140 	CheckIntegrality : 0
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:574 CheckIntegrality1614016140 	CheckIntegrality : _response_integrality=loose
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:1019 SignOutput1614016140 	SignOutput
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:1079 SetOupt1614016140 	SetOupt
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:1123 SetOupt1614016140 Exist Service Configure vcdimg
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:1127 SetOupt1614016140 Static Specific Output template	:_output_template_0 = ../cnf/template/imgvcd_xml.bpml
+DEBUG 2019-06-09 07:32:09,249 CGI * CCGIEntry.cpp:1129 SetOupt1614016140 Static Default  Output template	_output_template_default = ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-09 07:32:09,250 CGI * CCGIEntry.cpp:1168 SetOupt1614016140 Exist Service Configure _error_config
+DEBUG 2019-06-09 07:32:09,250 CGI * CCGIEntry.cpp:1172 SetOupt1614016140 Global Specific Output template  0 = 
+DEBUG 2019-06-09 07:32:09,250 CGI * CCGIEntry.cpp:1173 SetOupt1614016140 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-09 07:32:09,250 CGI * CCGIEntry.cpp:1179 SetOupt1614016140 Output Template SS:  ../cnf/template/imgvcd_xml.bpml
+DEBUG 2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:193 Start_Fast1614816148 times = 1/5000
+DEBUG 2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:69 Start_Common1614816148 Start_Common 
+DEBUG 2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:262 GetInput1614816148 	GetInput
+INFO  2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:272 GetInput1614816148 tid : mysql
+INFO  2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:272 GetInput1614816148 method : ulog
+INFO  2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:272 GetInput1614816148 email : gaoyong@my-soft.net.cn
+INFO  2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:272 GetInput1614816148 pwd : test1234
+INFO  2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:272 GetInput1614816148 vcd : SJA2
+INFO  2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.AUTH_TYPE : 
+INFO  2019-06-09 07:32:38,230 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.CONTENT_LENGTH : 74
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.CONTENT_TYPE : application/x-www-form-urlencoded; charset=UTF-8
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.DOCUMENT_ROOT : /etc/nginx/html
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.DOCUMENT_URI : /cgi/ugw
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.FCGI_ROLE : RESPONDER
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.GATEWAY_INTERFACE : CGI/1.1
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTPS : 
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_ACCEPT : application/xml, text/xml, */*; q=0.01
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_ACCEPT_ENCODING : gzip, deflate
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_ACCEPT_LANGUAGE : zh-CN,zh;q=0.9
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_CONNECTION : keep-alive
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_CONTENT_LENGTH : 74
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_CONTENT_TYPE : application/x-www-form-urlencoded; charset=UTF-8
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_COOKIE : vcdid=15600367299A6FE7B40315CA8CCD9C108C6AB943E9
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_HOST : www.wucar.com.cn
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_ORIGIN : http://www.wucar.com.cn
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_REFERER : http://www.wucar.com.cn/profile.html
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_USER_AGENT : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.HTTP_X_REQUESTED_WITH : XMLHttpRequest
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.PATH_INFO : 
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.PATH_TRANSLATED : 
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.QUERY_STRING : 
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REDIRECT_REQUEST : 
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REDIRECT_STATUS : 200
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REDIRECT_URL : 
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REMOTE_ADDR : 223.74.148.240
+INFO  2019-06-09 07:32:38,231 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REMOTE_HOST : 
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REMOTE_IDENT : 
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REMOTE_PORT : 41918
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REMOTE_USER : 
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REQUEST_METHOD : POST
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REQUEST_SCHEME : http
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.REQUEST_URI : /cgi/ugw
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.SCRIPT_FILENAME : /etc/nginx/html/cgi/ugw
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.SCRIPT_NAME : /cgi/ugw
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.SERVER_ADDR : 192.168.32.2
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.SERVER_NAME : www.wucar.com.cn
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.SERVER_PORT : 80
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.SERVER_PROTOCOL : HTTP/1.1
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:300 GetInput1614816148 env.SERVER_SOFTWARE : nginx/1.17.0
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:309 GetInput1614816148 _RAW_POST_DATA : tid=mysql&method=ulog&email=gaoyong%40my-soft.net.cn&pwd=test1234&vcd=SJA2
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:320 GetInput1614816148 cookie :vcdid = 15600367299A6FE7B40315CA8CCD9C108C6AB943E9
+DEBUG 2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:376 CheckFormat1614816148 
+DEBUG 2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:388 CheckFormat1614816148 email : 1 gaoyong@my-soft.net.cn
+INFO  2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:407 CheckFormat1614816148 Notice : [1] Err in MyConfig::CConfigEntry::GetElement email   
+DEBUG 2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:388 CheckFormat1614816148 method : 1 ulog
+DEBUG 2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:417 CheckFormat1614816148 regex single
+DEBUG 2019-06-09 07:32:38,232 CGI * CCGIEntry.cpp:433 CheckFormat1614816148 regex single
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:451 CheckFormat1614816148 regex single
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:457 CheckFormat1614816148 regex single [a-z][a-z0-9_.]* ulog
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:388 CheckFormat1614816148 pwd : 1 test1234
+INFO  2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:407 CheckFormat1614816148 Notice : [1] Err in MyConfig::CConfigEntry::GetElement pwd   
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:388 CheckFormat1614816148 tid : 1 mysql
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:417 CheckFormat1614816148 regex single
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:433 CheckFormat1614816148 regex single
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:451 CheckFormat1614816148 regex single
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:457 CheckFormat1614816148 regex single [a-zA-Z0-9.]+ mysql
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:388 CheckFormat1614816148 vcd : 1 SJA2
+INFO  2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:407 CheckFormat1614816148 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcd   
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:645 DoTranslate1614816148 	DoTranslate
+INFO  2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:672 DoTranslate1614816148 Notice : [1] Err in MyConfig::CConfigEntry::GetElement email   
+INFO  2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:672 DoTranslate1614816148 Notice : [1] Err in MyConfig::CConfigEntry::GetElement pwd   
+INFO  2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:672 DoTranslate1614816148 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcd   
+DEBUG 2019-06-09 07:32:38,233 CGI * CCGIEntry.cpp:500 CheckIntegrality1614816148 	CheckIntegrality : 1
+DEBUG 2019-06-09 07:32:38,234 CGI * CCGIEntry.cpp:552 CheckIntegrality1614816148 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-09 07:32:38,234 CGI * CCGIEntry.cpp:746 CheckPopedom1614816148 	CheckPopedom
+DEBUG 2019-06-09 07:32:38,234 CGI * CCGIEntry.cpp:756 CheckFrequence1614816148 	CheckFrequence
+DEBUG 2019-06-09 07:32:38,234 CGI * CCGIEntry.cpp:764 CommitTrans1614816148 	CommitTrans
+DEBUG 2019-06-09 07:32:38,234 CGI * CCGIEntry.cpp:791 CommitTrans1614816148 Exec transaction : mysql
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:269 Do1614816148 MyAPP::CTransaction_MYSQL::Do
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:282 Do1614816148 MyAPP::CTransaction_MYSQL::Do  method = mysql::ulog
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:352 Do1614816148 MyAPP::CTransaction_MYSQL::pre  create pCDatabaseHash = fix
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:365 Do1614816148 MyAPP::CTransaction_MYSQL::Do  create pCDatabaseHash = fix
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:371 Do1614816148 MyAPP::CTransaction_MYSQL::Do  hash_para = null
+
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:392 Do1614816148 MyAPP::CTransaction_MYSQL::Do afte process hash_para = null
+
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:397 Do1614816148 MyAPP::CTransaction_MYSQL::Do 
+node =  
+database =  
+table = 
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:404 Do1614816148 MyAPP::CTransaction_MYSQL::Do node = mysql::db_youyee
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:54 GetConnect1614816148 MyAPP::CTransaction_MYSQL::GetConnect(mysql::db_youyee)
+DEBUG 2019-06-09 07:32:38,234 CGI * CTransaction_MYSQL.cpp:86 GetConnect1614816148 MyAPP::CTransaction_MYSQL::GetConnect(mysql::db_youyee)  NULL ,connecting ...
+DEBUG 2019-06-09 07:32:38,350 CGI * CCGIEntry.cpp:807 ValidOutput1614816148 	ValidOutput
+INFO  2019-06-09 07:32:38,350 CGI * CCGIEntry.cpp:816 ValidOutput1614816148 retcode : 3
+INFO  2019-06-09 07:32:38,350 CGI * CCGIEntry.cpp:903 ValidOutput1614816148 retcode Error Format 
+ERROR 2019-06-09 07:32:38,350 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614816148 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614816148 [20000002]    
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1079 SetOupt1614816148 	SetOupt
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1123 SetOupt1614816148 Exist Service Configure mysql
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1127 SetOupt1614816148 Static Specific Output template	:_output_template_20000002 = 
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1129 SetOupt1614816148 Static Default  Output template	_output_template_default = ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1168 SetOupt1614816148 Exist Service Configure _error_config
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1172 SetOupt1614816148 Global Specific Output template  20000002 = 
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1173 SetOupt1614816148 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-09 07:32:38,351 CGI * CCGIEntry.cpp:1189 SetOupt1614816148 Output Template SD:  ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-09 07:32:42,052 CGI * CCGIEntry.cpp:193 Start_Fast1614116141 times = 1/5000
+DEBUG 2019-06-09 07:32:42,052 CGI * CCGIEntry.cpp:69 Start_Common1614116141 Start_Common 
+DEBUG 2019-06-09 07:32:42,052 CGI * CCGIEntry.cpp:262 GetInput1614116141 	GetInput
+INFO  2019-06-09 07:32:42,052 CGI * CCGIEntry.cpp:272 GetInput1614116141 tid : mysql
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:272 GetInput1614116141 method : ulog
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:272 GetInput1614116141 email : gaoyong@my-soft.net.cn
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:272 GetInput1614116141 pwd : test1234
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:272 GetInput1614116141 vcd : SJA2
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.AUTH_TYPE : 
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.CONTENT_LENGTH : 74
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.CONTENT_TYPE : application/x-www-form-urlencoded; charset=UTF-8
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.DOCUMENT_ROOT : /etc/nginx/html
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.DOCUMENT_URI : /cgi/ugw
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.FCGI_ROLE : RESPONDER
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.GATEWAY_INTERFACE : CGI/1.1
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTPS : 
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_ACCEPT : application/xml, text/xml, */*; q=0.01
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_ACCEPT_ENCODING : gzip, deflate
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_ACCEPT_LANGUAGE : zh-CN,zh;q=0.9
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_CONNECTION : keep-alive
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_CONTENT_LENGTH : 74
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_CONTENT_TYPE : application/x-www-form-urlencoded; charset=UTF-8
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_COOKIE : vcdid=15600367299A6FE7B40315CA8CCD9C108C6AB943E9
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_HOST : www.wucar.com.cn
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_ORIGIN : http://www.wucar.com.cn
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_REFERER : http://www.wucar.com.cn/profile.html
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_USER_AGENT : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.HTTP_X_REQUESTED_WITH : XMLHttpRequest
+INFO  2019-06-09 07:32:42,053 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.PATH_INFO : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.PATH_TRANSLATED : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.QUERY_STRING : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REDIRECT_REQUEST : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REDIRECT_STATUS : 200
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REDIRECT_URL : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REMOTE_ADDR : 223.74.148.240
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REMOTE_HOST : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REMOTE_IDENT : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REMOTE_PORT : 41918
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REMOTE_USER : 
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REQUEST_METHOD : POST
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REQUEST_SCHEME : http
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.REQUEST_URI : /cgi/ugw
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.SCRIPT_FILENAME : /etc/nginx/html/cgi/ugw
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.SCRIPT_NAME : /cgi/ugw
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.SERVER_ADDR : 192.168.32.2
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.SERVER_NAME : www.wucar.com.cn
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.SERVER_PORT : 80
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.SERVER_PROTOCOL : HTTP/1.1
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:300 GetInput1614116141 env.SERVER_SOFTWARE : nginx/1.17.0
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:309 GetInput1614116141 _RAW_POST_DATA : tid=mysql&method=ulog&email=gaoyong%40my-soft.net.cn&pwd=test1234&vcd=SJA2
+INFO  2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:320 GetInput1614116141 cookie :vcdid = 15600367299A6FE7B40315CA8CCD9C108C6AB943E9
+DEBUG 2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:376 CheckFormat1614116141 
+DEBUG 2019-06-09 07:32:42,054 CGI * CCGIEntry.cpp:388 CheckFormat1614116141 email : 1 gaoyong@my-soft.net.cn
+INFO  2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:407 CheckFormat1614116141 Notice : [1] Err in MyConfig::CConfigEntry::GetElement email   
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:388 CheckFormat1614116141 method : 1 ulog
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:417 CheckFormat1614116141 regex single
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:433 CheckFormat1614116141 regex single
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:451 CheckFormat1614116141 regex single
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:457 CheckFormat1614116141 regex single [a-z][a-z0-9_.]* ulog
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:388 CheckFormat1614116141 pwd : 1 test1234
+INFO  2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:407 CheckFormat1614116141 Notice : [1] Err in MyConfig::CConfigEntry::GetElement pwd   
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:388 CheckFormat1614116141 tid : 1 mysql
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:417 CheckFormat1614116141 regex single
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:433 CheckFormat1614116141 regex single
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:451 CheckFormat1614116141 regex single
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:457 CheckFormat1614116141 regex single [a-zA-Z0-9.]+ mysql
+DEBUG 2019-06-09 07:32:42,055 CGI * CCGIEntry.cpp:388 CheckFormat1614116141 vcd : 1 SJA2
+INFO  2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:407 CheckFormat1614116141 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcd   
+DEBUG 2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:645 DoTranslate1614116141 	DoTranslate
+INFO  2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:672 DoTranslate1614116141 Notice : [1] Err in MyConfig::CConfigEntry::GetElement email   
+INFO  2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:672 DoTranslate1614116141 Notice : [1] Err in MyConfig::CConfigEntry::GetElement pwd   
+INFO  2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:672 DoTranslate1614116141 Notice : [1] Err in MyConfig::CConfigEntry::GetElement vcd   
+DEBUG 2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:500 CheckIntegrality1614116141 	CheckIntegrality : 1
+DEBUG 2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:552 CheckIntegrality1614116141 	CheckIntegrality : _request_integrality=loose
+DEBUG 2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:746 CheckPopedom1614116141 	CheckPopedom
+DEBUG 2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:756 CheckFrequence1614116141 	CheckFrequence
+DEBUG 2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:764 CommitTrans1614116141 	CommitTrans
+DEBUG 2019-06-09 07:32:42,056 CGI * CCGIEntry.cpp:791 CommitTrans1614116141 Exec transaction : mysql
+DEBUG 2019-06-09 07:32:42,056 CGI * CTransaction_MYSQL.cpp:269 Do1614116141 MyAPP::CTransaction_MYSQL::Do
+DEBUG 2019-06-09 07:32:42,056 CGI * CTransaction_MYSQL.cpp:282 Do1614116141 MyAPP::CTransaction_MYSQL::Do  method = mysql::ulog
+DEBUG 2019-06-09 07:32:42,056 CGI * CTransaction_MYSQL.cpp:352 Do1614116141 MyAPP::CTransaction_MYSQL::pre  create pCDatabaseHash = fix
+DEBUG 2019-06-09 07:32:42,056 CGI * CTransaction_MYSQL.cpp:365 Do1614116141 MyAPP::CTransaction_MYSQL::Do  create pCDatabaseHash = fix
+DEBUG 2019-06-09 07:32:42,056 CGI * CTransaction_MYSQL.cpp:371 Do1614116141 MyAPP::CTransaction_MYSQL::Do  hash_para = null
+
+DEBUG 2019-06-09 07:32:42,056 CGI * CTransaction_MYSQL.cpp:392 Do1614116141 MyAPP::CTransaction_MYSQL::Do afte process hash_para = null
+
+DEBUG 2019-06-09 07:32:42,057 CGI * CTransaction_MYSQL.cpp:397 Do1614116141 MyAPP::CTransaction_MYSQL::Do 
+node =  
+database =  
+table = 
+DEBUG 2019-06-09 07:32:42,057 CGI * CTransaction_MYSQL.cpp:404 Do1614116141 MyAPP::CTransaction_MYSQL::Do node = mysql::db_youyee
+DEBUG 2019-06-09 07:32:42,057 CGI * CTransaction_MYSQL.cpp:54 GetConnect1614116141 MyAPP::CTransaction_MYSQL::GetConnect(mysql::db_youyee)
+DEBUG 2019-06-09 07:32:42,057 CGI * CTransaction_MYSQL.cpp:86 GetConnect1614116141 MyAPP::CTransaction_MYSQL::GetConnect(mysql::db_youyee)  NULL ,connecting ...
+DEBUG 2019-06-09 07:32:42,058 CGI * CCGIEntry.cpp:807 ValidOutput1614116141 	ValidOutput
+INFO  2019-06-09 07:32:42,058 CGI * CCGIEntry.cpp:816 ValidOutput1614116141 retcode : 3
+INFO  2019-06-09 07:32:42,058 CGI * CCGIEntry.cpp:903 ValidOutput1614116141 retcode Error Format 
+ERROR 2019-06-09 07:32:42,058 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614116141 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614116141 [20000002]    
+DEBUG 2019-06-09 07:32:42,058 CGI * CCGIEntry.cpp:1079 SetOupt1614116141 	SetOupt
+DEBUG 2019-06-09 07:32:42,058 CGI * CCGIEntry.cpp:1123 SetOupt1614116141 Exist Service Configure mysql
+DEBUG 2019-06-09 07:32:42,058 CGI * CCGIEntry.cpp:1127 SetOupt1614116141 Static Specific Output template	:_output_template_20000002 = 
+DEBUG 2019-06-09 07:32:42,058 CGI * CCGIEntry.cpp:1129 SetOupt1614116141 Static Default  Output template	_output_template_default = ../cnf/template/mysql_result_xml_suc.bpml
+DEBUG 2019-06-09 07:32:42,059 CGI * CCGIEntry.cpp:1168 SetOupt1614116141 Exist Service Configure _error_config
+DEBUG 2019-06-09 07:32:42,059 CGI * CCGIEntry.cpp:1172 SetOupt1614116141 Global Specific Output template  20000002 = 
+DEBUG 2019-06-09 07:32:42,059 CGI * CCGIEntry.cpp:1173 SetOupt1614116141 Global Default  Output template  default = ../cnf/template/global_default_xml.bpml
+DEBUG 2019-06-09 07:32:42,059 CGI * CCGIEntry.cpp:1189 SetOupt1614116141 Output Template SD:  ../cnf/template/mysql_result_xml_suc.bpml
