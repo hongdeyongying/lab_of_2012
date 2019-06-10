@@ -8,9 +8,9 @@ spmanager 对外的一些方法和变量 ，供mysql服务使用
 		<variables>				
 			<variable name="database" value="db_youyee" desc="">database name</variable>
 			<variable name="host" value="127.0.0.1" desc="">port</variable>
-			<variable name="port" value="3306" desc="">port</variable>
+			<variable name="port" value="53306" desc="">port</variable>
 			<variable name="user" value="root" desc="">user name</variable>
-			<variable name="passwd" value="" desc="">user passwd</variable>
+			<variable name="passwd" value="root1234" desc="">user passwd</variable>
 			<variable name="timeout" value="5" desc="">connect timeout s</variable>
 			<variable name="language" value="utf8" desc="">language</variable>	
 			<variable name="idle_timeout" value="60" desc="">idle retry time s</variable>					
@@ -20,9 +20,9 @@ spmanager 对外的一些方法和变量 ，供mysql服务使用
 		<variables>				
 			<variable name="database" value="db_xdb" desc="">database name</variable>
 			<variable name="host" value="127.0.0.1" desc="">port</variable>
-			<variable name="port" value="3306" desc="">port</variable>
+			<variable name="port" value="53306" desc="">port</variable>
 			<variable name="user" value="root" desc="">user name</variable>
-			<variable name="passwd" value="" desc="">user passwd</variable>
+			<variable name="passwd" value="root1234" desc="">user passwd</variable>
 			<variable name="timeout" value="5" desc="">connect timeout s</variable>
 			<variable name="language" value="utf8" desc="">language</variable>	
 			<variable name="idle_timeout" value="60" desc="">idle retry time s</variable>					

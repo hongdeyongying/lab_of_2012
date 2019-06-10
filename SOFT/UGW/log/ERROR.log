@@ -1,3 +1,14 @@
 ERROR 2019-06-08 21:08:55,170 CGI * CCGIEntry.cpp:113 Start_Common67806780 [1] Err in MyConfig::CConfigEntry::GetService mysql::test   
 ERROR 2019-06-09 07:32:38,350 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614816148 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614816148 [20000002]    
 ERROR 2019-06-09 07:32:42,058 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614116141 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614116141 [20000002]    
+ERROR 2019-06-10 11:25:00,793 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614516145 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614516145 [20000002]    
+ERROR 2019-06-10 11:25:03,912 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614416144 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614416144 [20000002]    
+ERROR 2019-06-10 11:25:25,307 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614616146 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614616146 [20000002]    
+ERROR 2019-06-10 11:27:51,469 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614216142 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614216142 [20000002]    
+ERROR 2019-06-10 11:28:16,060 CGI * CTransaction_MYSQL.cpp:126 GetConnect1614716147 Can't connect to MySQL server on '127.0.0.1' (111)CGI * CCGIEntry.cpp:113 Start_Common1614716147 [20000002]    
+ERROR 2019-06-10 11:29:27,581 CGI * CTransaction_LDD.cpp:277 CTransaction_LDD35713571 init ldd object error. retcode : -19997
+ERROR 2019-06-10 11:29:27,581 CGI * CTransaction_LDD.cpp:151 ReadByImei35713571 init ldd object error. retcode : -19997
+ERROR 2019-06-10 11:29:29,630 CGI * CTransaction_LDD.cpp:277 CTransaction_LDD35763576 init ldd object error. retcode : -19997
+ERROR 2019-06-10 11:29:29,630 CGI * CTransaction_LDD.cpp:151 ReadByImei35763576 init ldd object error. retcode : -19997
+ERROR 2019-06-10 11:29:31,940 CGI * CTransaction_LDD.cpp:277 CTransaction_LDD35703570 init ldd object error. retcode : -19997
+ERROR 2019-06-10 11:29:31,940 CGI * CTransaction_LDD.cpp:151 ReadByImei35703570 init ldd object error. retcode : -19997
