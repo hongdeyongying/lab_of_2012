@@ -126,6 +126,7 @@ private:
 	
 	string String_ToUpper(vector <string > & para_list);
 	string String_ToLower(vector <string > & para_list);
+	string String_ToInt(vector <string > & para_list);
 	string VcdImg_Check(vector <string > & para_list);
 
 //}}string function
@@ -162,6 +163,10 @@ private:
 	string Math_Sha1(vector <string > & para_list);
 	string Math_3Des(vector <string > & para_list);
 	string Math_Un3Des(vector <string > & para_list);
+
+	// relation
+	string Math_AND(vector <string > & para_list);
+	string Math_OR(vector <string > & para_list);
 	
 //}}算术表达式:  大于    小于  等于
 
@@ -177,6 +182,8 @@ private:
 
 //{{ 系统帮助函数
 	string Sys_GetHelp(vector <string > & para_list);
+
+	string Env_GetEmbVarValue(vector <string > & para_list);
 
 
 

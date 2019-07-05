@@ -63,7 +63,7 @@ mysqlpp::Connection *MyAPP::CTransaction_MYSQL::GetConnect(const std::string &no
 	//检查对象的有效性
 	if(NULL != m_mpConnection[node])
 	{
-		DEBUG_LOGER << "MyAPP::CTransaction_MYSQL::GetConnect(" << node << ") Not NULL ,Checke valid connection by ping()"<< LOGER_ETAG;
+		DEBUG_LOGER << "MyAPP::CTransaction_MYSQL::GetConnect(" << node << ") Not NULL ,Checke valid connection by ping()"<< m_mpConnection[node].ping() << LOGER_ETAG;
 		if(m_mpConnection[node].ping() != 0)
 		{
 			DEBUG_LOGER << "MyAPP::CTransaction_MYSQL::GetConnect(" << node 
@@ -542,6 +542,14 @@ int  MyAPP::CTransaction_MYSQL::Do(
 		mysqlpp::StoreQueryResult res = query.store();  
 
 		outPara["_affected_row"].push_back(MyUtility::CBaseEncode::IntToString(query.affected_rows()));
+
+
+		// clear result
+		while( query.more_results())
+		{
+		   	query.store_next();                
+			DEBUG_LOGER << "more than one result."; 
+		}
 		
 		outPara["_record_num"].push_back(MyUtility::CBaseEncode::IntToString(res.size()));
 		

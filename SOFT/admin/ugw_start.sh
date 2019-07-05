@@ -14,11 +14,14 @@ INNER_CONNSTR=10.116.207.174:8081
 
 #SOFT=/home/release/SOFT/
 
-echo "cgi-fcgi -start -connect ${CONNSTR} ${SOFT}UGW/bin/ugw  10"
+work_number=2
+
+echo "cgi-fcgi -start -connect ${CONNSTR} ${SOFT}UGW/bin/ugw  ${work_number}"
 pwd_cur=`pwd`
 cd ${SOFT}/UGW/bin
-cgi-fcgi -start -connect ${CONNSTR} ${SOFT}UGW/bin/ugw  10
+cgi-fcgi -start -connect ${CONNSTR} ${SOFT}UGW/bin/ugw ${work_number} 
 
-echo "cgi-fcgi -start -connect ${INNER_CONNSTR} ${SOFT}INNER_UGW/bin/inner_ugw  10"
-cgi-fcgi -start -connect ${INNER_CONNSTR} ${SOFT}INNER_UGW/bin/inner_ugw  10
+echo "cgi-fcgi -start -connect ${INNER_CONNSTR} ${SOFT}INNER_UGW/bin/inner_ugw  ${work_number}"
+cd ${SOFT}/INNER_UGW/bin
+cgi-fcgi -start -connect ${INNER_CONNSTR} ${SOFT}INNER_UGW/bin/inner_ugw  ${work_number}
 cd $pwd_cur

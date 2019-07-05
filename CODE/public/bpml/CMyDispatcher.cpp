@@ -448,6 +448,14 @@ int CMyDispatcher::Do_KEY_ASSIGN(const CNode *pCurNode)
 	mpElement->GetAttrValue("id",id);
 	mpElement->GetAttrValue("expr",expr);
 
+	// id can be $ ,so 20190704
+	if ('$' == id.at(0))
+	{
+		CMyAny tmpID = m_pMyWorker->FetchVarValue(id);
+		
+		id = (string)tmpID;
+	}
+
 	CMyExpression  myexpr;
 	
 	myexpr.Identify(expr);
@@ -455,7 +463,7 @@ int CMyDispatcher::Do_KEY_ASSIGN(const CNode *pCurNode)
 	string a = myexpr.Execute(m_pMyWorker);
 
 	//string b= m_pMyWorker->FetchVarValue(a);
-CMyAny tmp=m_pMyWorker->FetchVarValue(a);
+	CMyAny tmp=m_pMyWorker->FetchVarValue(a);
 	m_mVar.SetVarValue(id,tmp);
 
 
@@ -618,6 +626,15 @@ int CMyDispatcher::Do_KEY_ECHO(const CNode *pCurNode,string &res)
 	if(type == "var")
 	{
 		res += (string &)m_pMyWorker->FetchVarValue(value);
+	}
+	else if(type == "embvar")
+	{
+		value = (string &)m_pMyWorker->FetchVarValue(value);
+
+		if (value.at(0) = '$')
+			res += (string &)m_pMyWorker->FetchVarValue("$"+value);
+		else
+			res += value;
 	}
 	else if(type == "const")
 	{

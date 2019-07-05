@@ -285,6 +285,19 @@ string CMyHtml2XmlWorker::Sys_GetHelp(vector <string > & para_list)
 	return res;
 }
 
+string CMyHtml2XmlWorker::Env_GetEmbVarValue(vector <string > & para_list)
+{
+	string  res = ("NULL");
+
+	CMyAny para1;
+	if((para_list.size() == 1) && (FetchVarValue(para_list.at(0),para1) == 0) && (para1.GetType() == VT_STRING))
+	{		
+		res =(string &) para1;
+	}
+
+
+	return res;
+}
 /****************************************************************
  * 功能:获取map的指定序号的元素
  * 输入: 
@@ -862,6 +875,37 @@ string CMyHtml2XmlWorker::String_SubStr(vector <string > & para_list)
 	return res;
 }
 
+string  CMyHtml2XmlWorker::String_ToInt(vector <string > & para_list)
+{
+	string res("NULL");
+
+	if(para_list.size() != 1)
+		return res;
+	
+	CMyAny para1;
+	if(FetchVarValue(para_list.at(0),para1) != 0)
+		return res;
+
+	if(para1.GetType() != VT_STRING) 
+		return res;
+
+	string p1 = para1;
+	
+	int iRes = CBaseEncode::StringToInt(p1);
+	
+	ClearLocalVarSpace();
+	
+	{
+		CMyAny resVarValue(iRes);
+		string resVarName = "String_ToInt" + GetTmpVarName();
+
+		m_mVar.SetVarValue(resVarName,resVarValue);
+
+		res = "$" + resVarName;
+	}
+	
+	return res;
+}
 
 string  CMyHtml2XmlWorker::String_ToUpper(vector <string > & para_list)
 {
@@ -1822,6 +1866,58 @@ string CMyHtml2XmlWorker::Math_Md5(vector <string > & para_list)
 
 	return res;
 }
+string CMyHtml2XmlWorker::Math_AND(vector <string > & para_list)
+{
+	string res("NULL");
+
+	//检查参数
+	if(para_list.size() < 1)  
+		return res;
+
+	//靠靠
+	CMyAny para;
+	string tmp;
+	for(int i=0;i<para_list.size();i++)
+	{
+		if((0 != FetchVarValue(para_list.at(i),para))&& (para.GetType() != VT_STRING)) 
+			return res;
+
+		res = string(para);
+
+		if("true" == res )
+			continue;
+		else
+			return "false";
+	}
+
+	return res;
+}
+string CMyHtml2XmlWorker::Math_OR(vector <string > & para_list)
+{
+	string res("NULL");
+
+	//检查参数
+	if(para_list.size() < 1)  
+		return res;
+
+	res = "false";
+	//靠靠
+	CMyAny para;
+	string tmp;
+	for(int i=0;i<para_list.size();i++)
+	{
+		if((0 != FetchVarValue(para_list.at(i),para))&& (para.GetType() != VT_STRING)) 
+			return res;
+
+		res = string(para); 
+
+                if("true" == res )
+			break;
+
+	}
+
+	return res;
+}
 /****************************************************************
  * 功能:实现sha1算法
  * 输入: 
@@ -2701,6 +2797,9 @@ string CMyHtml2XmlWorker::Call(const string &func_name, vector <string > & para_
 	case 10000:
 		res = Sys_GetHelp(para_list);
 		break;
+	case 20000:
+		res = Env_GetEmbVarValue(para_list);
+		break;
 	case 1://parse_html
 		res = Html_Parse(para_list);
 		break;
@@ -2862,6 +2961,15 @@ string CMyHtml2XmlWorker::Call(const string &func_name, vector <string > & para_
 	case 52://	m_mFunction["Math.Sha1"] = 52;
 		res = Math_Sha1(para_list);
 		break;
+	case 53://	m_mFunction["Math.OR"] = 53;
+		res = Math_OR(para_list);
+		break;
+	case 54://	m_mFunction["Math.AND"] = 54;
+		res = Math_AND(para_list);
+		break;
+	case 55://	m_mFunction["Math.AND"] = 54;
+		res = String_ToInt(para_list);
+		break;
 	default:
 		break;
 	}
@@ -3004,6 +3112,22 @@ m_mFunctionDesc["Math.Md5"] =
 m_mFunctionDesc["Math.Sha1"] =
 "/****************************************************************\r\n"
 " * 功能:实现sha1算法\r\n"
+" * 输入: \r\n"
+" *	  para1  -M string  输入参数\r\n"
+" * 返回:\r\n"
+" *    NULL 失败，其他为运算的结果\r\n"
+"****************************************************************/\r\n";
+m_mFunctionDesc["Math.OR"] =
+"/****************************************************************\r\n"
+" * Math.OR法\r\n"
+" * 输入: \r\n"
+" *	  para1  -M string  输入参数\r\n"
+" * 返回:\r\n"
+" *    NULL 失败，其他为运算的结果\r\n"
+"****************************************************************/\r\n";
+m_mFunctionDesc["Math.AND"] =
+"/****************************************************************\r\n"
+" * Math.AND法\r\n"
 " * 输入: \r\n"
 " *	  para1  -M string  输入参数\r\n"
 " * 返回:\r\n"
@@ -3441,6 +3565,7 @@ void CMyHtml2XmlWorker::InitFunctionMap()
 {
 	InitFunctionDesc();
 	m_mFunction["Sys.GetHelp"] = 10000;
+	m_mFunction["Env.GetEmbVarValue"] = 20000;
 
 
 	//解析html:string parse_html(int type,string cnt)
@@ -3564,6 +3689,11 @@ void CMyHtml2XmlWorker::InitFunctionMap()
 	m_mFunction["String.ConvertCode"] = 51;
 	// 52
 	m_mFunction["Math.Sha1"] = 52;
+
+	m_mFunction["Math.OR"] = 53;
+
+	m_mFunction["Math.AND"] = 54;
+	m_mFunction["String.ToInt"] = 55;
 }
 
 void CMyHtml2XmlWorker::ClearLocalVarSpace()

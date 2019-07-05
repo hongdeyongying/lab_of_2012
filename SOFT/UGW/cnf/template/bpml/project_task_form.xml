@@ -51,8 +51,17 @@ input{width:95%;height:30px;align:center;}
 			<my-soft::assign id="record_node_item" expr="Html.GetResult($record_node,$var1)" />
 
 			<my-soft::assign id="f_project_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_id,0),0))" />			
+
 			<my-soft::assign id="project_task_score" expr="String.Cat(task_of_,$f_project_id)" />
+
 			<my-soft::assign id="$project_task_score" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_grade_score,0),0))" />
+			
+<!--	
+     	<my-soft::echo type="var" value="$project_task_score"/>-<my-soft::echo type="var" value="$$project_task_score"/>,
+-->
+
+
+
 		</my-soft::for>
 				
 	</my-soft::case>
@@ -120,7 +129,12 @@ input{width:95%;height:30px;align:center;}
 	</my-soft::default>
 </my-soft::switch>
 
-<my-soft::switch expr="Math.OR(Math.EQU(Env.GetEmbVarValue($project_task_score),NULL),Math.LT(Env.GetEmbVarValue($project_task_score),0,1))">
+<!-- beg 
+<my-soft::echo type="var" value="$project_task_score" />-<my-soft::echo type="embvar" value="$project_task_score" /> -<my-soft::echo type="expr" value="Env.GetEmbVarValue($project_task_score)" />,
+ end --> 
+
+
+<my-soft::switch expr="Math.OR(Math.EQU(Env.GetEmbVarValue($project_task_score),NULL),Math.LT(String.Cat(%30,Env.GetEmbVarValue($project_task_score)),0,1))">
 	<my-soft::case value="true">
 		<my-soft::echo type="var" value="%3c"/>tr style="color:red;<my-soft::echo type="var" value="$tr_bg_style" />">
 			<td><my-soft::echo type="var" value="$f_project_id" />
@@ -128,8 +142,8 @@ input{width:95%;height:30px;align:center;}
 			<td ><my-soft::echo type="var" value="$f_project_name" /></td>
 			<td><my-soft::echo type="var" value="$f_project_grade_unit" /></td>
 			<td>
-			<input name="tv" type="number" name="points" min="0" max="500" value="0"/>
-			<input name="tv_old" type="hidden" name="points" min="0" max="500" value="0"/>
+			<input name="tv" type="number" name="points" min="0" max="5000" value="0"/>
+			<input name="tv_old" type="hidden" name="points" min="0" max="5000" value="0"/>
 			</td>					
 		<my-soft::echo type="var" value="%3c"/>/tr>
 	</my-soft::case>
@@ -141,9 +155,9 @@ input{width:95%;height:30px;align:center;}
 			<td><my-soft::echo type="var" value="$f_project_grade_unit" /></td>
 			
 			<td>
-			<my-soft::echo type="var" value="%3c"/>input name="tv" type="number" name="points" min="0" max="500" value="<my-soft::echo type="embvar" value="$project_task_score" />"/>
+			<my-soft::echo type="var" value="%3c"/>input name="tv" type="number" name="points" min="0" max="5000" value="<my-soft::echo type="embvar" value="$project_task_score" />"/>
 			
-			<my-soft::echo type="var" value="%3c"/>input type="hidden" name="tv_old" value="<my-soft::echo type="embvar" value="$project_task_score" />"/>
+			<my-soft::echo type="var" value="%3c"/>input type="hidden" name="tv_old" value="<my-soft::echo type="expr" value="Env.GetEmbVarValue($project_task_score)" />"/>
 			</td>					
 		<my-soft::echo type="var" value="%3c"/>/tr>
 </my-soft::default>

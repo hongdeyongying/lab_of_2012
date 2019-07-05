@@ -34,10 +34,17 @@ body {
 </my-soft::invoke>			
 
 
+
 <my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
 <my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
 <my-soft::assign id="retmsg" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retmsg,0),0))" />
 <my-soft::assign id="record_num" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,record_num,0),0))" />
+
+<!--
+<my-soft::echo type="expr" value="Math.AND(Math.EQU($retcode,0),Math.GT($record_num,0,0))"/>
+<my-soft::echo type="expr" value="Math.EQU($retcode,0)"/>
+<my-soft::echo type="expr" value="Math.GT($record_num,0,0)"/>
+-->
 
 <my-soft::switch expr="Math.AND(Math.EQU($retcode,0),Math.GT($record_num,0,0))">
 	<my-soft::case value="true">
@@ -109,7 +116,7 @@ body {
 		
 	</my-soft::case>
 	<my-soft::default>
-		<my-soft::echo type="var" value="$retcode" /> 未查询到您关注的项目. <my-soft::echo type="var" value="$retmsg" />
+		<my-soft::echo type="var" value="$retcode" /> 未查询到您关注的项目. <my-soft::echo type="var" value="$retmsg" /> record_num :  <my-soft::echo type="var" value="$record_num" />
 	</my-soft::default>
 </my-soft::switch>
 <div style="width:100%;text-align:right;"><a href="/xdb/project_add.html">添加新项目</a></div>
