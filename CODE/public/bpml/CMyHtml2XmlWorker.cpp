@@ -1868,7 +1868,7 @@ string CMyHtml2XmlWorker::Math_Md5(vector <string > & para_list)
 }
 string CMyHtml2XmlWorker::Math_AND(vector <string > & para_list)
 {
-	string res("NULL");
+	string res("false");
 
 	//检查参数
 	if(para_list.size() < 1)  
@@ -1894,7 +1894,7 @@ string CMyHtml2XmlWorker::Math_AND(vector <string > & para_list)
 }
 string CMyHtml2XmlWorker::Math_OR(vector <string > & para_list)
 {
-	string res("NULL");
+	string res("false");
 
 	//检查参数
 	if(para_list.size() < 1)  
@@ -1909,10 +1909,12 @@ string CMyHtml2XmlWorker::Math_OR(vector <string > & para_list)
 		if((0 != FetchVarValue(para_list.at(i),para))&& (para.GetType() != VT_STRING)) 
 			return res;
 
-		res = string(para); 
 
-                if("true" == res )
+                if("true" == string(para) )
+		{
+			return  "true";
 			break;
+		}
 
 	}
 

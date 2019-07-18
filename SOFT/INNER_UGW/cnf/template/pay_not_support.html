@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-cn" lang="zh-cn">
+<head>
+<base href="https://www.tenpay.com/" />
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="财付通,支付/付款/汇款,在线/网上,我的钱包/安全/方便/快捷,手机充值/信用卡还款/送红包/酒店/机票/预定/Q币打折/购物/优惠" />
+<meta name="description" content="财付通，在线支付专家，带给您安全快捷的网上付款体验。" />
+<meta name="unlogin" content="true" />
+<title>财付通 会支付 会生活</title>
+<link type="text/css" href="https://img.tenpay.com/v2.0/css/global_v2.css?v=20100412b" rel="stylesheet" />
+<link href="https://img.tenpay.com/zft/css/style_1.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://img.tenpay.com/v2.0/css/action_suc.css?v=20091201" type="text/css" />
+<script type="text/javascript" src="https://img.tenpay.com/v2.0/js/base.js?v=20100907"></script>
+<script type="text/javascript" src="https://img.tenpay.com/v2.0/js/nav.js?t=20090804"></script>
+
+<script type="text/javascript" src="https://img.tenpay.com/v2.0/js/CQQCert.js?v=20090715"></script>
+
+<style type="text/css">
+<!--
+.style1 {color: #FF6600}
+-->
+</style>
+</head>
+<script type="text/javascript" src="https://img.tenpay.com/zft/js/GetInfo.js"></script>
+<script type="text/javascript" src="https://img.tenpay.com/zft/js/CHttpRequest.js"></script>
+<script type="text/javascript" src="https://img.tenpay.com/zft/js/common.js"></script>
+<script type="text/javascript" src="https://img.tenpay.com/childacc/script/CSelfUrl.js"></script>
+<script type="text/javascript" src="https://img.tenpay.com/childacc/script/CHttpRequest.js"></script>
+<script type="text/javascript" src="https://img.tenpay.com/childacc/script/CCookie.js"></script>
+<script type="text/javascript" src="https://img.tenpay.com/childacc/script/CXml.js"></script>
+
+<script type="text/javascript" src="https://img.tenpay.com/zft/js/common.js"></script>
+<script type="text/javascript">
+<!--
+var gRedirectUrl="";
+var g_xml = null;
+function OpenServiceResult(state,sts,str)
+{
+	switch(state)
+	{
+	case 0://initting
+//		break;
+	case 1://reading
+//		break;
+	case 2://readed
+//		break;
+	case 3://interact
+		break;
+	case 4://complete
+		switch(sts)
+		{
+		case 200://success
+			var g_xml = new CXml(str);
+			var cd = parseInt(g_xml.GetValue("retcode"),10);
+			switch(cd)
+			{
+			case 0:
+				document.getElementById("cmbactivity").style.display = "";
+			    return;
+			case 4:
+				return;
+			case 5:
+				document.getElementById("cmbactivity").style.display = "";
+				return;
+			default:
+			    return;
+			}
+			break;
+		case 404://notfound
+		default:
+			break;
+		}
+	default:
+		break;
+	}
+}
+
+function Init()
+{
+	document.getElementById("table_paipai_use").style.display = "none";
+	if(document.getElementById("td_errinfo").innerHTML == '恭喜您，充值成！' || document.getElementById("td_errinfo").innerHTML == '恭喜您，充值成功！')
+	{
+		document.getElementById("td_errinfo").innerHTML = '恭喜您，财付通账户充值成功！';
+
+		document.getElementById("manage_icon").style.display = "";
+
+		document.getElementById("youhuizhuanqu").style.display = "";
+
+		var strUin = "";
+	 	strUin = g_CSelfUrl.GetPara("uin");
+	  	if(g_CSelfUrl.GetPara("bankname")=="cmb" && checkUin(strUin, "Q"))
+	  	{
+			/*var http = new CHttpRequest(OpenServiceResult,true,2);
+			http.Get("/cgi-bin/v1.0/cmbactivity.cgi", "tid=00008020&uin="+strUin);*/
+	  	}
+	}
+	else if(document.getElementById("td_errinfo").innerHTML == '您没有注册密码保护,请与客服联系.！')
+	{
+		document.getElementById("td_errinfo").innerHTML = '您未注册密码保护资料，请您登陆<a href="https://www.tenpay.com/zft/cs/cs.shtml?tid=1">申诉系统</a>填写找回支付密码申诉表，谢谢！';
+	}else if (document.getElementById("error-info").innerHTML == '交易受限，请确认您有开通此交易权限，详情请咨询财付通') {
+		document.getElementById("error-info").innerHTML = '您的操作过于频繁，为保证您的账户安全，建议您稍候再尝试';
+	}
+}
+
+-->
+</script>
+<body class="no-nav">
+<script type="text/javascript">TFL.header.initLogin();</script>
+<!--[if IE 6]>
+<script type="text/javascript">
+document.execCommand("BackgroundImageCache", false, true);
+</script>
+<![endif]-->
+<div id="header">
+  <div class="logo-contianer">
+	<h1 id="logo"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.LOGO.LOGO')" href="https://www.tenpay.com/" title="财付通 - 在线支付专家">财付通<sub>腾讯旗下在线支付平台</sub></a></h1>
+	<ul class="guide" id="guide">
+	<li class="drop-trigger first-one"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.LIFE')" href="http://life.tenpay.com/" target="_blank">生活好帮手</a>
+	<div class="menu-wrap" style="display:none;">
+	 <ul>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.SHOUJI')" href="https://www.tenpay.com/cgi-bin/v1.0/mchpassport.cgi?tid=mchpassport_jump&logout_url=http://life.tenpay.com/mobile/&cmdno=91&chnid=00000006&tourl=http://life.tenpay.com/cgi-bin/common/portalloginret.cgi&resulturl=http://life.tenpay.com/mobile/" target="_blank">手机话费充值</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.XINYONKA')" href="http://life.tenpay.com/creditcard/" target="_blank">信用卡还款</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.JIAOFEI')" href="https://www.tenpay.com/cgi-bin/v1.0/mchpassport.cgi?tid=mchpassport_jump&logout_url=http://portal.tenpay.com/life/jiaofei/&cmdno=91&chnid=00000006&tourl=http://life.tenpay.com/cgi-bin/common/portalloginret.cgi&resulturl=http://portal.tenpay.com/life/jiaofei/" target="_blank">生活缴费</a></li>
+    <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.JIPIAO')" href="http://life.tenpay.com/ticket/" target="_blank">机票订购</a></li>
+	<li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.CHEPIAO')" href="http://chepiao.tenpay.com/" target="_blank">火车票代购</a></li>
+    <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.JIUDIAN')" href="http://life.tenpay.com/hotel/" target="_blank">特价酒店</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.YOUXI')" href="https://www.tenpay.com/cgi-bin/v1.0/mchpassport.cgi?tid=mchpassport_jump&logout_url=http://life.tenpay.com/game/&cmdno=91&chnid=00000006&tourl=http://life.tenpay.com/cgi-bin/common/portalloginret.cgi&resulturl=http://life.tenpay.com/game/" target="_blank">游戏充值</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.CAIPIAO')" href="http://life.tenpay.com/lottery/" target="_blank">彩票卖场</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.PAIPAI')" href="http://www.paipai.com/" target="_blank">拍拍购物</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.QBQD')" href="https://www.tenpay.com/cgi-bin/v1.0/mchpassport.cgi?tid=mchpassport_jump&logout_url=http://life.tenpay.com/qqmoney/&cmdno=91&chnid=00000006&tourl=http://life.tenpay.com/cgi-bin/common/portalloginret.cgi&resulturl=http://life.tenpay.com/qqmoney/" target="_blank">充值Q币Q点</a></li>
+    <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.QQ_FUWU')" href="http://life.tenpay.com/qqservices/" target="_blank">购买QQ服务</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.HONGBAO')" href="http://life.tenpay.com/gift/" target="_blank">发红包</a></li>
+	  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.BAOXIAN')" href="https://www.tenpay.com/cgi-bin/v1.0/mchpassport.cgi?tid=mchpassport_jump&logout_url=http://life.tenpay.com/baoxian/&cmdno=91&chnid=00000006&tourl=http://portal.tenpay.com/cgi-bin/common/portalloginret.cgi&resulturl=http://life.tenpay.com/baoxian/" target="_blank">保险超市</a></li>
+	 <!-- <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.LINHUAQIAN')" href="http://pay-client.qq.com/cgi-bin/v1.0/qzone/qzone_jump_2.cgi" target="_blank">赚零花钱！</a></li>-->
+	 </ul>
+	 </div>
+	</li>
+	<li class="drop-trigger">|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.YOUHUI')" href="http://youhui.tenpay.com/" target="_blank">优惠来啦！</a>
+		<div class="menu-wrap" style="display:none;">
+		 <ul>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.Z')" href="http://z.tenpay.com/" target="_blank">折扣街</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.YOUHUI_HUODONG')" href="http://youhui.tenpay.com/" target="_blank">优惠活动</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.YOUHUI_QUAN')" href="http://youhui.tenpay.com/quan/" target="_blank">优惠券</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.YOUHUI_TIYAN')" href="http://youhui.tenpay.com/v2.0/yh_experience.shtml" target="_blank">超值体验</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.WANGGOUDAOHANG')" href="http://union.tenpay.com/" target="_blank">网购导航</a></li>
+		 </ul>
+		 </div>
+	</li>
+	<li class="drop-trigger four-char">|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.SANGJIAFUWU')" href="http://mch.tenpay.com/" target="_blank">商家服务</a>
+		<div class="menu-wrap" style="display:none;">
+		 <ul>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.QIYEBAN')" href="http://mch.tenpay.com/" target="_blank">财付通企业版</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.JICHENG')" href="http://mch.tenpay.com/market/index.shtml" target="_blank">集成财付通</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.CANPING_FUWU')" href="http://mch.tenpay.com/market/ps_index.shtml" target="_blank">产品及服务</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.HANGYE_JIEJUE_FANGAN')" href="http://mch.tenpay.com/market/is_index.shtml" target="_blank">行业解决方案</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.YINGXIAO_GONGJU')" href="http://mch.tenpay.com/market/st_index.shtml" target="_blank">营销工具</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.CXSJ')" href="http://union.tenpay.com/trust_mch/" target="_blank">诚信商家</a></li>
+		  <li><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.SANGJIA_TAOCAN')" href="http://union.tenpay.com/set_meal_charge/" target="_blank">商家套餐</a></li>
+		 </ul>
+		 </div>
+	</li>
+	<li>|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.LICAI')" href="http://money.tenpay.com/" target="_blank">理财专区</a><span class="icon-span"></span></li>
+	<li>|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.BANGZHU')" href="http://help.tenpay.com/" target="_blank">帮助中心</a></li>
+	<li>|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.FANKUI')" href="http://support.qq.com/cgi-bin/beta2/titlelist_simple?pn=0&amp;order=3&amp;fid=127" target="_blank">反馈意见</a></li>
+	<li>|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.SHENSU')" href="https://www.tenpay.com/cgi-bin/v1.0/jump.cgi?u1=/zft/cs/index.shtml" target="_blank">申诉</a></li>
+	<li>|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.DAOHANG.KEFU')" href="https://www.tenpay.com/v2.0/inc/header_service_link.html" target="_blank">客服</a></li>
+	<!--li class="last-one">|<a href="http://qbar.qq.com/tenpay/r/?all" target="_blank">论坛</a></li-->
+</ul>
+<div class="action">
+<span id="snNoLog"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.FUNC.ZHUCE')" href="https://www.tenpay.com/zft/register_1.shtml?cdw_click_link_id=20062001">注册</a>|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.FUNC.DENGLU')" href="https://www.tenpay.com/zft/login.shtml">登录</a></span>
+<span id="snLog">
+  <span id="head_true_name"></span><span id="snCert"></span><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.FUNC.TUICHU')" href="/cgi-bin/v1.0/logout.cgi">退出</a></span>|<a onclick="TFL.Ping.clickStat('TENPAY.HEADER.FUNC.CHONGZHI')" class="recharge"  href="https://www.tenpay.com/cgi-bin/v1.0/jump.cgi?u1=/cgi-bin/v1.0/show_save.cgi?ADTAG=CHARGE.TENPAY.HEADER.CHONGZHI" title="">充值</a>
+</div>
+<div class="action" id="special-action"><span><a href="https://www.tenpay.com/">返回财付通首页</a>|<a href="https://www.tenpay.com/">帮助中心</a></span></div>
+  </div>
+  <div id="main-nav">
+	 <div class="nav-wrapper">
+		<ul>
+		  <li id="account_g"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.ZHANGHUSHOUYE')" href="https://www.tenpay.com/cgi-bin/v1.0/jump.cgi?u1=/cgi-bin/v1.0/check_balance.cgi"><span>我的财付通</span></a></li>
+		  <li id="trade_g"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.JIAOYIGUANGLI')" href="https://www.tenpay.com/cgi-bin/v1.0/jump.cgi?u1=/cgi-bin/med/trans_manage.cgi"><span>交易管理</span></a></li>
+		  <li id="favourable_g"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.YOUHUI')" href="https://youhui.tenpay.com/cgi-bin/showinfo.cgi"><span>优　惠</span></a></li>
+		  <li id="gathering_g"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.SHOUKUAN')" href="https://www.tenpay.com/cgi-bin/v1.0/jump.cgi?u1=/cgi-bin/v1.0/ask_for_money_page.cgi"><span>收　款</span></a></li>
+		  <li id="pay_g"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.FUKUAN')" href="https://www.tenpay.com/cgi-bin/v1.0/jump.cgi?u1=/cgi-bin/v1.0/pay_money_show.cgi"><span>付　款</span></a></li>
+		  <li id="safement_g"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.ANQUANZHONGXIN')" href="https://www.tenpay.com/cgi-bin/v1.0/jump.cgi?u1=/zft/tenpay_safe.shtml"><span>安全中心</span></a></li>
+		  <li id="service_g" class="lastNav"><a onclick="TFL.Ping.clickStat('TENPAY.HEADER.MENU.ZIZHANGHU')" href="https://www.tenpay.com/v2.0/main/gaccnt.shtml"><span>子账户</span></a></li>
+		</ul>
+	</div>
+  </div>
+  <script type="text/javascript">
+	TFL.header.initHeader();
+	TFL.header.initHeaderDropdown( 'guide','drop-trigger','hovSty' );
+  </script>
+</div>
+
+    <table width="910" border="0" cellpadding="0" cellspacing="0" align="center" id="big-table">
+    <tr>
+    <td valign="top">
+	<table width="910"><tr><td height="28"></td></tr></table>
+<table width="850" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+  <table width="100%" height="100" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tr>
+      <td valign="top">
+	  <table width="700" border="0" align="left" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center">&nbsp;</td>
+          <td align="center">&nbsp;</td>
+          <td height="30" class="font_14b" id="td_errinfo2">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="41" align="center">&nbsp;</td>
+          <td width="79" align="center" valign="top"><img src="https://img.tenpay.com/v2.0/img/commonTip.gif"></td>
+          <td width="727" class="font_14b" id="td_errinfo" style="padding-top:5px;">
+          <div id="error-info">您的支付请求类型稍后支持,敬请期待</div>
+            <div style="margin-top:15px;">
+            <table width="100%" id="tr_balance" style="display:none; font-weight:normal;" >
+                <tr>
+                    <td align="left" id="td_balance"><a href=/cgi-bin/v1.0/check_detail.cgi class="blue_font_12a">查看充值明细&#187;</a></td>
+                </tr>
+            </table>
+
+            <table width="100%" id="table_paipai_list" style="display:none; font-weight:normal;" >
+                <tr>
+                    <td align="left" style="line-height:20px;">
+                    <span class="style1">
+                        QQ用户成功充值1分钱（仅限1分钱），即可获得68元拍拍购物红包，<a target="_blank" href="http://party.paipai.com/200610/quanhang/tequan.shtml?hb=01?ADTAG=701.4.5" class="blue_font_12a">去红包卖场挑好货&#187;</a>
+                  </span>
+                    </td>
+                </tr>
+            </table>
+
+            <table width="100%" id="table_paipai_use" style="display:none; font-weight:normal;" >
+                <tr>
+                    <td align="left">
+                        <span class="style1">
+                        红包发送失败，请点击<a href="https://www.tenpay.com/issuer/gwq.shtml" class="blue_font_12a">再次领取&#187;</a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+
+            <table id="manage_icon" style="display:none; font-weight:normal;" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td align="left"><a href=/cgi-bin/v1.0/manage_icon_page.cgi class="blue_font_12a">点亮我的财付通图标&#187;</a></td>
+                </tr>
+            </table>
+
+            <table id="youhuizhuanqu" width="100%"  border="0" align="center" cellpadding="0" cellspacing="0" style="display:none; font-weight:normal;">
+                <tr>
+                  <td style="line-height:20px;color:#333333;" align="left;">
+                        <a href="http://bank.qq.com/act/zcft/index.shtml?posid=133&actid=115&opid=13&whoid=10" class="blue_font_12a" target="_blank">财付通优惠专区现已开放，强烈推荐中&#187;</a>
+                  </td>
+                </tr>
+            </table>
+
+            <table id="cmbactivity" width="100%"  border="0" align="center" cellpadding="0" cellspacing="0" style="display:none;font-weight:normal;">
+                <tr>
+                  	<td style="line-height:20px;color:#333333;" align="left">
+
+                        <a href="/issuer/cmbactivity.shtml" class="blue_font_12a" target="_blank">现在招行用户可以免费领取“QQ一重大礼包”，包含QQ会员、QQ红钻及QQ靓号等服务，请点击领取。</a> 					</td>
+                </tr>
+            </table>
+            </div>
+          </td>
+        </tr>
+       </table>
+	  <table width="100%"  border="0" cellspacing="0" cellpadding="6">
+        <tr>
+          <td align="center"></td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+
+  </td>
+  </tr></table>
+  </td>
+  </tr>
+  </table>
+ <!--  <div align="center" style="margin:30px 0 30px;" id="btn-wrap">
+	<input id="btnGo" style="background:url(/v2.0/img/buttonbg.gif) no-repeat 0 0; height:30px; width:128px; border:none; cursor:pointer; font-size:14px; font-weight:bold; color:#fff;" type="button" onclick="jump('https://www.tenpay.com/');" value="返  回" />
+	<span class="high-blue much-pd"><button type="submit" type="button" onclick="jump('https://www.tenpay.com/');" id="btnGo">返  回</button></span>
+  	<script type="text/javascript">
+  		var _re = "https://www.tenpay.com/";
+		if(_re == "close")
+		{
+			document.getElementById("btnGo").value = "关  闭";
+		}
+  	</script>
+  </div> -->
+  <div id=CTrans_DJL style="display:none" > </div>
+
+
+<!-- 对充值成功页面的特殊处理 -->
+  <div id="wrapper">
+		<div class="action-suc" id="action-suc" style="display:none;">
+		<span class="suc-icon"></span>
+		 <div class="bd">
+			<strong>充值成功，资金已转入您的财付通账户。</strong>
+		</div>
+		 <div class="ft">
+			<span class="low-blue little-pd"><button onclick="TFL.Ping.clickStat('TENPAY.CHARGE.SUCCESS.ZHANGHUSHOUYE');window.location.href='https://www.tenpay.com/cgi-bin/v1.0/check_balance.cgi';">查看账户余额</button></span>
+			<a onclick="TFL.Ping.clickStat('TENPAY.CHARGE.SUCCESS.CHONGZHI')" href="https://www.tenpay.com/cgi-bin/v1.0/show_save.cgi#0">继续给您的账户充值</a>
+		 </div>
+	</div>
+	 <iframe src="https://youhui.tenpay.com/v2.0/iframe/tenpay_ad.html" frameborder="0" width="750" height="250" scrolling="no"></iframe>
+	 </div><!-- wrapper -->
+ <script type="text/javascript">
+ var errinfo = document.getElementById('error-info');
+	var errorInfo = (null != errinfo && errinfo.firstChild) ? document.getElementById('error-info').firstChild.nodeValue : "";
+	if (errorInfo.indexOf('[1086]') != -1) {
+		var bigTable = document.getElementById('big-table');
+		var btnWrap = document.getElementById('btn-wrap');
+		var rechargeWrap = document.getElementById('wrapper');
+		var actionSuc = document.getElementById('action-suc');
+		if(bigTable) bigTable.style.display = 'none';
+		if(btnWrap) btnWrap.style.display = 'none';
+		if (rechargeWrap) rechargeWrap.style.display = 'block';
+		if ( actionSuc ) actionSuc.style.display = 'block';
+    TFL.Ping.load("/CHARGE/SUCCESS.SHTML", {start:true, tag:"PATH_CHARGE_SUCCESS"});
+	}else{
+    TFL.Ping.load("/NOTICE/NOTICE.SHTML", {start:true, tag:"PATH_NOTICE"});
+  }
+  </script>
+ <!-- 对充值成功页面的特殊处理 结束 -->
+  <div id="inner-footer">
+  <div id="foot-wrap">
+    <div id="foot-links"><a href="http://help.tenpay.com/cgi-bin/helpcenter/help_center.cgi?id=1&amp;type=0">关于财付通</a>|<a href="http://service.qq.com/category/tenpay.html" target="_blank">客服中心</a>|<a href="http://help.tenpay.com/">帮助中心</a>|<a href="https://www.tenpay.com/zhaopin/" target="_blank">诚征英才</a>|<a href="http://help.tenpay.com/cgi-bin/helpcenter/help_center.cgi?id=2&amp;type=1">账户安全</a>|<a href="http://help.tenpay.com/helpcenter/contactus.shtml">联系我们</a></div>
+    <p id="copyright"><span class="copy-info">Copyright &copy; 1998 – 2010 Tencent. All Rights Reserved 腾讯公司 版权所有</span></p>
+  </div>
+</div>
+<script type="text/javascript" src="https://img.tenpay.com/v2.0/js/CCookie.js?v=20100225"></script>
+<script type="text/javascript" src="https://img.tenpay.com/v2.0/js/CSelfUrl.js?v=20100225"></script>
+<script type="text/javascript" src="https://img.tenpay.com/v2.0/js/CHttpRequest.js?v=20100225"></script>
+<script type="text/javascript" src="https://img.tenpay.com/v2.0/js/CXml.js?v=20100225"></script>
+<script type="text/javascript" src="https://img.tenpay.com/helper/cfthelper.js?v=20100225"></script>
+<script type="text/javascript">g_CCftHelper.Fetch();</script>
+
+<!--<script type="text/javascript">
+  var _onload = window.onload;
+  window.onload = function() {
+    if (typeof(_onload)=="function") _onload();
+	var script = document.createElement("SCRIPT");
+	script.type = "text/javascript";
+	script.src = "/zft/js/ping_tenpay.ziped.js";
+	document.body.appendChild(script);
+	var pgvInter = window.setInterval(function() {
+		if(typeof(pgvMain) == 'function') {
+			pgvMain();
+		}
+		window.clearInterval(pgvInter);
+	}, 100);
+  }
+</script>-->
+
+<script type="text/javascript">
+  function __stat(){
+    var script = document.createElement("SCRIPT");
+    script.type = "text/javascript";
+    script.src = "/zft/js/ping_tenpay.ziped.js?v=201000907";
+    document.body.appendChild(script);
+    var pgvInter = window.setInterval(function() {
+      if(typeof(pgvMain) == 'function') {
+        pgvMain();
+      }
+      if(typeof(pgvWatchClick) == 'function') {
+          document.documentElement.onclick = function () {pgvWatchClick({coordinateId: 'menu'})};
+      }
+      window.clearInterval(pgvInter);
+    }, 100);
+    if(document.getElementById("nav"))
+    {
+      var as = document.getElementById("nav").getElementsByTagName("a");
+      for (var i=0;i<as.length;i++)
+      {
+        as[i]._id = "LINK_"+(i+1);
+        as[i].onclick = function () {pgvSendClick({hottag:"TENPAY.INDEX.NAV."+this._id});};
+      }
+    }
+  }
+  window.attachEvent("onload", __stat);
+</script>
+
+</body>
+<script type="text/javascript">
+	Init();
+	GetInfo(document.getElementById("td_errinfo").innerHTML);
+</script>
+</html>
+
+

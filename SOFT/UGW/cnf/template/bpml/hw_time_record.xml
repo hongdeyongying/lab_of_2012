@@ -53,6 +53,16 @@ body {
 	
 	登记作业<my-soft::echo type="var" value="$sid"/>完成时间,从<my-soft::echo type="var" value="$btime"/>/<my-soft::echo type="var" value="$obtime"/>到<my-soft::echo type="var" value="$etime"/>/<my-soft::echo type="var" value="$oetime"/>;
 	
+	<my-soft::echo type="expr" value="Math.OR(Math.LT($etime,$btime,1),
+                                                                Math.AND(Math.EQU($obtime,$btime),Math.EQU($oetime,$etime)),
+                                                                Math.LT(String.GetLength($etime),5,0),
+                                                                Math.LT(String.GetLength($btime),5),0)"/>
+*
+	<my-soft::echo type="expr" value="Math.OR(Math.LT($etime,$btime,1),0)"/> *
+	<my-soft::echo type="expr" value="Math.OR(
+                                                                Math.AND(Math.EQU($obtime,$btime),Math.EQU($oetime,$etime)),
+                                                                Math.LT(String.GetLength($etime),5,0),
+                                                                Math.LT(String.GetLength($btime),5),0)"/>
 	
 	<my-soft::switch expr="Math.OR(Math.LT($etime,$btime,1),
 								Math.AND(Math.EQU($obtime,$btime),Math.EQU($oetime,$etime)),
@@ -75,7 +85,7 @@ body {
 			
 		提交记录，返回码:<my-soft::echo type="var" value="$retcode"/>:<my-soft::echo type="var" value="$retmsg"/>
 		
-		</my-soft::case >
+		</my-soft::case>
 		<my-soft::default>
 				不需要记录。
 			</my-soft::default>

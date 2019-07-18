@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<root>	
+<!-- MyCGI的默认系统错误输出配置，错误模版的使用规则是：
+	1.   具体应用的错误模版： _output_template_$error_num$
+	2.  系统全局错误模版：_error_config:$error_num$
+	3   具体应用的缺省输出模版 ： _output_template_default
+	4.  系统全局的缺省错误模版：_error_config:default
+	
+完整的错误码定义:位数为8位数字，从左到右12345678
+	1 	  为系统错误码： 0 表示成功，1表示完全的失败（相当与请求未递交），2表示未知（可能成功、可能失败、可能部分成功）
+	2345    为错误所在的模块标号：成功时不提供，为全0
+	678      为详细的错误信息：成功时为0
+
+错误码的简写形式1：位数1-3位
+	全部表示详细的错误信息
+	
+错误码的简写形式2：位数4位
+	1	为系统错误码
+	234	为详细的错误信息
+-->
+<!-- 
+模块编码：
+0000  MyCGI框架
+0001	MYAPP:BPML
+0002 	MYAPP:MYSQL
+
+
+错误码：
+001 配置文件错误
+002 参数格式错误
+-->
+<service name="_error_config" type="error" desc="error handler的配置项">
+	<variables>
+		<!-- name为错误码;value为错误码的输出模版 -->
+
+		<variable name="default" value="../cnf/template/global_default_xml.bpml" desc="全局缺省的输出模版"></variable>
+<!--
+		<variable name="default" value="../template/record_html.bpml" desc="全局缺省的输出模版"></variable>
+		-->
+			
+		<variable name="10000002" value="../cnf/template/error_10000002.shtml" desc="全局缺省的输出模版"></variable>
+	
+	
+	
+	</variables>
+</service>
+
+</root>

@@ -1,12 +1,12 @@
 call xdb_stat_grade_yesterday ：
-<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/workspace/SETUP/lab_of_2012/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
 	<my-soft::parameter name="method" 	type="var" 	value="xdb_stat_grade_yesterday"/>   
 </my-soft::invoke>
 
 <my-soft::echo type="var" value="$response"  />
 
 call xdb_stat_rank_yesterday : 
-<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/workspace/SETUP/lab_of_2012/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
 	<my-soft::parameter name="method" 	type="var" 	value="xdb_stat_rank_yesterday"/>   
 </my-soft::invoke>
 
@@ -14,14 +14,14 @@ call xdb_stat_rank_yesterday :
 
 
 call xdb_reward_pay : 
-<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/workspace/SETUP/lab_of_2012/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
 	<my-soft::parameter name="method" 	type="var" 	value="xdb_reward_pay"/>   
 </my-soft::invoke>
 
 <my-soft::echo type="var" value="$response"  />
 
 call zyb_hw_detail_recycle_today_deploy:
-<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/workspace/SETUP/lab_of_2012/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
 	<my-soft::parameter name="method" 	type="var" 	value="zyb_hw_detail_recycle_today_deploy"/>   
 </my-soft::invoke>
 

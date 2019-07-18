@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<!-- 
+MyCGI 的顶级配置文件，此文件必须存在，并相对MyCGI的路径是 ../conf/MyCGI.conf.index.xml
+-->
+
+<includes>
+<!--
+        <include namespace="" filepath="./conf/element.conf.xml" type="element" desc="元素配置文件" />
+        <include namespace="" filepath="./conf/service.conf.xml" type="service" desc="服务配置文件" />
+        <include namespace="" filepath="./conf/system.conf.xml" type="service" desc="系统配置文件" />
+		-->
+</includes>
+
+<services>		
+		<service name="mysql" type="" desc="">
+			<variables>
+				<variable name="_output_template" value="./template/record_html.bpml" desc="">输出模版</variable>
+				<variable name="_request_verifier" value="null" desc="">请求验证算法 md5</variable>
+				<variable name="_request_verifier_key" value="md5" desc="">验证算法参数</variable>
+				<variable name="_request_integrality" value="loose" desc="">请求完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="_response_signer" value="strict" desc="">响应签名算法</variable>
+				<variable name="_response_signer_key" value="md5" desc="">签名算法参数</variable>
+				<variable name="_response_integrality" value="loose" desc="">响应完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				<variable name="_response_integrality" value="loose" desc="">响应完整性校验类型：(default)strict 所有参数必须严格一致（M B O） loose 明确要求的参数必须一致（M B）</variable>
+				
+				<variable name="database" value="spmanager" desc="">database name</variable>
+				<variable name="host1" value="172.25.38.65" desc="">port</variable>
+				<variable name="host" value="10.6.208.184" desc="">port</variable>
+				<variable name="port" value="3306" desc="">port</variable>
+				<variable name="user" value="root" desc="">user name</variable>
+				<variable name="passwd" value="root1234" desc="">user passwd</variable>
+				<variable name="timeout" value="5" desc="">timeout</variable>
+				<variable name="language" value="latin1" desc="">language</variable>
+				
+				<variable name="sql" value="select $field from spmanager.spoa_bak_ApplyCpInfoX  limit $offset,$limit" desc="">language</variable>
+				<variable name="sql2" value="update spmanager.spoa_bak_ApplyCpInfoX set MerType=%22B2C%22 where ApplyCpInfoID=%22123231%22;" desc="">language</variable>
+			<variables>
+			<parameters> 	    
+				<parameter name="tid" 	request="M" 	response="O"	default="aaa" desc=""/>
+				<parameter name="method" 	request="M" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="field" 	request="M" 	response="O"	default="aaa" desc="必须填写"/>   
+				<parameter name="offset" 	request="O" 	response="O"	default="aaa" desc=""/> 
+				<parameter name="limit" 	request="O" 	response="O"	default="aaa" desc=""/> 
+				
+				<parameter name="retcode" 	request="B" 	response="M"	default="aaa" desc=""/>
+				<parameter name="retmsg" 	request="B" 	response="O"	default="aaa" desc=""/> 
+			</parameters>
+		</service>
+	</services>

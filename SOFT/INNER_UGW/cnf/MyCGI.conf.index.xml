@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312" ?>
+
+<!-- 
+MyCGI 的顶级配置文件，此文件必须存在，并相对MyCGI的路径是 ../cnf/MyCGI.cnf.index.xml
+-->
+
+<includes>
+        <include namespace="" filepath="../cnf/element.conf.xml" type="element" desc=" a demo" />
+        <include namespace="" filepath="../cnf/service.conf.xml" type="service" desc=" a demo" />
+		
+		<include namespace="" filepath="../cnf/error.conf.xml" type="service" desc="错误码模版输出模版" />
+		<include namespace="" filepath="../cnf/system.conf.xml" type="service" desc="系统配置文件" />
+		
+		
+		
+		<include namespace="" filepath="../cnf/mysql/mysql_index.conf.xml" type="complex" desc="MYSQL配置文件" />	
+        <include namespace="" filepath="../cnf/bpml/bpml_index.conf.xml" type="complex" desc="BPML配置文件" />
+		
+</includes>
+
+<services>		
+	<service name="_default_entrance" type="system" desc="默认服务，用以支持不带tid，直接按照cgi名称路由的服务配置">
+		<parameters> 	    
+		
+			<parameter name="tid" 	request="M" 	response="O"	default="mybpml" desc=""/>		
+			<parameter name="method" 	request="M" 	response="O"	default="weixin_in_msg" desc=""/>  
+		</parameters>
+	</service>
+</services>

@@ -1,5 +1,5 @@
 call xdb_project_task_form ：
-<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="/home/release/workspace/SETUP/lab_of_2012/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
 	<my-soft::parameter name="method" 	type="var" 	value="xdb_project_task_form"/>   
 </my-soft::invoke>
 

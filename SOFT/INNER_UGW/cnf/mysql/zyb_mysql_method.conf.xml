@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<services>	
+	<service name="zyb_hw_topic_list" type="mysql" desc="查看作业主题">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_hw_topic;" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="someday" 	request="M" 	response="O"	default="2017-5-9" desc=""/> --> 
+			</parameters>
+	</service>	
+	
+	<service name="zyb_hw_detail_add" type="mysql" desc="增加今日作业">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_hw_detail (f_task_id,f_date,f_sponsor_id,f_sub_name,f_sub_content,f_ref_time_spend,f_ref_score,f_crt_time,f_mod_time) values
+				($topid_id$,%22$date$%22,$user_id$,%22$name$%22,%22$content$%22,$ref_time_spend$,$ref_score$,now(),now());" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters>			
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="topid_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="date" 	request="M" 	response="O"	default="2017-5-9" desc=""/> 
+				<parameter name="name" 	request="M" 	response="O"	default="" desc=""/> 
+				<parameter name="content" 	request="M" 	response="O"	default="" desc=""/> 
+				<parameter name="ref_time_spend" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="ref_score" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_recycle_add" type="mysql" desc="增加今日作业">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_hw_detail_recycle(f_task_id,f_begin_date,f_end_date,f_sub_name,f_sub_content,f_ref_time_spend,f_ref_score,f_recycle_period,f_numbers,f_crt_time,f_mod_time)values
+($topid_id$,%22$btime$%22,%22$etime$%22,%22$name$%22,%22$content$%22,$ref_time_spend$,$ref_score$,$type$,%22$dts$%22,now(),now());" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters>			
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="topid_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="date" 	request="M" 	response="O"	default="2017-5-9" desc=""/> 
+				<parameter name="name" 	request="M" 	response="O"	default="" desc=""/> 
+				<parameter name="content" 	request="M" 	response="O"	default="" desc=""/> 
+				<parameter name="ref_time_spend" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="ref_score" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="btime" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="etime" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="type" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="dts" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_recycle_today_deploy" type="mysql" desc="今日循环任务发布">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="replace into t_hw_detail (f_task_id,f_date,f_sponsor_id,f_sub_name,f_sub_content,f_ref_time_spend,f_ref_score,f_crt_time,f_mod_time) 
+(
+
+select a.f_task_id,date(NOW()),0,a.f_sub_name,a.f_sub_content,a.f_ref_time_spend,a.f_ref_score,now(),now() from t_hw_detail_recycle a 
+where (a.f_recycle_period=1) or(a.f_recycle_period=7 and FIND_IN_SET(DAYOFWEEK(now()),a.f_numbers)>0) or (a.f_recycle_period=7 and FIND_IN_SET(DAYOFMONTH(now()),a.f_numbers)>0)
+
+)" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters>		
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_someday_for_modi" type="mysql" desc="昨日之日不可留，只能看今日与未来,用来修改计划">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select c.*,d.f_task_name,d.f_sponsor_id from ((select b.f_detail_id,b.f_task_id,b.f_date,b.f_sub_name,b.f_sub_content,b.f_ref_time_spend,b.f_ref_score,b.f_crt_time,b.f_mod_time,0 as f_recycle_id from t_hw_detail b where b.f_date=date(%22$someday$%22))union (select 0, a.f_task_id,date(%22$someday$%22) as f_date,a.f_sub_name,a.f_sub_content,a.f_ref_time_spend,a.f_ref_score,%22$someday$%22 as f_crt_time,%22$someday$%22 as f_mod_time,a.f_recycle_id from t_hw_detail_recycle a 
+where (a.f_recycle_period=1) or(a.f_recycle_period=7 and FIND_IN_SET(DAYOFWEEK(%22$someday$%22),a.f_numbers)>0) or (a.f_recycle_period=7 and FIND_IN_SET(DAYOFMONTH(%22$someday$%22),a.f_numbers)>0)))c left join t_hw_topic d on c.f_task_id=d.f_task_id;" desc=""></variable> 
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>   --> 
+				<parameter name="someday" 	request="M" 	response="O"	default="2017-5-9" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_today" type="mysql" desc="查看每日详细作业列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select b.f_task_id,b.f_task_name,a.f_detail_id,a.f_date,a.f_sub_name,a.f_sub_content,a.f_ref_time_spend,a.f_ref_score,c.f_begin_time,c.f_end_time,c.f_act_time_spend,c.f_score ,b.f_sponsor_id from t_hw_detail a 
+	LEFT JOIN t_hw_topic b on a.f_task_id=b.f_task_id
+	LEFT JOIN (select * from t_hw_detail_grade where f_user_id=$user_id$) c  on a.f_detail_id=c.f_detail_id 
+ where a.f_date=DATE(now()) ORDER BY a.f_task_id,a.f_detail_id;" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>   <!--				
+				<parameter name="someday" 	request="M" 	response="O"	default="2017-5-9" desc=""/> --> 
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_someday" type="mysql" desc="查看制定日详细作业列表，仅仅查看">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select b.f_task_id,b.f_task_name,a.f_detail_id,a.f_date,a.f_sub_name,a.f_sub_content,a.f_ref_time_spend,a.f_ref_score,c.f_begin_time,c.f_end_time,c.f_act_time_spend,c.f_score ,b.f_sponsor_id from t_hw_detail a 
+	LEFT JOIN t_hw_topic b on a.f_task_id=b.f_task_id
+	LEFT JOIN (select * from t_hw_detail_grade where f_user_id=$user_id$) c  on a.f_detail_id=c.f_detail_id 
+ where a.f_date=DATE(%22$someday$%22)  ORDER BY a.f_task_id,a.f_detail_id;" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>   --> 
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="someday" 	request="M" 	response="O"	default="2017-5-9" desc=""/>
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_time_record" type="mysql" desc="查看每日详细作业列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="replace t_hw_detail_grade (f_user_id,f_detail_id,f_begin_time,f_end_time,f_act_time_spend,f_score,f_crt_time,f_modi_time)values($user_id$,$pid$,
+				%22$btime$%22,%22$etime$%22, MINUTE(TIMEDIFF(%22$etime$%22,%22$btime$%22))%2Bhour(TIMEDIFF(%22$etime$%22,%22$btime$%22))*60,0,NOW(),now());" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    			
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="pid" 	request="M" 	response="O"	default="2017-5-9" desc=""/>  
+				<parameter name="btime" 	request="M" 	response="O"	default="2017-5-9" desc=""/> 
+				<parameter name="etime" 	request="M" 	response="O"	default="2017-5-9" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_grade_record" type="mysql" desc="查看每日详细作业列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_hw_detail_grade set f_score=$gv$,f_modi_time=now() where f_user_id=$user_id$ and f_detail_id=$pid$ ;" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    			
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="pid" 	request="M" 	response="O"	default="2017-5-9" desc=""/>  
+				<parameter name="gv" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_del" type="mysql" desc="查看每日详细作业列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="delete from t_hw_detail where f_detail_id=$pid$ ;" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    			
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="pid" 	request="M" 	response="O"	default="2017-5-9" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="zyb_hw_detail_recycle_del" type="mysql" desc="查看每日详细作业列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="delete from t_hw_detail_recycle where f_recycle_id=$pid$ ;" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    			
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="pid" 	request="M" 	response="O"	default="2017-5-9" desc=""/> 
+			</parameters>
+	</service>	
+	
+	</services>

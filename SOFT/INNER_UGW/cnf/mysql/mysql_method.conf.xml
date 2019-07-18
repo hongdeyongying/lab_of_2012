@@ -1,0 +1,858 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+spmanager 对外的一些方法和变量 ，供mysql服务使用
+-->
+<services>	
+	<service name="xdb_charge" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="call proc_charge(%22$out_trade_no$%22,$xdb_point$,$acceptor$,%22$subject$%22);" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    			
+				<parameter name="out_trade_no" 	request="M" 	response="O"	default="" desc=""/>   
+				<parameter name="xdb_point" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="acceptor" 	request="M" 	response="O"	default="" desc=""/> 
+				<parameter name="subject" 	request="M" 	response="O"	default="" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="xdb_reward_pay" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="call proc_reward_pay();" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="someday" 	request="M" 	response="O"	default="2017-5-9" desc=""/> --> 
+			</parameters>
+	</service>	
+	<service name="xdb_proc_someday_winner" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="call proc_someday_winner(%22$someday$%22);" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>   -->
+				<parameter name="someday" 	request="M" 	response="O"	default="2017-5-9" desc=""/>  
+			</parameters>
+	</service>	
+	<service name="xdb_proc_someday_rank" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="call proc_someday_rank(%22$someday$%22);" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>   -->
+				<parameter name="someday" 	request="M" 	response="O"	default="2017-5-9" desc=""/>  
+			</parameters>
+	</service>	
+	<service name="xdb_stat_grade_yesterday" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_grade 
+(f_user_id,f_calc_time,f_project_id,f_grade_score,f_limit_score,f_state,f_crt_time,f_modi_time) 
+(select f_user_id,date(f_date) ,f_project_id,f_score,f_limit,1,now(),NOW() from q_grade_yesterday);" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   -->
+			</parameters>
+	</service>	
+	<service name="xdb_stat_rank_yesterday" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_rank (f_user_id,f_calc_time,f_plan_score,f_task_score,f_tofp_rate) (
+select f_user_id,f_date,sum(f_pv)*100 as pv ,sum(f_cv)*100 as cv,sum(f_pcr)*100/count(*) as pcr from q_rank_yesterday group by f_user_id,f_date);" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    <!--				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   -->
+			</parameters>
+	</service>	
+	<service name="xdb_reg" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_user (f_user_name,f_crt_time,f_mod_time,f_user_weixin_openid) values(%22$name$%22,now(),now(),%22$openid$%22) " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	<service name="xdb_uinfo" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select f_user_id,f_user_name from t_user where f_user_weixin_openid=%22$openid$%22 " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	<service name="xdb_uinfo_list" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select f_user_id,f_user_name from t_user order by f_user_id " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	<service name="xdb_modi_nick" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_user set f_user_name=%22$name$%22 where f_user_weixin_openid=%22$openid$%22 " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	
+	<service name="xdb_task_grade_form" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select a.f_project_id,b.f_project_name,a.f_grade_score,a.f_plan_id from t_plan a LEFT JOIN t_project b on a.f_project_id=b.f_project_id where  a.f_user_id=$user_id$ and a.f_grade_score>0" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	
+	<service name="xdb_project_task_form" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select f_project_id,f_project_name,f_project_bi,f_project_grade_unit ,f_project_des_url,f_project_vedio_url,f_project_commit_id from t_project order by f_project_id" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="O" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	
+	<service name="xdb_task_grade_today" type="mysql" desc="今日成绩计划表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select a.f_user_id,a.f_project_id,c.f_project_name,c.f_project_grade_unit,c.f_project_highest_score,c.f_project_lowest_score,a.f_grade_score,b.f_score from t_plan a LEFT JOIN q_grade_today b on a.f_project_id=b.f_project_id and a.f_user_id=b.f_user_id 
+LEFT JOIN t_project c on a.f_project_id=c.f_project_id where  a.f_user_id=$user_id$ and a.f_grade_score>0" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	<service name="xdb_task_grade_someday" type="mysql" desc="某日成绩计划表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="
+select a.f_user_id,a.f_project_id,c.f_project_name,b.f_calc_time,c.f_project_grade_unit,c.f_project_highest_score,c.f_project_lowest_score,a.f_grade_score,b.f_grade_score as f_score 
+from (
+	select aa.* from t_plan_detail aa 
+	where TO_DAYS(aa.f_crt_time)<=TO_DAYS(%22$someday$%22) and aa.f_user_id=$user_id$ 
+		GROUP BY aa.f_user_id,aa.f_project_id ,aa.f_crt_time 
+			HAVING f_crt_time = (select max(f_crt_time) from t_plan_detail 
+				where f_project_id=aa.f_project_id and f_user_id=aa.f_user_id and TO_DAYS(f_crt_time)<=TO_DAYS(%22$someday$%22) )
+) a 
+	LEFT JOIN (select * from t_grade where f_user_id=$user_id$ and f_calc_time=%22$someday$%22 ) b
+		on a.f_project_id=b.f_project_id and a.f_user_id=b.f_user_id 
+	LEFT JOIN t_project c 
+		on a.f_project_id=c.f_project_id 
+where  a.f_user_id=$user_id$ and a.f_grade_score>0 ORDER BY a.f_project_id,b.f_calc_time;" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="someday" 	request="M" 	response="O"	default="0" desc=""/>  
+			</parameters>
+	</service>	
+	<service name="xdb_task_grade_history" type="mysql" desc="时间段成绩计划表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select a.f_calc_time as fdate,TO_DAYS(a.f_calc_time) as fdays,a.f_project_id as fpid,b.f_project_name as fname ,a.f_grade_score as fscore from t_grade a LEFT JOIN t_project b on a.f_project_id=b.f_project_id 
+where a.f_user_id=$user_id$ and a.f_calc_time>=%22$begindate$%22 and a.f_calc_time<=%22$enddate$%22 ORDER BY a.f_project_id ,a.f_calc_time" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="begindate" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="enddate" 	request="M" 	response="O"	default="0" desc=""/>  
+			</parameters>
+	</service>	
+	<service name="xdb_task_plan" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select f_user_id,f_project_id,f_grade_score from t_plan  where  f_user_id=$user_id$ " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	
+	<service name="xdb_task_grade_detail_insert" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_grade_detail (f_user_id,f_project_id,f_grade_score,f_limit_score,f_crt_time,f_modi_time) values($user_id$,$pid$,$gv$,0,%22$dtime$%22,now())" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="pid" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="gv" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="dtime" 	request="M" 	response="O"	default="0" desc="avoid repeaet commit"/>  
+			</parameters>
+	</service>	
+	<service name="xdb_project_task_detail_insert" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_plan_detail (f_user_id,f_project_id,f_grade_score,f_crt_time) values($user_id$,$pid$,$tv$,now())" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="pid" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="tv" 	request="M" 	response="O"	default="0" desc=""/>  
+			</parameters>
+	</service>	
+	<service name="xdb_project_task_replace" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="replace into t_plan (f_user_id,f_project_id,f_grade_score,f_crt_time,f_mod_time) values($user_id$,$pid$,$tv$,now(),now())" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="pid" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="tv" 	request="M" 	response="O"	default="0" desc=""/>  
+			</parameters>
+	</service>	
+	
+	
+	<service name="xdb_project_add" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_project (f_project_name,f_project_bi,f_project_grade_unit,f_project_des_url,f_project_vedio_url,f_project_commit_id,f_crt_time,f_mod_time,f_project_highest_score) values(%22$name$%22,%22$desc$%22,%22$unit$%22,%22$url$%22,%22$vurl$%22,$user_id$,now(),now(),$highest_score$)" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="desc" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="unit" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="url" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="vurl" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="highest_score" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="xdb_project_modi" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_project set f_project_name=%22$name$%22,f_project_bi=%22$desc$%22,f_project_grade_unit=%22$unit$%22,f_project_des_url=%22$url$%22,f_project_vedio_url=%22$vurl$%22,f_project_commit_id=$user_id$,f_crt_time=now(),f_mod_time=now(),f_project_highest_score=$highest_score$ where f_project_id=$pid$" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="pid" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="desc" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="unit" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="url" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="vurl" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="highest_score" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	
+	<service name="xdb_project_info" type="mysql" desc="用户信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select f_project_id,f_project_name,f_project_bi,f_project_grade_unit,f_project_des_url,f_project_vedio_url,f_project_highest_score,f_project_commit_id  from t_project where f_project_id=$pid$" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="pid" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	
+	<service name="xdb_plan_someday" type="mysql" desc="制定日期的计划">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="
+select aa.* from t_plan_detail aa 
+	where TO_DAYS(aa.f_crt_time)<=TO_DAYS(%22$someday%22) and aa.f_user_id=$user_id$ 
+		GROUP BY aa.f_user_id,aa.f_project_id ,aa.f_crt_time 
+			HAVING f_crt_time = (select max(f_crt_time) from t_plan_detail 
+				where f_project_id=aa.f_project_id and f_user_id=aa.f_user_id and TO_DAYS(f_crt_time)<=TO_DAYS(%22$someday%22)  )" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="someday" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	
+	<service name="xdb_plan_detail" type="mysql" desc="制定日期查变动的计划">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="
+select * from t_plan_detail 
+where TO_DAYS(f_crt_time)>=TO_DAYS(%22$begindate$%22)  and TO_DAYS(f_crt_time)<=TO_DAYS(%22$enddate$%22) and f_user_id=$user_id$;" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="begindate" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="enddate" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>
+	
+	<service name="xdb_rank_today" type="mysql" desc="查看今日排名">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="
+select f_user_id,pv as f_plan_score,cv as f_task_score,pcr as f_tofp_rate from q_rank_stat_today order by pcr;" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				
+			</parameters>
+	</service>
+	<service name="xdb_rank_history" type="mysql" desc="查看今日排名">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="
+select * from t_rank where f_calc_time>=%22$begindate$%22 and f_calc_time<=%22$enddate$%22  order by f_tofp_rate;" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="begindate" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="enddate" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>
+	<service name="xdb_user_asset" type="mysql" desc="查看今日排名">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_asset where f_user_id=$user_id$;" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+			</parameters>
+	</service>
+	<service name="xdb_user_asset_detail" type="mysql" desc="查看今日排名">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_asset_detail where f_user_id=$user_id$ order by f_crt_time desc,f_vid desc;" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+			</parameters>
+	</service>
+	<service name="xdb_reward_list" type="mysql" desc="查看有效的奖项">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_reward where f_state=1 order by f_period_days,f_crt_time desc;" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+			</parameters>
+	</service>
+	<service name="xdb_reward_add" type="mysql" desc="增加奖项">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_reward (f_wanted_user_id,f_reward_name,f_tofp_rate_lowest,f_task_score_lowest,f_plan_score_lowest,f_period_days,f_complete_rate,f_xdb_point,f_best_plan_times,f_best_task_times,f_best_action_times,f_desc,f_begin_date,f_end_date,f_crt_time,f_modi_time,f_state) values($user_id$,%22$name$%22,$tofp$,$task$,$plan$,$period$,$rate$,$point$,$best_plan$,$best_task$,$best_tofp$,%22$desc$%22,%22$btime$%22,%22$etime$%22,now(),now(),1)" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="desc" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="period" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="point" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="rate" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="task" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="plan" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="tofp" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="best_task" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="best_plan" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="best_tofp" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="btime" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="etime" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="xdb_reward_modi" type="mysql" desc="修改奖项">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_reward set f_reward_name=%22$name$%22,f_xdb_point=$point$,f_desc=%22$desc$%22,
+				f_complete_rate=$rate$,f_task_score_lowest=$task$,f_plan_score_lowest=$plan$,f_tofp_rate_lowest=$tofp$,
+				f_best_plan_times=$best_plan$,f_best_task_times=$best_task$,f_best_action_times=$best_tofp$,f_period_days=$period$,
+				f_begin_date=%22$btime$%22,f_end_date=%22$etime$%22,
+				f_modi_time=now() 
+				where f_reward_id=$rid$ and f_wanted_user_id=$user_id$" desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				
+				<parameter name="rid" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="name" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="desc" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="period" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="point" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="rate" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="task" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="plan" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="tofp" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="best_task" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="best_plan" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="best_tofp" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="btime" 	request="M" 	response="O"	default="0" desc=""/> 
+				<parameter name="etime" 	request="M" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>	
+	<service name="xdb_reward_info" type="mysql" desc="查看特定奖项">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_xdb,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select * from t_reward where f_reward_id=$rid$;" 
+				
+				desc=""></variable>
+			
+				<variable name="vcdimg_check" value="fasle" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="user_id" 	request="M" 	response="O"	default="0" desc=""/>  
+				<parameter name="openid" 	request="O" 	response="O"	default="0" desc=""/>  
+				<parameter name="rid" 	request="O" 	response="O"	default="0" desc=""/> 
+			</parameters>
+	</service>
+	
+	
+	
+	
+	<service name="ureg" type="mysql" desc="用户注册">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_user (femail,fmobile,fdisplay_name,fim,faddr,fpwd,fdesc,ftelecode,fct) values(%22$email$%22,%22$mobile$%22,%22$display_name$%22,%22$qq$%22,%22$addr$%22,%22$pwd$%22,%22$desc$%22,%22$telecode$%22,now()) " desc=""></variable>
+			
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+				
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+				<variable name="domain" value="wucar.com" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="email" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+	</service>	
+	
+	
+		<service name="ulog" type="mysql" desc="用户登录 ">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select fid,femail,fdisplay_name,fmobile,ftelecode,fim as fqq,faddr,fdesc  from t_user where femail=%22$email$%22 and fpwd=%22$pwd$%22;" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+				
+				<variable name="login_gen" value="true" desc="成功后生成token"></variable>
+				<variable name="login_check" value="false" desc="false 表示不检查，否则填写sid通过后，更新cookie的域名"></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="email" 	request="M" 	response="O"	default="0" desc=""/>   
+				<parameter name="pwd" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="udisp" type="mysql" desc="查询登录用户的基本资料">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select fid,femail,fdisplay_name,fmobile,ftelecode,fim as fqq,faddr,fdesc from t_user where fid=$uid$;" desc=""></variable>
+				
+				<variable name="login_check" value="true" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="umodi" type="mysql" desc="修改用户的基本资料">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_user set fdisplay_name=%22$display_name$%22 ,fmobile=%22$mobile$%22,fim=%22$qq$%22,faddr=%22$addr$%22,fdesc=%22$desc$%22,ftelecode=%22$telecode$%22 where fid=$uid$" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="umodi_pwd" type="mysql" desc="修改用户的密码">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_user set fpwd=%22$npwd$%22 where fid=$uid$ and fpwd=%22$pwd$%22" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="dreg" type="mysql" desc="添加新设备">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="insert into t_device (fimei,fmobile,ftype,fowner,fplate,fdisplay_name,ficonid,fdesc,fct) values(%22$imei$%22,%22$mobile$%22,%22$type$%22,$uid$,%22$plate$%22,%22$display_name$%22,$iconid$,%22$desc$%22,now())" desc=""></variable>
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		<service name="dmodi" type="mysql" desc="修改设备信息">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="update t_device set fimei = %22$imei$%22,fmobile = %22$mobile$%22,ftype = %22$type$%22,fplate = %22$plate$%22,fdisplay_name=%22$display_name$%22,ficonid = $iconid$,fdesc=%22$desc$%22 where fowner=$uid$ and fimei=%22$imei$%22" desc=""></variable>
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="O" 	response="O"	default="0" desc=""/>   
+			</parameters>
+		</service>	
+		
+		<service name="dlist" type="mysql" desc="查看客户的设备列表">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="select fimei,fmobile,ftype,fowner,fplate,fdisplay_name,ficonid,fdesc,date_format(fct,%22%Y-%m-%d%22) as fct from t_device where fowner=$uid$" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="" desc=""/>    
+			</parameters>
+		</service>	
+		
+		
+		<service name="ddel" type="mysql" desc="删除客户的设备">
+			<variables>								
+				<!-- hash_method: node_prefix,hash_method_para-->
+				<variable name="node" value="fix:db_youyee,null" desc="固定为node_1"></variable>
+											
+				<variable name="sql" value="delete from t_device where fowner=$uid$ and fimei=%22$imei$%22" desc=""></variable>
+			
+				<variable name="login_check" value="true" desc=""></variable>
+				<variable name="vcdimg_check" value="true" desc=""></variable>
+			</variables>
+			
+			<parameters> 	    				
+				<parameter name="uid" 	request="M" 	response="O"	default="" desc=""/>  
+				<parameter name="imei" 	request="M" 	response="O"	default="" desc=""/>    
+			</parameters>
+		</service>	
+		
+	</services>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/isd/isd_qzoneplatformdev_rep/!svn/ver/80812/QzoneBasePlatform_proj/trunk/application/directed_content/mgr/conf/mysql
+END
+mysql_index.conf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/isd/isd_qzoneplatformdev_rep/!svn/ver/73044/QzoneBasePlatform_proj/trunk/application/directed_content/mgr/conf/mysql/mysql_index.conf.xml
+END
+mysql_index.conf.~xm
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/isd/isd_qzoneplatformdev_rep/!svn/ver/73044/QzoneBasePlatform_proj/trunk/application/directed_content/mgr/conf/mysql/mysql_index.conf.~xm
+END
+mysql_method.conf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/isd/isd_qzoneplatformdev_rep/!svn/ver/80812/QzoneBasePlatform_proj/trunk/application/directed_content/mgr/conf/mysql/mysql_method.conf.xml
+END
+mysql_method.conf.~xm
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/isd/isd_qzoneplatformdev_rep/!svn/ver/73044/QzoneBasePlatform_proj/trunk/application/directed_content/mgr/conf/mysql/mysql_method.conf.~xm
+END
+mysql_node.conf.xml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/isd/isd_qzoneplatformdev_rep/!svn/ver/80812/QzoneBasePlatform_proj/trunk/application/directed_content/mgr/conf/mysql/mysql_node.conf.xml
+END

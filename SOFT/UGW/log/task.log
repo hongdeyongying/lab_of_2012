@@ -1,0 +1,87 @@
+2019-07-16 22:23:16
+0:call xdb_stat_grade_yesterday ： <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>0</crow><record_num>0</record_num>
+<records></records>
+</root>
+
+call xdb_stat_rank_yesterday : 
+
+<root><retcode>10002012</retcode><retmsg>Column 'f_task_score' cannot be null</retmsg></root>
+
+call xdb_reward_pay : <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>1</crow><record_num>1</record_num>
+<records><record><o_reward_number>0</o_reward_number>
+<o_user_number>0</o_user_number>
+<o_grade_number>0</o_grade_number>
+<o_pay_number>0</o_pay_number>
+</record>
+</records>
+</root>
+
+call zyb_hw_detail_recycle_today_deploy: <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>14</crow><record_num>0</record_num>
+<records></records>
+</root>
+
+
+2019-07-17 00:10:01
+0:call xdb_stat_grade_yesterday ： <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>3</crow><record_num>0</record_num>
+<records></records>
+</root>
+
+call xdb_stat_rank_yesterday : 
+
+<root><retcode>10002012</retcode><retmsg>Column 'f_task_score' cannot be null</retmsg></root>
+
+call xdb_reward_pay : <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>1</crow><record_num>1</record_num>
+<records><record><o_reward_number>0</o_reward_number>
+<o_user_number>0</o_user_number>
+<o_grade_number>0</o_grade_number>
+<o_pay_number>0</o_pay_number>
+</record>
+</records>
+</root>
+
+call zyb_hw_detail_recycle_today_deploy: <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>6</crow><record_num>0</record_num>
+<records></records>
+</root>
+
+
+2019-07-18 00:10:02
+0:call xdb_stat_grade_yesterday ： <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>0</crow><record_num>0</record_num>
+<records></records>
+</root>
+
+call xdb_stat_rank_yesterday : 
+
+<root><retcode>10002012</retcode><retmsg>Column 'f_task_score' cannot be null</retmsg></root>
+
+call xdb_reward_pay : <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>1</crow><record_num>1</record_num>
+<records><record><o_reward_number>0</o_reward_number>
+<o_user_number>0</o_user_number>
+<o_grade_number>0</o_grade_number>
+<o_pay_number>0</o_pay_number>
+</record>
+</records>
+</root>
+
+call zyb_hw_detail_recycle_today_deploy: <?xml version="1.0" encoding="utf-8" ?> 
+
+<root><retcode>0</retcode><retmsg>success</retmsg><crow>6</crow><record_num>0</record_num>
+<records></records>
+</root>
+
+

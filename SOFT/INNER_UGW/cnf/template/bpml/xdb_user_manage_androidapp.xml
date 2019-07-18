@@ -1,0 +1,112 @@
+﻿
+Content-Type: text/html; charset=utf-8
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<html><body>
+
+<!-- nickname 用户设定，unique_id为获取的用户手机唯一标识码 -->
+<my-soft::assign id="nickname" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_nickname),0)"  />
+<my-soft::assign id="unique_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_unique_id),0)"  />
+
+
+<!-- 17位且AP打头 -->
+<my-soft::switch expr="Math.AND(Math.EQU(String.Find($unique_id,AP),0),Math.GT(String.GetLength($unique_id),17,1))">
+<my-soft::case value="true">
+	<!-- 1.检查是否新用户，如果是新的则注册  -->
+	<my-soft::invoke type="httpcall" service="xdb_reg" filepath="../cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+		<my-soft::parameter name="openid" 	type="var" 	value="$unique_id"/>   
+		<my-soft::parameter name="name" 	type="var" 	value="$nickname"/>     
+		<my-soft::parameter name="type" 	type="var" 	value="andriodapp"/>  <!-- 标识来自androidapp -->
+	</my-soft::invoke>
+					
+	<!-- 2.查询用户ID与名，并显示出来 -->
+	<my-soft::invoke type="httpcall" service="xdb_uinfo" filepath="/home/release/SOFT/UGW/cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+		<my-soft::parameter name="openid" 	type="var" 	value="$unique_id"/>  
+	</my-soft::invoke>
+	
+	<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+	<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+
+	<my-soft::switch expr="Math.EQU($retcode,0)">				
+		<my-soft::case value="true">
+			<my-soft::assign id="xdb_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,f_user_id,0),0))" />
+			<my-soft::assign id="xdb_name" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,f_user_name,0),0))" />
+			
+			<my-soft::assign id="url_index" expr="String.Cat(http://www.wucar.com.cn/xdb/index.html?id%3d,$xdb_id,%26vc%3d,$unique_id)" />
+			
+			
+			<!-- 2.如果用户名为空或NULL-->
+			<my-soft::switch expr="Math.OR(Math.EQU($xdb_name,NULL),Math.EQU(String.GetLength($xdb_name),0))">
+					<my-soft::case value="true">
+
+<my-soft::switch expr="Math.OR(Math.EQU($nickname,NULL),Math.EQU(String.GetLength($nickname),0))">
+<my-soft::case value="true">	<!-- 3.如果nickname也为空 -->
+	<form action="/cgi/ugw" method="post" >
+		<input name="tid" type="hidden" value="mybpml" />
+		<input name="method" type="hidden" value="xdb_user_manage_androidapp" />
+		<my-soft::echo type="var" value="%3c"/>input name="unique_id" type="hidden" value="<my-soft::echo type="var" value="$unique_id"/>" />
+		设置您的昵称 ： <my-soft::echo type="var" value="%3c"/>input name = "nickname" value="" /> <input type="submit" value="提交"/>
+	</form>
+</my-soft::case>
+<my-soft::default>				<!-- 3.如果nickname不为空 -->
+	<my-soft::invoke type="httpcall" service="xdb_modi_nick" filepath="../cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+		<my-soft::parameter name="openid" 	type="var" 	value="$unique_id"/>   
+		<my-soft::parameter name="name" 	type="expr" 	value="$nickname"/>  
+	</my-soft::invoke>
+	
+	
+	<my-soft::echo type="var" value="%3c"/>a target="_top" href="<my-soft::echo type="var" value="$url_index"/>">
+	行动起来先!
+	</a>
+
+	<my-soft::echo type="var" value="%3c"/>script>top.location = "<my-soft::echo type="var" value="$url_index"/>";<my-soft::echo type="var" value="%3c"/>/script>
+
+			
+</my-soft::default>	
+</my-soft::switch>
+					</my-soft::case>	
+					<my-soft::default>	
+<my-soft::switch expr="Math.OR(Math.EQU($nickname,NULL),Math.EQU(String.GetLength($nickname),0))">
+<my-soft::case value="true">	<!-- 3.如果nickname为空 -->	
+</my-soft::case>
+<my-soft::default>				<!-- 3.如果nickname不为空 -->
+<my-soft::switch expr="Math.EQU($nickname,$xdb_name)">
+	<my-soft::case value="false">
+	<my-soft::invoke type="httpcall" service="xdb_modi_nick" filepath="../cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+		<my-soft::parameter name="openid" 	type="var" 	value="$unique_id"/>   
+		<my-soft::parameter name="name" 	type="expr" 	value="$nickname"/>  
+	</my-soft::invoke>
+	</my-soft::case>
+</my-soft::switch>
+</my-soft::default>	
+</my-soft::switch>
+			<my-soft::echo type="var" value="%3c"/>a target="_top" href="<my-soft::echo type="var" value="$url_index"/>">
+			行动起来先!
+			</a>
+<my-soft::echo type="var" value="%3c"/>script>top.location = "<my-soft::echo type="var" value="$url_index"/>";<my-soft::echo type="var" value="%3c"/>/script>
+					</my-soft::default>			
+			</my-soft::switch>	
+			
+		</my-soft::case>	
+		<my-soft::default>
+			系统繁忙，请重试... <br/>
+			<hr/>
+			<form action="/cgi/ugw" method="post >
+				<input name="tid" type="hidden" value="mybpml" />
+				<input name="method" type="hidden" value="xdb_user_manage_androidapp" />
+				<my-soft::echo type="var" value="%3c"/>input name="unique_id" type="hidden" value="<my-soft::echo type="var" value="$unique_id"/>" />
+				设置您的昵称 ： <my-soft::echo type="var" value="%3c"/>input name = "nickname" value="<my-soft::echo type="var" value="$nickname"/>" /> <input type="submit" value="提交"/>
+			</form>
+		</my-soft::default>	
+
+	</my-soft::switch>
+</my-soft::case>	
+<my-soft::default>
+	本系统只能从手机APP访问！
+</my-soft::default>	
+</my-soft::switch>
+
+</body></html>

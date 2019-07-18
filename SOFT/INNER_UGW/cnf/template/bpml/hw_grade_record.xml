@@ -1,0 +1,83 @@
+Content-Type: text/html; charset=utf-8
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>作业吧！</title>
+
+<style type="text/css">
+body {
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+</head>
+<body>
+
+<!-- 获取输入参数 --->
+<my-soft::assign id="user_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_user_id),0)"  />
+<my-soft::assign id="openid" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_openid),0)"  />
+
+
+<my-soft::assign id="student_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_id),0)"  />
+
+
+<my-soft::assign id="sidlist" expr="Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_detail_id)"  />
+<my-soft::assign id="gvlist" expr="Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,para_gv)"  />
+
+
+
+<!-- 遍历上报的项目成绩，如果成绩不为0，则记录成绩明细表 -->
+<my-soft::assign id="size" expr="Vector.Size($sidlist)"  />
+<my-soft::assign id="var1" expr="0" />
+
+<my-soft::for condition="Math.LT($var1,$size,0)" recycle="Math.Inc($var1,1,var1)" >
+
+	<my-soft::assign id="sid" expr="Vector.At($sidlist,$var1)"  />
+	<my-soft::assign id="gv" expr="Vector.At($gvlist,$var1)"  />
+	
+	
+	登记作业<my-soft::echo type="var" value="$sid"/>成绩,<my-soft::echo type="var" value="$gv"/>;
+	
+	
+	<my-soft::switch expr="Math.OR(Math.LT($gv,0,1),Math.EQU($gv,NULL))">
+		<my-soft::case value="false">
+		
+			
+			<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="../cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+				<my-soft::parameter name="method" 	type="var" 	value="zyb_hw_detail_grade_record"/>   
+				<my-soft::parameter name="user_id" 	type="var" 	value="$student_id"/>   
+				<my-soft::parameter name="openid" 	type="var" 	value="$openid"/>    
+				<my-soft::parameter name="pid" 	type="var" 	value="$sid"/>      
+				<my-soft::parameter name="gv" 	type="var" 	value="$gv"/>   
+			</my-soft::invoke>
+			<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+			<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+			<my-soft::assign id="retmsg" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retmsg,0),0))" />
+			
+		提交记录，返回码:<my-soft::echo type="var" value="$retcode"/>:<my-soft::echo type="var" value="$retmsg"/>
+		
+		</my-soft::case >
+		<my-soft::default>
+				不需要记录。
+			</my-soft::default>
+	</my-soft::switch><br/>
+</my-soft::for>
+
+<!-- 统计今日最新成绩，并对照计划显示出来 -->
+
+   
+
+<my-soft::echo type="var" value="%0a%0d" />
+<my-soft::echo type="var" value="%0a%0d" />
+</body>
+</html>
+

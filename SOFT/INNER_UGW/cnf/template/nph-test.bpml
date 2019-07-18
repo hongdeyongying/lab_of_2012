@@ -1,0 +1,59 @@
+HTTP/1.1 302 OK <my-soft::echo type="var" value="%0d%0a" />
+Date: 2010-5-17 <my-soft::echo type="var" value="%0d%0a" />
+Location: http://www.sina1.com/aa?retcode=<my-soft::echo type="expr" value="vector_at(map_nv($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)" /> <my-soft::echo type="var" value="%0d%0a" />
+Referer: http://www.u8.com <my-soft::echo type="var" value="%0d%0a" />
+Server: ngix <my-soft::echo type="var" value="%0d%0a" />
+Content-Language: en <my-soft::echo type="var" value="%0d%0a" />
+Content-Type: text/html; charset=GB2312 <my-soft::echo type="var" value="%0d%0a" />
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<?xml version="1.0" encoding="gbk" ?>
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+	<!-- 取历史数据
+	 
+	<my-soft::echo type="expr" value="read(gaoyong.note,content)" />
+	<my-soft::echo type="var" value="%0d%0a" />
+	
+	<my-soft::echo type="var" value="$content" />
+	<my-soft::echo type="var" value="%0d%0a" />
+	
+	<my-soft::echo type="expr" value="dbl_div(dbl_sub(100,dbl_add(3.0,4)),100)" />
+	<my-soft::echo type="var" value="%0d%0a" />
+	<my-soft::echo type="expr" value="dbl_mul(dbl_div(dbl_sub(100,dbl_add(3.0,4)),100),1550)" />
+	<my-soft::echo type="var" value="%0d%0a" />
+	
+	
+	
+	
+	<my-soft::invoke type="httpcall" retvar="response" filepath="../template/test.xml" service="LOGIN" >
+			
+	    	<my-soft::parameter name="adult_num" 	type="var" 	value="$adult_number"/>   
+	    	<my-soft::parameter name="child_num" 	type="var" 	value="$children_number"/>     
+	    	<my-soft::parameter name="from" 	type="var" 	value="$setoff_city_sname"/>   	  
+	    	<my-soft::parameter name="to" 		type="var" 	value="$arrive_city_sname"/>   	  
+	    	<my-soft::parameter name="date" 	type="var" 	value="$setoff_date"/>     
+	    	<my-soft::parameter name="date2" 	type="var" 	value="$setoff_date"/>  
+	</my-soft::invoke>
+	
+	
+	<my-soft::echo type="var" value="$response" />
+	<my-soft::echo type="var" value="%0d%0a" />
+	
+	-->
+<root>	
+	<retcode>
+		<my-soft::echo type="expr" value="vector_at(map_nv($_RAW_REQUEST_STRING_VECTOR_MAP,retcode),0)" />
+	</retcode>
+	
+	<retmsg>
+		<my-soft::echo type="expr" value="vector_at(map_nv($_RAW_REQUEST_STRING_VECTOR_MAP,retmsg),0)" />
+	</retmsg>
+	<sign>
+		<my-soft::echo type="expr" value="vector_at(map_nv($_RAW_REQUEST_STRING_VECTOR_MAP,sign),0)" />
+	</sign>
+</root>	
+<my-soft::echo type="var" value="%0d%0a" />

@@ -1,0 +1,121 @@
+Content-Type: text/html; charset=utf-8
+
+
+<my-soft::echo type="var" value="%0d%0a" />
+<my-soft::echo type="var" value="%0d%0a" />
+
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>运动吧！</title>
+
+<style type="text/css">
+body {
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+</head>
+<body>
+<div style="width:100%;text-align:left;"><a href="/xdb/project_add.html">添加新项目</a></div>
+<!-- 获取输入参数 --->
+<my-soft::assign id="user_id" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_user_id),0)"  />
+<my-soft::assign id="openid" expr="Vector.At(Map.GetValueByKey($_RAW_REQUEST_STRING_VECTOR_MAP,cookie_openid),0)"  />
+
+<!-- 获取项目信息 -->
+<my-soft::invoke type="httpcall" service="xdb_mysql_common" filepath="../cnf/template/bpml/httpcall/xdb_httpcall.xml" retvar="response" >
+	<my-soft::parameter name="method" 	type="var" 	value="xdb_project_task_form"/>   
+	<my-soft::parameter name="user_id" 	type="var" 	value="$user_id"/>   
+	<my-soft::parameter name="openid" 	type="var" 	value="$openid"/> 
+</my-soft::invoke>			
+
+
+
+<my-soft::assign id="item_response" expr="Html.Parse(2,$response)" />
+<my-soft::assign id="retcode" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retcode,0),0))" />
+<my-soft::assign id="retmsg" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,retmsg,0),0))" />
+<my-soft::assign id="record_num" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($item_response,record_num,0),0))" />
+
+<my-soft::switch expr="Math.AND(Math.EQU($retcode,0),Math.GT($record_num,0,0))">
+	<my-soft::case value="true">
+		<my-soft::assign id="record_node" expr="Html.GetElementByTagName($item_response,record,0)" />
+			
+				
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="id" value="<my-soft::echo type="var" value="$user_id"/>" />
+					<my-soft::echo type="var" value="%3c"/>input type="hidden" name="vc" value="<my-soft::echo type="var" value="$openid"/>" />
+					
+					<table  border="0px" width="100%" align="left"style="text-align:left">
+						<thead >
+							<tr  style="background-color:#c8c8c8;">
+								<td style="width:100px;">项目概要</td>
+								<td >项目简介</td>
+							</tr>
+						</thead>
+						<tbody>
+				
+				<my-soft::assign id="var1" expr="0" />
+		
+				<my-soft::for condition="Math.LT($var1,$record_num,0)" recycle="Math.Inc($var1,1,var1)" >
+
+<my-soft::assign id="record_node_item" expr="Html.GetResult($record_node,$var1)" />
+
+<my-soft::assign id="f_project_id" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_id,0),0))" />
+<my-soft::assign id="project_task_score" expr="String.Cat(%24,task_of_,$f_project_id)" />
+<my-soft::assign id="f_project_name" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_name,0),0))" />
+<my-soft::assign id="f_project_grade_unit" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_grade_unit,0),0))" />
+<my-soft::assign id="f_project_bi" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_bi,0),0))" />
+<my-soft::assign id="f_project_des_url" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_des_url,0),0))" />
+<my-soft::assign id="f_project_vedio_url" expr="Html.GetInnerText(Html.GetResult(Html.GetElementByTagName($record_node_item,f_project_vedio_url,0),0))" />
+
+<my-soft::switch expr="Math.EQU(Math.Mod($var1,2),0)" >
+	<my-soft::case value="true">
+		<my-soft::assign id="tr_bg_style" expr="background%2dcolor%3a%23f8f8f8%3b"/>
+	</my-soft::case>
+	<my-soft::case value="false">
+		<my-soft::assign id="tr_bg_style" expr="background%2dcolor%3a%23ffffff%3b"/>
+	</my-soft::case>
+	<my-soft::default>
+		<my-soft::assign id="tr_bg_style" expr="background%2dcolor%3a%23e8e8e8%3b"/>
+	</my-soft::default>
+</my-soft::switch>
+
+
+		<my-soft::echo type="var" value="%3c"/>tr style="<my-soft::echo type="var" value="$tr_bg_style" />">
+			<td>
+			<my-soft::echo type="var" value="$f_project_name" /><br />
+			编号：<my-soft::echo type="var" value="%3c"/>a href="/xdb/project_add.html?pid=<my-soft::echo type="var" value="$f_project_id" />" title="编辑"><my-soft::echo type="var" value="$f_project_id" /></a><br />
+			单位：<my-soft::echo type="var" value="$f_project_grade_unit" /><br />
+			<my-soft::echo type="var" value="%3c"/>a href="<my-soft::echo type="var" value="$f_project_des_url" />">图文<my-soft::echo type="var" value="%3c"/>/a>  
+				<my-soft::echo type="var" value="%3c"/>a href="<my-soft::echo type="var" value="$f_project_vedio_url" />">视频<my-soft::echo type="var" value="%3c"/>/a><br />
+			<td><textarea style="width:95%;height:110px;" ><my-soft::echo type="var" value="$f_project_bi" /></textarea></td>					
+		<my-soft::echo type="var" value="%3c"/>/tr>
+	
+				
+				</my-soft::for>
+				
+						</tbody>
+						<tfoot>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tfoot>
+					</table>
+		
+	</my-soft::case>
+	<my-soft::default>
+		<my-soft::echo type="var" value="$retcode" /> 未查询到您关注的项目. <my-soft::echo type="var" value="$retmsg" /> record_num :  <my-soft::echo type="var" value="$record_num" />
+	</my-soft::default>
+</my-soft::switch>
+<div style="width:100%;text-align:right;"><a href="/xdb/project_add.html">添加新项目</a></div>
+<my-soft::echo type="var" value="%0a%0d" />
+<my-soft::echo type="var" value="%0a%0d" />
+</body>
+</html>
+
